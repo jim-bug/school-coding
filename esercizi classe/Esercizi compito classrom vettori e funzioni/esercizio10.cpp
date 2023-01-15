@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 void sorting(int[], int);
-void sorting1(int[][100], int, int);
+void sorting(int[][100], int, int);
 int main(){
     int r;
     int c;
@@ -10,7 +10,6 @@ int main(){
     cout << "Inserisci le colonne: ";
     cin >> c;
     int matrix[r][c];
-    sorting1(matrix, r, c);
     for (int i = 0;i < r;i++){
         for (int j = 0;j < c;j++){
             cout << "Inserisci il valore alla riga " << i << " e alla colonna " << j << " : ";
@@ -18,6 +17,7 @@ int main(){
             cout << endl;
         }
     }
+    sorting(matrix, r, c);
     for (int i = 0;i < r;i++){
         sorting(matrix[i], c);
     }
@@ -39,7 +39,7 @@ void sorting(int vet[], int len){
         }
     }
 }
-void sorting1(int mat[][100], int r, int c){
+void sorting(int mat[][100], int r, int c){
     for (int i = 0;i < c;i++){ // ci vuole un ulteriore ciclo perchè ci serve tenere fermo il valore di ogni cella per k volte in modo da confrontare tutte le possibili coppie delle celle.
         for(int j = 0;j < r;j++){
             for (int k = j + 1;k < r;k++) {
