@@ -3,6 +3,7 @@ using namespace std;
 #define L 3
 int verifica(char);
 int main(){
+    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/
     char vet[L];
     for (int i = 0;i < L;i++){
         cout << "Inserisci il primo carattere: " << endl;
