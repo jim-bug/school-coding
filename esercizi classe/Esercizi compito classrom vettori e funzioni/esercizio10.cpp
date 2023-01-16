@@ -17,7 +17,7 @@ int main(){
             cout << endl;
         }
     }
-    sorting(matrix, r, c);
+    // sorting(matrix, r, c);
     for (int i = 0;i < r;i++){
         sorting(matrix[i], c);
     }
