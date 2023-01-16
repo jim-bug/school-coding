@@ -12,7 +12,7 @@ int main(){
     }
     for (int i = 0; i < L;i++){
         if (vector[i] == vector[y]){
-            control ++;
+           // control ++;
         }
         y --;
     }
