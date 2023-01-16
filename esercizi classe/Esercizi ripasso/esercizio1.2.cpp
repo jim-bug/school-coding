@@ -2,7 +2,7 @@
 using namespace std;
 int sum_prod(int, int);
 int main(){
-    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/
+    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/ es 4
     int a;
     int b;
     int result;

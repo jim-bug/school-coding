@@ -2,7 +2,7 @@
 using namespace std;
 int control(int);
 int main(){
-    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/
+    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/ es 5
     int x;
     int count = 0;
     int n;
