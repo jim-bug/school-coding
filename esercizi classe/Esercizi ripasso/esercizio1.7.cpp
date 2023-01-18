@@ -2,6 +2,8 @@
 using namespace std;
 int sum(int, int);
 int main(){
+    // n numeri della successione di Fibonacci
+
     int n;
     int j = 2;
     cout << "Inserisci la lunghezza della successione di Fibonacci: ";

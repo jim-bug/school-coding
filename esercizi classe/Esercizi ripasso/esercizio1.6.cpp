@@ -2,6 +2,7 @@
 using namespace std;
 void control(int*, int*, int*);
 int main(){
+    // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/ es 15
     int im;
     int im1;
     int im2;
