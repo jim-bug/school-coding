@@ -2,8 +2,13 @@
 using namespace std;
 int control(int, int);
 int main(){
-	int x = 10;
-    int y = 20;
+    // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/ es 12
+    int x;
+    int y;
+    cout << "Inserisci il valore di x:";
+    cin >> x;
+    cout << "Inserisci il valore di y:";
+    cin >> y;
     int r = control(x, y);
     int r1 = control(y, x);
     if(r == r1){
