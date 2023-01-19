@@ -11,7 +11,7 @@ int main(){
     int succ[n];
     succ[0] = 0;
     succ[1] = 1;
-    for (int i = 0;i < n;i++){
+    for (int i = 0;i < n-2;i++){
         succ[j] = sum(succ[j-1], succ[j-2]);
         j ++;
     }
