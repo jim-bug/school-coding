@@ -3,6 +3,7 @@ using namespace std;
 void readvet(int[], int);
 int confronto(int[], int[], int);
 int main(){
+    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/ es 4
     int n;
     cout << "Inserisci la lunghezza dei 3 vettori: ";
     cin >> n;

@@ -3,6 +3,7 @@ using namespace std;
 void stampa(int[], int);
 void semi_stamp(int[], int, int);
 int main(){
+    // // https://ticoprof.wordpress.com/2020/09/24/esercizi-con-le-funzioni-in-cpp/ es 5
     int n;
     int st;
     int en;
