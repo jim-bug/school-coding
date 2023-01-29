@@ -2,7 +2,7 @@
 using namespace std;
 #define L 10
 int main() {
-    //
+    // https://ticoprof.wordpress.com/2016/04/26/esercizi-con-gli-array/ es 20
     int vet[L];
     int count = 1;
 
