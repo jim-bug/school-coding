@@ -2,7 +2,7 @@
 using namespace std;
 #define L 10
 int main() {
-    // 
+    //
     int vet[L];
     int count = 1;
 
