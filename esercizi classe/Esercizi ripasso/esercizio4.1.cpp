@@ -4,6 +4,7 @@
 using namespace std;
 int fun(int);
 int main(){
+    // https://ticoprof.wordpress.com/2019/12/12/esercizi-sulla-ricorsione/ es 8
     int n;
     cout << "Inserisci il numero: ";
     cin >> n;
@@ -24,7 +25,7 @@ int fun(int num){
             }
         }
         copy.erase(copy.begin()+pos);
-        num = stoi(copy);
+        num = stoi(copy);   // function that it converts string to integer.
         return fun(num);
     }
 }
