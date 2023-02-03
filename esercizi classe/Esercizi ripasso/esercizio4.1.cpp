@@ -4,7 +4,10 @@
 using namespace std;
 int fun(int);
 int main(){
-    cout << fun(451729);
+    int n;
+    cout << "Inserisci il numero: ";
+    cin >> n;
+    cout << "Risultato: " << fun(n);
     return 0;
 }
 int fun(int num){
@@ -13,18 +16,15 @@ int fun(int num){
     else {
         auto copy = to_string(num);
         int min = (int) copy[0] - 48;
-        int pos;
+        int pos=0;
         for (int i = 0; i < copy.size(); i++) {
             if (((int) copy[i] - 48) < min) {
                 min = (int) copy[i] - 48;
                 pos = i;
             }
         }
-        int temp = copy[pos];
-        copy[pos] = copy[pos + 1];
-        copy[pos + 1] = temp;
+        copy.erase(copy.begin()+pos);
         num = stoi(copy);
         return fun(num);
-
     }
 }
