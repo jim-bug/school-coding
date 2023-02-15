@@ -10,7 +10,11 @@ SUB AX, BX
 INC AX  ; INCREMENTO
 INC AX
 DEC AX  ; DECREMENTO
-XOR AH, AL
+XOR AH, AH 
+; usando lo xor di due input uguali il risultato sara 0,
+; quindi usando lo xor dello stesso registro azzeriamo un registro.
+; potremmo pero fare:
+; SUB register, register, assegno al registro la sottrazione dello stesso registro, quindi 0
 NOT AH
 
 ret
