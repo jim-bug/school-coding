@@ -7,23 +7,26 @@ int main(){
     //compratore si sarà aggiudicato l'asta. Stampare quale compratore si è aggiudicato
     //l'asta e con quale cifra:
 
-    int off_c1 = 0;
-    int off_c2 = 0;
+    int off_c1;
+    int off_c2;
+    int copy_c1;
     int copy_c2;
     for (;;){
         cout << "Inserisci l'offerta del compratore 1: ";
         cin >> off_c1;
+        cout << "Inserisci l'offerta del compratore 2: ";
+        cin >> off_c2;
+        copy_c1 = off_c1;
         if (off_c1 == 0){
             cout << "Asta aggiudicata al compratore 2 per la cifra di " << copy_c2 << endl;
             break;
         }
-        cout << "Inserisci l'offerta del compratore 2: ";
-        cin >> off_c2;
-        if(off_c2 == 0){
-            cout << "Asta aggiudicata al compratore 2 per la cifra di " << off_c1 << endl;
+        if (off_c2 == 0){
+            cout << "Asta aggiudicata al compratore 1 per la cifra di " << copy_c1 << endl;
             break;
         }
         copy_c2 = off_c2;
+
     }
     return 0;
 }
