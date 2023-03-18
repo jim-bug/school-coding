@@ -1,0 +1,102 @@
+ESERCITAZIONE 1:
+CONSEGNA: COPIARE IN AX E BX DUE VALORI E DEPOSITARE LA SOMMA IN AX.
+Inizialmente ho usato l'istruzione mov per copiare in ax un valore, stessa cosa ho fatto con bx ed infine ho usato l'istrizione add per sommare il valore contenuto in ax e bx e copiarlo in ax,
+Per copiarlo in ax basta seguire la struttura di una riga in assembly:
+
+[etichetta:] COP [destinazione, [sorgente]] ; commento
+
+Quindi come primo parametro all'istruzione add, basta mettere il registro dove si vuole copiare la somma.
+
+ESERCITAZIONE 2:
+CONSEGNA: COPIARE IN AX E BX 5 E 22 SUCCESSIVAMENTE COPIARE IN AX LA LORO SOTTRAZIONE, E VEDERE COSA SUCCEDE, POI INCREMETARE DUE VOLTE AX E DECREMENTARE UNA VOLTA AX, FARE LO XOR DI AH E AL E FARE IL NOT DI AX, E VISUALIZZARE I REGISTRI FLAG
+
+Dopo aver copiato i valori nei registri ax e bx, ho eseguito la loro sottrazione, e guardando il registro ax si nota che è FFEF, questo perchè la sottrazione genera un numero negativo,
+quindi 5-22 è uguale a -17, verifichiamolo in esadecimale e binario:
+
+word = 16 bit
+
+scriviamo direttamente -17 in binario, 
+17 -> 0000000000010001 -> A2 -> 1111111111101111 -> esadecimale -> 1111 1111 1110 1111 -> F F E F proprio FFEF.
+
+ESERCITAZIONE 3:
+CONSEGNA: realizzare un programma in assembly che faccia la somma dei numeri da 1 a 93
+
+Per fare questa esercitazione, occorrerà usare i salti in assembly, esistono due tipi di salti:
+	1 - condizionati, ossia che hanno una condizione che li fanno fermare.
+	2 - incondizionati, non hanno una condizione e vengono sempre ripetuti.
+	
+Per questa esercitazione utilizzermo i salti condizionati. Prima di realizzare il ciclo, azzeriamo il registro cx, e dichiariamo la prima etichetta dentro il quale andremo a incrementare
+cx e a sommare cx con ax e copiare la somma in ax, poi confrontiamo cx con 93 e utilizziamo l'istruzione jne ossia jump not equal, quindi salta se cx è diverso da 93.
+
+ESERCITAZIONE 4:
+CONSEGNA: MANDARE A VIDEO UN CARATTERE CON SFONDO ROSSO E COLORE GIALLO UTILIZZANDO IL SEGMENTO DELLA MEMORIA GRAFICA.
+
+Per fare questa esercitazione dobbiamo prima di tutto conoscere l'hardware della scheda grafica e conoscere l'indirizzo del segmento della memoria grafica ossia 0b800h.
+Dopo dobbiamo far puntare ad un registro di segmento l'indirizzo di memoriadel segmento della memoria grafica, per poi mettere in un registro a 16 bit la seguente struttura:
+
+													[(foreground_color)+(background_color)] + [ascii_code]
+[] = 8 bit
+() = 4 bit
+
+Fatto questo dobbiamo scrivere nel segmento della memoria grafica, quindi attraverso il registro di segmeto scelto(in questo caso l'ES) dobbiamo usare questa istruzione:
+
+													MOV ES:[00h], AX
+In questa maniera stiamo scrivendo all'indirizzo di memoria 00h del segmento della memoria grafica un carattere(a nostra scelta) con dei colori scelti da noi.
+Contenuto AX per questa esercitazione:
+														[01001110] + [41h], quindi mandiamo a video il carattere A con colore giallo e sfondo rosso.
+
+														
+ESERCITAZIONE 5:
+CONSEGNA: MANDARE A VIDEO I CARATTERI DALLA A ALLA Z CON COLORI DIVERSI UTILIZZANDO IL SEGMENTO DELLA MEMORIA GRAFICA, IL PRIMO CARATTERE DEVE AVERE
+FOREGROUND GIALLO E BACKGROUND ROSSO, GLI ALTRI DEVONO AVERE FOREGROUND E BACKGROUND DIVERSI TRA DI LORO.
+
+Per questa esercitazione dovremmo fare la stessa cosa dell'esercitazione precedente ma l'unica cosa che dovrà variare sarà l'indirizzo di memoria dove andremo a scrivere il colore, il registro ax.
+
+Utilizzeremo un salto condizionato dove andremo ogni volta ad incrementare al(registro dove c'è il codice ASCII), il registro ah(registro dove ci sono i colori) e l'indice di posizione(esso verrà incrementato sempre di due perchè ogni carattere occupa due posizioni).
+
+ESERCITAZIONE 6:
+CONSEGNA: MANDARE A VIDEO I CARATTERI DALLA A-Z USANDO IL BIOS.
+
+
+Per fare questa esercitazione useremo le interrupt del BIOS. L'interupt è un evento che può essere mandato via software(come faremo in questa esercitazione) e via hardware,
+manda un interruzione alla CPU. Le interrupt via software si possono effettuare tramite l'istruzione INT, come parametro accetta la sub_routine da chiamare, la sub_routine è un sotto programma
+che contiene le funzioni, in questa esercitazione useremo la funzione 09h che manda a schermo un carattere:
+PARAMETRI:
+			AH = funzione(09h)
+			BH = numero pagina display
+			CX = numero di caratteri da mandare a schermo.
+			AL = il codice ascii del carattere
+			BL = attrutbuti
+
+Quindi servirà un ciclo che si itererà fino a quando non arriviamo al carattere Z(90), dentro il quale dovremmo chiamare l'interrupt 10h e subito dopo incrementare al, bl(per fa variare tutti i colori, sommo a bl 17).
+Sempre dentro il ciclo bisogna settare ogni volta il cursore delle colonne di una posizione in più, per questo possiamo usare sempre una funzione dell'interrupt ossia la 02h.
+PARAMETRI: 
+	AH = funzione
+	DH = riga dove sarà posizionato il cursore
+	DL = colonna dove sarà posizionato il cursore.
+
+Di questi parametri dentro il ciclo varierà solo dl, perchè dobbiamo spostare il cursore sempre di 1.
+Quindi il ciclo sarà strutturato nella seguente maniera:
+
+stampa_car:
+    mov ah, 02h  
+    int 10h      
+    mov ah, 09h  
+    int 10h      
+    inc al       
+    add bl, 17   
+    inc dl       
+cmp al, 5Bh      
+jne stampa_car
+
+
+ESERCITAZIONE 7:
+CONSEGNA: MANDARE A VIDEO I CARATTERI DALLA A-Z USANDO DOS
+
+Per questa esercitazione useremo le interrput del DOS, solo che le interrupt del dos non prevedono un colore al carattere,
+quindi prima di mandare a schermo i caratteri dovremmo colorare le celle, per farlo usiamo il segmento della memoria grafica.
+Però questa volta come carattere nel registro di 16 bit dovremmo mettere 0, ossia NULL, così non scriverà ulteriori caratteri ma vedremo a video che prima setterà le celle con i colori e poi ci andranno i caratteri.
+L'interrupt che useremo sarà 21h e la funziuone 02h.
+PARAMETRI:
+		AH = funzione(02h)
+		DL = carattere.

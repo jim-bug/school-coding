@@ -1,0 +1,1 @@
+Il documento "relazione_prove_assembly.txt" contiene un'aggiunta alle spiegazione poste sui codici sorgenti.
