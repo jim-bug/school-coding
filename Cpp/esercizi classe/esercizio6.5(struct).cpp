@@ -60,7 +60,37 @@ int main(){
             break;
 
         case 4:
-            break;  // da trattare
+            bool cond_appartenenza_p1;
+            bool cond_appartenenza_p2;
+            bool cond_appartenenza_p3;
+            int a;
+            int b;
+            int c;
+            cout << "Inserisci il coefficente a della circonferenza: " << endl;
+            cin >> a;
+            cout << "Inserisci il coefficente b della circonferenza: " << endl;
+            cin >> b;
+            cout << "Inserisci il coefficente c della circonferenza: " << endl;
+            cin >> c;
+            cout << "Inserisci le coordinate del primo punto x y: " << endl;
+            cin >> punto1.x >> punto1.y;
+            cout << "Inserisci le coordinate del secondo punto x y: " << endl;
+            cin >> punto2.x >> punto2.y;
+            cout << "Inserisci le coordinate del terzo punto x y: " << endl;
+            cin >> punto3.x >> punto3.y;
+            cond_appartenenza_p1 = (pow(punto1.x,2)+(pow(punto1.y, 2)+(a*punto1.x)+(b*punto1.y)+c)) == 0;
+            cond_appartenenza_p2 = (pow(punto2.x,2)+(pow(punto2.y, 2)+(a*punto2.x)+(b*punto2.y)+c)) == 0;
+            cond_appartenenza_p3 = (pow(punto3.x,2)+(pow(punto3.y, 2)+(a*punto3.x)+(b*punto3.y)+c)) == 0;
+            if (cond_appartenenza_p1){
+                cout << "Il primo punto sta sulla circonferenza " << endl;
+            }
+            if (cond_appartenenza_p2){
+                cout << "Il secondo punto sta sulla circonferenza " << endl;
+            }
+            if (cond_appartenenza_p3){
+                cout << "Il terzo punto sta sulla circonferenza " << endl;
+            }
+            break;
 
         case 5:
             recLine retta;
@@ -73,7 +103,7 @@ int main(){
             retta.q = retta.q*-1;
             cout << "Inserisci le coordinate del primo punto x y: " << endl;
             cin >> punto1.x >> punto1.y;
-            distanza_punto_retta = (abs((punto1.x*retta.m)+punto1.y+retta.q)/sqrt(pow(retta.m, 2)+1));  // prendendo in riferimento che il programma non lavori con le frazioni!
+            distanza_punto_retta = (abs((punto1.x*retta.m)+(punto1.y)+(retta.q)/sqrt(pow(retta.m, 2)+1)));  // prendendo in riferimento che il programma non lavori con le frazioni!
 
             cout << "Distanza: " << distanza_punto_retta << endl;
             break;
