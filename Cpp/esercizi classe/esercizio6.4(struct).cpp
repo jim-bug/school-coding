@@ -14,9 +14,6 @@ int main(){
     cout << "Inserisci il numero di libri: ";
     cin >> n_libri;
     Bibblioteca collezione[n_libri];
-    cout << "Scegli cosa vuoi fare: " << endl << "1) aggiungi un nuovo libro " << endl << "2) Visualizza elenco " << endl << "3) Visualizzazione libri col codice " << endl << "4) Visualizzazione a partire dal libro " << endl;
-    cout << "Scegli: " << endl;
-    cin >> scelta;
     for (int i = 0; i < n_libri;i++) {
         cout << "Scegli cosa vuoi fare: " << endl << "1) aggiungi un nuovo libro " << endl << "2) Visualizza elenco " << endl << "3) Visualizzazione libri col codice " << endl << "4) Visualizzazione a partire dal libro " << endl;
         cout << "Scegli: " << endl;
