@@ -1,0 +1,1 @@
+Ciao questi sono gli elementi del vettore:
