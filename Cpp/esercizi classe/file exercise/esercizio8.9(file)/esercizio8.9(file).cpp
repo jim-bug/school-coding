@@ -1,73 +1,65 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <string>
 using namespace std;
-// funzione stoi()
-
-string extract(int, int, string);
 struct Alunno{
     string nome;
-    string n_matricola;
+    string matricola;
     string eta;
     string voto;
 };
 int main(){
-    string supps;
-    int people = 0;
-    vector <int> positins;
-    int i = 0;
-    int count_v;
-    int start;
-    char supp;
-    int index = 0;
     ifstream file("risultati.csv");
-    while (file >> supp){       // estraggo i dati dal file e conto quanti alunni ci sono.
-        supps.push_back(supp);
-        if (i > 0 && int(supps[i]) >= 65 && int(supps[i]) <= 90){
-            people ++;
+    string temp;
+    char support;
+    int index = 0;
+    int count_div = -1;
+    string data;
+    int n_people = 0;
+    while (file >> support){
+        if (int(support) >= 65 && int(support) <= 90){
+            n_people ++;
         }
-        i ++;
+        data.push_back(support);
     }
-    Alunno alunni[people];
-    for (int i = 0;i < supps.size();i++){
-        if (i > 0 && int(supps[i]) >= 65 && int(supps[i]) <= 90){
+    Alunno alunni[n_people];
+    for (int i = 0;i < data.size();i++){
+        if (i > 0 && int(support) >= 65 && int(support) <= 90){
             index ++;
-            count_v = 0;
+            count_div = -1;
         }
         else{
-            if (supps[i] == ','){
-                count_v ++;
-                switch (count_v){
-                    case 0:
-                        alunni[index].nome = extract(start, i, supps);
-                        break;
-                    case 1:
-                        alunni[index].eta = extract(start, i, supps);
-                        break;
-                    case 2:
-                        alunni[index].n_matricola = extract(start, i, supps);
-                        break;
-                    case 3:
-                        alunni[index].voto = extract(start, i, supps);
-                        break;
-                    default:
-                        cout << "Ricontrolla il contatore count_v" << endl;
-                        break;
-                }
+            while (data[i] != ','){
+                temp.push_back(data[i]);
+                i ++;
             }
+            count_div ++;
+            switch (count_div) {
+                case 0:
+                    alunni[index].nome = temp;
+                    break;
+                case 1:
+                    alunni[index].matricola = temp;
+                    break;
+                case 2:
+                    alunni[index].eta = temp;
+                    break;
+                case 3:
+                    alunni[index].voto = temp;
+                    break;
+            }
+            // count_div ++;
+            temp.clear();
         }
     }
 
-
-
-
-    return 0;
-}
-string extract(int start, int end, string test){
-    string result;
-    for (int i = start;i < end;i ++){
-        result.push_back(test[i]);
+    for (int i = 0;i < n_people;i++){
+        cout << alunni[i].nome << endl;
+        cout << alunni[i].matricola << endl;
+        cout << alunni[i].eta << endl;
+        cout << alunni[i].voto << endl;
+        cout << endl;
     }
-    return result;
+    file.close();
+    return 0;
 }

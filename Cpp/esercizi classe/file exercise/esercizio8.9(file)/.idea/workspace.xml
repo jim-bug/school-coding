@@ -13,6 +13,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/esercizio8.9(file)" beforeDir="false" afterPath="$PROJECT_DIR$/esercizio8.9(file)" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/esercizio8.9(file).cpp" beforeDir="false" afterPath="$PROJECT_DIR$/esercizio8.9(file).cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/risultati.csv" beforeDir="false" afterPath="$PROJECT_DIR$/risultati.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,7 @@
 }</component>
   <component name="RunManager">
     <configuration name="esercizio8.9(file).cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esercizio8.9(file)" TARGET_NAME="esercizio8.9(file).cpp" CONFIG_NAME="esercizio8.9(file).cpp">
+      <option name="compilerOptions" value="-o esercizio8.9(file).exe" />
       <option name="sourceFile" value="$PROJECT_DIR$/esercizio8.9(file).cpp" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
@@ -66,10 +68,23 @@
       <workItem from="1683710739554" duration="2766000" />
       <workItem from="1683797256087" duration="395000" />
       <workItem from="1683797756348" duration="2175000" />
+      <workItem from="1683824353997" duration="969000" />
+      <workItem from="1683834000804" duration="5522000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/esercizio8.9(file).cpp</url>
+          <line>25</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
