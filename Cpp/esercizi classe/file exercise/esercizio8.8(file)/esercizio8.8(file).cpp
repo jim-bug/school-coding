@@ -19,9 +19,6 @@ int main(){
     int end = 9;
     int start = 0;
     int dati[L1] = {1, 2, 3};
-    int coord_const_rows;
-    int coord_const_columns;
-
     for (int i = 0;i < L1;i++){     // azzero il vettore del controllo delle navi affondate.
         vet[i] = 0;
     }
@@ -41,10 +38,13 @@ int main(){
                 c = (rand()%(end+1-start)+start);
             }
         }
-        coord_const_rows = r;
-        coord_const_columns = c;
         for (int j = 0;j < dati[i];j++){
-            mat[coord_const_rows][coord_const_columns+j] = dati[i];
+            if (c + dati[i] > 9) {
+                mat[r][c - j] = dati[i];
+            }
+            else{
+                mat[r][c + j] = dati[i];
+            }
         }
     }
     /*
@@ -59,7 +59,6 @@ int main(){
         }
         file_ou << endl;
     }
-
     while(file_hit >> r){
         file_hit >> c;
         if (mat[r][c] >= 1 and mat[r][c] <= 3){     // verifico se ho colpito un pezzo di nave
