@@ -10,10 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c410d24-0e5e-43ca-9ac5-fc2e8d62b8f4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../esercizio8.8(file)/colpi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../esercizio8.8(file)/colpi.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../esercizio8.8(file)/esercizio8.8(file)" beforeDir="false" afterPath="$PROJECT_DIR$/../esercizio8.8(file)/esercizio8.8(file)" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../esercizio8.8(file)/esercizio8.8(file).cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../esercizio8.8(file)/esercizio8.8(file).cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../esercizio8.8(file)/navi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../esercizio8.8(file)/navi.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esercizio8.9(file)" beforeDir="false" afterPath="$PROJECT_DIR$/esercizio8.9(file)" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esercizio8.9(file).cpp" beforeDir="false" afterPath="$PROJECT_DIR$/esercizio8.9(file).cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,22 +30,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/jim_bug/school-coding/Cpp/esercizi classe/file exercise/esercizio8.9(file)/esercizio8.9(file).cpp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jim_bug/school-coding/Cpp/esercizi classe/file exercise/esercizio8.9(file)/esercizio8.9(file).cpp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="esercizio8.9(file).cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esercizio8.9(file)" TARGET_NAME="esercizio8.9(file).cpp" CONFIG_NAME="esercizio8.9(file).cpp">
       <option name="sourceFile" value="$PROJECT_DIR$/esercizio8.9(file).cpp" />
@@ -64,6 +63,9 @@
       <option name="presentableId" value="Default" />
       <updated>1683194509737</updated>
       <workItem from="1683194511827" duration="5079000" />
+      <workItem from="1683710739554" duration="2766000" />
+      <workItem from="1683797256087" duration="395000" />
+      <workItem from="1683797756348" duration="2175000" />
     </task>
     <servers />
   </component>
