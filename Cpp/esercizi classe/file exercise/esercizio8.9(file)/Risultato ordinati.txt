@@ -1,0 +1,15 @@
+Nome: Giacomo
+Matricola: 9876
+Età: 12
+Voto: 90
+
+Nome: Anna
+Matricola: 889987
+Età: 12
+Voto: 89
+
+Nome: Pippo
+Matricola: 34567
+Età: 12
+Voto: 11
+
