@@ -1,0 +1,6 @@
+Vocabolario,giorgio_rodrigo,1990,110,ed_1
+C-language,giorgio_rodrigo,1994,90,ed_2
+C-language,giorgio_rodrigo,1994,90,ed_2
+C-language,giorgio_rodrigo,1994,90,ed_2
+C-language,giorgio_rodrigo,1994,90,ed_2
+C-language,giorgio_rodrigo,1994,90,ed_2

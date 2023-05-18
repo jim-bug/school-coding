@@ -4,7 +4,7 @@ Età: 12
 Voto: 90
 
 Nome: Anna
-Matricola: 889987
+Matricola: 8899
 Età: 12
 Voto: 89
 
@@ -12,4 +12,9 @@ Nome: Pippo
 Matricola: 34567
 Età: 12
 Voto: 11
+
+Nome: Alessandro
+Matricola: 8899
+Età: 12
+Voto: 8
 

@@ -48,7 +48,8 @@
              break; 
          } 
          while (chars[i] != ',') { 
-             if (int(chars[i]) == 0){ 
+             if (int(chars[i]) == 0){
+                 i --;
                  break; 
              } 
              temp.push_back(chars[i]); 
@@ -92,11 +93,13 @@
      return 0; 
  } 
  void order(int vet[], int l){ 
-     for (int i = 0;i < l;i++){ 
-         if (vet[i] < vet[i+1]){ 
-             int temp = vet[i]; 
-             vet[i] = vet[i+1]; 
-             vet[i+1] = temp; 
-         } 
+     for (int i = 0;i < l;i++){
+         for (int j = i+1;j < l;j++) {
+             if (vet[i] < vet[j]) {
+                 int temp = vet[i];
+                 vet[i] = vet[j];
+                 vet[j] = temp;
+             }
+         }
      } 
  }
