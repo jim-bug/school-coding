@@ -1,0 +1,45 @@
+Lo scopo di questo script è quello di scrivere su un file tutto il mese corrente e i suoi due successivi.
+
+Per trovare il mese corrente uso la variabile %date% e la manipolo, ossia estraggo dal carattere 3 al 5 perchè:
+
+							0 1 / 0 5 / 2 0 2 3
+							
+							0 1 2 3 4 5 6 7 8 9
+
+In questa maniera ho estratto il mese corrente, stessa cosa la faccio per l'anno, solo che estraggo dal sesto carattere fino alla fine.
+Una volta estratti mese e anno(il giorno non c'è bisogno di estrarlo, perchè mi serve sapere sempre l'inizio del mese), calcolo il giorno guliano e in una variabile
+gli assegno il resto tra il giorno guliano e 7 e mi ritornerà un numero da 0-6:
+
+- 0: domenica
+- 1: lunedì
+- 2: martedì
+- 3: mercoledì
+- 4: giovedì
+- 5: venerdì
+- 6: sabato
+
+Dopo questo realizzo un ciclo che si itera per 3 volte(numero di mesi) dentro al quale inizialmente
+verifico che mese è ed in base al mese assegno il numero massimo di giorni alla variabile max.
+Successivamente creo il file e all'interno scrivo il mese e scrivo la settimana.
+
+Adesso dato che ogni mese non parte sempre da domenica, per ovviare a questo problema faccio un ciclo che si itera
+da 1 al giorno della settimana(day_week) che scrive sul file il carattere di mancanza # con in aggiunta due spazi in modo tale da posizionare il puntatore del file
+sotto al giorno di inizio del mese.
+
+Adesso in una variabile sottraggo a 7 la variabile day_week, in modo tale da sapere quando giorni mancano da scrivere nel file affinchè la prima settimana finisce.
+
+Quindi realizzo un ciclo che si itera da 1-max, e all'interno verifico che se il contatore è minore della sottrazione tra 7 e day_week allora continuo a scrivere sulla stessa riga, sempre sullo stesso if verico se
+il contatore è uguale 7 e day_week, mando a capo, perchè questo significa che ho finito di compilare la prima settimana.
+Nell'else invece in una variabile control gli assegno il resto della divisione tra il contatore che conta quanti giorni hai inserito e 7 e poi verifico che se questa variabile è 0 sempre dentro lo stesso if, verifico
+se si tratta di un numero maggiore di 9 se così fosse scrivo il numero con uno spazio in più per posizionare il puntatore del file sotto al prossimo giorno della settimana, se invece non è un numero maggiore di 9, allora scrivo il numero con i due spazi, e dentro tutto questo blocco selettivo azzero il contatore che conta i giorni.
+Se invece il resto non è 0, semplicemente verifico sempre se è maggiore di 9 o meno, ma a differenza dell'if non mando a capo.
+Dentro l'else del contatore minore della differenza tra 7 e day_week alla fine incremento il contatore.
+
+Fuori dal for che si itera da 1-max, imposto il contatore a 1, verifico se il mese non è 12, se lo è il mese lo assegno a 1 e incremento l'anno di 1, se invece non è così incremento il mese e ricalcolo il giorno giuliano.
+
+
+
+
+Strumenti usati:
+comando help del cmd
+https://ss64.com/
