@@ -1,4 +1,0 @@
-'^stringa': trova la prima occorrenza della stringa nel stdin.
-.: il punto rappresenta il periodo, ossia qualsiasi altro carattere che non sia una nuova riga, esempio:
-'r..d': in questo caso indica qualsiasi stringa che contiene r qualisasi altro carattere e d.
-[]: indica un singolo numero

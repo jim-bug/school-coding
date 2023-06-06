@@ -1,4 +1,0 @@
-COMANDO: shuwdown
-SINTASSI: shutdown [opzioni] orario [messaggio]
-
-Il parametro ora deve essere nel formato hh:mm oppure  now. Il parametro del messaggio sarà visualizzato da tutti gli utenti nel momento dello spegnimento.
