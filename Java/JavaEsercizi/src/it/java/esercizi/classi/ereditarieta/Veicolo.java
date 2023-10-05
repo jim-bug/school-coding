@@ -84,7 +84,6 @@ public class Veicolo{
     public void setTipoCarburante(String tipoCarburante) {
         this.tipoCarburante = tipoCarburante;
     }
-
     public Veicolo(
         int numeroRuote,
         int numeroFari,
