@@ -10,39 +10,107 @@ public class Main {
         int numeroPosti = 0;
         int numeroSpecchietti = 0;
         String coloreVeicolo = "";
-        String tipoColore = "";
-        int velocitaMax = 0;
+        float velocitaMax = 0;
         String tipoCarburante = "";
+        String tipoMotore = "";
+        boolean verificaTipoDiDato = false;
         System.out.println("Inserisci il numero di ruote: ");
         do {
-        	if (input.hasNextInt())
+        	if (input.hasNextInt()) {
         		numeroRuote = input.nextInt();
-        	else
+        		verificaTipoDiDato = false;
+        		break;
+        	}
+        		
+        	else {
+        		System.out.println("Tipo di dato per il numero di ruote errato!\nInserisci un nuovo numero di ruote: ");
+        		verificaTipoDiDato = true;
         		input.next();
+        	}
         }
         while (!input.hasNextInt());
+        if (verificaTipoDiDato) {
+        	input.nextInt();
+        } 
+        System.out.println("Inserisci il numero di fari: ");
         do {
-        	if (input.hasNextInt())
+        	if (input.hasNextInt()) {
         		numeroFari = input.nextInt();
-        	else
+        		verificaTipoDiDato = false;
+        		break;
+        	}
+        	else {
+        		System.out.println("Tipo di dato per il numero di fari errato!\nInserisci un nuovo numero di fari: ");
+        		verificaTipoDiDato = true;
         		input.next();
+        	}
         }
         while (!input.hasNextInt());
+        if (verificaTipoDiDato) {
+        	input.nextInt();
+        } 
+        System.out.println("Inserisci il numero di specchietti: ");
         do {
-        	if (input.hasNextInt())
+        	if (input.hasNextInt()) {
         		numeroSpecchietti = input.nextInt();
-        	else
+        		verificaTipoDiDato = false;
+        		break;
+        	}
+        	else {
+        		System.out.println("Tipo di dato per il numero di specchietti errato!\nInserisci un nuovo numero di specchietti: ");
+        		verificaTipoDiDato = true;
         		input.next();
+        	}
+        		
         }
         while (!input.hasNextInt());
+        if (verificaTipoDiDato) {
+        	input.nextInt();
+        } 
+        System.out.println("Inserisci il numero della velocità massima: ");
         do {
-        	if (input.hasNextInt())
-        		velocitaMax = input.nextInt();
-        	else
+            	if (input.hasNextFloat()) {
+            		velocitaMax = input.nextFloat();
+            		verificaTipoDiDato = false;
+            		break;
+            	}
+        	else {
+        		System.out.println("Tipo di dato per il numero massimo della velocità errato!\nInserisci un nuovo numero massimo della velocità: ");
+        		verificaTipoDiDato = true;
         		input.next();
+        	}
         }
-        while (!input.hasNextInt());
-       
+        while (!input.hasNextFloat());
+        if (verificaTipoDiDato) {
+        	input.nextFloat();
+        } 
+        System.out.println("Inserisci il numero di posti: ");
+        do {
+        	if (input.hasNextInt()) {
+        		numeroPosti = input.nextInt();
+        		verificaTipoDiDato = false;
+        		break;
+        	}
+        	else {
+        		System.out.println("Tipo di dato per il numero di posti errato!\nInserisci un nuovo numero di posti: ");
+        		verificaTipoDiDato = true;
+        		input.next();
+        	}
+        }
+        while(!input.hasNextInt());
+        if (verificaTipoDiDato) {
+        	input.nextInt();
+        } 
+		System.out.println("Inserisci la cilindrata del veicolo: ");
+		input.nextLine();
+        cilindrata = input.nextLine();
+        System.out.println("Inserisci il tipo di motore del veicolo: ");
+        tipoMotore = input.nextLine();
+        System.out.println("Inserisci il tipo del carburante del veicolo: ");
+        tipoCarburante = input.nextLine();
+        System.out.println("Inserisci il colore del veicolo: ");
+        coloreVeicolo = input.nextLine();
+        
     	Veicolo v = new Veicolo(
     			numeroRuote, 
     			numeroFari, 
@@ -52,7 +120,8 @@ public class Main {
     			coloreVeicolo, 
     			tipoCarburante, 
     			velocitaMax, 
-    			tipoCarburante
+    			tipoCarburante,
+    			tipoMotore
     	);
     	System.out.println("Numero ruote veicolo: " + v.getNumeroRuote());
     	System.out.println("Numero posti veicolo: " + v.getNumeroPosti());
@@ -62,19 +131,6 @@ public class Main {
     	System.out.println("Colore veicolo: " + v.getColoreVeicolo());
     	System.out.println("Velocita massima veicolo: " + v.getVelocitaMax());
     	System.out.println("Tipo motore veicolo: " + v.getTipoMotore());
-    	System.out.println("Tipo motore veicolo: " + v.getTipoCarburante());
-    	// 
-    	
-    	// int numero = input.nextInt(); // esempio di input da tastiera di un numero intero che sarà assegnato alla variabile numero.
-    	// System.out.print(numero);
-    	// .nextLine() per stringhe in input
-    	// .nextDouble();
-    	// .hasNextInt() ritorna True se l'input è un intero.
-//    	
-//    	System.out.println(input.hasNextInt()); // controllo se l'ultimo input è un intero.
-//    	int numero = input.nextInt();  // dato che è uno stream la variabile numero avrà il valore che abbiamo verificato se era int in precedenza.
-//    	System.out.println(numero);
-    	
-
+    	System.out.println("Tipo carburante veicolo: " + v.getTipoCarburante());
     }
 }

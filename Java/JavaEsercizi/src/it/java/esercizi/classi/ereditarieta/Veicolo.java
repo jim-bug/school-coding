@@ -92,8 +92,9 @@ public class Veicolo{
         int numeroSpecchietti,
         String coloreVeicolo,
         String tipoColore,
-        int velocitaMax,
-        String tipoCarburante
+        float velocitaMax,
+        String tipoCarburante,
+        String tipoMotore
     ){
         this.numeroRuote = numeroRuote;
         this.numeroFari = numeroFari;
@@ -101,7 +102,7 @@ public class Veicolo{
         this.numeroPosti = numeroPosti;
         this.numeroSpecchietti = numeroSpecchietti;
         this.coloreVeicolo = coloreVeicolo;
-        this.tipoMotore = tipoCarburante;
+        this.tipoMotore = tipoMotore;
         this.velocitaMax = velocitaMax;
         this.tipoCarburante = tipoCarburante;
     }
