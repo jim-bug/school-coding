@@ -3,7 +3,7 @@ package it.java.esercizi.classi.ereditarieta;
 
 public class Veicolo{
     // I metodi get e set servono si vuole visualizzare a video i valori degli attributi o modificare i valori degli attributi.
-    private int numeroRuote;
+    protected int numeroRuote;
     private int numeroFari;
     private String cilindrata;
     private int numeroPosti;
@@ -18,15 +18,26 @@ public class Veicolo{
     }
 
     public void setNumeroRuote(int numeroRuote) {
-        this.numeroRuote = numeroRuote;
+    	if (numeroRuote != 2 && numeroRuote != 4 && numeroRuote != 6) {
+    		this.numeroRuote = 0;
+    	}
+    	else {
+    		this.numeroRuote = numeroRuote;
+    	}
     }
 
     public int getNumeroFari() {
-        return this.numeroFari;
+       return this.numeroFari;
+
     }
 
     public void setNumeroFari(int numeroFari) {
-        this.numeroFari = numeroFari;
+       	if (numeroFari != 2 && numeroFari != 4) {
+    		this.numeroFari = 0;
+    	}
+    	else {
+    		this.numeroFari = numeroFari;
+    	}
     }
 
     public String getCilindrata() {
@@ -50,7 +61,12 @@ public class Veicolo{
     }
 
     public void setNumeroSpecchietti(int numeroSpecchietti) {
-        this.numeroSpecchietti = numeroSpecchietti;
+    	if (numeroSpecchietti != 3 && numeroSpecchietti != 2) {
+    		this.numeroSpecchietti = 0;
+    	}
+    	else {
+    		this.numeroSpecchietti = numeroSpecchietti;
+    	}
     }
 
     public String getColoreVeicolo() {
@@ -74,7 +90,12 @@ public class Veicolo{
     }
 
     public void setVelocitaMax(float velocitaMax) {
-        this.velocitaMax = velocitaMax;
+       	if (velocitaMax < 0) {
+    		this.velocitaMax = 0;
+    	}
+    	else {
+    		this.velocitaMax = velocitaMax;
+    	}
     }
 
     public String getTipoCarburante() {
@@ -84,27 +105,27 @@ public class Veicolo{
     public void setTipoCarburante(String tipoCarburante) {
         this.tipoCarburante = tipoCarburante;
     }
+
     public Veicolo(
-        int numeroRuote,
+        int numeroRuote, 
         int numeroFari,
         String cilindrata,
         int numeroPosti,
         int numeroSpecchietti,
         String coloreVeicolo,
-        String tipoColore,
+        String tipoMotore,
         float velocitaMax,
-        String tipoCarburante,
-        String tipoMotore
+        String tipoCarburante
     ){
-        this.numeroRuote = numeroRuote;
-        this.numeroFari = numeroFari;
-        this.cilindrata = cilindrata;
-        this.numeroPosti = numeroPosti;
-        this.numeroSpecchietti = numeroSpecchietti;
-        this.coloreVeicolo = coloreVeicolo;
-        this.tipoMotore = tipoMotore;
-        this.velocitaMax = velocitaMax;
-        this.tipoCarburante = tipoCarburante;
+    	// uso i metodi per l'assegnazione dei parametri agli attributi di istanza per evitare di effettuare due volte i stessi controlli.
+    	setVelocitaMax(velocitaMax);
+    	setNumeroRuote(numeroRuote);
+    	setNumeroFari(numeroFari);
+    	setCilindrata(cilindrata);
+    	setNumeroPosti(numeroPosti);
+    	setNumeroSpecchietti(numeroSpecchietti);
+    	setColoreVeicolo(coloreVeicolo);
+    	setTipoMotore(tipoMotore);
+    	setTipoCarburante(tipoCarburante);  	
     }
-
 }

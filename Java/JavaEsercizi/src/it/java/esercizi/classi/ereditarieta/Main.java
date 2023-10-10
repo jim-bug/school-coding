@@ -1,6 +1,7 @@
 package it.java.esercizi.classi.ereditarieta;
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args){
     	Scanner input = new Scanner(System.in); // istanza alla classe Scanner per input da tastiera.
@@ -30,7 +31,7 @@ public class Main {
         }
         while (!input.hasNextInt());
         if (verificaTipoDiDato) {
-        	input.nextInt();
+        	numeroRuote = input.nextInt();
         } 
         System.out.println("Inserisci il numero di fari: ");
         do {
@@ -47,7 +48,7 @@ public class Main {
         }
         while (!input.hasNextInt());
         if (verificaTipoDiDato) {
-        	input.nextInt();
+        	numeroFari = input.nextInt();
         } 
         System.out.println("Inserisci il numero di specchietti: ");
         do {
@@ -65,7 +66,7 @@ public class Main {
         }
         while (!input.hasNextInt());
         if (verificaTipoDiDato) {
-        	input.nextInt();
+        	numeroSpecchietti = input.nextInt();
         } 
         System.out.println("Inserisci il numero della velocità massima: ");
         do {
@@ -82,7 +83,7 @@ public class Main {
         }
         while (!input.hasNextFloat());
         if (verificaTipoDiDato) {
-        	input.nextFloat();
+        	velocitaMax = input.nextFloat();
         } 
         System.out.println("Inserisci il numero di posti: ");
         do {
@@ -99,7 +100,7 @@ public class Main {
         }
         while(!input.hasNextInt());
         if (verificaTipoDiDato) {
-        	input.nextInt();
+        	numeroPosti = input.nextInt();
         } 
 		System.out.println("Inserisci la cilindrata del veicolo: ");
 		input.nextLine();
@@ -117,11 +118,10 @@ public class Main {
     			cilindrata, 
     			numeroPosti, 
     			numeroSpecchietti, 
-    			coloreVeicolo, 
-    			tipoCarburante, 
-    			velocitaMax, 
-    			tipoCarburante,
-    			tipoMotore
+    			coloreVeicolo,
+    			tipoMotore,
+    			velocitaMax,
+    			tipoCarburante
     	);
     	System.out.println("Numero ruote veicolo: " + v.getNumeroRuote());
     	System.out.println("Numero posti veicolo: " + v.getNumeroPosti());
