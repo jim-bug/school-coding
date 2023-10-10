@@ -3,7 +3,10 @@ import java.util.Scanner;
 
 
 public class Main {
+
+	
     public static void main(String[] args){
+<<<<<<< HEAD
     	Scanner input = new Scanner(System.in); // istanza alla classe Scanner per input da tastiera.
         int numeroRuote = 0;
         int numeroFari = 0;
@@ -111,6 +114,18 @@ public class Main {
         tipoCarburante = input.nextLine();
         System.out.println("Inserisci il colore del veicolo: ");
         coloreVeicolo = input.nextLine();
+=======
+    	
+        int numeroRuote = getIntInput("Inserisci il numero di ruote: ");
+        int numeroFari = getIntInput("Inserisci il numero di fari: ");
+        int numeroPosti = getIntInput("Inserisci il numero di posti: ");
+        int numeroSpecchietti = getIntInput("Inserisci il numero di specchietti: ");
+        float velocitaMax = getFloatInput("Inserisci la massima velocità: ");
+        String cilindrata = getStringInput("Inserisci la cilidrata: ");
+        String coloreVeicolo = getStringInput("Inserisci il colore del veicolo: ");
+        String tipoCarburante = getStringInput("Inserisci il tipo di carburante");
+        String tipoMotore = getStringInput("Inserisci il tipo di motore: ");
+>>>>>>> 345f169e2cf99d371f71537f4c76d7dc173573da
         
     	Veicolo v = new Veicolo(
     			numeroRuote, 
@@ -133,4 +148,42 @@ public class Main {
     	System.out.println("Tipo motore veicolo: " + v.getTipoMotore());
     	System.out.println("Tipo carburante veicolo: " + v.getTipoCarburante());
     }
+	
+	public static int getIntInput(String messaggio) {
+		// Il metodo è dichiarato come static perchè sennò il metodo main non può chiamarlo
+		Scanner input = new Scanner(System.in); // istanza alla classe Scanner per input da tastiera.
+		int valore = 0;
+        System.out.println(messaggio);
+		/*
+		 * Verifico finchè l'input inserito non è un intero, se non è intero, richiedo un ulteriore input da tastiera, nel momento in cui 
+		 * il ciclo finirà significherà che l'utente ha inserito un numero intero, quindi procedo con l'assegnazione.
+		 */
+        while (!input.hasNextInt()) {
+    		System.out.println("Tipo di dato errato!\nInserisci di nuovo: ");
+    		input.next();
+        }       
+        valore = input.nextInt();
+        return valore;
+	}
+	
+	public static float getFloatInput(String messaggio) {
+		// Il metodo è dichiarato come static perchè sennò il metodo main non può chiamarlo
+		Scanner input = new Scanner(System.in); // istanza alla classe Scanner per input da tastiera.
+		float valore = 0;
+        System.out.println(messaggio);
+        while (!input.hasNextFloat()) {
+    		System.out.println("Tipo di dato errato!\nInserisci di nuovo: ");
+    		input.next();
+        }
+        valore = input.nextFloat();
+        return valore;
+	}
+	
+	public static String getStringInput(String messaggio) {
+		// Il metodo è dichiarato come static perchè sennò il metodo main non può chiamarlo
+		Scanner input = new Scanner(System.in); // istanza alla classe Scanner per input da tastiera.
+        System.out.println(messaggio);
+		String valore = input.nextLine();
+        return valore;
+	}
 }
