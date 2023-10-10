@@ -1,4 +1,7 @@
 #!/bin/bash
+# Autore: Ignazio Leonardo Calogero Sperandeo
+# Consegna: Dato in input da linea di comando anno, mese e numero di mesi da stampare, mandare a video il calendario formato da i mesi selezionati.
+# bash scriptCalendario-sh anno meseIniziale numeroDiMesiDaStampare 
 
 anno=$1
 mese=$2
@@ -7,10 +10,8 @@ echo $primoGiorno
 contaGiorni=1
 numeroGiorniMese=0
 numeroMesi=$3
-# echo -n Mese $mese Anno $anno PrimoGiorno $primoGiorno
 mkdir CalendarioTreMesiAnno${anno} 2>/dev/null
 cd CalendarioTreMesiAnno${anno}
-# for i in $(seq 0 $((numeroMesi-1)))
 for (( i=1; i<=numeroMesi; i++ ));
 do
         if [[ $mese -eq 11 || $mese -eq 4 || $mese -eq 6  || $mese -eq 9 ]]; then
