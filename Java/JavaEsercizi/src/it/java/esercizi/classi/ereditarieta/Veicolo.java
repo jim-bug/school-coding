@@ -3,15 +3,15 @@ package it.java.esercizi.classi.ereditarieta;
 
 public class Veicolo{
     // I metodi get e set servono si vuole visualizzare a video i valori degli attributi o modificare i valori degli attributi.
-    protected int numeroRuote;
-    private int numeroFari;
-    private String cilindrata;
-    private int numeroPosti;
-    private int numeroSpecchietti;
-    private String coloreVeicolo;
-    private String tipoMotore;
-    private float velocitaMax;
-    private String tipoCarburante;
+    int numeroRuote;
+    int numeroFari;
+    String cilindrata;
+    int numeroPosti;
+    int numeroSpecchietti;
+    String coloreVeicolo;
+    String tipoMotore;
+    float velocitaMax;
+    String tipoCarburante;
 
     public int getNumeroRuote() {
         return this.numeroRuote;
