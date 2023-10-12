@@ -16,6 +16,7 @@ public class Main {
         String coloreVeicolo = getStringInput("Inserisci il colore del veicolo: ");
         String tipoCarburante = getStringInput("Inserisci il tipo di carburante");
         String tipoMotore = getStringInput("Inserisci il tipo di motore: ");
+        String targa = getStringInput("Inserisci la targa dell'auto: ");
 
     	Veicolo v = new Veicolo(
     			numeroRuote, 
@@ -28,6 +29,7 @@ public class Main {
     			velocitaMax,
     			tipoCarburante
     	);
+    	
     	Auto a = new Auto(
     			numeroRuote, 
     			numeroFari, 
@@ -40,8 +42,10 @@ public class Main {
     			tipoCarburante,
     			numeroPorte,
     			numeroAirBag,
-    			numeroFinestrini
+    			numeroFinestrini,
+    			targa
     	);
+    	
     	System.out.println("Numero ruote veicolo: " + v.getNumeroRuote());
     	System.out.println("Numero posti veicolo: " + v.getNumeroPosti());
     	System.out.println("Numero fari veicolo: " + v.getNumeroFari());
@@ -51,7 +55,7 @@ public class Main {
     	System.out.println("Velocita massima veicolo: " + v.getVelocitaMax());
     	System.out.println("Tipo motore veicolo: " + v.getTipoMotore());
     	System.out.println("Tipo carburante veicolo: " + v.getTipoCarburante());
-    	
+    	System.out.println();
     	System.out.println("Numero ruote auto: " + v.getNumeroRuote());
     	System.out.println("Numero posti auto: " + v.getNumeroPosti());
     	System.out.println("Numero fari auto: " + v.getNumeroFari());
@@ -64,6 +68,7 @@ public class Main {
     	System.out.println("Numero AirBag auto: " + a.getNumeroAirBag());
     	System.out.println("Numero finestrini: " + a.getnumeroFinestrini());
     	System.out.println("Numero porte: " + a.getNumeroPorte());
+    	System.out.println("La targa dell'auto è: " + a.getTarga());
     }
 	
 	public static int getIntInput(String messaggio) {

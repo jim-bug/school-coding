@@ -2,12 +2,13 @@ package it.java.esercizi.classi.ereditarieta;
 // In java no c'è l'ereditarietà multipla.
 // Keyword: extends, significa proprio estende, la sottoclasse estende la superclasse.
 // La superclasse DEVE avere gli attributi con il modificatore default.
-// Keyword super: richiama all'interno del costruttore della sottoclasse, il costruttore della sua superclasse.
+// super: richiama all'interno del costruttore della sottoclasse, il costruttore della sua superclasse.
 
 public class Auto extends Veicolo{
 	int numeroPorte;
 	int numeroAirBag;
 	int numeroFinestrini;
+	String targa;
 	public Auto(
 		int numeroRuote, 
         int numeroFari,
@@ -20,8 +21,10 @@ public class Auto extends Veicolo{
         String tipoCarburante,
         int numeroPorte,
         int numeroAirBag,
-        int numeroFinestrini
+        int numeroFinestrini,
+        String targa
         ){
+		// siccome alcuni parametri sono uguali a quelli del costruttore della superclasse, uso la funzione super()
 		super(
 				numeroRuote, 
     			numeroFari, 
@@ -36,9 +39,21 @@ public class Auto extends Veicolo{
 		setNumeroAirBag(numeroAirBag);
 		setNumeroPorte(numeroPorte);
 		setNumeroFinestrini(numeroFinestrini);
+		setTarga(targa);
 		
 	}
-	// refactoring.guru
+	public void setTarga(String targa) {
+		if(targa.length() != 7) {
+			this.targa = "XX XXXXX";
+		}
+		else {
+			this.targa = targa;
+		}
+		
+	}
+	public String getTarga() {
+		return this.targa;
+	}
 	public void setNumeroFinestrini(int numeroFinestrini) {
 		if (numeroFinestrini != 2 && numeroFinestrini != 4) {
 			this.numeroFinestrini = 1;
