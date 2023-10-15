@@ -30,6 +30,17 @@ public class Main {
     			tipoCarburante
     	);
     	
+        numeroRuote = getIntInput("Inserisci il numero di ruote auto: ");
+        numeroPorte = getIntInput("Inserisci il numero di porte auto: ");
+        numeroFari = getIntInput("Inserisci il numero di fari auto: ");
+        numeroPosti = getIntInput("Inserisci il numero di posti auto: ");
+        numeroSpecchietti = getIntInput("Inserisci il numero di specchietti auto: ");
+        velocitaMax = getFloatInput("Inserisci la massima velocità auto: ");
+        cilindrata = getStringInput("Inserisci la cilidrata auto: ");
+        coloreVeicolo = getStringInput("Inserisci il colore del veicolo auto: ");
+        tipoCarburante = getStringInput("Inserisci il tipo di carburante auto: ");
+        tipoMotore = getStringInput("Inserisci il tipo di motore auto: ");
+        
     	Auto a = new Auto(
     			numeroRuote, 
     			numeroFari, 
@@ -55,16 +66,18 @@ public class Main {
     	System.out.println("Velocita massima veicolo: " + v.getVelocitaMax());
     	System.out.println("Tipo motore veicolo: " + v.getTipoMotore());
     	System.out.println("Tipo carburante veicolo: " + v.getTipoCarburante());
+    	
     	System.out.println();
-    	System.out.println("Numero ruote auto: " + v.getNumeroRuote());
-    	System.out.println("Numero posti auto: " + v.getNumeroPosti());
-    	System.out.println("Numero fari auto: " + v.getNumeroFari());
-    	System.out.println("Numero specchietti auto: " + v.getNumeroSpecchietti());
-    	System.out.println("Cilindrata auto: " + v.getCilindrata());
-    	System.out.println("Colore auto: " + v.getColoreVeicolo());
-    	System.out.println("Velocita massima auto: " + v.getVelocitaMax());
-    	System.out.println("Tipo motore auto: " + v.getTipoMotore());
-    	System.out.println("Tipo carburante auto: " + v.getTipoCarburante());
+    	
+    	System.out.println("Numero ruote auto: " + a.getNumeroRuote());
+    	System.out.println("Numero posti auto: " + a.getNumeroPosti());
+    	System.out.println("Numero fari auto: " + a.getNumeroFari());
+    	System.out.println("Numero specchietti auto: " + a.getNumeroSpecchietti());
+    	System.out.println("Cilindrata auto: " + a.getCilindrata());
+    	System.out.println("Colore auto: " + a.getColoreVeicolo());
+    	System.out.println("Velocita massima auto: " + a.getVelocitaMax());
+    	System.out.println("Tipo motore auto: " + a.getTipoMotore());
+    	System.out.println("Tipo carburante auto: " + a.getTipoCarburante());
     	System.out.println("Numero AirBag auto: " + a.getNumeroAirBag());
     	System.out.println("Numero finestrini: " + a.getnumeroFinestrini());
     	System.out.println("Numero porte: " + a.getNumeroPorte());
