@@ -1,0 +1,6 @@
+Prenotazioni: 
+Numero identificativo: 5556
+Numero e cognome: Peppe
+Data di prenotazione: Non valida
+Data della prenotazione: Non valida
+
