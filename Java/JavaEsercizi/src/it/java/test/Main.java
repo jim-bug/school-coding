@@ -1,61 +1,98 @@
 package it.java.test;
-import java.util.Scanner; //riga per importare classe scanner
-public class Main{
+import java.time.LocalDate;
+import java.time.DayOfWeek;
+import java.util.Scanner;
+import java.io.File;
+public class Main {
+
 	public static void main(String[] args) {
-		int numeroRuote = -1;
-		int numeroFari = 0;
-		String cilindrata = "";
-		int posti = 0;
-		int specchietti = 0;
-		String colore = "";
-		String tipoMotore = "";
-		float velocitàMax = 0;
-		String tipoCarburante = "";
-		int marcia = 0;
-		boolean accensioneVeic = true;
-		Veicolo v = new Veicolo(numeroRuote, numeroFari, cilindrata, posti, specchietti, colore, tipoMotore, velocitàMax, tipoCarburante, marcia, accensioneVeic);
-		
-//  
-//		
-//			System.out.println("numero ruote: " + v.getNumeroRuote());
-//			//v.getNumeroRuote = 4;
-//			System.out.println("numero fari: " + v.getNumeroFari());
-//			//v.getNumeroFari = 4;
-//			System.out.println("cilindrata: " + v.getCilindrata());
-//			//v.getCilindrata = "1300 cc";
-//			System.out.println("numero posti: " + v.getPosti());
-//			//v.getPosti = 4;
-//			System.out.println("numero specchietti: " + v.getSpecchietti());
-//			//v.getSpecchietti = 3;
-//			System.out.println("colore carrozzeria: " + v.getColore());
-//			//v.getColore = "Nero Etna";
-//			System.out.println("tipo motore: " + v.getTipoMotore());
-//			//v.getTipoMotore = "Quadricilindrico";
-//			System.out.println("velocità raggiungibile: " + v.getVelocitàMax());
-//			//v.getVelocitàMax = 180;
-//			System.out.println("tipo carburante: " + v.getTipoCarburante());
-//			//v.getTipoCarburante = "Diesel";
-//			
-//			
-//			v.marciaSu();
-//			System.out.println("marcia: " + v.getMarcia());
-//			v.marciaGiu();
-//			System.out.println("marcia: " + v.getMarcia());
-//			v.spegni();
-//			v.accendi();
-//			if (v.getAccensioneVeic() == true)
-//				System.out.println("il veicolo adesso è acceso");
-//			else
-//				System.out.println("il veicolo adesso è spento");
-//			
-//			
-//			int a = input.nextInt();
-//			input.nextLine();
-//			String b = input.nextLine();
-//			System.out.println(a);
-//			System.out.print(b);
-//			//queste ultime 5 righe servono per "pulire" lo stream dall' "input.next"
-			
+		try {
+			int[] oreDisponibili = {8, 9, 10, 11, 12, 13};
+			Scanner inputConsole = new Scanner(System.in);
+			String giornoDellaSettimana = "";
+			System.out.println("Inserisci il giorno da visualizzare(digitare n per usare il giorno corrente): ");
+			giornoDellaSettimana = inputConsole.nextLine();
+			if(giornoDellaSettimana.charAt(0) == 'n') {
+				LocalDate data = LocalDate.now();
+				DayOfWeek giornoDiOggi = data.getDayOfWeek();
+				giornoDellaSettimana = giornoDiOggi.toString();
+			}
+			giornoDellaSettimana = formattaGiorno(giornoDellaSettimana);
+			System.out.println("Vuoi visualizzare un ora specifica? s/n");
+			if(inputConsole.nextLine().charAt(0) == 's') {
+				System.out.println("Inserisci l'ora(compresa tra 8 e 13): ");
+				int ora = inputConsole.nextInt();
+				if (ora >= 8 && ora <= 13) {
+					getOraOrario(ricercaSequenziale(oreDisponibili, ora), "C:\\Users\\Ignazio\\Desktop\\coding\\school-coding\\Java\\JavaEsercizi\\src\\it\\java\\test\\OrarioSettimanale\\"+giornoDellaSettimana+".txt");
+					// System.out.println(ora+""+ricercaSequenziale(oreDisponibili, ora));
+				}
+				else {
+					System.out.println("Ora non valida!");
+				}
+			}
+			else {
+				File myFile = new File("C:\\Users\\Ignazio\\Desktop\\coding\\school-coding\\Java\\JavaEsercizi\\src\\it\\java\\test\\OrarioSettimanale\\"+giornoDellaSettimana+".txt");
+				Scanner inputFile = new Scanner(myFile);
+				getOrarioGiorno(inputFile);
+				inputFile.close();
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void getOrarioGiorno(Scanner input) {
+		while (input.hasNextLine()) {
+			System.out.println(input.nextLine());
+		}
+	}
+	public static String formattaGiorno(String giorno) {
+		String giornoFormattato = "";
+		switch (giorno) {
+			case "MONDAY":
+				giornoFormattato = "Lunedi";
+				break;
+			case "TUESDAY":
+				giornoFormattato = "Martedi";
+				break;
+			case "WEDNESDAY":
+				giornoFormattato = "Mercoledi";
+				break;
+			case "TRHURSDAY":
+				giornoFormattato = "Giovedi";
+				break;
+			case "FRIDAY":
+				giornoFormattato = "Venerdi";
+				break;
+			default:
+				giornoFormattato = giorno;
+				break;
+		}
+		return giornoFormattato;
+	}
+	public static void getOraOrario(int posizioneOra, String path) {
+		try {
+			File myFile = new File(path);
+			Scanner inputMyFile = new Scanner(myFile);
+			inputMyFile.nextLine();
+			for (int i = 0;i < posizioneOra;i++) {
+				inputMyFile.nextLine();
+			}
+			System.out.println("L'ora è: " + inputMyFile.nextLine());
+			inputMyFile.close();
+		}
+		catch(Exception error) {
+			System.out.println("Dal metodo .getOraOrario() è stato generato un errore: ");
+			System.out.println(error);
+		}
+	}
+	public static int ricercaSequenziale(int[] array, int key) {
+		for (int i = 0;i < array.length;i++) {
+			if (array[i] == key) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
-}
+}
