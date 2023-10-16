@@ -1,8 +1,5 @@
 package it.java.esercizi.classi.ereditarieta;
-// In java no c'è l'ereditarietà multipla.
-// Keyword: extends, significa proprio estende, la sottoclasse estende la superclasse.
-// La superclasse DEVE avere gli attributi con il modificatore default.
-// super: richiama all'interno del costruttore della sottoclasse, il costruttore della sua superclasse.
+
 
 public class Auto extends Veicolo{
 	int numeroPorte;
