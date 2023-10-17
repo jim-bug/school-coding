@@ -1,6 +1,0 @@
-Prenotazioni: 
-Numero identificativo: 5556
-Numero e cognome: Jack
-Data di prenotazione: 01/06/2023
-Data della prenotazione: 07/06/2023
-

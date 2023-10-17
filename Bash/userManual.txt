@@ -1,0 +1,17 @@
+Lo script "scriptPrenotazioni.sh" ha lo scopo di inserire manualmente delle prenotazioni e visualizzarle. 
+I dati delle prenotazioni sono: 
+1) Nome Identificativo(Id)
+2) Nome_Cognome
+3) Data di prenotazione
+4) Data prenotazione
+
+I seguenti dati si possono inserire usando l'opzione -i, da qui una firma di come dovrebbe essere il comando per aggiungere una prenotazione:
+
+					bash scriptPrenotazioni.sh -i Id Nome_Cognome DataDiPrenotazione DataPrenotazione
+
+Lo script prevede anche la visualizzazionea a video di ogni prenotazione usando l'opzione -v, da qui una firma di come si dovrebbe usare:
+					
+					bash scriptPrenotazione.sh -v
+Nel caso in cui le date siano non vere oppure la data di prenotazione è minore della data in cui è prevista la prenotazione, lo script 
+scriverà "Non valida".
+ 
