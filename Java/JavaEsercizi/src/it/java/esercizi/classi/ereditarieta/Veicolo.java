@@ -1,5 +1,5 @@
 package it.java.esercizi.classi.ereditarieta;
-
+import java.time.LocalDate;
 
 public class Veicolo{
     // I metodi get e set servono si vuole visualizzare a video i valori degli attributi o modificare i valori degli attributi.
@@ -12,6 +12,7 @@ public class Veicolo{
     String tipoMotore;
     float velocitaMax;
     String tipoCarburante;
+    LocalDate dataDiImmatricolazione;
 
     public int getNumeroRuote() {
         return this.numeroRuote;
@@ -105,6 +106,32 @@ public class Veicolo{
     public void setTipoCarburante(String tipoCarburante) {
         this.tipoCarburante = tipoCarburante;
     }
+    
+//    public void setDataDiImmatricolazione(LocalDate data) {
+//    	this.dataDiImmatricolazione = data;
+//    }
+//    
+    public String getDataDiImmatricolazione() {
+    	return this.dataDiImmatricolazione.toString();
+    }
+    
+    public int controlloRevisioniFatte(LocalDate dataDiOggi) {
+    	int rev = 0;
+    	for(int i = this.dataDiImmatricolazione.getYear(); i < dataDiOggi.getYear();) {
+    		if (rev >= 1) {
+    			i+=2;
+    		}
+    		else {
+    			i+=4;
+    		}
+    		rev++;
+    	}
+    	return rev;
+    }
+    
+    public void controlloRevisioneConGiorno(LocalDate data) {
+    	
+    }
 
     public Veicolo(
         int numeroRuote, 
@@ -115,7 +142,8 @@ public class Veicolo{
         String coloreVeicolo,
         String tipoMotore,
         float velocitaMax,
-        String tipoCarburante
+        String tipoCarburante,
+        LocalDate dataDiImmatricolazione
     ){
     	// uso i metodi per l'assegnazione dei parametri agli attributi di istanza per evitare di effettuare due volte i stessi controlli.
     	setVelocitaMax(velocitaMax);
@@ -126,6 +154,7 @@ public class Veicolo{
     	setNumeroSpecchietti(numeroSpecchietti);
     	setColoreVeicolo(coloreVeicolo);
     	setTipoMotore(tipoMotore);
-    	setTipoCarburante(tipoCarburante);  	
+    	setTipoCarburante(tipoCarburante);
+    	this.dataDiImmatricolazione = dataDiImmatricolazione;
     }
 }
