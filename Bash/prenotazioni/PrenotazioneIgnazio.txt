@@ -1,6 +1,0 @@
-Prenotazioni: 
-Numero identificativo: 1234
-Numero e cognome: Ignazio
-Data di prenotazione: 2023/10/17
-Data della prenotazione: 2023/10/18
-
