@@ -5,41 +5,44 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args){
-//        int numeroRuote = getIntInput("Inserisci il numero di ruote: ");
-//        int numeroFinestrini = getIntInput("Inserisci il numero di finestrini: ");
-//        int numeroAirBag = getIntInput("Inserisci il numero di AirBag: ");
-//        int numeroPorte = getIntInput("Inserisci il numero di porte: ");
-//        int numeroFari = getIntInput("Inserisci il numero di fari: ");
-//        int numeroPosti = getIntInput("Inserisci il numero di posti: ");
-//        int numeroSpecchietti = getIntInput("Inserisci il numero di specchietti: ");
+        int numeroRuote = getIntInput("Inserisci il numero di ruote: ");
+        int numeroFinestrini = getIntInput("Inserisci il numero di finestrini: ");
+        int numeroAirBag = getIntInput("Inserisci il numero di AirBag: ");
+        int numeroPorte = getIntInput("Inserisci il numero di porte: ");
+        int numeroFari = getIntInput("Inserisci il numero di fari: ");
+        int numeroPosti = getIntInput("Inserisci il numero di posti: ");
+        int numeroSpecchietti = getIntInput("Inserisci il numero di specchietti: ");
+        float velocitaMax = getFloatInput("Inserisci la massima velocità: ");
+        String cilindrata = getStringInput("Inserisci la cilidrata: ");
+        String coloreVeicolo = getStringInput("Inserisci il colore del veicolo: ");
+        String tipoCarburante = getStringInput("Inserisci il tipo di carburante");
+        String tipoMotore = getStringInput("Inserisci il tipo di motore: ");
+        String targa = getStringInput("Inserisci la targa dell'auto: ");
         int giorno = getIntInput("Inserisci il giorno di immatricolazione: ");
         int mese = getIntInput("Inserisci il mese di immatricolazione: ");
         int anno = getIntInput("Inserisci l'anno d iimmatricolazione: ");
-//        float velocitaMax = getFloatInput("Inserisci la massima velocità: ");
-//        String cilindrata = getStringInput("Inserisci la cilidrata: ");
-//        String coloreVeicolo = getStringInput("Inserisci il colore del veicolo: ");
-//        String tipoCarburante = getStringInput("Inserisci il tipo di carburante");
-//        String tipoMotore = getStringInput("Inserisci il tipo di motore: ");
-//        String targa = getStringInput("Inserisci la targa dell'auto: ");
         LocalDate dataDiImmatricolazione = LocalDate.of(anno, mese, giorno);
         LocalDate dataDiOggi = LocalDate.now();
         while(dataDiOggi.getYear() < dataDiImmatricolazione.getYear()) {
-        	anno = getIntInput("Data di immatricolazione non valida, inserisci l'anno di immatricolazione: ")
+        	anno = getIntInput("Data di immatricolazione non valida, inserisci l'anno di immatricolazione: ");
         	dataDiImmatricolazione = LocalDate.of(anno,  mese,  giorno);
         }
-//
-//    	Veicolo v = new Veicolo(
-//    			numeroRuote, 
-//    			numeroFari, 
-//    			cilindrata, 
-//    			numeroPosti, 
-//    			numeroSpecchietti, 
-//    			coloreVeicolo,
-//    			tipoMotore,
-//    			velocitaMax,
-//    			tipoCarburante,
-//    			dataDiImmatricolazione
-//    	);
+
+    	Veicolo v = new Veicolo(
+    			numeroRuote, 
+    			numeroFari, 
+    			cilindrata, 
+    			numeroPosti, 
+    			numeroSpecchietti, 
+    			coloreVeicolo,
+    			tipoMotore,
+    			velocitaMax,
+    			tipoCarburante,
+    			dataDiImmatricolazione
+    	);
+    	System.out.println(dataDiOggi.toString());
+    	System.out.println(v.getDataDiImmatricolazione());
+    	v.controlloRevisioneConGiorno(5);
     	
 //        numeroRuote = getIntInput("Inserisci il numero di ruote auto: ");
 //        numeroPorte = getIntInput("Inserisci il numero di porte auto: ");
@@ -132,5 +135,4 @@ public class Main {
 		String valore = input.nextLine();
         return valore;
 	}
-	public static 
 }
