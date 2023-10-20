@@ -1,5 +1,6 @@
 package it.java.esercizi.classi.ereditarieta;
 import java.time.LocalDate;
+import java.time.Month;
 
 public class Veicolo{
     // I metodi get e set servono si vuole visualizzare a video i valori degli attributi o modificare i valori degli attributi.
@@ -115,21 +116,40 @@ public class Veicolo{
     	return this.dataDiImmatricolazione.toString();
     }
     
-    public int controlloRevisioniFatte(LocalDate dataDiOggi) {
-    	int rev = 0;
-    	for(int i = this.dataDiImmatricolazione.getYear(); i < dataDiOggi.getYear();) {
-    		if (rev >= 1) {
-    			i+=2;
-    		}
-    		else {
-    			i+=4;
-    		}
-    		rev++;
+    public int controlloRevisioniFatte(LocalDate dataDiOggi, boolean stampaRevisioneOAnno) {
+    	int nRev = 0;
+    	int annoImmatricolazione = this.dataDiImmatricolazione.getYear()+4;
+    	int annoCorrente = dataDiOggi.getYear();
+
+    	while(annoImmatricolazione < annoCorrente) {
+    		annoImmatricolazione += 2;
+    		nRev ++;
     	}
-    	return rev;
+    	if (annoImmatricolazione % 2 == 0 && annoCorrente % 2 == 0 || annoImmatricolazione % 2 != 0 && annoCorrente % 2 != 0) {
+    		if (this.dataDiImmatricolazione.getMonthValue() == dataDiOggi.getMonthValue()) {
+        		nRev++;
+        		annoImmatricolazione += 2;
+    		}
+	
+    	}
+    	
+    	if (stampaRevisioneOAnno) {
+    		return nRev;
+    	}
+    	else {
+    		return annoImmatricolazione;	// in questo metodo annoImmatricolazione alla fine del calcolo delle revisioni effettuate fungerà anche come anno di prossima revisione.
+    	}
+    	
     }
     
-    public void controlloRevisioneConGiorno(LocalDate data) {
+    public void controlloRevisioneConGiorno(int numeroDiRevisioniEffettuate) {
+    	LocalDate dataDiOggi = LocalDate.now();
+    	if(numeroDiRevisioniEffettuate < controlloRevisioniFatte(dataDiOggi, true)) {
+    		System.out.println("Devi effettuare immediatamente una revisione per metterti in riga con la legge!");
+    	}
+    	else {
+    		System.out.println("Tutto nella norma, la prossima revisione sarà nel " + controlloRevisioniFatte(dataDiOggi, false));
+    	}
     	
     }
 
