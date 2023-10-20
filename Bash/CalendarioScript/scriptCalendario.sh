@@ -9,10 +9,8 @@ primoGiorno=$(date -d "${anno}-${mese}-01" +%w)
 contaGiorni=1
 numeroGiorniMese=0
 numeroMesi=$3
-indiceStart=$mese
-indiceEnd=$numeroMesi
-mkdir CalendarioTreMesiAnno${anno} 2>/dev/null
-cd CalendarioTreMesiAnno${anno}
+mkdir Calendario${numeroMesi}MesiAnno${anno} 2>/dev/null
+cd Calendario${numeroMesi}MesiAnno${anno}
 # echo "Calendario ${anno} composto da ${numeroMesi} mesi" > Mese${i}.txt
 for (( i=1; i<=numeroMesi; i++ ));
 do
@@ -56,7 +54,9 @@ do
                         fi     
                         contaGiorni=$((contaGiorni+1))
                 fi
+		
         done
+        echo "" >> Mese${mese}.txt
         if [[ $mese -eq 12 ]]; then
                 anno=$((anno+1))
                 mese=1
@@ -69,5 +69,6 @@ do
 done
 if [[ $stampaQui == 1 ]]; then
 	cat Mese*.txt
+	echo ""
 fi
 cd ..

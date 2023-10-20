@@ -1,0 +1,9 @@
+Lo script "scriptCalendario.sh" ha lo scopo di realizzare un calendario, dove tutti i mesi sono scritti in dei file differenti.
+Per usare lo script basta seguire la seguente firma:
+
+                bash scriptCalendario.sh anno meseDiPartenza numeroDiMesiDaStampare cond
+
+Il parametro cond se è uguale a 1 manderà a video tutti i file creati dallo script con i parametri dati.
+Se così non fosse i file si troveranno all'interno della cartella creata dallo script ossia
+
+                        Calendario{numeroDiMesiDaStampare}MesiAnno{anno}
