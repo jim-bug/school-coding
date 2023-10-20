@@ -1,5 +1,5 @@
 package it.java.esercizi.classi.ereditarieta;
-
+import java.time.LocalDate;
 
 public class Auto extends Veicolo{
 	int numeroPorte;
@@ -19,7 +19,8 @@ public class Auto extends Veicolo{
         int numeroPorte,
         int numeroAirBag,
         int numeroFinestrini,
-        String targa
+        String targa,
+        LocalDate dataImmatricolazione
         ){
 		// siccome alcuni parametri sono uguali a quelli del costruttore della superclasse, uso la funzione super()
 		super(
@@ -31,7 +32,8 @@ public class Auto extends Veicolo{
     			coloreVeicolo,
     			tipoMotore,
     			velocitaMax,
-    			tipoCarburante
+    			tipoCarburante,
+    			dataImmatricolazione
 			);
 		setNumeroAirBag(numeroAirBag);
 		setNumeroPorte(numeroPorte);

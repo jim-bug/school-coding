@@ -1,6 +1,5 @@
 package it.java.esercizi.classi.ereditarieta;
 import java.time.LocalDate;
-import java.time.Month;
 
 public class Veicolo{
     // I metodi get e set servono si vuole visualizzare a video i valori degli attributi o modificare i valori degli attributi.
