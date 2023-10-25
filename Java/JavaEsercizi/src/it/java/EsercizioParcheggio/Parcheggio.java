@@ -1,18 +1,14 @@
 package it.java.EsercizioParcheggio;
-/*
- * Classe parcheggio: .
- * Classe auto semplificata: 3 attributi di istanza: marca, modello, targa.
- * Classe posto: attributi di istanza(occupato, x, y, targaAuto, oraInizio)
- * Classe posto metodo parcheggio(Auto), liberaPosto
- * */
+import java.time.LocalTime;
+
 public class Parcheggio {
-	// private int numeroPosti = 10;
+	static final float TARIFFA_ORARIA = 5;
 	private Posto[] posti = new Posto[10];
 	private float totaleGiornaliero;
 	
 	public Parcheggio() {
 		for(int i = 0;i < 10;i++) {
-			posti[i] = new Posto(1, i);
+			posti[i] = new Posto(i, 1);
 		}
 	}
 	
@@ -28,6 +24,7 @@ public class Parcheggio {
 		for (int i = 0;i < 10; i++) {
 			if(!posti[i].isOccupato()) {
 				postoLibero = i;
+				break;
 			}
 		}
 		posti[postoLibero].posteggio(a);
@@ -45,9 +42,56 @@ public class Parcheggio {
 	public void liberaPosto(Auto a) {
 		for(int i = 0;i < 10; i++) {
 			if(a.getTarga().equals(posti[i].getTarga())) {
-				posti[i].setOccupato(false);
+				posti[i].liberaPosto();
 			}
 		}
 	}
+	
+	public float calcolaPrezzo(Auto a) {
+		LocalTime fineParcheggio = LocalTime.now();
+		float oraFinale = formattaOra(fineParcheggio);
+		float oraIniziale = formattaOra(posti[trovaPostoAssociatoAuto(a)].getOraInizio());
+		
+		float tariffaFinale = (oraIniziale - oraFinale)*TARIFFA_ORARIA;
+		
+		this.totaleGiornaliero = tariffaFinale;
+		return tariffaFinale;
+		
+	}
+	
+	public void pagaParcheggio(float importo, Auto a) {
+		if(importo < calcolaPrezzo(a)) {
+			System.out.println("Importo troppo basso!\nIl parcheggio non è stato saldato");
+		}
+		else {
+			posti[trovaPostoAssociatoAuto(a)].liberaPosto();
+		}
+	}
+	public String toString() {
+		String mappaturaParcheggio = "";
+		for(int i = 0;i < 10;i++) {
+			mappaturaParcheggio += posti[i].getTarga();
+			mappaturaParcheggio += '\n';
+			mappaturaParcheggio += posti[i].getX() + " " + posti[i].getY();
+			mappaturaParcheggio += '\n';
+		}
+		return mappaturaParcheggio;
+	}
+	private float formattaOra(LocalTime orario) {
+		int minuti = orario.getMinute();
+		int secondi = orario.getSecond();
+		float ora = (minuti/60) + (secondi/3600);
+		
+		return ora;
+	}
+	private int trovaPostoAssociatoAuto(Auto a) {
+		for(int i = 0;i < 10; i++) {
+			if(a.getTarga().equals(posti[i].getTarga())) {
+				return i;
+			}
+		}
+		return 0;
+	}
+
 	
 }

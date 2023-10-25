@@ -16,7 +16,7 @@ public class Auto {
 	}
 	public void setModello(String modello) {
 		this.modello = modello;
-	
+	}
 	public void setTarga(String targa) {
 		this.targa = targa;
 	}

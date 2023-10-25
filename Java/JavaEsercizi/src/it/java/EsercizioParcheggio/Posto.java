@@ -1,12 +1,12 @@
 package it.java.EsercizioParcheggio;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Posto {
 	private boolean occupato = false;
 	private int x;
 	private int y;
 	private String targa;
-	private LocalDateTime oraInizio;
+	private LocalTime oraInizio;
 	
 	public Posto(int x, int y) {
 		setX(x);
@@ -45,17 +45,17 @@ public class Posto {
 		this.targa = targa;
 	}
 
-	public LocalDateTime getOraInizio() {
+	public LocalTime getOraInizio() {
 		return oraInizio;
 	}
 
-	public void setOraInizio(LocalDateTime oraInizio) {
+	public void setOraInizio(LocalTime oraInizio) {
 		this.oraInizio = oraInizio;
 	}
 	
 	public void posteggio(Auto a) {
 		this.occupato = true;
-		oraInizio = LocalDateTime.now();
+		oraInizio = LocalTime.now();
 		this.targa = a.getTarga();
 	}
 	public void liberaPosto() {
