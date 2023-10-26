@@ -1,18 +1,20 @@
 numeroClassi=5
 sezioneClassi="A"
-julianDay = $(date +%w)
-# julianDay=1
+julianDay=$(date +%d)   # ottengo il giorno corrente
+# echo $julianDay
 for((i=1;i<=numeroClassi;i++));
 do
-    mkdir ${i}${sezioneClassi}
+    mkdir ${i}${sezioneClassi} 2>/dev/null
     cd ${i}${sezioneClassi}
-    ln ../Circolari/Registro.txt Registro     # creo il link al file Registro.txt
+    ln -s ../Circolari/Registro.txt Registro 2>/dev/null     # creo il link simbolico al file Registro.txt
     cd ..
-    chmod a-w ${i}${sezioneClassi}    # cambio i permessi del link(sola lettura)
+    chmod a-w ${i}${sezioneClassi}    # cambio i permessi delle cartelle(sola lettura)
 done
-mkdir Backup
-cd Backup
-if [[ $julianDay == 1 ]]; then
+mkdir Backup 2>/dev/null
+# se il giorno corrente è il primo del mese, entro dentro la cartella Backup e creo la copia del Mese corrente.
+if [[ $julianDay == 01 ]]; then
+    cd Backup
     cp ../Circolari/Registro.txt .
-    mv Registro.txt Registro$(date +%B)
+    mv Registro.txt Registro_$(date +%B)
 fi
+
