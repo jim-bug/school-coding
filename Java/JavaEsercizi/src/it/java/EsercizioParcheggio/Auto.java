@@ -29,5 +29,4 @@ public class Auto {
 	public String getTarga() {
 		return this.targa;
 	}
-	
 }
