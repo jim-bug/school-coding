@@ -1,5 +1,6 @@
 package it.java.EsercizioParcheggio;
 import java.time.LocalTime;
+
 /**
  * Classe parcheggio
  * @author Ignazio Leonardo Calogero Sperandeo
@@ -7,21 +8,23 @@ import java.time.LocalTime;
 
 public class Parcheggio {
 	static final float TARIFFA_ORARIA = 5;
-	private int numeroDiPosti=10;
+	private int numeroDiPosti;
 	private Posto[] posti;
 	private float totaleGiornaliero;
 	/**
-	 * Crea un parcheggio con 10 posti, dove le coordinate dei posti sono tutte sull'asse delle y, variando solo la x.
+	 * Crea un parcheggio con this.numeroDiPosti posti, dove le coordinate dei posti sono tutte sull'asse delle y, variando solo la x.
 	 * Nessun parametro richiesto
 	 */
-	public Parcheggio() {
-		posti = new Posto[numeroDiPosti];
-		for(int i = 0;i < numeroDiPosti;i++) {
+	public Parcheggio(int numeroDiPosti) {
+		this.numeroDiPosti = numeroDiPosti;
+		posti = new Posto[this.numeroDiPosti];
+		for(int i = 0;i < this.numeroDiPosti;i++) {
 			posti[i] = new Posto(i, 1);
 		}
 	}
 	/**
 	 * Ritorna il totale giornaliero del parcheggio
+	 * @return totaleGiornaliero
 	 * */
 	public float getTotaleGiornaliero() {
 		return totaleGiornaliero;
@@ -48,7 +51,8 @@ public class Parcheggio {
 	}
 	/**
 	 * Questo metodo di occupa di verificare se c'è almeno un posto libero nel parcheggio.
-	 * Nessun parametro richiesto
+	 * @return true se almeno un posto è libero
+	 * @return false se tutti i posti sono occupati
 	 * */
 	public boolean controlloDisponibilita() {
 		for (int i = 0;i < this.numeroDiPosti; i++) {
@@ -64,7 +68,7 @@ public class Parcheggio {
 	 * @param a Oggetto di tipo Auto
 	 * */
 	public void liberaPosto(Auto a) {
-		for(int i = 0;i < 10; i++) {
+		for(int i = 0;i < this.numeroDiPosti; i++) {
 			if(a.getTarga().equals(posti[i].getTarga())) {
 				posti[i].liberaPosto();
 			}
@@ -74,6 +78,7 @@ public class Parcheggio {
 	 * Questo metodo si occupa di calcolare il prezzo totale del parcheggio.
 	 * @param a Oggetto di tipo Auto
 	 * @param fineParcheggio Oggetto di tipo LocalTime, esprime l'ora di terminazione del parcheggio
+	 * @return prezzo
 	 * */
 	public float calcolaPrezzo(Auto a, LocalTime fineParcheggio) {
 		float oraFinale = formattaOra(fineParcheggio);
@@ -101,10 +106,11 @@ public class Parcheggio {
 	}
 	/**
 	 * Metodo che restituisce un riepilogo dell'istanza creata.
+	 * @return String
 	 * */
 	public String toString() {
 		String mappaturaParcheggio = "";
-		for(int i = 0;i < 10;i++) {
+		for(int i = 0;i < this.numeroDiPosti;i++) {
 			mappaturaParcheggio += '\n';
 			mappaturaParcheggio += posti[i].getTarga();
 			mappaturaParcheggio += '\n';
@@ -113,8 +119,7 @@ public class Parcheggio {
 		}
 		return mappaturaParcheggio;
 	}
-	/*
-	 * Trasformo in ore tutto l'orario.*/
+
 	private float formattaOra(LocalTime orario) {
 		float minuti = orario.getMinute();
 		float secondi = orario.getSecond();

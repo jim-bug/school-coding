@@ -2,13 +2,14 @@ package it.java.EsercizioParcheggio;
 import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
+import java.lang.Math;
 public class Main {
 
 	public static void main(String[] args) {
 		int numeroDiAuto = getInputInt("Inserisci il numero di macchine: ");
 		int numeroPostiParcheggio = getInputInt("Inserisci il numero di posti: ");
 		Auto[] macchine = new Auto[numeroDiAuto];
-		Parcheggio viaRossi = new Parcheggio();
+		Parcheggio viaRossi = new Parcheggio(numeroPostiParcheggio);
 		LocalTime ora;
 		Random rand = new Random();
 		String marca = "";
@@ -34,12 +35,18 @@ public class Main {
 //		macchine[4] = new Auto("Tesla", "Model S", "JI 111MB");
 		else {
 			for(int i = 0;i < numeroDiAuto;i++) {
-				viaRossi.assegnaPosto(macchine[i]);
-				ore = rand.nextInt((21 - 19) + 1) + 19;
-				minuti = rand.nextInt((59 - 1) + 1) + 1;
-				secondi = rand.nextInt((59 - 1) + 1) + 1;
-				ora = LocalTime.of(ore, minuti, secondi);
-				System.out.println("Importo da pagare: " + viaRossi.calcolaPrezzo(macchine[i], ora) + "€");
+				if(viaRossi.controlloDisponibilita()) {
+					viaRossi.assegnaPosto(macchine[i]);
+					ore = rand.nextInt((21 - LocalTime.now().getHour()+1) + 1) + LocalTime.now().getHour()+1;
+					minuti = rand.nextInt((59 - 1) + 1) + 1;
+					secondi = rand.nextInt((59 - 1) + 1) + 1;
+					ora = LocalTime.of(ore, minuti, secondi);
+					float verificaPrezzo = viaRossi.calcolaPrezzo(macchine[i], ora);
+					System.out.println("Importo da pagare: " + Math.round(viaRossi.calcolaPrezzo(macchine[i], ora)) + "€" + " " + verificaPrezzo);
+				}
+				else {
+					System.out.println("Posti attualmente insufficenti!");
+				}
 			}
 		}
 		// System.out.println(viaRossi.toString());
