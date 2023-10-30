@@ -10,7 +10,7 @@ public class Parcheggio {
 	static final float TARIFFA_ORARIA = 5;
 	private int numeroDiPosti;
 	private Posto[] posti;
-	private float totaleGiornaliero;
+	private float totaleGiornaliero = 0;
 	/**
 	 * Crea un parcheggio con this.numeroDiPosti posti, dove le coordinate dei posti sono tutte sull'asse delle y, variando solo la x.
 	 * Nessun parametro richiesto
@@ -45,7 +45,6 @@ public class Parcheggio {
 				posti[postoLibero].posteggio(a);
 				break;
 			}
-			System.out.println("Posti esauriti!");
 		}
 		
 	}
@@ -71,6 +70,7 @@ public class Parcheggio {
 		for(int i = 0;i < this.numeroDiPosti; i++) {
 			if(a.getTarga().equals(posti[i].getTarga())) {
 				posti[i].liberaPosto();
+				break;
 			}
 		}
 	}
@@ -83,11 +83,11 @@ public class Parcheggio {
 	public float calcolaPrezzo(Auto a, LocalTime fineParcheggio) {
 		float oraFinale = formattaOra(fineParcheggio);
 		float oraIniziale = formattaOra(posti[trovaPostoAssociatoAuto(a)].getOraInizio());
-		System.out.println("Auto: " + a.getModello() + "\n" + "Ora di inizio parcheggio : " + posti[trovaPostoAssociatoAuto(a)].getOraInizio() + "\n" +"Ora di fine parcheggio: " + fineParcheggio + "\n");
+		
 		
 		float tariffaFinale = (oraFinale - oraIniziale)*TARIFFA_ORARIA;
 		
-		this.totaleGiornaliero = tariffaFinale;
+
 		return tariffaFinale;
 		
 	}
@@ -96,11 +96,12 @@ public class Parcheggio {
 	 * @param importo Somma di denaro che diamo per pagare il parcheggio.
 	 * @param a Oggetto di tipo Auto.
 	 * */
-	public void pagaParcheggio(float importo, Auto a) {
-		if(importo < this.totaleGiornaliero) {
+	public void pagaParcheggio(float importo, Auto a, LocalTime fineParcheggio) {
+		if(importo < calcolaPrezzo(a, fineParcheggio)) {
 			System.out.println("Importo troppo basso!\nIl parcheggio non è stato saldato");
 		}
 		else {
+			this.totaleGiornaliero += importo;
 			posti[trovaPostoAssociatoAuto(a)].liberaPosto();
 		}
 	}
@@ -118,6 +119,10 @@ public class Parcheggio {
 			mappaturaParcheggio += '\n';
 		}
 		return mappaturaParcheggio;
+	}
+	
+	public String toString(Auto a, LocalTime fineParcheggio) {
+		return "Auto: " + a.getModello() + "\n" + "Ora di inizio parcheggio : " + posti[trovaPostoAssociatoAuto(a)].getOraInizio() + "\n" +"Ora di fine parcheggio: " + fineParcheggio + "\n";
 	}
 
 	private float formattaOra(LocalTime orario) {

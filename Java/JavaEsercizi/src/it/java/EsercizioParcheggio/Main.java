@@ -12,6 +12,8 @@ public class Main {
 		Parcheggio viaRossi = new Parcheggio(numeroPostiParcheggio);
 		LocalTime ora;
 		Random rand = new Random();
+		String sceltaUscitaParcheggio = "";
+		String continua = "";
 		String marca = "";
 		String modello = "";
 		String targa = "";
@@ -34,20 +36,53 @@ public class Main {
 //		macchine[3] = new Auto("Alfa Romeo", "Stelvio", "HH 562JK");
 //		macchine[4] = new Auto("Tesla", "Model S", "JI 111MB");
 		else {
+			int contaAuto = 0;
+			String[] autoAncoraDisponibili = new String[numeroDiAuto];
+			String[] autoPosteggiate = new String[numeroDiAuto];
 			for(int i = 0;i < numeroDiAuto;i++) {
-				if(viaRossi.controlloDisponibilita()) {
-					viaRossi.assegnaPosto(macchine[i]);
-					ore = rand.nextInt((21 - LocalTime.now().getHour()+1) + 1) + LocalTime.now().getHour()+1;
-					minuti = rand.nextInt((59 - 1) + 1) + 1;
-					secondi = rand.nextInt((59 - 1) + 1) + 1;
-					ora = LocalTime.of(ore, minuti, secondi);
-					float verificaPrezzo = viaRossi.calcolaPrezzo(macchine[i], ora);
-					System.out.println("Importo da pagare: " + Math.round(viaRossi.calcolaPrezzo(macchine[i], ora)) + "€" + " " + verificaPrezzo);
-				}
-				else {
-					System.out.println("Posti attualmente insufficenti!");
-				}
+				autoAncoraDisponibili[i] = i + " " + macchine[i].toString();
 			}
+			do {
+				int scelta = getInputInt("Scegli l'operazione da fare: \n1) Parcheggiare un auto(0)\n2) Pagare il posteggio(quindi uscire)(1)\n");
+				switch (scelta) {
+					case 0:
+						for(int i = 0;i < numeroDiAuto;i++) {
+							System.out.println(autoAncoraDisponibili[i]);
+						}
+						int autoDaPosteggiare = getInputInt("Tra le auto riportate qui sopra quale deve posteggiare: ");
+						if(viaRossi.controlloDisponibilita()) {
+							viaRossi.assegnaPosto(macchine[autoDaPosteggiare]);
+							autoAncoraDisponibili[autoDaPosteggiare].replace(autoDaPosteggiare + " " + macchine[autoDaPosteggiare].toString(), " ");
+							autoPosteggiate[autoDaPosteggiare] = autoDaPosteggiare + " " + macchine[autoDaPosteggiare].toString();
+							contaAuto ++;
+						}
+						else {
+							System.out.println("Posti esauriti!");
+						}
+						break;
+					case 1:
+						if(contaAuto >= 1) {
+							sceltaUscitaParcheggio = getInputString("Qualche macchina deve uscire?");
+							if(sceltaUscitaParcheggio.equals("si")) {
+								for(int i = 0;i < contaAuto;i++) {
+									System.out.println(autoPosteggiate[i]);
+								}
+								int numeroAssociatoAuto = getInputInt("Tra le macchine riportate qui sopra quale deve uscire?");
+								ora = LocalTime.of(23, 59, 15);
+								System.out.println(viaRossi.toString(macchine[numeroAssociatoAuto], ora));
+								int importo = getInputInt("Inserisci l'importo: ");
+								viaRossi.pagaParcheggio(importo, macchine[numeroAssociatoAuto], ora);
+								autoPosteggiate[numeroAssociatoAuto].replace(numeroAssociatoAuto + " " + macchine[numeroAssociatoAuto].toString(), " ");
+							}
+						}
+						else {
+							System.out.println("Non ci sono macchine nel parcheggio!");
+						}
+						break;
+				}
+				continua = getInputString("Vuoi continuare?");
+		}
+		while(continua.equals("si"));
 		}
 		// System.out.println(viaRossi.toString());
 		

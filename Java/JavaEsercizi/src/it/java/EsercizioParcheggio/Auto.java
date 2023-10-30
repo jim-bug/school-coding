@@ -56,6 +56,6 @@ public class Auto {
 	 * Si occupa di ritornare una stringa con un resoconto dell'istanza.
 	 * @return String*/
 	public String toString() {
-		return "Auto: " + this.marca + " " + this.modello + "\n" + "Targa: " + this.targa;
+		return "Auto: " + this.marca + " " + this.modello + " " + "Targa: " + this.targa;
 	}
 }
