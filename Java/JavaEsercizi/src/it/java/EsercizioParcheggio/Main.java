@@ -37,23 +37,21 @@ public class Main {
 //		macchine[4] = new Auto("Tesla", "Model S", "JI 111MB");
 		else {
 			int contaAuto = 0;
-			String[] autoAncoraDisponibili = new String[numeroDiAuto];
-			String[] autoPosteggiate = new String[numeroDiAuto];
+			int[] autoAncoraDisponibili = new int[numeroDiAuto];
+			int[] autoPosteggiate = new int[numeroDiAuto];
 			for(int i = 0;i < numeroDiAuto;i++) {
-				autoAncoraDisponibili[i] = i + " " + macchine[i].toString();
+				autoAncoraDisponibili[i] = i;
 			}
 			do {
 				int scelta = getInputInt("Scegli l'operazione da fare: \n1) Parcheggiare un auto(0)\n2) Pagare il posteggio(quindi uscire)(1)\n");
 				switch (scelta) {
 					case 0:
-						for(int i = 0;i < numeroDiAuto;i++) {
-							System.out.println(autoAncoraDisponibili[i]);
-						}
+						elencaAuto(macchine, autoAncoraDisponibili, numeroDiAuto);
 						int autoDaPosteggiare = getInputInt("Tra le auto riportate qui sopra quale deve posteggiare: ");
 						if(viaRossi.controlloDisponibilita()) {
 							viaRossi.assegnaPosto(macchine[autoDaPosteggiare]);
-							autoAncoraDisponibili[autoDaPosteggiare].replace(autoDaPosteggiare + " " + macchine[autoDaPosteggiare].toString(), " ");
-							autoPosteggiate[autoDaPosteggiare] = autoDaPosteggiare + " " + macchine[autoDaPosteggiare].toString();
+							autoPosteggiate[autoDaPosteggiare] =  autoAncoraDisponibili[autoDaPosteggiare]; // assegno al vettore delle macchine che hanno posteggiato la macchina che ha appena posteggiato
+							autoAncoraDisponibili[autoDaPosteggiare] = -1; // key che definisce che la macchina è posteggiata
 							contaAuto ++;
 						}
 						else {
@@ -64,21 +62,22 @@ public class Main {
 						if(contaAuto >= 1) {
 							sceltaUscitaParcheggio = getInputString("Qualche macchina deve uscire?");
 							if(sceltaUscitaParcheggio.equals("si")) {
-								for(int i = 0;i < contaAuto;i++) {
-									System.out.println(autoPosteggiate[i]);
-								}
+								elencaAuto(macchine, autoPosteggiate, numeroDiAuto);
 								int numeroAssociatoAuto = getInputInt("Tra le macchine riportate qui sopra quale deve uscire?");
 								ora = LocalTime.of(23, 59, 15);
 								System.out.println(viaRossi.toString(macchine[numeroAssociatoAuto], ora));
 								int importo = getInputInt("Inserisci l'importo: ");
 								viaRossi.pagaParcheggio(importo, macchine[numeroAssociatoAuto], ora);
-								autoPosteggiate[numeroAssociatoAuto].replace(numeroAssociatoAuto + " " + macchine[numeroAssociatoAuto].toString(), " ");
+								autoAncoraDisponibili[numeroAssociatoAuto] = numeroAssociatoAuto;
+								autoPosteggiate[numeroAssociatoAuto] = -1;
 							}
 						}
 						else {
 							System.out.println("Non ci sono macchine nel parcheggio!");
 						}
 						break;
+					default:
+						System.out.println("Nessuna delle opzione scelta è valida!");
 				}
 				continua = getInputString("Vuoi continuare?");
 		}
@@ -100,5 +99,13 @@ public class Main {
 			input.next();
 		}
 		return input.nextInt();
+	}
+	public static void elencaAuto(Auto[] veic, int[] elenco, int numeroAuto) {
+		for(int i = 0;i < numeroAuto;i++) {
+			if(elenco[i] == -1) {
+				continue;
+			}
+			System.out.println(veic[elenco[i]]);
+		}
 	}
 }

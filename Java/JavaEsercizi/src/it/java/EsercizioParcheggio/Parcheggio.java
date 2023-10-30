@@ -101,7 +101,13 @@ public class Parcheggio {
 			System.out.println("Importo troppo basso!\nIl parcheggio non è stato saldato");
 		}
 		else {
-			this.totaleGiornaliero += importo;
+			if(importo == calcolaPrezzo(a, fineParcheggio)) {
+				this.totaleGiornaliero += importo;
+			}
+			else {
+				this.totaleGiornaliero += importo;
+				System.out.println("Resto: " + (importo - calcolaPrezzo(a, fineParcheggio)));
+			}
 			posti[trovaPostoAssociatoAuto(a)].liberaPosto();
 		}
 	}
@@ -122,7 +128,7 @@ public class Parcheggio {
 	}
 	
 	public String toString(Auto a, LocalTime fineParcheggio) {
-		return "Auto: " + a.getModello() + "\n" + "Ora di inizio parcheggio : " + posti[trovaPostoAssociatoAuto(a)].getOraInizio() + "\n" +"Ora di fine parcheggio: " + fineParcheggio + "\n";
+		return "Auto: " + a.getModello() + "\n" + "Ora di inizio parcheggio : " + posti[trovaPostoAssociatoAuto(a)].getOraInizio() + "\n" +"Ora di fine parcheggio: " + fineParcheggio + "\n" + "Importo da pagare: " + calcolaPrezzo(a, fineParcheggio);
 	}
 
 	private float formattaOra(LocalTime orario) {
