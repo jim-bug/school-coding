@@ -62,7 +62,7 @@ public class Main {
 						if(contaAuto >= 1) {
 							sceltaUscitaParcheggio = getInputString("Qualche macchina deve uscire?");
 							if(sceltaUscitaParcheggio.equals("si")) {
-								elencaAuto(macchine, autoPosteggiate, numeroDiAuto);
+								elencaAuto(macchine, autoPosteggiate, contaAuto);
 								int numeroAssociatoAuto = getInputInt("Tra le macchine riportate qui sopra quale deve uscire?");
 								ora = LocalTime.of(23, 59, 15);
 								System.out.println(viaRossi.toString(macchine[numeroAssociatoAuto], ora));
@@ -105,7 +105,7 @@ public class Main {
 			if(elenco[i] == -1) {
 				continue;
 			}
-			System.out.println(veic[elenco[i]]);
+			System.out.println(i + " " + veic[elenco[i]]);
 		}
 	}
 }
