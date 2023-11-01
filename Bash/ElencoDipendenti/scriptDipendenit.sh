@@ -4,28 +4,40 @@ listaDipendentiVecchi=()
 listaDipendentiNuovi=()
 cont=0
 while read -r riga; do
-    mkdir $riga 2>/dev/null
+    mkdir "$riga" 2>/dev/null
     listaDipendentiNuovi[$cont]=$riga
     cont=$((cont+1))
 done < ../ElencoDipendenti.txt
-ls -d */ > ElencoVecchiDipendenti.txt
+
+ls -d */ > ElencoVecchiDipendenti.txt   # tutte le cartelle delle directory corrente le scrivo in un file.
 # cat ElencoVecchiDipendenti.txt
+
 cont=0
 while read -r riga; do
-    # mkdir $riga 2>/dev/null
-    # len=${#riga}
-    # echo $len
-    # len=$((len-2))
-    listaDipendentiVecchi[$cont]=$riga  # non comprendo il / finale
+    listaDipendentiVecchi[$cont]="$riga"
     cont=$((cont+1))
 done < ElencoVecchiDipendenti.txt
 
 cont=0
-while read -r riga; do
-    if [[ "$riga/" != "${listaDipendentiVecchi[$cont]}" ]]; then
-        echo ${listaDipendentiVecchi[$cont]} " " $riga
-        
-        rm -r ${listaDipendentiVecchi[$cont]}/
-    fi
-    cont=$((cont+1))
-done < ../ElencoDipendenti.txt
+dipendentiLicenziati=()
+temp=0
+for i in ${listaDipendentiVecchi[@]}; do
+    for j in ${listaDipendentiNuovi[@]}; do
+        if [[ "$i" == "$j/" ]]; then
+            temp=0
+            break
+        else
+            temp="$i"
+        fi
+    done
+    dipendentiLicenziati[$cont]=$temp
+    rm -r $temp 2>/dev/null
+    cont=$((cont1+1))
+done
+
+for i in ${dipendentiLicenziati[@]}; do
+    echo $i     # capisco chi è stato licenziato
+    # rm -r $i 2>/dev/null
+done
+    
+
