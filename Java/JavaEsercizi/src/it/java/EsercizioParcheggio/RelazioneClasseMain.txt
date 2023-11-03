@@ -1,0 +1,52 @@
+Relazione classe Main del paccheto it.java.EsercizioParcheggio.
+
+Importo 3 classi di cui avrò bisogno:
+1) java.time.LocalTime usata per l'orario di uscita dei veicoli
+2) java.util.Random usata per generare randomicamente l'orario di uscita.
+3) java.util.Scanner usata per richiedere valori da console.
+
+Comincio subito col dichiarare e inizializzare tutte le variabil/oggetti di cui avrò bisogno, ad eccezione di alcuni oggetti che verrano inizializzati più in avanti.
+Realizzo un for che si itera per il numero di auto dichiarate, dentro questo for chiederò gli attributi:
+
+1) Marca del veicolo.
+2) Modello del veicolo.
+3) Targa del veicolo.
+
+Una volta presi tutti questi attributi in input, inizializzo l'oggetto i-esimo di Auto passandogli come parametri le variabili chieste in input in precedenza.
+Da qui in poi ho costruito un costruttore selettivo, che verifica se il numero di auto è minore o uguale a 0, fermo subito l'esecuzione del programma con un messaggio in output. Se invece c'è almeno un auto, allora
+nel blocco else dichiaro un contatore(contaAuto, usato per capire quante auto hanno parcheggiato) e due array di tipo int. Parliamo di questi 2 array:
+
+autoAncoraDisponibili:
+	Lunghezza: numeroDiAuto
+	Valori di default: valori da 0 a numeroDiAuto - 1
+	Perchè questi valori: per evitare di fare un array di stringhe ho voluto usare gli indici associati alle auto.
+	Scopo: contentere gli indici delle auto non parcheggiate, se un indice è -1 allora la macchina sarà parcheggiata..
+
+autoPosteggiate:
+	Lunghezza: numeroDiAuto
+	Valori di default: -1 per il numeroDiAuto.
+	Perchè questi valori: per evitare di fare un array di stringhe, ho voluto associare ai posti disponibli -1.
+	Scopo: contenere gli indici associati alle Auto che sono parcheggiate, se un indice è -1 significa che il posto è libero.
+
+Dopodichè ho realizzato uno switch case di 3 casi:
+
+0) Parcheggiare l'auto
+1) Uscire l'auto
+2) Resoconto dei posteggi
+
+Caso 0:
+Chiamo un metodo statico che mi mandi a video le auto che posso posteggiare(usando l'array autoAncoraDisponibili). Usando gli indici, chiedo all'utente quale Auto vuole posteggiare, prima di posteggiarla chiamo il metodo dell'istanza viaRossi, .controlloDisponibilita(), che ritorna true se almeno un posto è libero, se lo è assegno il posto all'auto scelta usando il metodo .assegnaPosto(). Infine sovrascrivo la posizione dell'array autoPosteggiate[autoDaPosteggiare] con l'indice dell'auto scelto e nell'array autoAncoraDisponibili(nella posizione dell'auto scelta) sovrascrivo con -1 e incremento contaAuto.
+Se .controlloDisponibilita() ritorna false, mando a video Posti esauriti!
+
+Caso 1:
+Verifico se il numero di macchine posteggiate è maggiore o uguale a 1. Se lo è mando a video le auto posteggiate(usando l'array autoPosteggiate), chiedo all'utente quale auto deve far uscire, genero in maniera randomica ore minuti e secondi e istanzio l'oggetto orarioFinale chiamando il metodo .of(ore, minuti, secondi). Usando il metodo .toString() mando a video un resoconto di quell'auto chiedendo di inserire l'importo per il parcheggio e chiamando il metodo .pagaParcheggio(). Infine nell'array autoAncoraDisponibili alla posizione dell'auto scelta sovrascrivo con l'auto scelta invece nell'array autoPosteggiate alla posizione dell'auto scelta sovrascrivo -1.
+
+Caso 2:
+Mando a video un resoconto del parcheggio.
+
+
+
+Autore: Ignazio Leonardo Calogero Sperandeo.
+Classe: 4C informatica.
+
+Risorse usate: https://docs.oracle.com/javase/8/docs/api/

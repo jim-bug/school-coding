@@ -107,8 +107,9 @@ public class Parcheggio {
 			else {
 				this.totaleGiornaliero += importo;
 				System.out.println("Resto: " + (importo - calcolaPrezzo(a, fineParcheggio)));
+				posti[trovaPostoAssociatoAuto(a)].liberaPosto();
 			}
-			posti[trovaPostoAssociatoAuto(a)].liberaPosto();
+			
 		}
 	}
 	/**
@@ -118,11 +119,18 @@ public class Parcheggio {
 	public String toString() {
 		String mappaturaParcheggio = "";
 		for(int i = 0;i < this.numeroDiPosti;i++) {
-			mappaturaParcheggio += '\n';
-			mappaturaParcheggio += posti[i].getTarga();
-			mappaturaParcheggio += '\n';
-			mappaturaParcheggio += posti[i].getX() + " " + posti[i].getY();
-			mappaturaParcheggio += '\n';
+			if(posti[i].getTarga().equals("VEICOLO USCITO")) {
+				mappaturaParcheggio += "Targa Auto: " + posti[i].getTarga() + " ";
+				mappaturaParcheggio += "Coordinate Posteggio: " + posti[i].getX() + " " + posti[i].getY() + " ";
+				mappaturaParcheggio += "Orario ingresso: .....";
+				mappaturaParcheggio += '\n';
+			}
+			else {
+				mappaturaParcheggio += "Targa Auto: " + posti[i].getTarga() + " ";
+				mappaturaParcheggio += "Coordinate Posteggio: " + posti[i].getX() + " " + posti[i].getY() + " ";
+				mappaturaParcheggio += "Orario ingresso: " + posti[i].getOraInizio();
+				mappaturaParcheggio += '\n';
+			}
 		}
 		return mappaturaParcheggio;
 	}

@@ -71,7 +71,7 @@ public class Posto {
 	}
 	public void liberaPosto() {
 		this.occupato = false;
-		this.targa = "X";
+		this.targa = "VEICOLO USCITO";
 	}
 	
 }

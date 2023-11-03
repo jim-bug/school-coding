@@ -2,7 +2,6 @@ package it.java.EsercizioParcheggio;
 import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
-import java.lang.Math;
 public class Main {
 
 	public static void main(String[] args) {
@@ -10,16 +9,16 @@ public class Main {
 		int numeroPostiParcheggio = getInputInt("Inserisci il numero di posti: ");
 		Auto[] macchine = new Auto[numeroDiAuto];
 		Parcheggio viaRossi = new Parcheggio(numeroPostiParcheggio);
-		LocalTime ora;
+		LocalTime orarioFinale;
 		Random rand = new Random();
 		String sceltaUscitaParcheggio = "";
 		String continua = "";
 		String marca = "";
 		String modello = "";
 		String targa = "";
-		int ore = 0;
-		int minuti = 0;
-		int secondi = 0;
+		int oreFinale = 0;
+		int minutiFinali = 0;
+		int secondiFinali = 0;
 		
 		for(int i = 0; i < numeroDiAuto; i++) {
 			marca = getInputString("Inserisci la marca dell'auto numero " + i);
@@ -27,23 +26,19 @@ public class Main {
 			targa = getInputString("Inserisci la targa dell'auto numero " + i);
 			macchine[i] = new Auto(marca, modello, targa);
 		}
-		if(numeroDiAuto == 0) {
+		if(numeroDiAuto <= 0) {
 			System.out.println("Macchine insufficenti, non puoi posteggiare nulla!");
 		}
-//		macchine[0] = new Auto("Audi", "R8", "AF 123ER");
-//		macchine[1] = new Auto("Audi", "A5", "IO 667UI");
-//		macchine[2] = new Auto("Alfa Romeo", "Giulia", "RM 444RF");
-//		macchine[3] = new Auto("Alfa Romeo", "Stelvio", "HH 562JK");
-//		macchine[4] = new Auto("Tesla", "Model S", "JI 111MB");
 		else {
 			int contaAuto = 0;
 			int[] autoAncoraDisponibili = new int[numeroDiAuto];
 			int[] autoPosteggiate = new int[numeroDiAuto];
 			for(int i = 0;i < numeroDiAuto;i++) {
 				autoAncoraDisponibili[i] = i;
+				autoPosteggiate[i] = -1;
 			}
 			do {
-				int scelta = getInputInt("Scegli l'operazione da fare: \n1) Parcheggiare un auto(0)\n2) Pagare il posteggio(quindi uscire)(1)\n");
+				int scelta = getInputInt("Scegli l'operazione da fare: \n0) Parcheggiare un auto\n1) Pagare il posteggio(quindi uscire)\n2) Visualizzare resoconto\n");
 				switch (scelta) {
 					case 0:
 						elencaAuto(macchine, autoAncoraDisponibili, numeroDiAuto);
@@ -60,22 +55,26 @@ public class Main {
 						break;
 					case 1:
 						if(contaAuto >= 1) {
-							sceltaUscitaParcheggio = getInputString("Qualche macchina deve uscire?");
-							if(sceltaUscitaParcheggio.equals("si")) {
-								elencaAuto(macchine, autoPosteggiate, contaAuto);
-								int numeroAssociatoAuto = getInputInt("Tra le macchine riportate qui sopra quale deve uscire?");
-								ora = LocalTime.of(23, 59, 15);
-								System.out.println(viaRossi.toString(macchine[numeroAssociatoAuto], ora));
-								int importo = getInputInt("Inserisci l'importo: ");
-								viaRossi.pagaParcheggio(importo, macchine[numeroAssociatoAuto], ora);
-								autoAncoraDisponibili[numeroAssociatoAuto] = numeroAssociatoAuto;
-								autoPosteggiate[numeroAssociatoAuto] = -1;
-							}
+							elencaAuto(macchine, autoPosteggiate, numeroDiAuto);
+							int numeroAssociatoAuto = getInputInt("Tra le macchine riportate qui sopra quale deve uscire?");
+							oreFinale = rand.nextInt(((23 - LocalTime.now().getHour() + 1) + 1)) + LocalTime.now().getHour() + 1;
+							minutiFinali = rand.nextInt((59 - 1) + 1) + 1;
+							secondiFinali = rand.nextInt((59 - 1) + 1) + 1;
+							orarioFinale = LocalTime.of(oreFinale,  minutiFinali, secondiFinali);
+							System.out.println(viaRossi.toString(macchine[numeroAssociatoAuto], orarioFinale));
+							int importo = getInputInt("Inserisci l'importo: ");
+							viaRossi.pagaParcheggio(importo, macchine[numeroAssociatoAuto], orarioFinale);
+							autoAncoraDisponibili[numeroAssociatoAuto] = numeroAssociatoAuto;
+							autoPosteggiate[numeroAssociatoAuto] = -1;
 						}
 						else {
 							System.out.println("Non ci sono macchine nel parcheggio!");
 						}
 						break;
+					case 2:
+						System.out.println(viaRossi.toString());
+						break;
+						
 					default:
 						System.out.println("Nessuna delle opzione scelta è valida!");
 				}
@@ -83,9 +82,9 @@ public class Main {
 		}
 		while(continua.equals("si"));
 		}
-		// System.out.println(viaRossi.toString());
 		
 	}
+	
 	public static String getInputString(String message) {
 		Scanner input = new Scanner(System.in);
 		System.out.println(message);
