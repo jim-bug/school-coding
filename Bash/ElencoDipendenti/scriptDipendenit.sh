@@ -33,16 +33,16 @@ for i in ${listaDipendentiVecchi[@]}; do
             temp="$i"
         fi
     done
-    # dipendentiLicenziati[$cont]=$temp
+    dipendentiLicenziati[$cont]=$temp
     rm -r $temp 2>/dev/null
-    cont=$((cont1+1))
+    cont=$((cont+1))
 done
 
 # se si vuole vedere chi è stato licenziato, levare il commento alla riga 36
-# for i in ${dipendentiLicenziati[@]}; do
-    # if [[ $i == 0]]; then
-    #    continue
-    #fi
-    # echo $i     # capisco chi è stato licenziato
-    # rm -r $i 2>/dev/null
-# done
+for i in ${dipendentiLicenziati[@]}; do
+    if [[ $i == 0 ]]; then
+        continue
+    fi
+    echo $i     # capisco chi è stato licenziato
+    rm -r $i 2>/dev/null
+done
