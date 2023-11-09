@@ -81,7 +81,15 @@ public class Main {
 		}
 		while(continua.equals("si"));
 		}
-		
+		/*
+		 * Overload e Override:
+		 * Override stessa firma del metodo, cambia il corpo.
+		 * Overload, può cambiare il tipo di parametri, tipo di ritorno.
+		 * 
+		 * Nodi: composto da un valore e un link al prossimo valore.
+		 * Lista dinamica: insieme finito di nodi.
+		 * 
+		 * */
 	}
 	
 	public static String getInputString(String message) {
