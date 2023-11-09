@@ -107,7 +107,7 @@ public class Parcheggio {
 			else {
 				this.totaleGiornaliero += importo;
 				System.out.println("Resto: " + (importo - calcolaPrezzo(a, fineParcheggio)));
-				posti[trovaPostoAssociatoAuto(a)].liberaPosto();
+				liberaPosto(a);
 			}
 			
 		}

@@ -10,6 +10,7 @@ set year=%date:~6%
 if %month% LSS 09 (
 	set /a "month=%month:~1%"
 )
+
 set /a "julian=%day%+(153*%month%+2)/5+%year%*365+%year%/4-%year%/100+%year%/400-32045"
 rem trovo il giorno della settimana
 set /a "day_week=%julian% %% 7"

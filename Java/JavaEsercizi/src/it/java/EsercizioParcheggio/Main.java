@@ -11,7 +11,6 @@ public class Main {
 		Parcheggio viaRossi = new Parcheggio(numeroPostiParcheggio);
 		LocalTime orarioFinale;
 		Random rand = new Random();
-		String sceltaUscitaParcheggio = "";
 		String continua = "";
 		String marca = "";
 		String modello = "";
@@ -62,7 +61,7 @@ public class Main {
 							secondiFinali = rand.nextInt((59 - 1) + 1) + 1;
 							orarioFinale = LocalTime.of(oreFinale,  minutiFinali, secondiFinali);
 							System.out.println(viaRossi.toString(macchine[numeroAssociatoAuto], orarioFinale));
-							int importo = getInputInt("Inserisci l'importo: ");
+							float importo = getInputInt("Inserisci l'importo: ");
 							viaRossi.pagaParcheggio(importo, macchine[numeroAssociatoAuto], orarioFinale);
 							autoAncoraDisponibili[numeroAssociatoAuto] = numeroAssociatoAuto;
 							autoPosteggiate[numeroAssociatoAuto] = -1;
