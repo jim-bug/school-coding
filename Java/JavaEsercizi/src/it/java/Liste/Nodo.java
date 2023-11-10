@@ -18,7 +18,7 @@ public class Nodo {
 		return this.valore;
 	}
 	
-	public void setNext(Nodo Next) {
+	public void setNext(Nodo next) {
 		this.next = next;
 	}
 	

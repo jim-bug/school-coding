@@ -6,7 +6,12 @@ public class Main {
 		Lista lista = new Lista();
 		lista.inserisci("ciao");
 		lista.inserisci("come");
-
+		lista.inserisci("stai");
+		lista.inserisci("spero");
+		lista.inserisci("bene");
+		lista.inserisci("dai");
+		lista.stampa();
+		System.out.println(lista.len);
 	}
 
 }
