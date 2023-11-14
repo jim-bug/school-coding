@@ -2,19 +2,19 @@ package it.java.Liste;
 // Lista: insieme finito di nodi.
 // Nodi: composti da valore e link all'elemento successivo.
 public class Nodo {
-	private String valore;
+	private int valore;
 	private Nodo next;
 	
-	public Nodo(String valore) {
+	public Nodo(int valore) {
 		this.valore = valore;
 		this.next = null;
 	}
 	
-	public void setValore(String valore) {
+	public void setValore(int valore) {
 		this.valore = valore;
 	}
 	
-	public String getValore() {
+	public int getValore() {
 		return this.valore;
 	}
 	
