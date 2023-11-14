@@ -22,12 +22,11 @@ public class Lista {
 	}
 	public void stampa() {
 		Nodo temp;
-		temp = head; // ciao
+		temp = head;
 		while(temp != null) {
 			System.out.println(temp.getValore());
 			temp = temp.getNext();
 			len ++;
 		}
 	}
-	
 }
