@@ -1,23 +1,19 @@
 package it.java.Liste;
+import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
-//		Lista lista = new Lista();
-//		lista.inserisci("ciao");
-//		lista.inserisci("come");
-//		lista.inserisci("stai");
-//		lista.inserisci("spero");
-//		lista.inserisci("bene");
-//		lista.inserisci("dai");
-//		lista.stampa();
-//		System.out.println(lista.len);
-		Pila pila = new Pila();
-		pila.push(1);
-		pila.push(2);
-		pila.push(3);
-		pila.push(4);
-		pila.pop();
+		Lista lista = new Lista();
+		int numeroNodi = 5;
+		for(int i = 0;i < numeroNodi;i ++) {
+			lista.inserisci(getStrInput("Inserisci il nodo alla posizione " + i + ": "));
+		}
+		lista.stampa();
+		
 	}
-
+	public static String getStrInput(String message) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(message);
+		return input.nextLine();
+	}
 }

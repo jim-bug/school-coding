@@ -1,25 +1,44 @@
-<<<<<<< HEAD
 package it.java.Liste;
 
 public class Lista {
 	private Nodo head;
 	private Nodo tail;
-	public int len;
+	private int len;
 	
-	public void inserisci(String str) {
-		Nodo n = new Nodo(str);
+	public void inserisci(String val) {
+		Nodo n = new Nodo(val);
 		Nodo temp, next;
+		boolean inserito;
 		
 		if(head == null) {
-			head = n;
-			tail = n;
+			head = tail = n;
 		}
 		else {
-			tail.setNext(n);
-			// System.out.println(tail.getNext().getValore());
-			tail = n;
-			// System.out.println(head.getValore() + " " + head.getNext().getValore());
+			if(val.compareTo(head.getValore()) < 0) {
+				n.setNext(head);
+				head = n;
+			}
+			else {
+				inserito = false;
+				temp = head;
+				next = head.getNext();
+				while (next != null) {
+					if(val.compareTo(next.getValore()) < 0) {
+						temp.setNext(n);
+						n.setNext(next);
+						inserito = true;
+						break;
+					}
+					temp = next;
+					next = next.getNext();
+				}
+				if(!inserito) {
+					tail.setNext(n);
+					tail = n;
+				}
+			}
 		}
+		this.len ++;
 	}
 	public void stampa() {
 		Nodo temp;
@@ -27,42 +46,11 @@ public class Lista {
 		while(temp != null) {
 			System.out.println(temp.getValore());
 			temp = temp.getNext();
-			len ++;
 		}
+		System.out.println("La lista è di: " + this.len);
+	}
+	
+	public int getLen() {
+		return this.len;
 	}
 }
-=======
-//package it.java.Liste;
-//
-//public class Lista {
-//	private Nodo head;
-//	private Nodo tail;
-//	public int len;
-//	
-//	public void inserisci(String str) {
-//		Nodo n = new Nodo(str);
-//		Nodo temp, next;
-//		
-//		if(head == null) {
-//			head = n;
-//			tail = n;
-//		}
-//		else {
-//			tail.setNext(n);
-//			// System.out.println(tail.getNext().getValore());
-//			tail = n;
-//			// System.out.println(head.getValore() + " " + head.getNext().getValore());
-//		}
-//	}
-//	public void stampa() {
-//		Nodo temp;
-//		temp = head; // ciao
-//		while(temp != null) {
-//			System.out.println(temp.getValore());
-//			temp = temp.getNext();
-//			len ++;
-//		}
-//	}
-//	
-//}
->>>>>>> 082f2dca98aeb4fed9b7f4baf843fc5d4edc996a
