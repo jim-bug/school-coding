@@ -3,8 +3,10 @@ scelta=$1
 
 if [[ "$scelta" == "mod" ]]; then
     folder=$(ls -d */)
+    echo $percorso$folder
     echo "Autenticazione per la sovrascrittura: "
-    ssh jim_bug@jimOffice 'find $percorso$folder* -type f -delete ; exit'   # accedo da remoto al server, ed elimino tutti i file
+    # ssh jim_bug@jimOffice "find $percorso$folder -mindepth 1 -type f,l,d -delete"  # accedo da remoto al server, ed elimino tutti i file
+    ssh jim_bug@jimOffice "rm -r $percorso$folder"
     echo "Autenticazione per l'aggiornamento: "
     scp -r ls -d */ jim_bug@jimOffice:$percorso 2>/dev/null # copio da remoto tutti i nuovi file
 else
