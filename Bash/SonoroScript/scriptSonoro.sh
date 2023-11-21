@@ -1,12 +1,6 @@
-percorso="Lavoro/Privato/CatalogoSonoro/"
-scp -r jim_bug@jimOffice:$percorso /home/jim_bug/school-coding/Bash/SonoroScript
-ls CatalogoSonoro > fileSonori.txt
-
-while read -r riga; do
-    file CatalogoSonoro/$riga | grep -E '44.1|44100' > temp.txt
-    if [[ ! -s temp.txt ]]; then
-        rm CatalogoSonoro/$riga
-    fi
-    rm temp.txt
-    
-done < fileSonori.txt
+percorso="Lavoro/Privato"
+mkdir CatalogoSonoro 2>/dev/null
+echo "Autenticazione per la copia dello script: "
+scp scriptSonoroRemoto.sh jim_bug@jimOffice:
+echo "Autenticazione per l'esecuzione: "
+ssh jim_bug@jimOffice "bash scriptSonoroRemoto.sh"
