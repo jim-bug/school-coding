@@ -16,8 +16,8 @@ public class Passegero {
 		return nome;
 	}
 	public void getDatiVolo() {
-		for(int i = 0; i < this.numeroVoliPrenotati;i++) {
-			System.out.println("Il passegero " + this.nome + "ha prenotato un volo per " + voliPrenotati[i].getDestinazione());
+		for(int i = 0; i < numeroVoliPrenotati; i++) {
+			System.out.println("\tVolo " + (int)i+1 + " di "+ this.nome + voliPrenotati[i].getDestinazione() + " in partenza: " + voliPrenotati[i].getDataDiPartenza().toString());
 		}
 	}
 	public void setNome(String nome) {

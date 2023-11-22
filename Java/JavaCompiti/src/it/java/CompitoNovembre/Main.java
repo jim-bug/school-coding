@@ -1,44 +1,68 @@
 package it.java.CompitoNovembre;
 import java.util.Scanner;
 import java.time.LocalDate;
-public class Main {
+import java.util.Random;
 
+public class Main {
+	// 	PREMESSA: non è il codice consegnato in classe, questo codice è stato revisionato e aggiustato subito dopo la verifica.
+	/*
+	 * per generare un numero casuale da min a max si fa nella seguente maniera:
+	 * int num = random.nextInt(max - min + 1) + min
+	 * 
+	 * */
+	
 	public static void main(String[] args) {
 		int numeroPassegeri = getIntInput("Inserisci il numero di passegeri: ");
-		int numeroVoli = 3;
+		int numeroVoli = getIntInput("Inserisci il numero di voli: ");
 		int numeroVolo = 0;
+		int voliPerPassegero = 0;
+		int giorno = 0;
+		int mese = 0;
+		int anno = 0;
 		String destinazione = "";
 		String nome = "";
 		String cognome = "";
 		LocalDate dataDiPartenza = LocalDate.now();
+		Random random = new Random();
 		Passegero[] passegeri = new Passegero[numeroPassegeri];
 		Volo[] voli = new Volo[numeroVoli];
-		CompagniaAerea ita = new CompagniaAerea();
+		CompagniaAerea ita = new CompagniaAerea(numeroVoli, numeroPassegeri);
 		for(int i = 0;i < numeroVoli;i++) {
 			destinazione = getStringInput("Inserisci la destinazione del volo " + i + ": ");
-			dataDiPartenza = LocalDate.now();	// momentaneamente in hardcode
-			voli[i] = new Volo(i, destinazione, dataDiPartenza, 500);
-		}
-		for(int i = 0;i < numeroVoli;i++) {
-			System.out.println(voli[i].getDestinazione() + " di volo " + i);
+			int temp = LocalDate.now().getMonthValue();
+			giorno = random.nextInt(31 - 1 + 1) + 1;
+			anno = random.nextInt(2024 - 2023 + 1) + 2023;
+			if(anno == 2023) {
+				mese = random.nextInt(12 - (temp+1) + 1) + temp; // un volo al massimo può essere fissato da un mese dalla data corrente(se l'anno coincide)
+			}
+			else {
+				mese = random.nextInt(12 - 1 + 1) + 1;
+			}
+			dataDiPartenza = LocalDate.of(anno, mese, mese);
+			voli[i] = new Volo(i, destinazione, dataDiPartenza, 500);	// impongo(in hardcode) che i posti liberi siano 500 per volo.
 			ita.aggiungiVolo(voli[i]);
 		}
+		ita.getElencoVoli();
 		for(int i = 0;i < numeroPassegeri;i++) {
 			nome = getStringInput("Inserisci il nome del passegero " + i + ": ");
 			cognome = getStringInput("Inserisci il conome del passegero " + i + ": ");
-			numeroVolo = getIntInput("Inserisci il numero di volo: ");
 			passegeri[i] = new Passegero(nome, cognome, i);
-			passegeri[i].prenotaVolo(numeroVolo, voli[numeroVolo]);
+			voliPerPassegero = getIntInput("Quanti voli vuoi prenotare per " + nome + ": ");
+			while(voliPerPassegero > numeroVoli) {	// non posso prenotare per passeggero più voli di quanti sono stati publicati.
+				System.out.println("Al momento si dispone di " + numeroVoli + " massimi, riprova: ");
+				voliPerPassegero = getIntInput("Quanti voli vuoi prenotare per " + nome + ": ");
+			}
+			for(int j = 0;j < voliPerPassegero;j++) {
+				numeroVolo = getIntInput("Inserisci la prenotazione " + j + " per " + nome + ": ");
+				passegeri[i].prenotaVolo(numeroVolo, voli[numeroVolo]);
+			}
+
 		}
 		for(int i = 0;i < numeroPassegeri;i++) {
-			passegeri[i].getDatiVolo();
 			ita.aggiungiPassegero(passegeri[i]);
 		}
-		for(int i = 0;i < numeroVoli;i++) {
-			ita.aggiungiVolo(voli[i]);
-		}
 		ita.getElencoPassegeri();
-		ita.getElencoVoli();
+		
 		
 		
 	}

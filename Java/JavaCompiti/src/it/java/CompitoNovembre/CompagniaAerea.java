@@ -2,29 +2,32 @@ package it.java.CompitoNovembre;
 
 public class CompagniaAerea {
 	private int numeroVoli;
-	private int numeroPassegero;
-	private int numeroPassegeriInseriti;
-	private int numeroVoliInseriti;
-	private Volo[] elencoVoli = new Volo[numeroVoli];
-	private Passegero[] elencoPassegeri = new Passegero[numeroPassegero];
-	public CompagniaAerea(int numeroVoli, int numeroPassegero) {
-		this.numeroVoli = numeroVoli;
-		this.elencoVoli = elencoVoli;
-	}
-	public CompagniaAerea() {};
+	private int numeroPassegeri;
+	private int numeroPassegeriInseriti = 0;
+	private int numeroVoliInseriti = 0;
+	private Volo[] elencoVoli;
+	private Passegero[] elencoPassegeri;
+	public CompagniaAerea(int numeroVoli, int numeroPassegeri) {
+		setNumeroPassegero(numeroPassegeri);
+		setNumeroVoli(numeroVoli);
+		elencoVoli = new Volo[numeroVoli];
+		elencoPassegeri = new Passegero[numeroPassegeri];
+	};
 	public int getNumeroVoli() {
 		return numeroVoli;
 	}
 	public void setNumeroVoli(int numeroVoli) {
 		this.numeroVoli = numeroVoli;
 	}
+
 	public int getNumeroPassegero() {
-		return numeroPassegero;
+		return numeroPassegeri;
 	}
 	public void setNumeroPassegero(int numeroPassegero) {
-		this.numeroPassegero = numeroPassegero;
+		this.numeroPassegeri = numeroPassegero;
 	}
 	public void aggiungiPassegero(Passegero passegero) {
+		System.out.println(numeroPassegeriInseriti);
 		elencoPassegeri[numeroPassegeriInseriti] = passegero;
 		numeroPassegeriInseriti ++;
 	}
@@ -34,12 +37,13 @@ public class CompagniaAerea {
 	}
 	public void getElencoPassegeri() {
 		for(int i = 0;i < numeroPassegeriInseriti;i++) {
-			System.out.println("Passegero: " + elencoPassegeri[i].getNome());
+			System.out.println("Passegero: " + elencoPassegeri[i].getNome() + " dati voli: ");
+			elencoPassegeri[i].getDatiVolo();
 		}
 	}
 	public void getElencoVoli() {
 		for(int i = 0;i < numeroVoliInseriti;i++) {
-			System.out.println("Passegero: " + elencoVoli[i].getDestinazione());
+			System.out.println("Volo: " + elencoVoli[i].getDestinazione() + " numero: " + i + " data di partenza prevista: " + elencoVoli[i].getDataDiPartenza().toString());
 		}
 	}
 
