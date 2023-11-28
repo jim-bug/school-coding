@@ -1,0 +1,30 @@
+scriptSonoro.sh
+    Questo script è lo script che eseguirà sempre l'utente o meglio dire staff. Effettua una copia dello scriptSonoroRemoto.sh e poi lo esegue da remoto,
+    infine manda a video il contenuto della cartella CatalogoSonoro/
+
+scriptSonoroRemoto.sh
+    Prima soluzione proposta da Ignazio durante la fase di progettazione assieme a Benedetto. Consiste nel fatto di andare a "settacciare" il catalogo sonoro del server
+    e copiare i file interessati direttamente nel locale da cui è stato eseguito.
+
+    Inizialmente salvo in una variabile il percorso di destinazione(locale), dopo entro nella directory dove è presente il catalogo sonoro del server,
+    in un file salvo tutto il contenuto del catalogo sonoro del server, quindi tutti i file file sonori. Adesso dentro un ciclo leggo riga per riga il file,
+    e per ogni riga(ogni riga rappresenta il nome dei file sonori), con il comandi file(che ritorna alcuni metadati del file) uso la pipe per inviare l'output di file
+    per l'i-esimo file a grep. Con grep gli dico di trovare dall'output di file, la stringa 44100 Hz oppure 44.1 kHz, l'output di tutto questo comando lo mando dentro un file.
+    Se questo file sarà vuoto significa che la quel file sonoro non ha quella frequenza di campionamento, quindi non accade nulla, ma se il file è pieno(-s)
+    singifica che devo copiare quel file nel percorso specificato all'inizio nel computer locale. Infine elimino tutti i file che ho creato.
+
+scriptSonoroRemoto1.sh
+    Seconda soluzione proposta da Benny e revisionata con Ignazio durante la fase di progettazione. L'obiettivo era quello di trasformare tutto quello che faceva lo scriptSonoroRemoto.sh
+    in un unica riga. Inizialmente abbiamo creato una variabile dove abbiamo messo il percorso di destinazione locale e abbiamo cambiato directory e siamo entrati
+    dentro il catalogo sonoro del server. Adesso cominicia il vero divertimento.
+    Abbiamo scritto file * che significa per ogni oggetto presente nella directory corrente usalo come parametro per questo comando.
+    Poi abbiamo passato l'output di file a grep(lo stesso di prima) e in questa maniera abbiamo identificato i file sonori con la frequenza di campionamento richiesta.
+    L'unica cosa che ci manda adesso è estrarre il nome di questi file. Guarda qui:
+    file file.mp3
+    ritorna una cosa del genere:
+    3Celeste.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz
+    a noi quindi serve tutta quella parte di stringa prima dei :
+    per far questo abbiamo passato l'output di grep come input a cut -d: -f1, in questa maniera estraiamo tutto quello che c'è prima dei :
+    l'output adesso saranno tutti i nomi dei file con la frequenza di campionamento indicata.
+    Adesso dobbiamo far si che questi file vengano copiato nel computer locale, per farlo usiamo xargs con l'opzione -I, in questa maniera prendiamo i nomi dei file
+    li passiamo a xargs lui organizza in una strutta dati e li passa uno ad uno a scp(comando per la copia da remoto).
