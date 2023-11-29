@@ -5,8 +5,8 @@ public class Posto {
 	private boolean occupato = false;
 	private int x;
 	private int y;
-	private String targa;
-	private LocalTime oraInizio;
+	private String targa = "XXXX";
+	private LocalTime oraInizio = null;
 	
 	public Posto(int x, int y) {
 		setX(x);
@@ -72,6 +72,7 @@ public class Posto {
 	public void liberaPosto() {
 		this.occupato = false;
 		this.targa = "VEICOLO USCITO";
+		oraInizio = null;
 	}
 	
 }

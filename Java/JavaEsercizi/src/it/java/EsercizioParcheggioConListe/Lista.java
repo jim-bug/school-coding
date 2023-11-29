@@ -1,13 +1,12 @@
-package it.java.Liste;
+package it.java.EsercizioParcheggioConListe;
 
 public class Lista {
-	private Nodo head;
-	private Nodo tail;
+	private Nodo head = null;
+	private Nodo tail = null;
 	private int len;
 	
-	public void inserisci(String val) {
+	public void inserisci(Posto val) {
 		Nodo n = new Nodo(val);
-		Nodo temp, next;
 		
 		if(head == null) {
 			head = tail = n;
@@ -19,10 +18,10 @@ public class Lista {
 		}
 		this.len ++;
 	}
-	public void inserisci(String val, int pos) {
+	public void inserisci(Posto val, int pos) {
 		Nodo n = new Nodo(val);
 		Nodo temp, next;
-		if(pos > this.len) {
+		if(pos > this.len) {	// voglio inserire in coda?
 			tail.setNext(n);
 			tail = n;
 		}
@@ -46,15 +45,15 @@ public class Lista {
 		System.out.println("La lista è di: " + this.len);
 	}
 	
-	public void stampa(int pos) {
+	public Posto stampa(int pos) {
 		Nodo temp = head;
-		if(pos == this.len - 1) {
-			System.out.println("L'elemento alla posizione " + pos + " è: " + tail.getValore());
+		if(pos == this.len - 1) {	// voglio in output la coda?
+			return tail.getValore();
 		}
 		for(int i = 0;i < pos;i++){
 			temp = temp.getNext();
 		}
-		System.out.println("L'elemento alla posizione " + pos + " è: " + temp.getValore());
+		return temp.getValore();
 	}
 	
 	public int getLen() {

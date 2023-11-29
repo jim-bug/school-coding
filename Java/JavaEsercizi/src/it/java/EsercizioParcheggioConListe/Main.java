@@ -8,7 +8,7 @@ public class Main {
 		int numeroDiAuto = getInputInt("Inserisci il numero di macchine: ");
 		int numeroPostiParcheggio = getInputInt("Inserisci il numero di posti: ");
 		Auto[] macchine = new Auto[numeroDiAuto];
-		Parcheggio viaRossi = new Parcheggio(numeroPostiParcheggio);
+		Parcheggio viaRossi = new Parcheggio();
 		LocalTime orarioFinale;
 		Random rand = new Random();
 		String continua = "";
@@ -18,13 +18,19 @@ public class Main {
 		int oreFinale = 0;
 		int minutiFinali = 0;
 		int secondiFinali = 0;
-		
-		for(int i = 0; i < numeroDiAuto; i++) {
-			marca = getInputString("Inserisci la marca dell'auto numero " + i);
-			modello = getInputString("Inserisci il modello dell'auto numero " + i);
-			targa = getInputString("Inserisci la targa dell'auto numero " + i);
-			macchine[i] = new Auto(marca, modello, targa);
-		}
+
+		macchine[0] = new Auto("Audi", "A5", "1334");
+		macchine[1] = new Auto("Bugatti", "A6", "1331245");
+		macchine[2] = new Auto("Alfa Romeo", "A7", "132465");
+		macchine[3] = new Auto("Opel", "A8", "6732");
+		macchine[4] = new Auto("Smart", "A9", "892");
+		macchine[5] = new Auto("Mercedes", "A10", "456278");
+//		for(int i = 0; i < numeroDiAuto; i++) {
+//			marca = getInputString("Inserisci la marca dell'auto numero " + i);
+//			modello = getInputString("Inserisci il modello dell'auto numero " + i);
+//			targa = getInputString("Inserisci la targa dell'auto numero " + i);
+//			macchine[i] = new Auto(marca, modello, targa);
+//		}
 		if(numeroDiAuto <= 0) {
 			System.out.println("Macchine insufficenti, non puoi posteggiare nulla!");
 		}
@@ -56,7 +62,8 @@ public class Main {
 						if(contaAuto >= 1) {
 							elencaAuto(macchine, autoPosteggiate, numeroDiAuto);
 							int numeroAssociatoAuto = getInputInt("Tra le macchine riportate qui sopra quale deve uscire?");
-							oreFinale = rand.nextInt(((23 - LocalTime.now().getHour() + 1) + 1)) + LocalTime.now().getHour() + 1;
+							oreFinale = rand.nextInt(((23 - 10) + 1)) + 10;
+//							oreFinale = rand.nextInt(5) + 19;
 							minutiFinali = rand.nextInt((59 - 1) + 1) + 1;
 							secondiFinali = rand.nextInt((59 - 1) + 1) + 1;
 							orarioFinale = LocalTime.of(oreFinale,  minutiFinali, secondiFinali);
@@ -81,15 +88,7 @@ public class Main {
 		}
 		while(continua.equals("si"));
 		}
-		/*
-		 * Overload e Override:
-		 * Override stessa firma del metodo, cambia il corpo.
-		 * Overload, può cambiare il tipo di parametri, tipo di ritorno.
-		 * 
-		 * Nodi: composto da un valore e un link al prossimo valore.
-		 * Lista dinamica: insieme finito di nodi.
-		 * 
-		 * */
+
 	}
 	
 	public static String getInputString(String message) {

@@ -1,5 +1,6 @@
 package it.java.EsercizioParcheggioConListe;
 import java.time.LocalTime;
+import java.lang.Math;
 
 /**
  * Classe parcheggio
@@ -8,18 +9,17 @@ import java.time.LocalTime;
 
 public class Parcheggio {
 	static final float TARIFFA_ORARIA = 5;
-	private int numeroDiPosti;
-	private Posto[] posti;
+	private int numeroDiPosti = 3;
+	private Lista posti = new Lista();
 	private float totaleGiornaliero = 0;
 	/**
 	 * Crea un parcheggio con this.numeroDiPosti posti, dove le coordinate dei posti sono tutte sull'asse delle y, variando solo la x.
 	 * Nessun parametro richiesto
 	 */
-	public Parcheggio(int numeroDiPosti) {
-		this.numeroDiPosti = numeroDiPosti;
-		posti = new Posto[this.numeroDiPosti];
+	public Parcheggio() {
 		for(int i = 0;i < this.numeroDiPosti;i++) {
-			posti[i] = new Posto(i, 1);
+			Posto posto = new Posto(i, 1);
+			posti.inserisci(posto);
 		}
 	}
 	/**
@@ -40,9 +40,9 @@ public class Parcheggio {
 	public void assegnaPosto(Auto a) {
 		int postoLibero = 0;
 		for (int i = 0;i < this.numeroDiPosti; i++) {
-			if(!posti[i].isOccupato()) {
+			if(!posti.stampa(i).isOccupato()) {
 				postoLibero = i;
-				posti[postoLibero].posteggio(a);
+				posti.stampa(postoLibero).posteggio(a);
 				break;
 			}
 		}
@@ -55,7 +55,7 @@ public class Parcheggio {
 	 * */
 	public boolean controlloDisponibilita() {
 		for (int i = 0;i < this.numeroDiPosti; i++) {
-			if(!posti[i].isOccupato()) {
+			if(!posti.stampa(i).isOccupato()) {
 				return true;
 			}
 		}
@@ -68,8 +68,8 @@ public class Parcheggio {
 	 * */
 	public void liberaPosto(Auto a) {
 		for(int i = 0;i < this.numeroDiPosti; i++) {
-			if(a.getTarga().equals(posti[i].getTarga())) {
-				posti[i].liberaPosto();
+			if(a.getTarga().equals(posti.stampa(i).getTarga())) {
+				posti.stampa(i).liberaPosto();
 				break;
 			}
 		}
@@ -82,10 +82,10 @@ public class Parcheggio {
 	 * */
 	public float calcolaPrezzo(Auto a, LocalTime fineParcheggio) {
 		float oraFinale = formattaOra(fineParcheggio);
-		float oraIniziale = formattaOra(posti[trovaPostoAssociatoAuto(a)].getOraInizio());
+		float oraIniziale = formattaOra(posti.stampa(trovaPostoAssociatoAuto(a)).getOraInizio());
 		
 		
-		float tariffaFinale = (oraFinale - oraIniziale)*TARIFFA_ORARIA;
+		float tariffaFinale = (Math.abs(oraFinale - oraIniziale))*TARIFFA_ORARIA;
 		
 
 		return tariffaFinale;
@@ -119,24 +119,16 @@ public class Parcheggio {
 	public String toString() {
 		String mappaturaParcheggio = "";
 		for(int i = 0;i < this.numeroDiPosti;i++) {
-			if(posti[i].getTarga().equals("VEICOLO USCITO")) {
-				mappaturaParcheggio += "Targa Auto: " + posti[i].getTarga() + " ";
-				mappaturaParcheggio += "Coordinate Posteggio: " + posti[i].getX() + " " + posti[i].getY() + " ";
-				mappaturaParcheggio += "Orario ingresso: .....";
+				mappaturaParcheggio += "Targa Auto: " + posti.stampa(i).getTarga() + " ";
+				mappaturaParcheggio += "Coordinate Posteggio: " + posti.stampa(i).getX() + " " + posti.stampa(i).getY();
+				mappaturaParcheggio += "Orario ingresso: " + posti.stampa(i).getOraInizio();
 				mappaturaParcheggio += '\n';
-			}
-			else {
-				mappaturaParcheggio += "Targa Auto: " + posti[i].getTarga() + " ";
-				mappaturaParcheggio += "Coordinate Posteggio: " + posti[i].getX() + " " + posti[i].getY() + " ";
-				mappaturaParcheggio += "Orario ingresso: " + posti[i].getOraInizio();
-				mappaturaParcheggio += '\n';
-			}
 		}
 		return mappaturaParcheggio;
 	}
 	
 	public String toString(Auto a, LocalTime fineParcheggio) {
-		return "Auto: " + a.getModello() + "\n" + "Ora di inizio parcheggio : " + posti[trovaPostoAssociatoAuto(a)].getOraInizio() + "\n" +"Ora di fine parcheggio: " + fineParcheggio + "\n" + "Importo da pagare: " + calcolaPrezzo(a, fineParcheggio);
+		return "Auto: " + a.getModello() + "\n" + "Ora di inizio parcheggio : " + posti.stampa(trovaPostoAssociatoAuto(a)).getOraInizio() + "\n" +"Ora di fine parcheggio: " + fineParcheggio + "\n" + "Importo da pagare: " + calcolaPrezzo(a, fineParcheggio);
 	}
 
 	private float formattaOra(LocalTime orario) {
@@ -149,7 +141,7 @@ public class Parcheggio {
 	
 	private int trovaPostoAssociatoAuto(Auto a) {
 		for(int i = 0;i < this.numeroDiPosti; i++) {
-			if(a.getTarga().equals(posti[i].getTarga())) {
+			if(a.getTarga().equals(posti.stampa(i).getTarga())) {
 				return i;
 			}
 		}
