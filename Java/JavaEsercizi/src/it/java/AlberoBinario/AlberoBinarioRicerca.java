@@ -1,58 +1,34 @@
 package it.java.AlberoBinario;
 
 public class AlberoBinarioRicerca {
-	private Nodo root = null;
+	private Nodo root;
 	
 	public void push(int info) {
 		Nodo n = new Nodo(info);
-		
-		if (root == null) {
+		Nodo temp;
+		if(root == null) {
 			root = n;
 		}
 		else {
-			Nodo temp;
-			if(info < root.getInfo()) {
-				if(root.getFirstLink() == null) { // se il primo figlio della root non esiste lo creo
-					root.setFirstLink(n);
+			temp = root;
+			while(info != temp.getInfo()) { // esco se trovo un nodo con lo stesso valore
+				if(temp.getInfo() > info) {
+					if(temp.getFirstLink() == null) {
+						temp.setFirstLink(n);
+						
+					}
+					temp = temp.getFirstLink();
 				}
 				else {
-					temp = root.getFirstLink();
-					while(info < temp.getInfo() && temp.getFirstLink() != null) {
-						temp = temp.getFirstLink();
-					}
-					while(info > temp.getInfo() && temp.getSecondoLink() != null) {
-						temp = temp.getSecondoLink();
-					}
-					if(info > temp.getInfo()) {
+					if(temp.getSecondoLink() == null) {
 						temp.setSecondoLink(n);
 					}
-					else {
-						temp.setFirstLink(n);
-					}
-				}
-			}
-			else {
-					if(root.getSecondoLink() == null) {	// se il secondo figlio della root non esiste lo creo
-						root.setSecondoLink(n);
-					}
-					else {
-						temp = root.getSecondoLink();
-						while(info < temp.getInfo() && temp.getFirstLink() != null) {
-							temp = temp.getFirstLink();
-						}
-						while(info > temp.getInfo() && temp.getSecondoLink() != null) {
-							temp = temp.getSecondoLink();
-						}
-						if(info > temp.getInfo()) {
-							temp.setSecondoLink(n);
-						}
-						else {
-							temp.setFirstLink(n);
-						}
+					temp = temp.getSecondoLink();
 				}
 			}
 		}
-}
+		
+	}
 	
 	public void print(Nodo p) {	// visita simmetrica di un albero, preso dal libro.
 		if(p == null) {
@@ -70,5 +46,33 @@ public class AlberoBinarioRicerca {
 	public void print() {
 		Nodo p1 = root;
 		print(p1);
+	}
+	
+	public boolean ricerca(int info) {
+		Nodo temp = root;
+		temp = root;
+		if(temp == null) {
+			return false;
+		}
+		else {
+			while(info != temp.getInfo()) { // esco se trovo un nodo con lo stesso valore
+				if(temp.getInfo() == info) {
+					return true;
+				}
+				if(temp.getInfo() > info) {
+					if(temp.getFirstLink() == null) {
+						return false;
+					}
+					temp = temp.getFirstLink();
+				}
+				else {
+					if(temp.getSecondoLink() == null) {
+						return false;
+					}
+					temp = temp.getSecondoLink();
+				}
+			}
+		}
+		return true;
 	}
 }
