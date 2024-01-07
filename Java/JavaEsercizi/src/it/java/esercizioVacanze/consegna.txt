@@ -1,0 +1,18 @@
+Un’azienda specializzata nella produzione di software viene richiesto di sviluppare un software dimostrativo (un DEMO semplificato) per la gestione automatizzata di un parcheggio multi-piano.
+Il software DEMO dovrà implementare le seguenti funzionalità.
+
+
+
+0) Registrare un utente con user e pass; effettuare il login; in caso di login errato il software continua a richiedere all'utente le credenziali; in caso di login coretto si prosegue con i punti successivi.
+1) Creare la struttura dati: (vettori, variabili semplici etc.) necessaria alla gestione del parcheggio con le se seguenti specifiche e funzionalità:
+Il parcheggio è costituito da 2 piani ciascuno dei quali contiene 5 posti auto (per piano); all’ingresso del parcheggio una telecamera legge automaticamente la targa di dell’autoveicolo in ingresso (targa = codice alfabetico di 6 lettere maiuscole); il software assegna ad ogni auto in ingresso il primo posto libero disponibile (solo quando i posti in un piano sono terminati vengono assegnati i posti al piano successivo); quando un autoveicolo esce dal parcheggio il suo posto libero può essere assegnato ad una nuova auto in ingresso.
+2) Creare e stampare a video un menù utente che permetta all'utente di scegliere ed eseguire una delle seguenti funzionalità digitando un apposito tasto:
+A)
+•	Stampa a video dello stato del Garage
+•	i posti occupati sono visualizzati indicando la targa dell’auto;
+•	i posti liberi sono visualizzati dalla scritta “LIBERO”;
+
+B) *Ingresso nuova auto: la targa viene generata casualmente dal software DEMO; il posto assegnato può essere il primo posto libero disponibile o un posto liberato di recente per l’uscita di un auto; il software demo stampa un messaggio di conferma indicando la targa della nuova auto in ingresso ed il posto assegnato;
+C) *Uscita auto: viene chiesto di indicare via tastiera la targa in uscita; il posto viene liberato; il software demo stampa un messaggio di conferma indicando la targa dell’auto in uscita ed il posto appena liberato;
+D) *Conta auto: viene stampato a video il numero delle auto attualmente presenti nel garage;
+E) Termina il programma
