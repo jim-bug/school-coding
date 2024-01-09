@@ -1,0 +1,1 @@
+Scrivere un software in java che dati due input(lunghezza e larghezza) di una stanza rettangolare calcoli area e perimetro di essa. Effettuare test automatizzati con JUnit.
