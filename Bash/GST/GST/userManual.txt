@@ -1,0 +1,23 @@
+User Manual GST(Gestore Sicil Treni)
+
+Lo script ha bisogno di 3 parametri per funzionare:
+	1) Il nome della stazione
+    	2) Sapere i ritardi
+    	3) Fare il backup
+
+Il nome della stazione scelto deve essere compreso tra questi:
+
+	1) "PALERMO CENTRALE"
+	2) "PALERMO AEROPORTO"
+	3) "MESSINA CENTRALE"
+	4) "CATANIA CENTRALE"
+	5) "AGRIGENTO CENTRALE"
+N.B.
+Il nome della stazione dovrà essere racchiuso tra "".
+
+I restanti parametri saranno valori booleani, in questo caso 0 o 1.
+
+Per usare lo script bisogna seguire la seguente sintassi:
+
+			bash scriptSicilTreni.sh nomeStazione ritardoTreni backup
+

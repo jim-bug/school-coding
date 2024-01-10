@@ -8,22 +8,19 @@
 stazione=$1
 ritardoTreni=$2
 backup=$3
-URL="http://jimoffice/server/GST/Backup/"
+mkdir Backup 2>/dev/null/
 data=$(date +%D)
-wget "http://jimOffice/server/GST/$stazione.txt"
+wget "http://l415l00/pub/siciltreni/$stazione.txt"
 if [[ $ritardoTreni == 1 ]]; then
 	cat "$stazione.txt" | xargs -I {} echo {} |  awk -F '.' '{print ($3 > 0) ? $cat : ""}' | xargs -I {} echo {} > "$stazione-$(date +%F)-ritardo.txt"
-    # $cat si riferisce alla stringa su cui sta lavorando xargs e awk, l'ultimo xargs serve per evitare le andate a capo nell stdout
+    # $cat si riferisce alla stringa su cui sta lavorando xargs e awk, l'ultimo xargs serve per evitare le andate a capo nello stdout
 else
     cat "$stazione.txt" > "$stazione-$(date +%F).txt"
 fi
 
-if [[ $backup == 1 ]]; then
-    if [[ -f "$stazione-$(date +%F)-ritardo.txt" ]]; then
-        curl -X PUT -H "Content-Type: text/plain" -T /home/jim_bug/GST/"$stazione-$(date +%F)-ritardo.txt" $URL # aggiungo al server il file dei treni in ritardo
-    else
-        curl -X PUT -H "Content-Type: text/plain" -T /home/jim_bug/GST/"$stazione-$(date +%F).txt" $URL # aggiungo tutti i treni al server
-    fi
-fi
+if [[ -f "$stazione-$(date +%F)-ritardo.txt" && $backup == 1]]; then # -f controlla se il file esiste
+    mv "$stazione-$(date +%F)-ritardo.txt" Backup
+else if [[ -f "$stazione-$(date +%F).txt" && $backup == 1]];
+    mv "$stazione-$(date +%F).txt" Backup
 
 # rm *.txt
