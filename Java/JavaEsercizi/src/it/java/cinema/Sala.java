@@ -65,6 +65,18 @@ public class Sala {
 		Random rand = new Random();
 		int riga = rand.nextInt(this.file);
 		int colonna = rand.nextInt(this.postiPerFila);
+		int i = 0;
+		while(this.mappaPosti[riga][colonna] == 'X' && i < (file*postiPerFila)) {
+			riga = rand.nextInt(this.file);
+			colonna = rand.nextInt(this.postiPerFila);
+			i ++;
+		}
+		this.mappaPosti[riga][colonna] = 'X';
+	}
+	
+	public void visualizzaSala() {
+		controlloDisponibilita();
+		System.out.println("Sala numero: " + getNumeroSale() + "Posti disponibili: " + getPostiDisponibili());
 	}
 	
 	public void visualizzaPosti() {
@@ -79,9 +91,14 @@ public class Sala {
 			}
 		}
 	}
-	private void controlloDisponibilita(int riga, int colonna) {
-		if(this.mappaPosti[riga][colonna] != 'X') {
-			mappaPosti[riga][colonna] = 'X';
+	
+	private void controlloDisponibilita() {
+		for(int i = 0; i < file; i++) {
+			for (int j = 0; j < postiPerFila;j++) {
+				if(this.mappaPosti[i][j] == 'X') {
+					this.postiDisponibili --;
+				}
+			}
 		}
 	}
 	
