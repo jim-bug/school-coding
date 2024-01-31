@@ -18,7 +18,7 @@ public class RettangoloTest {
 	@Test
 	public void testGetPerimetro() {
 		String larghezza = "10";
-		String lunghezza = "4";
+		String lunghezza = "-4";
 		double perimetro = (Double.parseDouble(larghezza)+Double.parseDouble(lunghezza))*2;
 		Rettangolo stanza = new Rettangolo(lunghezza, larghezza);
 		assertEquals("Input non valido", perimetro, stanza.getPerimetro(), 0.001);
