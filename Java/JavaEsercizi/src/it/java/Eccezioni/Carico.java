@@ -1,6 +1,6 @@
 package it.java.Eccezioni;
 
-import java.time.LocalTime;
+import java.time.Duration;
 import java.util.Scanner;
 
 public class Carico {
@@ -10,24 +10,33 @@ public class Carico {
 	private String provenienzaCarico;
 	private String destinazioneCarico;
 	private double distanzaDestinazione;
-	private LocalTime tempoStimato;
+	private Duration tempoStimato;
 	private Cliente cliente;
 	
-	public Carico() {
-		setPesoCarico(getInputDouble("Inserisci il peso del carico: "));
-		setTipoCarico(getInputStr("Inserisci il tipo di carico: "));
-		setNomeCarico(getInputStr("Inserisci il nome del carico: "));
-		setProvenienzaCarico(getInputStr("Inserisci la provenienza del carico: "));
-		setDestinazioneCarico(getInputStr("Inserisci la destinazione del carico: "));
-		setDistanzaDestinazione(getInputDouble("Inserisci la distanza della destinazione: "));
+	public Carico(int contaCarichi) {
 		this.cliente = new Cliente();
+		setNomeCarico(getInputStr("Inserisci il nome del carico: "));
+		setPesoCarico(getInputDouble("Inserisci il peso del carico in Kg: "));
+		setTipoCarico(getInputStr("Inserisci il tipo di carico: "));
+		if(contaCarichi < 1) {
+			setProvenienzaCarico(getInputStr("Inserisci la provenienza del carico: "));
+		}
+		else {
+			System.out.println("La provenienza non è necessaria!");
+		}
+		setDestinazioneCarico(getInputStr("Inserisci la destinazione del carico: "));
+		setDistanzaDestinazione(getInputDouble("Inserisci la distanza della destinazione in Km: "));
+		contaCarichi ++;
+	
 	}
 	
-	public LocalTime getTempoStimato() {
+
+
+	public Duration getTempoStimato() {
 		return tempoStimato;
 	}
 
-	public void setTempoStimato(LocalTime tempoStimato) {
+	public void setTempoStimato(Duration tempoStimato) {
 		this.tempoStimato = tempoStimato;
 	}
 
@@ -89,13 +98,14 @@ public class Carico {
 
 	public String toString() {
 		String resocontoCarico = 
-				"Nome Carico: " + getNomeCarico() + "\n"
-				+ "Peso carico: " + getPesoCarico() + "\n"
-				+ "Tipo carico: " + getPesoCarico() + "\n"
-				+ "Provenienza carico: " + getProvenienzaCarico() + "\n"
-				+ "Destinazione carico: " + getDestinazioneCarico() + "\n"
-				+ "Distanza: " + getDistanzaDestinazione() + "\n"
-				+ "Committente: " + getCliente().getNomeAzienda();
+				"Nome Carico: " + getNomeCarico() + "\n\t"
+				+ "Peso carico: " + getPesoCarico() + "\n\t"
+				+ "Tipo carico: " + getTipoCarico() + "\n\t"
+				+ "Provenienza carico: " + getProvenienzaCarico() + "\n\t"
+				+ "Destinazione carico: " + getDestinazioneCarico() + "\n\t"
+				+ "Distanza: " + getDistanzaDestinazione() + "\n\t"
+				+ "Committente: " + getCliente().getNomeAzienda() + "\n\t"
+				+ "Tempo stimato di arrivo: " + getTempoStimato() + " ore"; 
 		return resocontoCarico;
 	}
 
