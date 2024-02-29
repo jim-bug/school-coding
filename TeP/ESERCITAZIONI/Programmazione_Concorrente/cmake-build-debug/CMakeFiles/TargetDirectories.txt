@@ -1,0 +1,3 @@
+/home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/cmake-build-debug/CMakeFiles/Programmazione_Concorrente.dir
+/home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/cmake-build-debug/CMakeFiles/rebuild_cache.dir

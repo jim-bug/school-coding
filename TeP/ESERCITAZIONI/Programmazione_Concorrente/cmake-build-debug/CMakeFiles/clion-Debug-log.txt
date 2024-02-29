@@ -1,0 +1,4 @@
+/home/jim_bug/Downloads/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/jim_bug/Downloads/clion-2023.3.4/bin/ninja/linux/x64/ninja -DCMAKE_C_COMPILER=/usr/bin/gcc -G Ninja -S /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente -B /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/cmake-build-debug
