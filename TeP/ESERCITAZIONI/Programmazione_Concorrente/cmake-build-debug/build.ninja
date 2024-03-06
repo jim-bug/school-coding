@@ -49,11 +49,17 @@ cmake_ninja_workdir = /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazio
 
 build cmake_object_order_depends_target_Programmazione_Concorrente: phony || CMakeFiles/Programmazione_Concorrente.dir
 
-build CMakeFiles/Programmazione_Concorrente.dir/jsh.c.o: C_COMPILER__Programmazione_Concorrente_unscanned_Debug /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/jsh.c || cmake_object_order_depends_target_Programmazione_Concorrente
-  DEP_FILE = CMakeFiles/Programmazione_Concorrente.dir/jsh.c.o.d
+build CMakeFiles/Programmazione_Concorrente.dir/jimShell/jsh.c.o: C_COMPILER__Programmazione_Concorrente_unscanned_Debug /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/jimShell/jsh.c || cmake_object_order_depends_target_Programmazione_Concorrente
+  DEP_FILE = CMakeFiles/Programmazione_Concorrente.dir/jimShell/jsh.c.o.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Programmazione_Concorrente.dir
-  OBJECT_FILE_DIR = CMakeFiles/Programmazione_Concorrente.dir
+  OBJECT_FILE_DIR = CMakeFiles/Programmazione_Concorrente.dir/jimShell
+
+build CMakeFiles/Programmazione_Concorrente.dir/jimShell/jshv2.c.o: C_COMPILER__Programmazione_Concorrente_unscanned_Debug /home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/jimShell/jshv2.c || cmake_object_order_depends_target_Programmazione_Concorrente
+  DEP_FILE = CMakeFiles/Programmazione_Concorrente.dir/jimShell/jshv2.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Programmazione_Concorrente.dir
+  OBJECT_FILE_DIR = CMakeFiles/Programmazione_Concorrente.dir/jimShell
 
 
 # =============================================================================
@@ -63,7 +69,7 @@ build CMakeFiles/Programmazione_Concorrente.dir/jsh.c.o: C_COMPILER__Programmazi
 #############################################
 # Link the executable Programmazione_Concorrente
 
-build Programmazione_Concorrente: C_EXECUTABLE_LINKER__Programmazione_Concorrente_Debug CMakeFiles/Programmazione_Concorrente.dir/jsh.c.o
+build Programmazione_Concorrente: C_EXECUTABLE_LINKER__Programmazione_Concorrente_Debug CMakeFiles/Programmazione_Concorrente.dir/jimShell/jsh.c.o CMakeFiles/Programmazione_Concorrente.dir/jimShell/jshv2.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Programmazione_Concorrente.dir
   POST_BUILD = :

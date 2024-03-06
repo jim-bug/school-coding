@@ -3,4 +3,6 @@ project(Programmazione_Concorrente C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Programmazione_Concorrente jsh.c)
+add_executable(Programmazione_Concorrente jimShell/jsh.c
+        jimShell/jshv2.c)
+
