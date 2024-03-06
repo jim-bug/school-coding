@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 #include <sys/wait.h>
 
 #define MAX_LENGTH_COMMAND 50
@@ -21,7 +22,7 @@ int main(){
         printf("jsh:\"%s\">", path);
         char line[MAX_LENGTH_COMMAND];
         fgets(line, 50, stdin);
-        char *argv[MAX_LENGTH_COMMAND];
+        char* argv[MAX_LENGTH_COMMAND];
         char* token = strtok(line, " \n");      // uso questo delimitatore in quanto a fine stringa mi trovo uno \n
         int length = 0;
 
@@ -31,7 +32,9 @@ int main(){
             length ++;
         }
         argv[length] = NULL;
-
+	if(strcmp(argv[0], "exit") == 0){ 	// caso di uscita
+		exit(0);
+	}
         pid = fork();   // creo un nuovo processo
         if(pid == 0){   // effettuo la system call dentro il processo figlio.
             if(strcmp(argv[0], "cd") == 0){    // se voglio cambiare directory
@@ -47,13 +50,11 @@ int main(){
                 }
             }
             else{
+//		printf("%s", argv[0]);
                 execvp(argv[0], argv);
             }
         }
         else {
-//            if (strcmp(argv[0], "exit") == 0){
-//                exit(0);
-//            }
             wait(NULL);     // aspetto che il processo figlio termini
 
 
