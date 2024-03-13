@@ -1,0 +1,31 @@
+jsh è una shell scritta in C. Il suo funzionamento è basato sulla system call fork ed exec. Ho usato la system call exec per poter eseguire gli eseguibili presenti nella $PATH del sistema operativo.
+La system call fork l'ho prevista in modo tale da "sacrificare" il processo figlio con la system call exec, dato che essa cambia l'immagine di un processo.
+
+
+Prima di eseguire il fork acquisisco in input la riga che l'utente deve eseguire, per farlo uso fgets() così da includere anche i spazi nella stringa. Dopodichè effettuo uno split della stringa ottenuta
+mediante la funzione strtok(), strtok() prende in input la stringa e un delimitatore e ritorna il puntatore al primo elemento della stringa prima del delimitatore, es:
+
+		INPUT: Ciao come stai
+Se alla funzione passo questa stringa con delimitatore lo spazio, ottengo: Ciao
+
+Questo serve per dividere il nome del comando con le sue opzioni e argomenti. Una volta che ho la stringa divisa per spazi, effettuo la system call fork.
+Nel processo figlio effettuero la system call exec, ma prima di farla, ho previsto l'esecuzione di un comando che non ha un eseguibile(quindi non lo posso eseguire con exec, ma con una funzione specifica),
+sto parlando di cd. Quindi nel caso in cui il nome del comando è uguale a cd, ho previsto 2 casi:
+
+1) Se l'argomento del comando è uguale alla tilde, allora modifico l'argomento con il percorso che porta alla user directory.
+2) Il caso in cui la path non esiste, mando a video l'errore.
+
+Lo spostamento nel file system avviene quando effettuo il controllo sugli errori di chdir(), in quanto la funzione chdir() ritorna un intero (se diverso da 0 è errore), ma in caso di non errore agisce sulla posizione del filesystem.
+Se invece il nome del comando non è uguale a cd, chiamo la funzione execvp.
+
+Nel processo padre prevedo la funzione wait(), significa che il processo padre aspetta che il processo figlio termini l'esecuzione. Se non inserita causa messaggi di output e richieste di input non previste. In quanto i tempi di esecuzione del processo padre e del processo figlio sono diversi.
+In particolare il processo figlio diventerebbe un processo "orfano", quindi adottato dall'init process.
+
+jsh non prevede l'uso di PIPE, redirezioni dell'input output e non esegue programmi che non fanno parte della $PATH
+
+Librerie usate:
+
+stdio.h
+unistd.h
+string.h
+sys/wait.h

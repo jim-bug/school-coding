@@ -6,6 +6,7 @@
 #define MAX_LEGTH_LINE 50
 #define MAX_LEGTH_PATH 1024
 #define MAX_LENGTH_COMMAND_NAME 10
+
 void getNameCommand(char*, char*);
 int main(){
     char command[MAX_LEGTH_LINE];

@@ -198,6 +198,15 @@ Programmazione_Concorrente_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Programmazione_Concorrente_SOURCE_DIR:STATIC=/home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente
 
+//Value Computed by CMake
+jimShell_BINARY_DIR:STATIC=/home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente/cmake-build-debug
+
+//Value Computed by CMake
+jimShell_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+jimShell_SOURCE_DIR:STATIC=/home/jim_bug/school-coding/TeP/ESERCITAZIONI/Programmazione_Concorrente
+
 
 ########################
 # INTERNAL cache entries
