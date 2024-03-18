@@ -1,12 +1,15 @@
+
+
 #include <stdio.h>
 #include <curses.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 
 /*
 * Autore: Ignazio Leonardo Calogero Sperandeo
 * Data: 17/03/2024
-* Consegna: Scrivere in C un programma che faccia da cronometro al centesimo di secondo, che segni anche i tempi parziali. 
+* Consegna: Scrivere in C un programma che faccia da cronometro al centesimo di secondo, che segni anche i tempi parziali.
 * Note: durante lo svolgimento di questo esercizio sono state visionate le doc delle libreria curses.h e unistd.h
 * by jim_bug :)
 */
@@ -19,10 +22,11 @@ struct timeFormat{
 };
 int state = 0;
 int line = 0;
-struct timeFormat time = {0, 0, 0, 0};
+struct timeFormat tm = {0, 0, 0, 0};
 
 void printData();
 void menu();
+void wait(double);
 
 int main(){
     initscr();
@@ -39,26 +43,27 @@ int main(){
 void printData(){
     menu();
     if(state == 1){
-        if (time.centInt == 99) {
-            time.centInt = 0;
-            time.secInt++;
+        if (tm.centInt == 99) {
+            tm.centInt = 0;
+            tm.secInt++;
         }
-        if (time.secInt == 60) {
-            time.secInt = 0;
-            time.minInt++;
+        if (tm.secInt == 60) {
+            tm.secInt = 0;
+            tm.minInt++;
         }
-        if (time.minInt == 60) {
-            time.minInt = 0;
-            time.oreInt++;
+        if (tm.minInt == 60) {
+            tm.minInt = 0;
+            tm.oreInt++;
         }
-        if (time.oreInt == 24) {
-            time.oreInt = 0;
+        if (tm.oreInt == 24) {
+            tm.oreInt = 0;
         }
         move(10, 30);
-        printw("%02d::%02d::%02d::%02d", time.oreInt, time.minInt, time.secInt, time.centInt);
-        time.centInt ++;
+        printw("%02d::%02d::%02d::%02d", tm.oreInt, tm.minInt, tm.secInt, tm.centInt);
+        tm.centInt ++;
         refresh();
-        usleep(10000);      // 10000us equivale a 1 cs
+        // usleep(10000);
+        wait(0.01);
     }
 
 }
@@ -69,31 +74,36 @@ void menu(){
             break;
         case 'b':	// ferma il cronometro
             state = 0;
-	    move(14, 20);
+            move(14, 20);
             printw("Tempi parziali: ");
-	    move(15+line, 20);
+            move(15+line, 20);
             // int x, y;	// piccolo debug per la posizione
             // getyx(stdscr, y, x);
-	    printw("%02d::%02d::%02d::%02d", time.oreInt, time.minInt, time.secInt, time.centInt);
+            printw("%02d::%02d::%02d::%02d", tm.oreInt, tm.minInt, tm.secInt, tm.centInt);
             line ++;
-	    refresh();
+            refresh();
             break;
         case 'r':	// resetta il cronometro
-            time.centInt = time.secInt = time.minInt = time.oreInt = 0;
-	    /*
-		Questo ciclo si sposta alla posizione 15, 20 e cancella la riga ogni volta che cancella la riga, quella di sotto viene spostata su,
-                in questa maniera elimino tutti i tempi parziali della sessione del cronometro precedente.
-	    */
-	    for(int i = 0; i < line; i++){
-		move(15, 20);
-		deleteln();
+            tm.centInt = tm.secInt = tm.minInt = tm.oreInt = 0;
+            /*
+            Questo ciclo si sposta alla posizione 15, 20 e cancella la riga ogni volta che cancella la riga, quella di sotto viene spostata su,
+                    in questa maniera elimino tutti i tempi parziali della sessione del cronometro precedente.
+            */
+            for(int i = 0; i < line; i++){
+                move(15, 20);
+                deleteln();
                 refresh();
-	    }
-	    line = 0;
+            }
+            line = 0;
             break;
         case 'e':
             endwin();       // chiudo la finestra ncurses
             exit(0);
             break;
     }
+}
+void wait (double cseconds){
+    clock_t endwait;
+    endwait = clock () + (clock_t)(cseconds * CLOCKS_PER_SEC);
+    while (clock() < endwait) {}
 }
