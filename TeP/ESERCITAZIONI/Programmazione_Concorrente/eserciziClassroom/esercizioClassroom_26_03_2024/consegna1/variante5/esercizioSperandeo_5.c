@@ -18,7 +18,7 @@ int main(){
 	else{
 		wait(NULL);
 		system("./source");
-		printf("\n"),
+		printf("\n");
 		system("cat source.c");
 	}
 	return 0;
