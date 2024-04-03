@@ -2,10 +2,13 @@
 /* Author: Marco Frison for Mr. Webmaster */
 /* Released under GPL v3                  */
 
-typedef struct
-{
+
+/*
+Ho rimosso typedef e eliminato i puntatori, adesso sono solo delle variabili di tipo intere.
+*/
+struct S{
   int index;
-  int* money;
-} thread_args;
+  int money;
+};
 
 void worker(void* args);

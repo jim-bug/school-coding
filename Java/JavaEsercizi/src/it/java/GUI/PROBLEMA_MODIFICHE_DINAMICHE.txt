@@ -1,0 +1,11 @@
+Problema:
+Quando provavo a inserire l'undicesimo elemento dell'array mediante una TextField, a video non visualizzavo le label.
+Ho notato che era la finestra era in full-screen. Provando senza full-screen quindi non toccando la dimensione della finstra, visualizzavo correttamente le label.
+
+Come ho risolto:
+Ho usato la funzione revalidate. Questa funzione aggiorna il layout manager alla nuove modifiche dinamiche. Per modifiche dinamiche intendo delle modifiche
+che avvengono al frame allo scatenarsi di un evento.
+
+
+
+Ignazio Leonardo Calogero Sperandeo.
