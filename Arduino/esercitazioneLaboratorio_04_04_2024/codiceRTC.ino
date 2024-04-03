@@ -4,8 +4,15 @@
 * Autore: Ignazio Leonardo Calogero Sperandeo
 * Data: 03/04/2024
 */
+#define TIME_LENGTH 10
+#define N_MONTH 12 
+#define N_DAY 7
+#define STR_LENGTH 4
+
 RTC_DS1307 rtc;
-char orario[10];
+char orario[TIME_LENGTH];
+char mesi[N_MONTH][STR_LENGTH] = {"GEN", "FEB", "MAR", "APR", "MAG", "GIU", "LUG", "AGO", "SET", "OTT", "NOV", "DIC"};
+char dayWeek[N_DAY][STR_LENGTH] = {"dom", "lun", "mar", "mer", "gio", "ven", "sab"};
 
 void setup() {
   Serial.begin(9600);
@@ -22,14 +29,14 @@ void setup() {
 }
 
 void loop() {
-  DateTime now = rtc.now();
+  DateTime now = rtc.now();   // ottengo la data e ora corrente.
   Serial.print("Anno: ");
   Serial.print(now.year(), DEC);
   Serial.print("  Mese: ");
-  Serial.print(now.month(), DEC);
+  Serial.print(mesi[now.month() -1]);
   Serial.print("  Giorno: ");
-  Serial.print(now.day(), DEC);
-  snprintf(orario, sizeof(orario) ,"%02d:%02d:%02d", now.hour(), now.minute(), now.second());
+  Serial.print(dayWeek[now.dayOfTheWeek()]);
+  snprintf(orario, sizeof(orario) ,"%02d:%02d:%02d", now.hour(), now.minute(), now.second()); // assegno a orario quella stringa formattata.
   Serial.println("\nORARIO: ");
   Serial.print(orario);
   Serial.println("\n##########################");
