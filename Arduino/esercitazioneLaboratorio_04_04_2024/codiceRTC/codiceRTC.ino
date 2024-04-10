@@ -2,12 +2,17 @@
 #include "RTClib.h"
 #include "TM1637.h"
 /*
-* Autore: Ignazio Leonardo Calogero Sperandeo
+* Autori:
+* Alessandro Cangiamila
+* Davide D'Alessandro
+* Francesco Di Giovanni
+* Sebastian Gherasim
+* Ignazio Leonardo Calogero Sperandeo
 * Data: 03/04/2024
+* Consegna: Progettare un circuito con Arduino, che permette all'utente di mediante la pressione di un pulsante, di visualizzare le ore e i minuti in un display a 7 segmenti. Con una seconda pressione
+* il sistema deve permettere di visualizzare sul display a 7 segmenti i minuti e i secondi.
 */
-#define TIME_LENGTH 10
-#define N_MONTH 12 
-#define N_DAY 7
+
 #define STR_LENGTH 4
 #define CLK 3
 #define DIO 2
@@ -17,69 +22,59 @@
 TM1637 tm1637(CLK, DIO);
 RTC_DS3231 rtc;
 
-char orario[TIME_LENGTH];
-char mesi[N_MONTH][STR_LENGTH] = {"GEN", "FEB", "MAR", "APR", "MAG", "GIU", "LUG", "AGO", "SET", "OTT", "NOV", "DIC"};
-char dayWeek[N_DAY][STR_LENGTH] = {"dom", "lun", "mar", "mer", "gio", "ven", "sab"};
 int stateSwitch;
-int count = 0;
-int num;
+int count = 1;    // impostandolo a 1, visualizzerò per prima ore-minuti
+int displayNum;
 void setup() 
 {
   Serial.begin(9600);
-  pinMode(13, INPUT);
-  if(!rtc.begin()){
+  pinMode(PIN_SWITCH, INPUT);
+  if(!rtc.begin()){		// eventuali errori di cablaggio del modulo, metto in attesa.
     Serial.println("ERRORE!");
     while(1);
   }
+  // lo faccio partire da 05/05/2024 ore: 11:24:00
   rtc.adjust(DateTime(2024, 5, 5, 11, 24, 0));   // DATE e TIME sono della costanti che indicano il tempo e la data di compilazione del sorgente 
   tm1637.init();
   tm1637.set(BRIGHTEST);
-  tm1637.point(true);  
+  tm1637.point(true);  		// accendi i : presenti sul modulo.
 }
 
-void loop() {
+void loop()
+{
   DateTime date = rtc.now();   // ottengo la data e ora corrente.
-  stateSwitch = digitalRead(13);
-  if(stateSwitch){
-      count ++;
+  stateSwitch = digitalRead(PIN_SWITCH);	// leggo lo state del pin 13
+  if(stateSwitch)   // se clicco il pulsante, dato che count è già a 1, visualizzerò minuti-secondi
+  {
+    count ++;
   }
-  switch (count){
+  switch (count)
+  {
     case 1:
-      num = date.hour()*100 + date.minute();
+      displayNum = date.hour()*100 + date.minute();
       break;
     case 2:
-      num = date.minute()*100 + date.second();
+      displayNum = date.minute()*100 + date.second();
       break;
     default:
-      count = 0;
+      count = 1;
       break;
   }
-  display(num);
-  delay(200);
-  /*
-  Serial.print("Anno: ");
-  Serial.print(now.year(), DEC);
-  Serial.print("  Mese: ");
-  Serial.print(mesi[now.month() -1]);
-  Serial.print("  Giorno: ");
-  Serial.print(dayWeek[now.dayOfTheWeek()]);
-  snprintf(orario, sizeof(orario) ,"%02d:%02d:%02d", now.hour(), now.minute(), now.second()); // assegno a orario quella stringa formattata.
-  Serial.println("\nORARIO: ");
-  Serial.print(orario);
-  Serial.println("\n##########################");
-  */
-  Serial.println(num);
-
-  // delay(1000);
+  display(displayNum);
+  Serial.println(count);  // piccolo debug con il monitor seriale.
+  delay(50);
 }
 
-void display(int num){
+void display(int num)
+{
     int digit[4] = {0, 0, 0, 0};
-    for (int i = MAX_DIGIT-1; i>=0;i--){
-        digit[i] = num%10;
+    for (int i = MAX_DIGIT-1; i>=0;i--)
+    {
+        digit[i] = num%10;    // ricavo la cifra del numero.
         num /= 10;  
     }  
-    for(int i = 0;i < MAX_DIGIT;i++){
-      tm1637.display(i, digit[i]);  
+    for(int i = 0;i < MAX_DIGIT;i++)
+    {
+      tm1637.display(i, digit[i]);  // mando sul segmento i-esimo la i-esima cifra del numero, sarà visualizzata in ordine in quanto il range va da 0-3.
     }
 }
