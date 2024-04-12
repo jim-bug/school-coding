@@ -27,7 +27,6 @@ public class SperandeoFrame extends JFrame implements ActionListener{
 		elementiCasellaInput = new ArrayList<String>();
 		JButton bottone = new JButton("Premi per continuare");
 		layout = new FlowLayout(FlowLayout.CENTER);		// layout manager usato per questo frame.
-		// Imposto qualche attributo del frame.
 		setSize(250, 100);
 		setLayout(layout);
 		setVisible(true);
