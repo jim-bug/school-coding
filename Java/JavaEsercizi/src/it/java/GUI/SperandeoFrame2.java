@@ -1,6 +1,5 @@
 package it.java.GUI;
 
-import java.awt.GridLayout;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -24,11 +23,23 @@ public class SperandeoFrame2 extends JFrame{
 		input = new JTextField(17);
 		JButton button = new JButton("Confirm Font");
 		
+		/*
+		 * Jim Layer:
+		 * 
+		 * Nome
+		 * Chiusura
+		 * Dimensioni
+		 * Layout
+		 * Visibilità
+		 * 
+		 * */
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(150, 300);
 		setResizable(true);
 		setLayout(layout);
 		setVisible(true);
+		
+		// aggiungo i componenti al container.
 		add(input);
 		add(elencoFont);
 		add(button);
@@ -39,6 +50,9 @@ public class SperandeoFrame2 extends JFrame{
 				@Override
 				public void itemStateChanged(ItemEvent e) {
 						selectedFont = new Font((String) elencoFont.getSelectedItem(), 1, 12);
+						/*.getSelectedItem()* ritorna un oggetto di tipo Object che rappresenta l'oggetto selezionato
+						 * ecco perchè ho bisogno di convertirlo in Stringa.
+						 */
 				}
 		});
 		
@@ -53,6 +67,8 @@ public class SperandeoFrame2 extends JFrame{
 			}
 			
 		});
+		
+		
 		pack();
 		
 	}

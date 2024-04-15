@@ -19,7 +19,7 @@ public class SperandeoFrame3 extends JFrame{
 		super("SperandeoFrame3");
 		labelErrore = new JLabel("");
 		labelLista = new JLabel("");
-		layout = new GridLayout(3, 3);
+		layout = new GridLayout(1, 3);
 		run();
 	}
 	
