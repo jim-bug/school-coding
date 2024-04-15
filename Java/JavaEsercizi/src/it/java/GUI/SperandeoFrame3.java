@@ -68,12 +68,15 @@ public class SperandeoFrame3 extends JFrame{
 					
 					@Override
 					public void itemStateChanged(ItemEvent e) {
-						if(e.getStateChange() == ItemEvent.SELECTED && elementiTextField.size() > 0) {
+						if(boxLista.isSelected() && elementiTextField.size() > 0) {
 							String contenutoLabel = "";
 							for(String i : elementiTextField) {
 								contenutoLabel += " " + i;
 							}
 							labelLista.setText(contenutoLabel);
+						}
+						else {
+							labelLista.setText("");
 						}
 						
 						revalidate();
