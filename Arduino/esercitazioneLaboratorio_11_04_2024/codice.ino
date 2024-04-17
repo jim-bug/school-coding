@@ -15,6 +15,7 @@
 #define MAX_DIGIT 4
 TM1637 tm1637(CLK, DIO);
 RTC_DS1307 time;
+DateTime tm;
 int displayNum;
 int hour;
 int minute;
@@ -32,7 +33,7 @@ void setup() {
     while(1);
   }
   time.adjust(DateTime(2024, 04, 10, 22, 10, 0));
-  DateTime tm = time.now();
+  tm = time.now();
   hour = tm.hour();
   minute = tm.minute();
 }
@@ -52,13 +53,6 @@ void setTime(){
   int stateHour = digitalRead(BUTTON_SWITCH_HOUR);
   int stateMinute = digitalRead(BUTTON_SWITCH_MINUTE);
   
-  if(stateHour || stateMinute){
-    /*
-    Solo se modifico l'orario, faccio partire l'orario dell'RTC dal l'orario presente nel setup,
-    ma con ore o minuti modificati.
-    */
-      time.adjust(DateTime(2024, 4, 10, hour, minute, 0));
-  }
   if(stateHour){
     hour ++;
     if(hour >= 24){
@@ -71,12 +65,19 @@ void setTime(){
       minute = 0;
     }
   }
+  if(stateHour || stateMinute){
+    /*
+    Solo se modifico l'orario, faccio partire l'orario dell'RTC dal l'orario presente nel setup,
+    ma con ore o minuti modificati.
+    */
+      time.adjust(DateTime(2024, 4, 10, hour, minute, 0));
+  }
 
 }
 void loop() {
   setTime();
-  DateTime newTime = time.now();    // istanzio un nuovo oggetto DateTime in modo tale da poter rappresentare l'orario corrente modificato o non
-  displayNum = (newTime.hour()*100) + newTime.minute();
+  tm = time.now();    // istanzio un nuovo oggetto DateTime in modo tale da poter rappresentare l'orario corrente modificato o non
+  displayNum = (tm.hour()*100) + tm.minute();
   display(displayNum);
   delay(50);
 }
