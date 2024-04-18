@@ -40,7 +40,7 @@ public class SperandeoFrame4 extends JFrame implements ActionListener{
 		}
 		else {
 		    JButton bottonePremuto = (JButton) e.getSource();
-		    testo += bottonePremuto.getText();
+		    testo += " " + bottonePremuto.getText();
 		    testoCorrispondente.setText(testo);
 		}
 		
@@ -70,10 +70,13 @@ public class SperandeoFrame4 extends JFrame implements ActionListener{
 		Random rand = new Random();
 		String[] textButton = new String[lengthButton];
 		char[] tempText = new char[length];		// uso l'array così posso manipolare più facilmente una stringa.
-		
+		int[] startRange = {65, 97};
+		// spiegazione presente in README_SPERANDEOFRAME4_generateTextButton.txt
 		for(int i = 0; i < lengthButton; i++) {
 			for(int j = 0; j < length;j++) {
-				tempText[j] = (char) (rand.nextInt(25) + 65);
+				int index = rand.nextInt(2);
+				int endRange = startRange[index] + 25;		// conoscendo l'ascii code della lettera A o a posso trovare, sommando 25, l'ascii code della Z o z.
+				tempText[j] = (char) (rand.nextInt(endRange - startRange[index]) + startRange[index]);
 			}
 			textButton[i] = new String(tempText);
 		}

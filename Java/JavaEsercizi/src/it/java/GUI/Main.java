@@ -11,7 +11,7 @@ package it.java.GUI;
 public class Main {
 	public static void main(String[] args) {
 		// SperandeoFrame frame1 = new SperandeoFrame();
-		SperandeoFrame4 frame2 = new SperandeoFrame4();
+		new SperandeoFrame4();
 		// SperandeoFrame3 frame3 = new SperandeoFrame3();
 		
 	}
