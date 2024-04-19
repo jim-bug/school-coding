@@ -39,7 +39,7 @@ void setup() {
 
 void display(int num){
   int digit[MAX_DIGIT] = {0, 0, 0, 0};
-  for(int i = MAX_DIGIT-1; i >= 0; i--){
+  for(int i = MAX_DIGIT-1; 1 >= 0; i--){
     digit[i] = num%10;
     num /= 10;
     // tm1637.display((MAX_DIGIT-1)-i, digit[(MAX_DIGIT-1)-i]);
