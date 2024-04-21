@@ -37,9 +37,10 @@ void *worker(void* args){
   }
   
   // read all the rows of the file
+  pthread_mutex_lock(&mutex);
   while (fgets(buffer, BSIZE, file) != NULL){
 
-    pthread_mutex_lock(&mutex);
+//     pthread_mutex_lock(&mutex);
 
     /*
       Estrazione importo in virgola mobile, prototipo:
@@ -60,8 +61,9 @@ void *worker(void* args){
     *money = *money + atof(dest);
     bzero(buffer, BSIZE);
 
-    pthread_mutex_unlock(&mutex);
+//    pthread_mutex_unlock(&mutex);
   }
+  pthread_mutex_unlock(&mutex);
 
   pthread_exit(NULL);
 }
