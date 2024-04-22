@@ -22,6 +22,7 @@ void *worker(void* args){
   int index;
   FILE* file;
   double* money;	// modifico il tipo di dato da int a double, in quanto dovrò sommare numeri in virgola mobile.
+  double totaleFile = 0.0;
     
   // get thread args
   index = ((thread_args*) args)->index;
@@ -58,14 +59,18 @@ void *worker(void* args){
     char dest[20];
     int endStr = strlen(buffer) - 11;
     memcpy(dest, buffer+11, endStr);
+    /*
     pthread_mutex_lock(&mutex);
     *money = *money + atof(dest);
     pthread_mutex_unlock(&mutex);
+    */
+    totaleFile += atof(dest);
     bzero(buffer, BSIZE);
-
-//    pthread_mutex_unlock(&mutex);
   }
-  // pthread_mutex_unlock(&mutex);
+  fclose(file);
+  pthread_mutex_lock(&mutex);
+  *money += totaleFile;
+  pthread_mutex_unlock(&mutex);
 
   pthread_exit(NULL);
 }
