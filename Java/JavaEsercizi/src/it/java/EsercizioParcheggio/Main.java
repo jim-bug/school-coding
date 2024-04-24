@@ -3,7 +3,6 @@ import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
-
 	public static void main(String[] args) {
 		int numeroDiAuto = getInputInt("Inserisci il numero di macchine: ");
 		int numeroPostiParcheggio = getInputInt("Inserisci il numero di posti: ");
@@ -14,8 +13,8 @@ public class Main {
 		String continua = "";
 		String marca = "";
 		String modello = "";
-		String targa = "";
-		int oreFinale = 0;
+		String targa;
+		int oreFinale;
 		int minutiFinali = 0;
 		int secondiFinali = 0;
 		

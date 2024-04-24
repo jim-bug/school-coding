@@ -49,6 +49,6 @@ int main(int argc, char *argv[]){
   printf("Tempo: %f\n", (double)(end-start)/CLOCKS_PER_SEC);
 
   // print result
-  printf("Account state: %.2f\n", money);
+  printf("Account state: %f\n", money);
   exit(0);
 }
