@@ -1,0 +1,6 @@
+Per eseguire il programma, assicurarsi di essere posizionati all'interno del package(it.java.jbSm) e digitare:
+
+							javac -d . Main.java BankSyncModified.java Worker.java
+Infine digitare e eseguire:
+							java it.java.jbSm.Main
+
