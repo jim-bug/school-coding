@@ -48,7 +48,7 @@ public class Worker implements Runnable{
 		 * 49 -> char -> '1'
 		 * 
 		 * */
-		String currentPath = System.getProperty("user.dir")+"/cash"+nFile;
+		String currentPath = System.getProperty("user.dir")+"/cash"+nFile;		
 		try {
 			File file = new File(currentPath);
 			Scanner stream = new Scanner(file);		// oggetto che legge dallo stream, in questo caso un file.
@@ -56,7 +56,7 @@ public class Worker implements Runnable{
 			while(stream.hasNextLine()) {		// finchè le righe del file non son vuote
 				String line = stream.nextLine();
 				String[] tokenLine = line.split(" ");	// divido la stringa in due parti con divisore lo spazio.
-				Double value = Double.valueOf(tokenLine[1]);		// estraggo dalla posizione undicesima fino alla fine della stringa e lo converto in Double.
+				Double value = Double.valueOf(tokenLine[1]);		// il secondo elemento della riga suddivisa è il numero con la virgola
 				mutex.acquire();		// lock
 				Worker.money += value;		// sezione critica
 				mutex.release();		// unlock
