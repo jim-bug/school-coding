@@ -1,6 +1,9 @@
 package it.java.CompitoAprile;
-
-
+/*
+ * Autore: Ignazio Leonardo Calogero Sperandeo
+ * Data: 17/04/2024											
+ * 
+ * */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -25,7 +28,7 @@ public class Esercizio2 extends JFrame{
 		done = new JButton(" SELECT ");
 		font = new Font("Arial", Font.BOLD, 13);
 		
-		 run();
+		run();
 	}
 	
 	private void run() {
@@ -37,6 +40,8 @@ public class Esercizio2 extends JFrame{
 		
 		name.setFont(font);
 		options.setEditable(false);
+
+		// done.setText(nameOptions[0]);  // decommentare se non si vuole per forza selezionare un opzione all'avvio del programma e cominciare con l'opzione di somma come default.
 		
 		add(name);
 		add(new JLabel(""));

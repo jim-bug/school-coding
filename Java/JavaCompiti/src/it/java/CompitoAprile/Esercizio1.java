@@ -2,7 +2,6 @@ package it.java.CompitoAprile;
 /*
  * Autore: Ignazio Leonardo Calogero Sperandeo
  * Data: 17/04/2024
- * Consegna: foto presente su classroom.											
  * */
 import javax.swing.*;
 import java.awt.*;
