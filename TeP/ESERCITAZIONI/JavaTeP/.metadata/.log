@@ -1,0 +1,13 @@
+!SESSION 2024-06-29 16:23:01.491 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.11
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-06-29 16:23:02.898
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-06-29 16:23:23.606
+!MESSAGE Logback config file: /home/jim_bug/school-coding/TeP/ESERCITAZIONI/JavaTeP/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.0.20240217-1525.xml
