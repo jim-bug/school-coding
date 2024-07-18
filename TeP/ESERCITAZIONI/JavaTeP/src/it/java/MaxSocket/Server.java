@@ -1,3 +1,11 @@
+/*
+ * Autore: Ignazio Leonardo Calogero Sperandeo.
+ * Data: 1807/2024
+ * Consegna: consulta il file "esercizio.pdf"
+ * 
+ * by jim_bug :)
+ * */
+
 package it.java.MaxSocket;
 
 import java.net.ServerSocket;
@@ -27,3 +35,4 @@ public class Server{
 		}
 	}
 }
+// :)

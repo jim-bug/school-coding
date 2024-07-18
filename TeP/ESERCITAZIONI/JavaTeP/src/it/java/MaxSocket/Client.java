@@ -1,3 +1,11 @@
+/*
+ * Autore: Ignazio Leonardo Calogero Sperandeo.
+ * Data: 1807/2024
+ * Consegna: consulta il file "esercizio.pdf"
+ * 
+ * by jim_bug :)
+ * */
+
 package it.java.MaxSocket;
 
 import java.io.BufferedReader;
@@ -41,7 +49,7 @@ public class Client {
             
             while(true) {
             	Integer num = intInput("Inserisci un numero da inviare al server: ");
-                out.print(num.toString());
+                out.println(num.toString());
                 System.out.println(in.readLine());
             }
 
@@ -63,4 +71,4 @@ public class Client {
 	
 	
 }
-
+// :)
