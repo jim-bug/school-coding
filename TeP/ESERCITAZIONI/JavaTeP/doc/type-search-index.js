@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"it.java.jbSm","l":"BankSyncModified"},{"p":"it.java.jbSm","l":"Main"},{"p":"it.java.jbSm","l":"Mains"},{"p":"it.java.jbSm","l":"Worker"}];updateSearchResults();
