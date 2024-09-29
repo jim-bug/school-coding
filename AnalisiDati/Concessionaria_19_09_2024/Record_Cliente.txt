@@ -1,5 +1,5 @@
 Ignazio=Sperandeo=15/03/2007=M=SPRGNZ07C15G273I=Italia=Sicilia=Palermo=Palermo=Via Antonio Marinuzzi=11=90127=333 333 3333
 Marco=La Busta=01/07/1999=M=LBSMRC99L01G273U=Italia=Sicilia=Palermo=Palermo=Via Gaspare Palermo=88=90127=343 453 3344
 Pina=Rossi=09/02/2003=F=RSSPNI03B49F205D=Italia=Lombardia=Milano=Milano=Via Giacomo=11=20019=321 456 7892
-Emily=Spazio=10/03/2000=F=SPZMLY00C50L219K=Piemonte=Torino=Torino=Via Oro=44=10024=323 454 7788
+Emily=Spazio=10/03/2000=F=SPZMLY00C50L219K=Italia=Piemonte=Torino=Torino=Via Oro=44=10024=323 454 7788
 
