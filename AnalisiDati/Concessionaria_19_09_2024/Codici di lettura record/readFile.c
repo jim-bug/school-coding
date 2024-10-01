@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define LENGTH 256
+#define LENGTH 100
 #define LENGTH_FIELDS 13
 
 void printRecord(const char[], char[], char**);
@@ -51,7 +51,7 @@ void printRecord(const char field[], char line[], char* fields[]) {
     char *token;
     int i = 0;
     token = strtok(line, field);        // split in different token by field separator
-    while(token != NULL && i < LENGTH_FIELDS){
+    while(token != NULL){
         printf("%s%s\n", fields[i], token);
         token = strtok(NULL, field);
         i ++;
