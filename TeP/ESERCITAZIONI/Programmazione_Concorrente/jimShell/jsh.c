@@ -46,8 +46,7 @@ int main(){
 
 
         if(strcmp(argv[0], "exit") == 0){ 	// caso di uscita
-            printf("SONO QUI\n");
-            break;
+            exit(0);
         }
 
         // gestisco il cambio di directory nel processo padre in quanto farlo nel processo figlio non rifletterà nel processo padre.
