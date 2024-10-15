@@ -18,7 +18,11 @@ Se non è già installato:
 ```bash
 sudo apt-get install libreoffice-script-provider-python -y
 ```
-Infine spostare la macro nella posizione del file system: /home/($whoami)/.config/libreoffice/4/user/Scripts/python (se Scripts/ e python/ non esistono potete crearle) e da libreoffice calc selezionare la macro desiderata.
+Infine spostare la macro nella posizione del file system: 
+```bash
+/home/($whoami)/.config/libreoffice/4/user/Scripts/python
+```
+(se Scripts/ e python/ non esistono potete crearle) e da libreoffice calc selezionare la macro desiderata.
 
 ## Contatti
 Puoi contattarmi presso questo indirizzo email -> ignazioandsperandeo@gmail.com
