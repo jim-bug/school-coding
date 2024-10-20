@@ -1,0 +1,16 @@
+Il problema era quello di trovare la chiave a partire dal valore di un dizionario. In questo caso
+il dizionario rappresentava l'alfabeto di riferimento del cifrario. La prima soluzione proposta da me è stata:
+
+Calcolo il valore, ottengo l'indice di quel valore, dal vettore che rappresenta i valori del dizionario. Infine accedo al vettore delle chiavi utilizzando l'indice del valore.
+
+Questa soluzione è stata pensata per essere scritta tutta su una riga. Tuttavia può risultare scomodo leggere quella riga, perciò propongo una seconda soluzione:
+
+Confrontare in dict.items() chiave e valore e appena sono uguale termino il ciclo restituendo la chiave.
+
+Entrambi soluzioni si trovano nel codice.
+
+
+Ignazio Leonardo Calogero Sperandeo.
+20/04/2024
+5C inf.
+

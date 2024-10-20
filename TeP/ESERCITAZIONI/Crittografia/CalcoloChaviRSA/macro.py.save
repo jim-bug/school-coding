@@ -7,7 +7,6 @@ from random import randint
 import uno
 
 def get_prime(z):
-    """Funzione che restituisce la chiave privata"""
     c = 3
     while True:
         pri = randint(2, z)
@@ -43,12 +42,11 @@ def extended_euclidean(a, m):
 
 
 def set_alphabet():
-    """Funzione che restituisce l'alfabeto di riferimento, in questo caso è basato su quello del libro."""
     alphabet = {}
     j = 1
     for i in range(65, 91):
         key = chr(i)
-        if key not in ['X', 'Y', 'K', 'J']:    
+        if key not in ['X', 'Y', 'K', 'J']:     # according to book
             alphabet[key] = j
             j += 1
     return alphabet

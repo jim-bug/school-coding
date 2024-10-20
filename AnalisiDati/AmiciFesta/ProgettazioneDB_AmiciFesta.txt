@@ -1,0 +1,43 @@
+Analisi della realtà: analisi delle funzionalità e dei dati.
+
+FASI DI REALIZZAZIONE DI UN DATABASE RELAZIONALE
+1) Analisi dei dati
+	1.1) Descrivere la realtà
+	1.2) Tabella di analisi dei dati
+2) Progettazione concettuale
+	2.1) Individuare le Entità
+	2.2) Individuare e descrivere gli Attributi delle Entità
+	2.3) Individuare la Primary Key (tra le chiavi candidate) per ciascuna Entità 
+	2.4) Descrivere e individuare le Associazioni
+	2.5) Realizzare il diagramma E/R (Entity/Relationship)
+    2.6) (opzionale) Semplificazione del diagramma E/R (per ottenere soltanto associazioni 1:N)		
+3) Progettazione logica
+4) Implementazione del database
+
+
+
+
+*********************************************************************************************************************
+Progetto DB: Amici e Festa
+
+1) Analisi dei dati:
+	1.1) Il cliente ha richiesto un database per poter gestire le feste a cui è invitato con i suoi amici.
+	1.2) Rif. alle tabelle presente in questa directory.
+2) Progettazione concettuale
+	2.1) Entità: Amico, Festa
+	2.2) Attributi:
+		studente: nome, cognome, data, id
+		festa: data, regalo, posto, prezzo, id
+		Per la descrizione degli attributi si fa riferimento all'analisi.
+	2.3) Come primary key sono stati scelti due numeri autoprogressivi per ciascuna entità.
+	2.4) è stata individuata un associazione: Organizzare
+		Un Amico può organizzare una o più Feste.
+		Una Festa può essere organizzata da uno o più Amici.
+		
+		Molteplicità da parte dell'entità Amico -> 0..N
+		Moleteplicità da parte dell'entità Festa -> 0..N
+		L'associazione Organizzare tra Amico e Festa è tipo N:N.
+		
+	
+	
+	
