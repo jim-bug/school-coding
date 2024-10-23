@@ -1,0 +1,18 @@
+Per risolvere questo esercizio ho utilizzato 2 funzioni utili di php e un nuovo valore dell'attributo type nel tag <input>:
+
+1) exclude
+2) array_last_key()
+3) hidden
+
+L'exclude è una funzione di php che consente di suddividere una stringa in base ad un separatore dato come parametro, il risultato sarà un array indicizzato con tutti gli elemento divisi in base a quel separatore.
+Ho utilizzato questa funzione per leggere i record dai file.
+
+L'array_last_key è una funzione che restituisce l'ultima chiave di un array, ho utilizzato questa funzione per capire quando dovessi fermarmi per inserire i separatori di campo.
+
+Il valore hidden dell'attributo type del tag <input> serve per mandare al server un campo che non verrà visualizzato dall'utente, l'ho usato per capire quale file dovessi aprire in base a quel form compila l'utente.
+
+
+
+Ignazio Leonardo Calogero Sperandeo
+5C inf.
+23/10/2024

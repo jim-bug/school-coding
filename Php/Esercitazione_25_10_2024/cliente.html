@@ -1,0 +1,35 @@
+<!-- Autore: Ignazio Leonardo Calogero Sperandeo -->
+<!-- Data: 25/10/2024 -->
+<!-- Consegna: predisporre due file sequenziali con i dati dei clienti e delle auto dell'attività "Concessionaria"; creare due script PHP che leggano i file e li visualizzino. Predisporre i form per l'inserimento dei dati delle pagine "Nuova auto" e "Nuovo cliente"-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esercizitazione 25/10/2024</title>
+    </head>
+    <body>
+        <h1 align="center">BENVENUTO NELLA COMPILAZIONE DEL FORM DEI CLIENTI</h1>
+        <form action="./adding.php" method="post">
+            <input type="hidden" name="type" value="cliente">
+            Nome: <input type="text" name="nome" id="name"><br />
+            Cognome: <input type="text" name="cognome" id="surname"><br />
+            Data: <input type="text" name="data" id="date"><br />
+            Codice Fiscale: <input type="text" name="cod_fisc" id="code"><br />
+            Stato: <input type="text" name="stato" id="state"><br />
+            Regione: <input type="text" name="regione" id="region"><br />
+            Provincia: <input type="text" name="provincia" id="province"><br />
+            Città: <input type="text" name="citta" id="city"><br />
+            Residenza: <input type="text" name="residenza" id="residence"><br />
+            Numero Civico: <input type="text" name="num_civ" id="house_number"><br />
+            CAP: <input type="text" name="cap" id="cap"><br />
+            Numero di telefono: <input type="text" name="tel" id="tel"><br />
+
+            <input type="submit" value="Invio">
+        </form>
+        <br />
+        <form  action="./print.php" method="post">
+            <input type="hidden" name="type" value="cliente">
+            Stampa tutte i clienti che hanno acquistato nella tua concessionaria: <input type="submit" value="Stampa">
+        </form>
+    </body>
+</html>

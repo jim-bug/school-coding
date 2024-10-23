@@ -1,0 +1,36 @@
+<!-- Autore: Ignazio Leonardo Calogero Sperandeo -->
+<!-- Data: 25/10/2024 -->
+<!-- Consegna: predisporre due file sequenziali con i dati dei clienti e delle auto dell'attività "Concessionaria"; creare due script PHP che leggano i file e li visualizzino. Predisporre i form per l'inserimento dei dati delle pagine "Nuova auto" e "Nuovo cliente"-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esercizitazione 25/10/2024</title>
+    </head>
+    <body>
+        <h1 align="center">BENVENUTO NELLA COMPILAZIONE DEL FORM DELLE AUTO</h1>
+        <form action="./adding.php" method="post">
+            <input type="hidden" name="type" value="auto">
+            Numero Sportelli: <input type="text" name="sportelli" id="ports"><br />
+            Numero Posti: <input type="text" name="posti" id="space"><br />
+            Targa: <input type="text" name="targa" id="license"><br />
+            Marca: <input type="text" name="marca" id="brand"><br />
+            Modello: <input type="text" name="modello" id="model"><br />
+            Telaio: <input type="text" name="telaio" id="frame"><br />
+            Motore: <input type="text" name="motore" id="engine"><br />
+            KM totali: <input type="text" name="km" id="km"><br />
+            Velocità Massima: <input type="text" name="velocita" id="speed"><br />
+            Cilindrata: <input type="text" name="cilindrata" id="displacement"><br />
+            Data Revisione: <input type="text" name="rev" id="date_rev"><br />
+            Data Tagliando: <input type="text" name="tag" id="date_tag"><br />
+            Data Immatricolazione: <input type="text" name="imm" id="date_imm"><br />
+
+            <input type="submit" value="Invio"><br />
+        </form>
+        <br />
+        <form action="./print.php" method="post">
+            <input type="hidden" name="type" value="auto">
+            Stampa tutte le auto che hanno acquistato nella tua concessionaria: <input type="submit" value="Stampa">
+        </form>
+    </body>
+</html>
