@@ -17,23 +17,55 @@
 
         if($_POST['type'] == "cliente"){        // scelgo quale file aprire in base alla richiesta che ho ricevuto, leggendo l'input nascosto all'utente
             $file = fopen("./clienti.txt", "a");
+            $field = [
+                "nome",
+                "cognome",
+                "data",
+                "sesso",
+                "cod_fisc",
+                "stato",
+                "regione",
+                "provincia",
+                "citta",
+                "residenza",
+                "num_civ",
+                "cap",
+                "tel"
+            ];
         }
         elseif($_POST['type'] == "auto"){
             $file = fopen("./auto.txt", "a");
+            $field = [
+                "sportelli",
+                "posti",
+                "targa",
+                "marca",
+                "modello",
+                "telaio",
+                "motore",
+                "km",
+                "velocita",
+                "cilindrata",
+                "rev",
+                "tag",
+                "imm"
+            ];
+            
         }
-        
+        $i = 0;
+        $len = count($field);
         foreach($_POST as $key => $value){
             if($key != "type"){       // salto il campo hidden e il campo confirm (relativo al submit)
-                if($key == array_key_last($_POST)){
-                    $record .= $value;
+                if($i == ($len - 1)){
+                    $record .= $_POST[$field[$i]];          // accedo al valore che ha come chiavi l'i-esimo elemento del vettore campi, in questa maniera non vincolo l'ordine dei campi nell'html con quelli lato server.
                 }
                 else{
-                    $record .= $value."=";      // separatore di campo
+                    $record .= $_POST[$field[$i]]."=";      // separatore di campo
                 }
-                
+                $i ++;
             }
-
         }
+
         $record.="\n";      // separatore di record
         fwrite($file, $record);
         fclose($file);

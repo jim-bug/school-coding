@@ -9,19 +9,62 @@
     </head>
     <body>
         <?php
-        if($_POST['type'] == "cliente"){
+        if($_POST['type'] == "cliente"){        // scelgo quale file aprire in base alla richiesta che ho ricevuto, leggendo l'input nascosto all'utente
             $file = fopen("./clienti.txt", "r");
+            $field = [
+                "Nome",
+                "Cognome",
+                "Data",
+                "Sesso",
+                "Codice Fiscale",
+                "Stato",
+                "Regione",
+                "Provincia",
+                "Citta",
+                "Residenza",
+                "Civico",
+                "CAP",
+                "Telefono"
+            ];
         }
         elseif($_POST['type'] == "auto"){
-            $file = fopen("./auto.txt", "r");
+            $file = fopen("./auto.txt", "r") or die("Errore nel file");
+            $field = [
+                "Sportelli",
+                "Posti",
+                "Targa",
+                "Marca",
+                "Modello",
+                "Telaio",
+                "Motore",
+                "km",
+                "Velocita",
+                "Cilindrata",
+                "Data Revisione",
+                "Data Tagliando",
+                "Data Immatricolazione"
+            ];
+            
         }
-
+        $len = count($field);
+        echo "<table border=\"1\"><tr>";
+        for($i = 0; $i < $len; $i++){
+            echo "<th> $field[$i] </th>";
+        }
+        echo "</tr>";
         while(!feof($file)){
-            foreach(explode("=", fgets($file)) as $value){      // suddivido in token la riga letta, basandomi sul separatore di campo, explode ritorna un array e lo scorro con il foreach
-                echo $value."<br />";
+            $line = fgets($file);
+            if($line == ""){
+                continue;
             }
-            echo "<br /><br />";
+            echo "<tr>";
+            foreach(explode("=", $line) as $value){      // suddivido in token la riga letta, basandomi sul separatore di campo, explode ritorna un array e lo scorro con il foreach
+                echo "<td> $value </td>";
+            
+            }
+            echo "</tr>";
         }
+        echo "</table>";
         fclose($file);
         // :)
         ?>
