@@ -18,19 +18,19 @@ FASI DI REALIZZAZIONE DI UN DATABASE RELAZIONALE
 
 
 *********************************************************************************************************************
-Progetto DB: Amici e Festa
+Progetto DB: Auto e Cliente
 
 1) Analisi dei dati:
 	1.1) Il cliente ha richiesto un database per poter gestire la vendita nella sua concessionaria di auto usate
 	1.2) Rif. alle tabelle presente in questa directory.
 2) Progettazione concettuale
-	2.1) Entità: Cliente, Audo
+	2.1) Entità: Cliente, Auto
 	2.2) Attributi:
 		cliente: nome, cognome, data, cod_fisc, stato, regione, provincia, citta, residenza, num_civ, CAP, num_tel
 		auto: n_sportelli, n_posti, targa, marca, modello, telaio, motore, km_totali, velocita_max, cilindrata, data_rev, data_tag, data_imm
 		Per la descrizione degli attributi si fa riferimento all'analisi.
 	2.3) Come primary key sono stati scelti: Cliente -> cod_fisc Auto: Targa
-	2.4) è stata individuata un associazione: Acquistare
+	2.4) è stata individuata una associazione: Acquistare
 		Un Cliente può acquistare una o più Macchine.
 		Una Macchina può essere acquistata da un Cliente.
 		
