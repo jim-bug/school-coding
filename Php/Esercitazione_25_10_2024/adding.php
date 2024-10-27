@@ -50,7 +50,9 @@
                 "tag",
                 "imm"
             ];
-            
+        }
+        else{
+            die();
         }
         $i = 0;
         $len = count($field);
