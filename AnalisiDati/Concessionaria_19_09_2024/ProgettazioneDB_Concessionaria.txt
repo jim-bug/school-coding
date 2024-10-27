@@ -34,8 +34,8 @@ Progetto DB: Auto e Cliente
 		Un Cliente può acquistare una o più Macchine.
 		Una Macchina può essere acquistata da un Cliente.
 		
-		Molteplicità da parte dell'entità Cliente -> 0..N
-		Moleteplicità da parte dell'entità Auto -> 0..1
+		1 Cliente -> 0..N
+		1 Auto -> 0..1
 		L'associazione Acquistare tra Cliente e Auto è tipo 1:N.
 		
 	
