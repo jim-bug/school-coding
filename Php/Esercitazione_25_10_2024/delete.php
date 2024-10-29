@@ -10,7 +10,11 @@
     </head>
     <body>
         <?php
-
+        /*
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        */
         if($_POST["type"] == "cliente"){        // scelgo quale file aprire in base alla richiesta che ho ricevuto, leggendo l'input nascosto all'utente
             $name = "clienti.txt";
         }

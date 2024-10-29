@@ -14,7 +14,6 @@
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
         */
-
         if($_POST['type'] == "cliente"){        // scelgo quale file aprire in base alla richiesta che ho ricevuto, leggendo l'input nascosto all'utente
             $file = fopen("./clienti.txt", "a");
             $field = [
@@ -56,6 +55,7 @@
         }
         $i = 0;
         $len = count($field);
+        $record = "";
         foreach($_POST as $key => $value){
             if($key != "type"){       // salto il campo hidden e il campo confirm (relativo al submit)
                 if($i == ($len - 1)){

@@ -9,6 +9,11 @@
     </head>
     <body>
         <?php
+        /*
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        */
         if($_POST['type'] == "cliente"){        // scelgo quale file aprire in base alla richiesta che ho ricevuto, leggendo l'input nascosto all'utente
             $name = "clienti.txt";
             $field = [
@@ -58,7 +63,8 @@
         for($i = 0; $i < $len; $i++){
             echo "<th> $field[$i] </th>";
         }
-        echo "<th> Elimina Record </th></tr>";
+        echo "<th> Elimina</th>";
+        echo "<th> Modifica</th></tr>";
 
         while(!feof($file)){
             $line = fgets($file);
@@ -74,6 +80,7 @@
                 echo "<td> $value </td>";
             }
             echo "<td> <form action=\"delete.php\" method=\"post\"> <input type=\"hidden\" name=\"id\" value=\"".urlencode($id)."\"> <input type=\"hidden\" name=\"type\" value=$_POST[type]> <input type=\"submit\" value=\"Cancella\"> </form>";
+            echo "<td> <form action=\"modify.php\" method=\"post\"> <input type=\"hidden\" name=\"id\" value=\"".urlencode($id)."\"> <input type=\"hidden\" name=\"type\" value=$_POST[type]> <input type=\"submit\" value=\"Modifica\"> </form>";
             echo "</tr>";
         }
         
