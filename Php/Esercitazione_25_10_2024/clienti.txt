@@ -1,5 +1,30 @@
-Marco=La Busta=01/07/1999=M=LBSMRC99L01G273U=Italia=Sicilia=Palermo=Palermo=Via Gaspare Palermo=88=90127=343 453 3344
-Pina=Rossi=09/02/2003=F=RSSPNI03B49F205D=Italia=Lombardia=Milano=Milano=Via Giacomo=11=20019=321 456 7892
-Pino Scecco=Sperandeo=15/03/2007=M=SPRGNZ07C15G273I=Italia=Sicilia=Palermo=Palermo=Via Antonio Marinuzzi=11=90127=333 333 3333
-Emily=Spazio=10/03/2000=F=SPZMLY00C50L219K=Italia=Piemonte=Torino=Torino=Via Oro=44=10024=323 454 7788
-Emily=Spazio=10/03/2000=F=SPZMLY00C50L219K=Italia=Piemonte=Torino=Torino=Via Oro=44=10024=323 454 7788
+RSSMRA80E14H501T=Mario=Rossi=14/05/1980=M=Italia=Lazio=Roma=Roma=Via Appia=23=00185=321 654 7890
+BNCGRG91H61Z404T=Giorgia=Bianchi=21/06/1991=F=Italia=Toscana=Firenze=Firenze=Viale dei Mille=56=50131=328 987 1122
+ESPNTN75R02F205K=Antonio=Esposito=02/10/1975=M=Italia=Campania=Napoli=Napoli=Via Toledo=78=80132=348 658 5544
+GRCLCU83S69G273B=Lucia=Greco=29/11/1983=F=Italia=Calabria=Reggio Calabria=Reggio Calabria=Via Marina=10=89121=340 123 9876
+FRRSMN89D05D969H=Simone=Ferrari=05/04/1989=M=Italia=Emilia-Romagna=Bologna=Bologna=Via dell'Indipendenza=45=40121=335 542 1234
+SNTPLA77A55F839N=Paola=Santoro=15/01/1977=F=Italia=Puglia=Bari=Bari=Via Sparano=67=70121=321 645 3321
+CSTGNN92L30G273T=Giovanni=Costa=30/07/1992=M=Italia=Sicilia=Catania=Catania=Via Etnea=100=95124=333 678 1234
+SRSRRA94C48E625Q=Sara=Serra=08/03/1994=F=Italia=Sardegna=Cagliari=Cagliari=Via Roma=9=09123=322 987 3456
+RNLLRT96B18D773G=Alberto=Rinaldi=18/02/1996=M=Italia=Marche=Ancona=Ancona=Via degli Orefici=77=60121=320 123 9998
+DLCCLC98T66G273I=Cecilia=De Luca=26/12/1998=F=Italia=Liguria=Genova=Genova=Corso Italia=22=16121=329 556 6677
+MNRNDR02S11H501R=Andrea=Morelli=11/11/2002=M=Italia=Lombardia=Milano=Milano=Via Montenapoleone=6=20121=338 654 7771
+RMNMRT99H45H501K=Martina=Romani=05/06/1999=F=Italia=Lazio=Roma=Roma=Via Veneto=3=00187=331 123 1122
+RLNFRN85A19F205J=Francesco=Orlando=19/01/1985=M=Italia=Sicilia=Messina=Messina=Via Cesare Battisti=30=98121=349 112 2334
+VTLGLI93B68C933K=Giulia=Vitali=28/02/1993=F=Italia=Veneto=Venezia=Venezia=Calle Larga=5=30124=323 987 6645
+BNCROB87P03Z404C=Roberto=Bianchi=03/09/1987=M=Italia=Piemonte=Torino=Torino=Via Roma=19=10121=324 456 7890
+GLLSFN90E52E625Y=Stefania=Gallo=12/05/1990=F=Italia=Emilia-Romagna=Modena=Modena=Corso Canalgrande=4=41121=347 223 3456
+CNTDNL84M22F839N=Daniele=Conti=22/08/1984=M=Italia=Lombardia=Bergamo=Bergamo=Piazza Pontida=33=24122=336 987 2311
+VRDLNN95D55F205O=Elena=Verdi=15/04/1995=F=Italia=Friuli=Udine=Udine=Via Cavour=12=33100=327 776 5544
+FBRMCH86L19C933D=Michele=Fabbri=19/07/1986=M=Italia=Toscana=Siena=Siena=Via del Corso=31=53100=348 765 3333
+MRTSRA97P70H501J=Sara=Moretti=30/09/1997=F=Italia=Umbria=Perugia=Perugia=Via della Pergola=20=06121=325 444 9988
+SRNFDR91R56F839N=Federica=Serena=16/10/1991=F=Italia=Lazio=Latina=Latina=Corso Matteotti=55=04100=322 111 5554
+BNCALS82H04C933H=Alessandro=Bianco=04/06/1982=M=Italia=Sicilia=Trapani=Trapani=Via Garibaldi=21=91100=324 222 8765
+GNTMRN01S67H501I=Marina=Gentile=27/11/2001=F=Italia=Veneto=Verona=Verona=Corso Porta Nuova=6=37122=326 111 2234
+TSTPTR90C31L219P=Pietro=Testa=31/03/1990=M=Italia=Sardegna=Sassari=Sassari=Via Manno=50=07100=328 333 1122
+VNTRNN88T45H501S=Anna=Venturelli=05/12/1988=F=Italia=Marche=Pesaro=Pesaro=Via Rossini=88=61121=333 444 2234
+DGLDRR83P09D969L=Dario=De Angelis=09/09/1983=M=Italia=Abruzzo=Pescara=Pescara=Viale Bovio=70=65121=330 333 8887
+LGNCHR94M43Z404F=Chiara=Longo=03/08/1994=F=Italia=Campania=Salerno=Salerno=Via Mercanti=25=84121=332 678 1235
+FNTGNN76L12G273O=Gianni=Fontana=12/07/1976=M=Italia=Calabria=Crotone=Crotone=Via Cutro=9=88900=335 444 5678
+RSSVNT92A58E625A=Valentina=Russo=18/01/1992=F=Italia=Liguria=Savona=Savona=Corso Italia=40=17100=334 999 8881
+LNFBB98S25H501Y=Fabio=Leone=25/11/1998=M=Italia=Piemonte=Novara=Novara=Via Baluardo=14=28100=326 456 7890

@@ -15,14 +15,28 @@
                 margin: 0 auto;
                 border-collapse: collapse;
             }
+            .logo {
+                border-radius: 50%
+            }
+            footer {
+                background-color: #f1f1f1; /* colore di sfondo del footer */
+                text-align: center; /* centra il testo nel footer */
+                padding: 10px 0; /* spazio interno del footer */
+                margin-top: 650px; /* spinge il footer verso il basso */
+            }
         </style>
     </head>
     <body>
+        <a href="https://github.com/jim-bug"><img class="logo" src="logo.png" alt="Logo" with="100" height="100"></a>
         <h1 align="center">BENVENUTO NELLA COMPILAZIONE DEI FORM CLIENTE E AUTO</h1>
         <table border="1" class="menu">
-            <th><a href="./cliente.html" class="link">Nuovo Cliente</a></th>
-            <th><a href="./auto.html" class="link">Nuova Auto</a></th>
+            <th><a href="./cliente.php" class="link">Nuovo Cliente</a></th>
+            <th><a href="./auto.php" class="link">Nuova Auto</a></th>
         </table>
-        <p><i>Realizzato da Ignazio Leonardo Calogero Sperandeo <br />5C inf<br />25/10/2024</i></p>
+
+        <footer>
+            <p><i>Realizzato da Ignazio Leonardo Calogero Sperandeo <br />5C inf<br />25/10/2024</i></p>
+        </footer>
+        
     </body>
 </html>
