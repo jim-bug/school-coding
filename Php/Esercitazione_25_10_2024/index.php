@@ -7,16 +7,16 @@
     <head>
         <title>Esercizitazione 25/10/2024</title>
         <style>
-            .link{
+            .link {
                 color: black;
                 text-decoration: none;
             }
-            .menu{
+            .menu {
                 margin: 0 auto;
                 border-collapse: collapse;
             }
             .logo {
-                border-radius: 50%
+                border-radius: 50%  /* logo circolare */
             }
             footer {
                 background-color: #f1f1f1; /* colore di sfondo del footer */
@@ -27,16 +27,15 @@
         </style>
     </head>
     <body>
-        <a href="https://github.com/jim-bug"><img class="logo" src="logo.png" alt="Logo" with="100" height="100"></a>
+        <a href="https://github.com/jim-bug"><img class="logo" src="logo.png" alt="Logo" with="50" height="50"></a>
         <h1 align="center">BENVENUTO NELLA COMPILAZIONE DEI FORM CLIENTE E AUTO</h1>
         <table border="1" class="menu">
-            <th><a href="./cliente.php" class="link">Nuovo Cliente</a></th>
-            <th><a href="./auto.php" class="link">Nuova Auto</a></th>
+            <th><a href="./cliente.php" class="link">Clienti</a></th>
+            <th><a href="./auto.php" class="link">Auto</a></th>
         </table>
 
-        <footer>
-            <p><i>Realizzato da Ignazio Leonardo Calogero Sperandeo <br />5C inf<br />25/10/2024</i></p>
-        </footer>
+
+
         
     </body>
 </html>

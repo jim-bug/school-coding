@@ -8,7 +8,7 @@
         <title>Esercizitazione 25/10/2024</title>
     </head>
     <body>
-        <h1 align="center">BENVENUTO NELLA COMPILAZIONE DEL FORM DELLE AUTO</h1>
+        <?php include "index.php"; ?>
         <form action="./adding.php" method="post">
             <input type="hidden" name="type" value="auto">
             <table border="1">
@@ -71,9 +71,5 @@
             <input type="submit" value="Invio"><br />
         </form>
         <br />
-        <form action="./print.php" method="post">
-            <input type="hidden" name="type" value="auto">
-            Stampa tutte le auto che hanno acquistato nella tua concessionaria: <input type="submit" value="Stampa">
-        </form>
     </body>
 </html>
