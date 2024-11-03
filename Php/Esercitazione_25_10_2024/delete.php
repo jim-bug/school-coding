@@ -1,10 +1,12 @@
-<!-- Autore: Ignazio Leonardo Calogero Sperandeo -->
-<!-- Data: 25/10/2024 -->
-<!-- Consegna: predisporre due file sequenziali con i dati dei clienti e delle auto dell'attività "Concessionaria"; creare due script PHP che leggano i file e li visualizzino. Predisporre i form per l'inserimento dei dati delle pagine "Nuova auto" e "Nuovo cliente"-->
-
 <?php
-        require_once "concessionaria_moduli.php";
-        header("Location: http://localhost:7777/Php/Esercitazione_25_10_2024/cliente.html");
+    /*
+    * Autore: Ignazio Leonardo Calogero Sperandeo
+    * Classe: 5C INF
+    * Data: 25/10/2024
+    * by jim_bug // :)
+    */ 
+    require "./modules/concessionaria_moduli.php";
+        // header("Location: http://localhost:7777/Php/Esercitazione_25_10_2024/".$_POST["type"].".php");
         list($name, $field) = get_name_file($_POST["type"]);
         $file = fopen($name, "r");
         $new_file_content = array();
@@ -36,10 +38,4 @@
         fclose($file);
         // :)
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-    </body>
-</html>
+

@@ -1,28 +1,27 @@
-<!-- Autore: Ignazio Leonardo Calogero Sperandeo -->
-<!-- Data: 25/10/2024 -->
-<!-- Consegna: predisporre due file sequenziali con i dati dei clienti e delle auto dell'attività "Concessionaria"; creare due script PHP che leggano i file e li visualizzino. Predisporre i form per l'inserimento dei dati delle pagine "Nuova auto" e "Nuovo cliente"-->
 <?php
-require "concessionaria_moduli.php";
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// $page = 1;
+    /*
+    * Autore: Ignazio Leonardo Calogero Sperandeo
+    * Classe: 5C INF
+    * Data: 25/10/2024
+    * by jim_bug // :)
+    */ 
+    require "./modules/concessionaria_moduli.php";
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    // $page = 1;
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Esercizitazione 25/10/2024</title>
+    <?php include "./includes/header.php"; ?>
         <link rel="stylesheet" href="./css/style_client_car.css">
-    </head>
-    <body>
-        <?php include "index.php"; ?>
+    <?php include "./includes/main.php"; ?>
+
+        
         <a href="ncliente.php" class="bottone-link">Nuovo Cliente</a>
         <form action="" method="post">
                 <input type="hidden" name="type" value="cliente">
                 <div class="table-container">
-                    <table border="1" style="margin:auto;margin-top: 35px;">
-                        <caption><h2>Campi di ricerca per cliente</h2></caption>
+                    <table style="margin:auto;margin-top: 35px;">
+                        <caption><h2>Campi di ricerca per Cliente</h2></caption>
                         <tr>
                             <th>Codice Fiscale</th>
                             <th>Nome</th>
@@ -67,17 +66,17 @@ error_reporting(E_ALL);
                                 list($name, $field) = get_name_file($_POST["type"]);
                                 $file = fopen($name, "r");
                                 search_by_field($file, $field, $_POST);
+                                fclose($file);
                             }    
                             // if(isset($_POST['new_record'])){
                             //     $page ++;
                             //     search_by_field($file, $field, $_POST, $page);   
                             // }
                         ?>
+                        
                     </table>
                 </div>
                 <!-- <button type="submit" name="new_record">Carica Altri</button> -->
             </form>
             <br />
-            <?php fclose($file); ?>
-    </body>
-</html>
+<?php include "./includes/footer.php"; ?>

@@ -1,15 +1,6 @@
-<!-- Autore: Ignazio Leonardo Calogero Sperandeo -->
-<!-- Data: 25/10/2024 -->
-<!-- Consegna: predisporre due file sequenziali con i dati dei clienti e delle auto dell'attività "Concessionaria"; creare due script PHP che leggano i file e li visualizzino. Predisporre i form per l'inserimento dei dati delle pagine "Nuova auto" e "Nuovo cliente"-->
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Esercizitazione 25/10/2024</title>
-    </head>
-    <body>
-        <?php include "index.php"; ?>
+    <?php include "./includes/header.php"; ?>
+    <!--    <link rel="stylesheet" href="./css/style_client_car.css"> -->
+    <?php include "./includes/main.php"; ?>
         <form action="./adding.php" method="post">
                 <input type="hidden" name="type" value="cliente">
                 <table border="1">
@@ -78,10 +69,4 @@
                 </table>
                 <input type="submit" value="Invio">
             </form>
-            <br />
-            <form  action="./print.php" method="post">
-                <input type="hidden" name="type" value="cliente">
-                Stampa tutte i clienti che hanno acquistato nella tua concessionaria: <input type="submit" value="Stampa">
-            </form>
-    </body>
-</html>
+<?php include "./includes/footer.php"; ?>

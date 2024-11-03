@@ -8,12 +8,11 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin-top: 30px;
 }
 
-.bottone-link:hover {
-    background-color: #007bff;
-}
 .table-container {
+    border: black 1px solid;
     margin-top: 35px;
     width: 100%;
 }
