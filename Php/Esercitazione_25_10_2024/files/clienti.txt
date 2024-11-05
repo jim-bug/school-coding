@@ -1,2 +1,24 @@
 RSSMRA80E14H501T=Mario=Rossi=14/05/1980=M=Italia=Lazio=Roma=Roma=Via Appia=23=00185=321 654 7890
 BNCGRG91H61Z404T=Giorgia=Bianchi=21/06/1991=F=Italia=Toscana=Firenze=Firenze=Viale dei Mille=56=50131=328 987 1122
+VRDLGU75M23F205Z=Luigi=Verdi=23/08/1975=M=Italia=Piemonte=Torino=Torino=Via Roma=12=10121=329 345 6789
+MRCBLU80B12C456G=Marco=Blue=12/02/1980=M=Italia=Sicilia=Catania=Catania=Via Etnea=100=95131=327 890 1234
+BLCSRA85S15Z404P=Sara=Bellucci=15/09/1985=F=Italia=Calabria=Catanzaro=Catanzaro=Corso Mazzini=45=88100=320 123 4567
+CLNGFR79C09H501T=Franco=Colangeli=09/03/1979=M=Italia=Lombardia=Milano=Milano=Corso Buenos Aires=90=20124=328 345 6789
+FNCLRA90T03Z404T=Lara=Finocchi=03/12/1990=F=Italia=Campania=Napoli=Napoli=Via Toledo=58=80134=329 678 4567
+GLLNRS82S18C933V=Neri=Galli=18/11/1982=M=Italia=Veneto=Venezia=Venezia=Riva degli Schiavoni=22=30122=324 345 6789
+NCHVTR86B02H501C=Vittorio=Nucci=02/02/1986=M=Italia=Emilia-Romagna=Bologna=Bologna=Via Rizzoli=36=40125=327 890 2345
+VRNGCR93T05L219T=Ciro=Verini=05/12/1993=M=Italia=Liguria=Genova=Genova=Via XX Settembre=11=16121=326 432 7891
+PRZLCN88E17F205G=Luciano=Piazza=17/05/1988=M=Italia=Friuli-Venezia Giulia=Trieste=Trieste=Corso Italia=33=34121=328 678 4567
+BLLSRA94C22H501Q=Sara=Belloni=22/03/1994=F=Italia=Piemonte=Torino=Torino=Via Po=50=10124=327 876 3456
+DNCGCM75H10H501D=Giacomo=De Angelis=10/06/1975=M=Italia=Umbria=Perugia=Perugia=Corso Vannucci=29=06121=329 345 6789
+FRCLCE92L17Z404K=Cecilia=Ferretti=17/07/1992=F=Italia=Sicilia=Palermo=Palermo=Via Libertà=5=90139=328 234 5678
+PLGFRN86T04Z404D=Franco=Pelagatti=04/12/1986=M=Italia=Puglia=Bari=Bari=Via Sparano=19=70121=320 876 2345
+MLLRLA89M06Z404H=Lara=Mellone=06/08/1989=F=Italia=Marche=Ancona=Ancona=Corso Garibaldi=8=60121=327 908 1234
+CMRNDR78C13H501R=Andrea=Camorani=13/03/1978=M=Italia=Trentino-Alto Adige=Trento=Trento=Via Roma=41=38122=321 234 5678
+CRRSLV91B24F205J=Silvia=Carraro=24/02/1991=F=Italia=Valle d'Aosta=Aosta=Aosta=Corso Saint Martin=18=11100=329 111 2233
+BRVMLC87R11H501Q=Marcel=Bravo=11/10/1987=M=Italia=Veneto=Padova=Padova=Via Roma=27=35121=326 678 8901
+PNTLCA85M29C933I=Lucia=Ponti=29/08/1985=F=Italia=Toscana=Pisa=Pisa=Corso Italia=32=56121=328 345 6780
+LNDMLA92L15Z404G=Maria=Landini=15/07/1992=F=Italia=Basilicata=Matera=Matera=Via del Corso=12=75100=322 876 3456
+BLRMRN88C27L219V=Mirna=Bellari=27/03/1988=F=Italia=Lombardia=Lecco=Lecco=Via Cavour=9=23900=324 567 8902
+GLLLDA94T17Z404J=Linda=Gallo=17/12/1994=F=Italia=Campania=Caserta=Caserta=Corso Trieste=19=81100=328 234 6789
+BRTGLR92M28H501G=Lara=Bertoli=28/08/1992=F=Italia=Valle d'Aosta=Aosta=Aosta=Via Croce=10=11100=329 678 1234

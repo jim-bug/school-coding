@@ -1,5 +1,5 @@
     <?php include "./includes/header.php"; ?>
-    <!--    <link rel="stylesheet" href="./css/style_client_car.css"> -->
+        <link rel="stylesheet" href="./css/style_client_car.css">
     <?php include "./includes/main.php"; ?>
         <form action="./adding.php" method="post">
                 <input type="hidden" name="type" value="cliente">

@@ -37,7 +37,7 @@
 
             <?php while(!feof($file)):
                 $line = fgets($file);
-                $values = explode("=", $line);
+                $values = explode(";", $line);
                 if($line == ""){
                     continue;
                 }

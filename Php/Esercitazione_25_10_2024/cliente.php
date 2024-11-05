@@ -9,6 +9,13 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
+
+
+    if(isset($_GET["submit"]) && $_GET["submit"] == "Cancella"){
+        list($name, $field) = get_name_file($_GET["type"]);
+        delete_record($name, $_GET);
+    }
     // $page = 1;
 ?>
     <?php include "./includes/header.php"; ?>
@@ -17,7 +24,7 @@
 
         
         <a href="ncliente.php" class="bottone-link">Nuovo Cliente</a>
-        <form action="" method="post">
+        <form action="" method="get">
                 <input type="hidden" name="type" value="cliente">
                 <div class="table-container">
                     <table style="margin:auto;margin-top: 35px;">
@@ -59,13 +66,13 @@
                             <td><input type="text" name="num_civ" id="house_number"></td>
                             <td><input type="text" name="cap" id="cap"></td>
                             <td><input type="text" name="tel" id="tel"></td>
-                            <th><input type="submit" value="Invio"></th>
+                            <th><input type="submit" name ="submit" value="Invio"></th>
                         </tr>
                         <?php 
-                            if(isset($_POST["type"])){ 
-                                list($name, $field) = get_name_file($_POST["type"]);
+                            if(isset($_GET["submit"]) && $_GET["submit"] == "Invio"){ 
+                                list($name, $field) = get_name_file($_GET["type"]);
                                 $file = fopen($name, "r");
-                                search_by_field($file, $field, $_POST);
+                                search_by_field($file, $field, $_GET);
                                 fclose($file);
                             }    
                             // if(isset($_POST['new_record'])){

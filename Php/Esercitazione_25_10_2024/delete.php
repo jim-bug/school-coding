@@ -15,7 +15,7 @@
             $black_field = urldecode($_POST["id"]);
             $black_line = false;
 
-            foreach(explode("=", $line) as $field){         // scompogno il record in campi così da confrontare quale riga è quella che devo eliminare.
+            foreach(explode(";", $line) as $field){         // scompogno il record in campi così da confrontare quale riga è quella che devo eliminare.
                 if($field == $black_field){
                     $black_line = true;
                     break;
