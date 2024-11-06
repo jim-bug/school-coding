@@ -14,7 +14,6 @@
 
         if(isset($_GET["nome"])){           // blocco di codice che agisce SE modifico qualche attributo del record.
             $record = adding_record($_GET, $field);
-            
             array_push($file_content, $record);
             fclose($file);
             $file = fopen($name, "w");
