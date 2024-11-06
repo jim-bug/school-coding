@@ -1,24 +1,44 @@
-RSSMRA80E14H501T=Mario=Rossi=14/05/1980=M=Italia=Lazio=Roma=Roma=Via Appia=23=00185=321 654 7890
-BNCGRG91H61Z404T=Giorgia=Bianchi=21/06/1991=F=Italia=Toscana=Firenze=Firenze=Viale dei Mille=56=50131=328 987 1122
-VRDLGU75M23F205Z=Luigi=Verdi=23/08/1975=M=Italia=Piemonte=Torino=Torino=Via Roma=12=10121=329 345 6789
-MRCBLU80B12C456G=Marco=Blue=12/02/1980=M=Italia=Sicilia=Catania=Catania=Via Etnea=100=95131=327 890 1234
-BLCSRA85S15Z404P=Sara=Bellucci=15/09/1985=F=Italia=Calabria=Catanzaro=Catanzaro=Corso Mazzini=45=88100=320 123 4567
-CLNGFR79C09H501T=Franco=Colangeli=09/03/1979=M=Italia=Lombardia=Milano=Milano=Corso Buenos Aires=90=20124=328 345 6789
-FNCLRA90T03Z404T=Lara=Finocchi=03/12/1990=F=Italia=Campania=Napoli=Napoli=Via Toledo=58=80134=329 678 4567
-GLLNRS82S18C933V=Neri=Galli=18/11/1982=M=Italia=Veneto=Venezia=Venezia=Riva degli Schiavoni=22=30122=324 345 6789
-NCHVTR86B02H501C=Vittorio=Nucci=02/02/1986=M=Italia=Emilia-Romagna=Bologna=Bologna=Via Rizzoli=36=40125=327 890 2345
-VRNGCR93T05L219T=Ciro=Verini=05/12/1993=M=Italia=Liguria=Genova=Genova=Via XX Settembre=11=16121=326 432 7891
-PRZLCN88E17F205G=Luciano=Piazza=17/05/1988=M=Italia=Friuli-Venezia Giulia=Trieste=Trieste=Corso Italia=33=34121=328 678 4567
-BLLSRA94C22H501Q=Sara=Belloni=22/03/1994=F=Italia=Piemonte=Torino=Torino=Via Po=50=10124=327 876 3456
-DNCGCM75H10H501D=Giacomo=De Angelis=10/06/1975=M=Italia=Umbria=Perugia=Perugia=Corso Vannucci=29=06121=329 345 6789
-FRCLCE92L17Z404K=Cecilia=Ferretti=17/07/1992=F=Italia=Sicilia=Palermo=Palermo=Via Libertà=5=90139=328 234 5678
-PLGFRN86T04Z404D=Franco=Pelagatti=04/12/1986=M=Italia=Puglia=Bari=Bari=Via Sparano=19=70121=320 876 2345
-MLLRLA89M06Z404H=Lara=Mellone=06/08/1989=F=Italia=Marche=Ancona=Ancona=Corso Garibaldi=8=60121=327 908 1234
-CMRNDR78C13H501R=Andrea=Camorani=13/03/1978=M=Italia=Trentino-Alto Adige=Trento=Trento=Via Roma=41=38122=321 234 5678
-CRRSLV91B24F205J=Silvia=Carraro=24/02/1991=F=Italia=Valle d'Aosta=Aosta=Aosta=Corso Saint Martin=18=11100=329 111 2233
-BRVMLC87R11H501Q=Marcel=Bravo=11/10/1987=M=Italia=Veneto=Padova=Padova=Via Roma=27=35121=326 678 8901
-PNTLCA85M29C933I=Lucia=Ponti=29/08/1985=F=Italia=Toscana=Pisa=Pisa=Corso Italia=32=56121=328 345 6780
-LNDMLA92L15Z404G=Maria=Landini=15/07/1992=F=Italia=Basilicata=Matera=Matera=Via del Corso=12=75100=322 876 3456
-BLRMRN88C27L219V=Mirna=Bellari=27/03/1988=F=Italia=Lombardia=Lecco=Lecco=Via Cavour=9=23900=324 567 8902
-GLLLDA94T17Z404J=Linda=Gallo=17/12/1994=F=Italia=Campania=Caserta=Caserta=Corso Trieste=19=81100=328 234 6789
-BRTGLR92M28H501G=Lara=Bertoli=28/08/1992=F=Italia=Valle d'Aosta=Aosta=Aosta=Via Croce=10=11100=329 678 1234
+BLCSRA85S15Z404P=Napoleone=Bellucci=15/09/1985=F=Italia=Calabria=Catanzaro=Catanzaro=Corso Mazzini=45=88100=320 123 4567
+BRTGLR92M28H501G=Lara=Bertolina=28/08/1992=F=Italia=Valle d'Aosta=Aosta=Aosta=Via Croce=10=11100=329 678 1234
+BLRMRN88C27L219V=Mirna=Casavecchia=27/03/1988=F=Italia=Lombardia=Lecco=Lecco=Via Cavour=9=23900=324 567 8902
+GLLLDA94T17Z404J=Linda=Gallina=17/12/1994=F=Italia=Campania=Caserta=Caserta=Corso Trieste=19=81100=328 234 6789
+MLLRLA89M06Z404H=Lara=Cantalupo=06/08/1989=F=Italia=Marche=Ancona=Ancona=Corso Garibaldi=8=60121=327 908 1234
+FRCLCE92L17Z404K=Cecilia=Ferrari=17/07/1992=F=Italia=Sicilia=Palermo=Palermo=Via Libertà=5=90139=328 234 5678
+LNDMLA92L15Z404G=Maria=Scavolini=15/07/1992=F=Italia=Basilicata=Matera=Matera=Via del Corso=12=75100=322 876 3456
+RZZMRA86T05Z404Q=Marco=Rizzoli=05/12/1986=M=Italia=Toscana=Firenze=Firenze=Via de' Bardi=14=50125=329 567 4321
+BNCGLS91D10Z404N=Giusy=Bianciardi=10/04/1991=F=Italia=Liguria=Genova=Genova=Via San Lorenzo=7=16123=327 456 7890
+VRLGFR85L15Z404H=Giorgio=Verlato=15/07/1985=M=Italia=Lazio=Roma=Roma=Via Condotti=18=00187=328 765 4321
+TSTFNC93L22Z404D=Francesca=Tosti=22/07/1993=F=Italia=Campania=Napoli=Napoli=Via Chiaia=10=80121=324 987 6543
+MNZLCA88R05Z404C=Caterina=Manzoni=05/10/1988=F=Italia=Piemonte=Torino=Torino=Via Po=9=10123=320 123 4567
+BRNRGI90D12Z404S=Gianni=Bernardi=12/04/1990=M=Italia=Emilia-Romagna=Modena=Modena=Via Emilia=15=41121=321 876 5432
+MLTLRA93B25Z404V=Lara=Milani=25/02/1993=F=Italia=Lombardia=Milano=Milano=Corso Sempione=20=20145=329 678 1234
+DNTPLN87C16Z404F=Paola=Donati=16/03/1987=F=Italia=Veneto=Venezia=Venezia=Riva degli Schiavoni=5=30122=324 567 8902
+RNCGFR91M20Z404E=Gianfranco=Roncati=20/08/1991=M=Italia=Friuli Venezia Giulia=Trieste=Trieste=Viale Miramare=7=34135=328 234 6789
+RLCFRN89A22Z404Z=Franco=Ralicante=22/01/1989=M=Italia=Trentino-Alto Adige=Bolzano=Bolzano=Via dei Portici=3=39100=320 678 2345
+MZZCLA85S15Z404T=Clara=Mazza=15/11/1985=F=Italia=Sardegna=Cagliari=Cagliari=Via Roma=12=09124=329 345 6789
+PZZLRL90P02Z404B=Loredana=Pizzi=02/09/1990=F=Italia=Sicilia=Catania=Catania=Via Etnea=45=95131=328 765 0987
+GTTMRN94A10Z404K=Mirko=Gattinoni=10/01/1994=M=Italia=Marche=Pesaro=Pesaro=Corso XI Settembre=22=61121=327 908 1234
+RSSMRT88D17Z404L=Martina=Rossi=17/04/1988=F=Italia=Calabria=Reggio Calabria=Reggio Calabria=Via Marina=30=89121=322 876 3456
+CNTNRD91R03Z404W=Rodolfo=Cantini=03/10/1991=M=Italia=Lazio=Latina=Latina=Corso della Repubblica=29=04100=323 456 7890
+LMNRLA92S12Z404X=Laura=Lamonica=12/11/1992=F=Italia=Liguria=Savona=Savona=Via Paleocapa=13=17100=324 567 2345
+PNTGLR89M30Z404A=Giulia=Panetti=30/08/1989=F=Italia=Piemonte=Biella=Biella=Via Italia=18=13900=321 654 7890
+FRRLCI86L25Z404O=Cinzia=Ferrari=25/07/1986=F=Italia=Emilia-Romagna=Parma=Parma=Via Mazzini=50=43121=326 543 2109
+PRTRLA87P01Z404R=Lara=Peruzzi=01/09/1987=F=Italia=Lazio=Frosinone=Frosinone=Via Aldo Moro=19=03100=328 432 1098
+VRLLGN90M12Z404I=Gianni=Verlato=12/08/1990=M=Italia=Veneto=Padova=Padova=Via Umberto I=24=35122=322 109 8765
+FNTCLZ92C19Z404P=Alessia=Fante=19/03/1992=F=Italia=Friuli Venezia Giulia=Pordenone=Pordenone=Via delle Acacie=17=33170=327 890 5674
+MRTFLA88S27Z404S=Flavia=Martini=27/11/1988=F=Italia=Lombardia=Monza=Monza=Via Manzoni=35=20900=320 678 9012
+SRTFRC93P14Z404T=Francesca=Sartori=14/09/1993=F=Italia=Toscana=Siena=Siena=Via Banchi di Sopra=21=53100=321 890 2345
+BNDRTA90B20Z404C=Antonio=Bandiera=20/02/1990=M=Italia=Umbria=Terni=Terni=Via della Rinascita=7=05100=328 109 2345
+BLCRMR88M10Z404D=Maria=Bellucci=10/08/1988=F=Italia=Sardegna=Oristano=Oristano=Via Dritta=9=09170=322 567 2345
+RLGDND91A25Z404E=Donato=Ruggeri=25/01/1991=M=Italia=Calabria=Cosenza=Cosenza=Via Rivocati=13=87100=323 890 6789
+NGLTGL89S07Z404F=Giulio=Niglio=07/11/1989=M=Italia=Sicilia=Siracusa=Siracusa=Corso Umberto=5=96100=324 109 6789
+PNNRLA90C11Z404G=Lara=Pannoni=11/03/1990=F=Italia=Lombardia=Como=Como=Via Cadorna=29=22100=329 890 3456
+RNTGLC92L17Z404H=Gianluca=Renati=17/07/1992=M=Italia=Piemonte=Asti=Asti=Corso Alfieri=18=14100=328 567 4321
+MLLFLR91R09Z404I=Flora=Meloni=09/10/1991=F=Italia=Marche=Macerata=Macerata=Via Carducci=22=62100=322 678 1234
+BNTGMR87B13Z404L=Maria=Bentivoglio=13/02/1987=F=Italia=Emilia-Romagna=Ferrara=Ferrara=Via Voltapaletto=16=44121=321 123 8907
+GTTMLR85D24Z404M=Marco=Gattinoni=24/04/1985=M=Italia=Valle d'Aosta=Aosta=Aosta=Via Croce=6=11100=327 543 2109
+DNTMRN92C10Z404N=Mirna=Donati=10/03/1992=F=Italia=Lazio=Roma=Roma=Via Condotti=12=00187=320 876 5432
+LMNRTN91B22Z404Q=Antonino=Lamonica=22/02/1991=M=Italia=Sicilia=Catania=Catania=Via Etnea=30=95131=328 234 5678
+FRNGLA88P05Z404R=Gianluca=Ferraro=05/09/1988=M=Italia=Piemonte=Torino=Torino=Corso Duca=8=10129=323 456 7890
+PRTMNL90C17Z404S=Manuela=Prati=17/03/1990=F=Italia=Campania=Caserta=Caserta=Via Roma=11=81100=328 345 6789
+SNTGLR89L15Z404T=Gianluca=Santini=15/07/1989=M=Italia=Lazio=Frosinone=Frosinone=Corso della Repubblica=23=03100=329 876 5432

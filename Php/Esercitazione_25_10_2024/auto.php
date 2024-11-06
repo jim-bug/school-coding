@@ -16,7 +16,7 @@
 
 
 
-        <a href="nauto.php" class="bottone-link">Nuova Auto</a>
+        <a href="nauto.php" class="links">Nuova Auto</a>
         <form action="" method="post">
                 <input type="hidden" name="type" value="auto">
                 <div class="table-container">
@@ -36,6 +36,10 @@
                             <th>Data Revisione</th>
                             <th>Data Tagliando</th>
                             <th>Data Immatricolazione</th>
+                            <th>
+                                <label for="print">Stampa</label>
+                                <input type="checkbox" name="print" value="1">
+                            </th>
                         </tr>
                         <tr>
                             <td><input type="text" name="targa"></td>
@@ -51,7 +55,7 @@
                             <td><input type="date" name="rev"></td>
                             <td><input type="date" name="tag"></td>
                             <td><input type="date" name="imm"></td>
-                            <th><input type="submit" value="Invio"></th>
+                            <th><input type="submit" value="Invio" class="bottone-link"></th>
                         </tr>
                         <?php 
                             if(isset($_POST["type"])){ 

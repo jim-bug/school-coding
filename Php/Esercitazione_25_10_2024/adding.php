@@ -11,12 +11,3 @@
         // :)
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Finestra di agginta record di <?php echo $_POST["type"]?></title>
-    </head>
-    <body>
-
-    </body>
-</html>

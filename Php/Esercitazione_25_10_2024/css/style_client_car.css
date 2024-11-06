@@ -1,9 +1,21 @@
 .bottone-link {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 7px 20px;
+    font-size: 15px;
     color: white;
     background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.links {
+    display: inline-block;
+    padding: 7px 20px;
+    font-size: 15px;
+    color: white;
+    background-color: #ff7300;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;

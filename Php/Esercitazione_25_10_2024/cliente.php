@@ -12,7 +12,7 @@
 
 
 
-    if(isset($_GET["submit"]) && $_GET["submit"] == "Cancella"){
+    if(isset($_GET["id"])){
         list($name, $field) = get_name_file($_GET["type"]);
         delete_record($name, $_GET);
     }
@@ -23,11 +23,11 @@
     <?php include "./includes/main.php"; ?>
 
         
-        <a href="ncliente.php" class="bottone-link">Nuovo Cliente</a>
+        <a href="ncliente.php" class="links">Nuovo Cliente</a>
         <form action="" method="get">
                 <input type="hidden" name="type" value="cliente">
                 <div class="table-container">
-                    <table style="margin:auto;margin-top: 35px;">
+                    <table>
                         <caption><h2>Campi di ricerca per Cliente</h2></caption>
                         <tr>
                             <th>Codice Fiscale</th>
@@ -43,6 +43,11 @@
                             <th>Numero Civico</th>
                             <th>CAP</th>
                             <th>Numero di telefono</th>
+                            <th>
+                                <label for="print">Stampa</label>
+                                <input type="checkbox" name="print" value="1" checked>
+                            </th>
+
                         </tr>
                         <tr>
                             <td><input type="text" name="cod_fisc" id="code"></td>
@@ -66,10 +71,13 @@
                             <td><input type="text" name="num_civ" id="house_number"></td>
                             <td><input type="text" name="cap" id="cap"></td>
                             <td><input type="text" name="tel" id="tel"></td>
-                            <th><input type="submit" name ="submit" value="Invio"></th>
+                            <th>
+
+                                <input type="submit" name ="submit" value="Invio" class="bottone-link">
+                            </th>
                         </tr>
                         <?php 
-                            if(isset($_GET["submit"]) && $_GET["submit"] == "Invio"){ 
+                            if(isset($_GET["nome"])){ 
                                 list($name, $field) = get_name_file($_GET["type"]);
                                 $file = fopen($name, "r");
                                 search_by_field($file, $field, $_GET);
@@ -85,5 +93,6 @@
                 </div>
                 <!-- <button type="submit" name="new_record">Carica Altri</button> -->
             </form>
+
             <br />
 <?php include "./includes/footer.php"; ?>
