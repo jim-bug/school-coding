@@ -17,7 +17,7 @@
 
 
         <a href="nauto.php" class="links">Nuova Auto</a>
-        <form action="" method="post">
+        <form action="" method="get">
                 <input type="hidden" name="type" value="auto">
                 <div class="table-container">
                     <table border="1">
@@ -25,10 +25,10 @@
                         <tr>
                             <th>Targa</th>
                             <th>Telaio</th>
-                            <th>Marca</th>
-                            <th>Modello</th>
                             <th>Sportelli</th>
                             <th>Posti</th>
+                            <th>Marca</th>
+                            <th>Modello</th>
                             <th>Motore</th>
                             <th>Cilindrata</th>
                             <th>KM</th>
@@ -36,10 +36,6 @@
                             <th>Data Revisione</th>
                             <th>Data Tagliando</th>
                             <th>Data Immatricolazione</th>
-                            <th>
-                                <label for="print">Stampa</label>
-                                <input type="checkbox" name="print" value="1">
-                            </th>
                         </tr>
                         <tr>
                             <td><input type="text" name="targa"></td>
@@ -58,11 +54,12 @@
                             <th><input type="submit" value="Invio" class="bottone-link"></th>
                         </tr>
                         <?php 
-                            if(isset($_POST["type"])){ 
-                                list($name, $field) = get_name_file($_POST["type"]);
+                             if(isset($_GET["targa"])){ 
+                                list($name, $field) = get_name_file($_GET["type"]);
                                 $file = fopen($name, "r");
-                                search_by_field($file, $field, $_POST, 2);
-                            }    
+                                search_by_field($file, $field, $_GET);
+                                fclose($file);
+                            }     
                         ?>
                     </table>
                 </div>

@@ -31,11 +31,11 @@
             $name = "./files/auto.txt";
             $field = [
                 "targa",
+                "telaio",
                 "sportelli",
                 "posti",
                 "marca",
                 "modello",
-                "telaio",
                 "motore",
                 "km",
                 "velocita",
@@ -48,7 +48,7 @@
         return [$name, $field];
     }
 
-    function adding_record($method_arr, $field){
+    function get_record($method_arr, $field){
         /*
         Funzione che costruisce un record.
         */
@@ -64,6 +64,7 @@
             }
         }
         $record .= "\n";
+
         return $record;
     }
 

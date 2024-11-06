@@ -1,0 +1,68 @@
+Analisi della realtà: analisi delle funzionalità e dei dati.
+
+FASI DI REALIZZAZIONE DI UN DATABASE RELAZIONALE
+1) Analisi dei dati
+	1.1) Descrivere la realtà
+	1.2) Tabella di analisi dei dati
+2) Progettazione concettuale
+	2.1) Individuare le Entità
+	2.2) Individuare e descrivere gli Attributi delle Entità
+	2.3) Individuare la Primary Key (tra le chiavi candidate) per ciascuna Entità 
+	2.4) Descrivere e individuare le Associazioni
+	2.5) Realizzare il diagramma E/R (Entity/Relationship)
+    2.6) (opzionale) Semplificazione del diagramma E/R (per ottenere soltanto associazioni 1:N)		
+3) Progettazione logica
+4) Implementazione del database
+
+
+
+
+*********************************************************************************************************************
+Progetto DB: Opere D'Arte
+
+1) Analisi dei dati:
+	1.1) Il cliente ha richiesto un database per poter gestire le opere in musei di tutto il mondo
+	1.2) Rif. alle tabelle presente in questa directory.
+2) Progettazione concettuale
+	2.1) Entità: Opera, Artista, Epoca, Citta, Nazione, Tipo
+	2.2) Attributi:
+		Opera: Nome, Anno, ID
+		Artista: Nome, Cognome, Data, Data_Morte, ID
+		Citta: Nome, ID
+		Epoca: Nome, ID
+		Museo: Nome, ID
+		Nazione: Nome, ID
+		Tipo Opera: Nome, ID
+		Per la descrizione degli attributi si fa riferimento all'analisi.
+	2.3) Come primary key di tutte le entità è stato scelto l'attributo: ID 
+	2.4) Sono state individuate 7 associazioni: Realizzare, Stare, Vivere, Nascere, Essere, Risiedere, Contenere
+		
+		Associazione: Realizzare
+			Un Artista può realizzare una o più Opere
+			Un Opera può essere realizzata da uno o Artisti
+			L'associazione Realizzare tra Artista-Opera è di tipo: N:N
+		Associazione: Nascere
+			Un Artista deve nascere in una Città.
+			In una Città possono nascere uno o più Artisti
+			L'Associazione Nascere tra Città-Artista è di tipo 1:N
+		Associazione: Vivere:
+			Un Artista deve vivere in una Epoca
+			In un Epoca possono vivere uno o più Artisti
+			L'Associazione Vivere tra Epoca-Artisti è di tipo 1:N
+		Associazione: Essere
+			Un Opera deve essere di un tipo.
+			Un Tipo D'Opera può essere associato a una o più Opere
+			L'Associazione Essere tra Tipo-Opera è di tipo 1:N
+		Associazione Risiedere:
+			Un Opera deve risiedere in un Museo
+			In un Museo possono risiedere una o più Opere.
+			L'Associazione Risiedere tra Museo-Opera è di tipo 1:N
+		Associazione Stare:
+			Un Museo può stare in una o più Città
+			In una Città Possono stare uno o più Musei.
+			L'Associazione Stare tra Museo-Città è di tipo N:N
+		Associazione Contenere:
+			Una Città deve essere contenuta in una Nazione.
+			In Una Nazione possono essere contenute una o più Città.
+			L'Associazione Contenere tra Nazione-Città è di tipo: 1:N 
+		

@@ -43,10 +43,6 @@
                             <th>Numero Civico</th>
                             <th>CAP</th>
                             <th>Numero di telefono</th>
-                            <th>
-                                <label for="print">Stampa</label>
-                                <input type="checkbox" name="print" value="1" checked>
-                            </th>
 
                         </tr>
                         <tr>

@@ -1,4 +1,3 @@
-MLLRLA89M06Z404H=Lara=Cantalupo=06/08/1989=F=Italia=Marche=Ancona=Ancona=Corso Garibaldi=8=60121=327 908 1234
 FRCLCE92L17Z404K=Cecilia=Ferrari=17/07/1992=F=Italia=Sicilia=Palermo=Palermo=Via Libertà=5=90139=328 234 5678
 LNDMLA92L15Z404G=Maria=Scavolini=15/07/1992=F=Italia=Basilicata=Matera=Matera=Via del Corso=12=75100=322 876 3456
 RZZMRA86T05Z404Q=Marco=Rizzoli=05/12/1986=M=Italia=Toscana=Firenze=Firenze=Via de' Bardi=14=50125=329 567 4321
@@ -39,3 +38,4 @@ FRNGLA88P05Z404R=Gianluca=Ferraro=05/09/1988=M=Italia=Piemonte=Torino=Torino=Cor
 PRTMNL90C17Z404S=Manuela=Prati=17/03/1990=F=Italia=Campania=Caserta=Caserta=Via Roma=11=81100=328 345 6789
 SNTGLR89L15Z404T=Gianluca=Santini=15/07/1989=M=Italia=Lazio=Frosinone=Frosinone=Corso della Repubblica=23=03100=329 876 5432
 BLCSRA85S15Z404P=Napol=Bellucci==M=Italia=Calabria=Catanzaro=Catanzaro=Corso Mazzini=45=88100=344 512 6798
+MLLRLA89M06Z404H=La=Can==M=Italia=Marche=Ancona=Ancona=Corso Garibaldi=8=60121=327 908 1234
