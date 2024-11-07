@@ -131,7 +131,7 @@
             <td>  
                 </form> 
                 <form action="./modify.php" method="get"> 
-                    <input type="hidden" name="id" value="{$fields[0]}"> 
+                    <input type="hidden" name="id" value="{$fields[0]}">
                     <input type="hidden" name="type" value="{$type}"> 
                     <input type="submit" name="submit" value="Modifica" class="bottone-link"> 
                 </form>

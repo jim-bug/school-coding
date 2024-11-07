@@ -15,6 +15,7 @@
 
         if(isset($_GET["conferma_mod"])){           // blocco di codice che agisce SE modifico qualche attributo del record.
             // header("Location: ". $_GET["type"]. ".php");
+
             $record = get_record($_GET, $field);
             array_push($file_content, $record);
             fclose($file);
@@ -33,7 +34,7 @@
                 <?php foreach(explode("=", $modify_line) as $key => $value): ?>
                     <tr>
                         <?php if(substr($field[$key], 0, 5) == "sesso"): ?>
-                                        <td><?php $field[$key]?></td>
+                                        <td><?php echo $field[$key]?></td>
                                         <td>
                                             <select name="sesso" id="sesso">
                                                 <option value="M">M</option>
@@ -43,7 +44,7 @@
                                         </td>
                         <?php elseif(substr($field[$key], 0, 4) == "data"): ?>
                                 <td><?php echo $field[$key]?></td>
-                                <td><input type="date" name=<?php $field[$key]?> value=<?php echo $value ?>></td>
+                                <td><input type="date" name=<?php echo $field[$key]?> value=<?php echo $value ?>></td>
                         <?php else: ?>
                                 <td><?php echo $field[$key]?></td>
                                 <td><input type="text" name=<?php echo $field[$key] ?> value="<?php echo $value ?>"></td>
