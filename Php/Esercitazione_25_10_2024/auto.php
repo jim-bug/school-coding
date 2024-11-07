@@ -20,7 +20,7 @@
         <form action="" method="get">
                 <input type="hidden" name="type" value="auto">
                 <div class="table-container">
-                    <table border="1">
+                    <table>
                         <caption><h2>Campi di ricerca per Auto</h2></caption>
                         <tr>
                             <th>Targa</th>

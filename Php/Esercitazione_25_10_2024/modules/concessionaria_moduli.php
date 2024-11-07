@@ -155,12 +155,6 @@
                     $count = 0;
                         foreach(explode("=", $line) as $key => $value){
                             if($method_arr[$field[$key]] != ""){
-                                /*
-                                echo $method_arr[$field[$key]];
-                                echo "<br />";
-                                echo $value;
-                                echo "<br />";
-                                */
                                 if($value == $method_arr[$field[$key]]){
                                     $count ++;
                                 }

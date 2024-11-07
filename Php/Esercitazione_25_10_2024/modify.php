@@ -14,9 +14,8 @@
         list($file_content, $modify_line) = get_filter_content_file($file, $_GET["id"], $field);        // ottengo il contenuto del file su un array filtrato con in aggiunta la riga che voglio modificare
 
         if(isset($_GET["conferma_mod"])){           // blocco di codice che agisce SE modifico qualche attributo del record.
-            header("Location: ". $_GET["type"]. ".php");
+            // header("Location: ". $_GET["type"]. ".php");
             $record = get_record($_GET, $field);
-            echo $record;
             array_push($file_content, $record);
             fclose($file);
             $file = fopen($name, "w");
