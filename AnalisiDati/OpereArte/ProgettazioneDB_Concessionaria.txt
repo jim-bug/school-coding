@@ -45,6 +45,10 @@ Progetto DB: Opere D'Arte
 			Un Artista deve nascere in una Città.
 			In una Città possono nascere uno o più Artisti
 			L'Associazione Nascere tra Città-Artista è di tipo 1:N
+		Associazione: Morire:
+			Un Artista può morire in una Città.
+			In Una città possono morire uno o più Artisti.
+			L'Associazione Morire tra Città-Artista è di tipo 1:N.
 		Associazione: Vivere:
 			Un Artista deve vivere in una Epoca
 			In un Epoca possono vivere uno o più Artisti
@@ -58,9 +62,9 @@ Progetto DB: Opere D'Arte
 			In un Museo possono risiedere una o più Opere.
 			L'Associazione Risiedere tra Museo-Opera è di tipo 1:N
 		Associazione Stare:
-			Un Museo può stare in una o più Città
+			Un Museo deve stare in una Città
 			In una Città Possono stare uno o più Musei.
-			L'Associazione Stare tra Museo-Città è di tipo N:N
+			L'Associazione Stare tra Città-Museo è di tipo 1:N
 		Associazione Contenere:
 			Una Città deve essere contenuta in una Nazione.
 			In Una Nazione possono essere contenute una o più Città.
