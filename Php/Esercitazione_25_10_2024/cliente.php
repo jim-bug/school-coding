@@ -9,14 +9,6 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-
-
-
-    if(isset($_GET["id"])){
-        list($name, $field) = get_name_file($_GET["type"]);
-        delete_record($name, $_GET);
-    }
-    // $page = 1;
 ?>
     <?php include "./includes/header.php"; ?>
         <link rel="stylesheet" href="./css/style_client_car.css">
@@ -24,6 +16,13 @@
 
         
         <a href="ncliente.php" class="links">Nuovo Cliente</a>
+        <?php if(isset($_GET["id"])):       // riferimento alla funzione print_record() 
+            delete_record($_GET); 
+        ?>
+            <p class="links">Record rimosso con successo.</p>
+        <?php endif; ?>
+
+        
         <form action="" method="get">
                 <input type="hidden" name="type" value="cliente">
                 <div class="table-container">

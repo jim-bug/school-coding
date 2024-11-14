@@ -8,4 +8,4 @@
                 <th><a href="./auto.php" class="link">Auto</a></th>
             </table>
         </div>
-        <a href="./index.php" class="links">Home</a>
+        <a href="./indexs.php" class="links">Home</a>

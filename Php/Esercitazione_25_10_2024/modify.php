@@ -11,11 +11,9 @@
 
         list($name, $field) = get_name_file($_GET["type"]);
         $file = fopen($name, "r");
-        list($file_content, $modify_line) = get_filter_content_file($file, $_GET["id"], $field);        // ottengo il contenuto del file su un array filtrato con in aggiunta la riga che voglio modificare
+        list($file_content, $modify_line) = get_filter_content_file($file, $_GET["id"]);        // ottengo il contenuto del file su un array filtrato con in aggiunta la riga che voglio modificare
 
-        if(isset($_GET["conferma_mod"])){           // blocco di codice che agisce SE modifico qualche attributo del record.
-            // header("Location: ". $_GET["type"]. ".php");
-
+        if(isset($_GET["conferma_mod"])):           // blocco di codice che agisce SE modifico qualche attributo del record. 
             $record = get_record($_GET, $field);
             array_push($file_content, $record);
             fclose($file);
@@ -23,10 +21,10 @@
             foreach($file_content as $i){
                 fwrite($file, $i);
             }
-        }
-        fclose($file);
- 
 ?>
+            <p class="links">Record modificato con successo.</p>
+<?php endif; fclose($file); ?>
+
             <form action="" method="get">
                 <input type="hidden" name="type" value=<?php echo $_GET["type"]?>>
                 <input type="hidden" name="id" value=<?php echo $_GET["id"]?>>

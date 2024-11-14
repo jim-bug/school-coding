@@ -1,0 +1,51 @@
+Analisi della realtà: analisi delle funzionalità e dei dati.
+
+FASI DI REALIZZAZIONE DI UN DATABASE RELAZIONALE
+1) Analisi dei dati
+	1.1) Il cliente ha richiesto una gestione, tramite database, della sua società di autolinee.
+	1.2) Rif. alla cartella Entità
+2) Progettazione concettuale
+	2.1) Sono state individuate le seguenti Entità:
+		1) Linea
+		2) Fermata
+		3) Autista
+		4) Corsa
+		5) Tipo Patente
+		6) Tipo Linea
+	2.2) Rif. alle tabelle di analisi nella cartella Entità
+	2.3) Sono state individuate le seguenti PK delle Entità:
+		1) Linea: Nome
+		2) Fermata: Nome
+		3) Autista: Matricola
+		4) Corsa: ID
+		5) Tipo Patente: ID
+		6) Tipo Linea: ID 
+	2.4) Sono state individuate le seguenti Associazioni: Essere, Contenere, Svolgere, Avere, Corrispondere:
+		Associazione Essere tra Linea-Tipo Linea
+			Una Linea deve essere di uno o più Tipi di Linea
+			Un Tipo di Linea può essere di uno o più Linee.
+			L'Associzione Essere tra Linea-Tipo Linea è di tipo N:N
+		Associazione Contenere tra Linea-Fermata:
+			Una Linea deve contenere una o più Fermate.
+			Una Fermata può essere contenuta in una o più Linee.
+			L'Associazione Contenere tra Linea-Fermata è di tipo N:N parziale.
+		Associazione Svolgere tra Autista-Corsa:
+			Un Autista può svolgere una o più Corse
+			Una Corsa deve essere svolta da un Autista.
+			L'Associazione Svolgere tra Autista-Corsa è di tipo 1:N.
+		Associazione Avere tra Autista-Tipo Patente:
+			Un Autista deve avere uno o più Tipi di Patente.
+			Un Tipo di Patente possono averlo uno o più Autisti.
+			L'Associazione Avere tra Autista-Tipo Patente è di tipo N:N parziale.
+		Associazione Corrispondere tra Linea-Corsa:
+			Una Linea può corrispondere una o più Corse.
+			Una Corsa deve essere corrisposta a una Linea.
+			L'Associazione Corrispondere tra Linea-Corsa è di tipo 1:N.
+
+
+
+
+
+	
+	
+	

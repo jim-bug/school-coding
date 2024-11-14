@@ -40,9 +40,9 @@
                 "km",
                 "velocita",
                 "cilindrata",
-                "rev",
-                "tag",
-                "imm"
+                "data_rev",
+                "data_tag",
+                "data_imm"
             ];
         }
         return [$name, $field];
@@ -68,10 +68,18 @@
         return $record;
     }
 
-    function delete_record($name, $method_arr){
+    function add_record($method_arr){
+        list($name, $field) = get_name_file($method_arr["type"]);
+        $file = fopen($name, "a");
+        fwrite($file, get_record($method_arr, $field));
+        fclose($file);
+    }
+
+    function delete_record($method_arr){
         /*
          Funzione che elimina un record in base al suo identificativo. 
-         */
+        */
+        list($name, $field) = get_name_file($method_arr["type"]);
         $file = fopen($name, "r");
         $file_content = array();
         while(!feof($file)){
@@ -91,7 +99,7 @@
         fclose($file);
     }
 
-    function get_filter_content_file($file, $id, $field){
+    function get_filter_content_file($file, $id){
         /*
         Funzione che ritorna un array con tutte le righe di un file ad eccezione della riga che presenta come valore dell'attributo 
         identificativo lo stesso di quello passato come argomento. Infine ritorno anche la riga che ha quell'id.
@@ -171,5 +179,6 @@
 
             }
         }
+
 
 ?>

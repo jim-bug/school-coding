@@ -13,10 +13,15 @@
     <?php include "./includes/header.php"; ?>
         <link rel="stylesheet" href="./css/style_client_car.css">
     <?php include "./includes/main.php"; ?>
-
-
+    
 
         <a href="nauto.php" class="links">Nuova Auto</a>
+        <?php if(isset($_GET["id"])):       // riferimento alla funzione print_record() 
+            delete_record($_GET); 
+        ?>
+            <p class="links">Record rimosso con successo.</p>
+        <?php endif; ?>
+
         <form action="" method="get">
                 <input type="hidden" name="type" value="auto">
                 <div class="table-container">
@@ -48,9 +53,9 @@
                             <td><input type="text" name="cilindrata"></td>
                             <td><input type="text" name="km"></td>
                             <td><input type="text" name="velocita"></td>
-                            <td><input type="date" name="rev"></td>
-                            <td><input type="date" name="tag"></td>
-                            <td><input type="date" name="imm"></td>
+                            <td><input type="date" name="data_rev"></td>
+                            <td><input type="date" name="data_tag"></td>
+                            <td><input type="date" name="data_imm"></td>
                             <th><input type="submit" value="Invio" class="bottone-link"></th>
                         </tr>
                         <?php 

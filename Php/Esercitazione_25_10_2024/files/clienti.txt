@@ -1,18 +1,3 @@
-BNCGLS91D10Z404N=Giusy=Bianciardi=10/04/1991=F=Italia=Liguria=Genova=Genova=Via San Lorenzo=7=16123=327 456 7890
-VRLGFR85L15Z404H=Giorgio=Verlato=15/07/1985=M=Italia=Lazio=Roma=Roma=Via Condotti=18=00187=328 765 4321
-TSTFNC93L22Z404D=Francesca=Tosti=22/07/1993=F=Italia=Campania=Napoli=Napoli=Via Chiaia=10=80121=324 987 6543
-MNZLCA88R05Z404C=Caterina=Manzoni=05/10/1988=F=Italia=Piemonte=Torino=Torino=Via Po=9=10123=320 123 4567
-BRNRGI90D12Z404S=Gianni=Bernardi=12/04/1990=M=Italia=Emilia-Romagna=Modena=Modena=Via Emilia=15=41121=321 876 5432
-MLTLRA93B25Z404V=Lara=Milani=25/02/1993=F=Italia=Lombardia=Milano=Milano=Corso Sempione=20=20145=329 678 1234
-DNTPLN87C16Z404F=Paola=Donati=16/03/1987=F=Italia=Veneto=Venezia=Venezia=Riva degli Schiavoni=5=30122=324 567 8902
-RNCGFR91M20Z404E=Gianfranco=Roncati=20/08/1991=M=Italia=Friuli Venezia Giulia=Trieste=Trieste=Viale Miramare=7=34135=328 234 6789
-RLCFRN89A22Z404Z=Franco=Ralicante=22/01/1989=M=Italia=Trentino-Alto Adige=Bolzano=Bolzano=Via dei Portici=3=39100=320 678 2345
-MZZCLA85S15Z404T=Clara=Mazza=15/11/1985=F=Italia=Sardegna=Cagliari=Cagliari=Via Roma=12=09124=329 345 6789
-PZZLRL90P02Z404B=Loredana=Pizzi=02/09/1990=F=Italia=Sicilia=Catania=Catania=Via Etnea=45=95131=328 765 0987
-GTTMRN94A10Z404K=Mirko=Gattinoni=10/01/1994=M=Italia=Marche=Pesaro=Pesaro=Corso XI Settembre=22=61121=327 908 1234
-RSSMRT88D17Z404L=Martina=Rossi=17/04/1988=F=Italia=Calabria=Reggio Calabria=Reggio Calabria=Via Marina=30=89121=322 876 3456
-CNTNRD91R03Z404W=Rodolfo=Cantini=03/10/1991=M=Italia=Lazio=Latina=Latina=Corso della Repubblica=29=04100=323 456 7890
-LMNRLA92S12Z404X=Laura=Lamonica=12/11/1992=F=Italia=Liguria=Savona=Savona=Via Paleocapa=13=17100=324 567 2345
 PNTGLR89M30Z404A=Giulia=Panetti=30/08/1989=F=Italia=Piemonte=Biella=Biella=Via Italia=18=13900=321 654 7890
 FRRLCI86L25Z404O=Cinzia=Ferrari=25/07/1986=F=Italia=Emilia-Romagna=Parma=Parma=Via Mazzini=50=43121=326 543 2109
 PRTRLA87P01Z404R=Lara=Peruzzi=01/09/1987=F=Italia=Lazio=Frosinone=Frosinone=Via Aldo Moro=19=03100=328 432 1098
@@ -27,5 +12,6 @@ NGLTGL89S07Z404F=Giulio=Niglio=07/11/1989=M=Italia=Sicilia=Siracusa=Siracusa=Cor
 PNNRLA90C11Z404G=Lara=Pannoni=11/03/1990=F=Italia=Lombardia=Como=Como=Via Cadorna=29=22100=329 890 3456
 RNTGLC92L17Z404H=Gianluca=Renati=17/07/1992=M=Italia=Piemonte=Asti=Asti=Corso Alfieri=18=14100=328 567 4321
 MLLFLR91R09Z404I=Flora=Meloni=09/10/1991=F=Italia=Marche=Macerata=Macerata=Via Carducci=22=62100=322 678 1234
-LNDMLA92L15Z404G=Maria=Scavolinii==M=Italia=Basilicata=Matera=Matera=Via del Corso=12=75100=322 876 3456
 RZZMRA86T05Z404Q=Marco=Rizzoli==M=Italia=Toscana=Firenze=Firenze=Via de' Bardi=14=50125=329 567 4321
+BRNRGI90D12Z404S=Gianni=LuccaComics=2024-11-29=M=Italia=Emilia-Romagna=Modena=Modena=Via Emilia=15=41121=321 876 5432
+CNTNRD91R03Z404W=Rodolfo=Cantini==M=Italia=Lazio=Greca=Latina=Corso della Repubblica=29=04100=323 456 7890
