@@ -1,4 +1,3 @@
-FRRLCI86L25Z404O=Cinzia=Ferrari=25/07/1986=F=Italia=Emilia-Romagna=Parma=Parma=Via Mazzini=50=43121=326 543 2109
 PRTRLA87P01Z404R=Lara=Peruzzi=01/09/1987=F=Italia=Lazio=Frosinone=Frosinone=Via Aldo Moro=19=03100=328 432 1098
 VRLLGN90M12Z404I=Gianni=Verlato=12/08/1990=M=Italia=Veneto=Padova=Padova=Via Umberto I=24=35122=322 109 8765
 FNTCLZ92C19Z404P=Alessia=Fante=19/03/1992=F=Italia=Friuli Venezia Giulia=Pordenone=Pordenone=Via delle Acacie=17=33170=327 890 5674

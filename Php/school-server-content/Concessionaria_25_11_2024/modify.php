@@ -4,7 +4,11 @@
 
 <?php
         require_once "./modules/concessionaria_moduli.php";
-        
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
+
         list($name, $field) = get_name_file($_GET["type"]);
         $file = fopen($name, "r");
         list($file_content, $modify_line) = get_filter_content_file($file, $_GET["id"]);        // ottengo il contenuto del file su un array filtrato con in aggiunta la riga che voglio modificare

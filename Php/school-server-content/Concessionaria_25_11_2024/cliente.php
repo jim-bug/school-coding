@@ -6,6 +6,9 @@
     * by jim_bug // :)
     */ 
     require "./modules/concessionaria_moduli.php";
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 ?>
     <?php include "./includes/header.php"; ?>
         <link rel="stylesheet" href="./css/style_client_car.css">
@@ -64,22 +67,21 @@
                             <td><input type="text" name="cap" id="cap"></td>
                             <td><input type="text" name="tel" id="tel"></td>
                             <th>
-                                <input type="submit" name="submit" value="Invio" class="bottone-link">
+
+                                <input type="submit" name ="submit" value="Invio" class="bottone-link">
                             </th>
                         </tr>
-                        <?php
-                            list($name, $field) = get_name_file("cliente");
-                            $file = fopen($name, "r");
-                            if(isset($_GET['type'])){ 
+                        <?php 
+                            if(isset($_GET["nome"])){ 
+                                list($name, $field) = get_name_file($_GET["type"]);
+                                $file = fopen($name, "r");
                                 search_by_field($file, $field, $_GET);
-                            }
-                            fclose($file);
-                            /*
-                            else{
-                                search_by_field($file, $field, "cliente", 1);
-                            }
-                            fclose($file);
-                            */
+                                fclose($file);
+                            }    
+                            // if(isset($_POST['new_record'])){
+                            //     $page ++;
+                            //     search_by_field($file, $field, $_POST, $page);   
+                            // }
                         ?>
                         
                     </table>

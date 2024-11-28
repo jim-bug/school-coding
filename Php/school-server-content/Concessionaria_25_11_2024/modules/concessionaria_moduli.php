@@ -5,6 +5,10 @@
     * Data: 25/10/2024
     * by jim_bug // :)
     */ 
+
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
     function get_name_file($form_type){
         /*
         Funzione che ritorna il nome del file (corrispondente all'entità) e l'elenco ordinato dei campi (secondo il tracciato record).
@@ -57,13 +61,13 @@
         $i = 0;
         foreach($field as $key => $i){
             if($key == ($len - 1)){
-                $record .= $method_arr[$i]."\n";
+                $record .= $method_arr[$i];
             }
             else{
                 $record .= $method_arr[$i]."=";
             }
         }
-        // $record .= "\n";
+        $record .= "\n";
 
         return $record;
     }
@@ -131,54 +135,53 @@
             return;
         }
         $fields = explode("=", $line);
-        foreach($fields as $key => $field){
+        foreach(explode("=", $line) as $field){
             echo "<td> $field </td>";
         }
         
-        echo<<<FORM_DELETE
-            <td>  
-                </form> 
-                <form action="./modify.php" method="get"> 
-                    <input type="hidden" name="id" value="{$fields[0]}">
-                    <input type="hidden" name="type" value="{$type}"> 
-                    <input type="submit" name="submit" value="Modifica" class="bottone-link"> 
-                </form>
-            </td>
-            <td>
-                <form action="" method="get"> 
-                    <input type="hidden" name="id" value="{$fields[0]}"> 
-                    <input type="hidden" name="type" value="{$type}"> 
-                    <input type="submit" name="submit" value="Elimina" class="bottone-link"> 
-                </form> 
-            </td>
-        FORM_DELETE;
+        echo "<td>";
+        echo "</form>";
+        echo "<form action=\"./modify.php\" method=\"get\">";
+        echo "<input type=\"hidden\" name=\"id\" value=\"$fields[0]\">";
+        echo "<input type=\"hidden\" name=\"type\" value=\"$type\">";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Modifica\" class=\"bottone-link\" >";
+        echo "</form>";
+        echo "</td>";
+        echo "<td>";
+        echo "<form  method=\"get\">";
+        echo "<input type=\"hidden\" name=\"id\" value=\"$fields[0]\">";
+        echo "<input type=\"hidden\" name=\"type\" value=\"$type\">";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Elimina\" class=\"bottone-link\">";
+        echo "</form>";
         echo "</tr>";
         
     }
 
-    function search_by_field($file, $field, $method_arr, $all=0){
+    function search_by_field($file, $field, $method_arr, $page=1){
         $counter = 0;
-        while(!feof($file)){
-                $line = fgets($file);
-                if($all){
-                    print_record($line, $method_arr["type"]);
-                    continue;
-                }
-                $count = 0;
-                foreach(explode("=", $line) as $key => $value){
-                    if($method_arr[$field[$key]] != ""){
-                        if($value == $method_arr[$field[$key]]){
-                            $count ++;
+            while(!feof($file)){
+                    $line = fgets($file);
+                    $count = 0;
+                        foreach(explode("=", $line) as $key => $value){
+                            $val = $field[$key];
+                            if($method_arr[$val] != ""){
+                                if($value == $method_arr[$val]){
+                                    $count ++;
+                                }
+
+                                $counter ++;
+                                // echo $counter." ".$count;
+                                // echo "<br />";
+                            }
                         }
-                        $counter ++;
-                    }
-                }
-                if(($count == $counter)){
-                    print_record($line, $method_arr["type"]);
-                }
-                $counter = 0;
+                        
+                        if($count == $counter){
+                            print_record($line, $method_arr['type']);
+                        }
+                        $counter = 0;
+
+            }
         }
-    }
 
 
 ?>
