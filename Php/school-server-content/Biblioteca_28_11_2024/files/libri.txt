@@ -1,0 +1,30 @@
+123456789=La Notte perseguita=IO POetico=50=1
+234567890=Il Sole nascosto=Versi Profondi=45=2
+345678901=Ombre sull'acqua=Anime Ribelli=55=3
+456789012=L'eco del silenzio=Spiriti Liberi=60=4
+567890123=Tra i sogni infranti=Pensieri Vagabondi=50=5
+678901234=Riflessi nel buio=Visioni Notturne=65=6
+789012345=Il vento e la quiete=Sussurri Segreti=40=7
+890123456=Nel cuore della tempesta=Ali di Carta=70=8
+901234567=Trame d'inchiostro=Parole Intrecciate=45=9
+112345678=Il mare e la luna=Rime Libere=50=10
+223456789=Viaggio senza fine=Anima Poetica=55=11
+334567890=Al di là delle stelle=Versi Infiniti=60=12
+445678901=Petali di cenere=Fiamme Silenziose=50=13
+556789012=Ritorno alle origini=Ricordi Perduti=45=14
+667890123=Voci nell'ombra=Passi Lenti=55=15
+778901234=Il fuoco della memoria=Anime Antiche=60=16
+889012345=La pioggia che canta=Suoni Distanti=40=17
+990123456=Cuore e tempesta=Parole Vibranti=50=18
+101234567=La tela del tempo=Trame Eterne=65=19
+212345678=Nel bosco incantato=Versi Magici=55=20
+323456789=Al confine del sogno=Eco Remota=60=21
+434567890=La luce che scompare=Ombre Fugaci=50=22
+545678901=Rugiada al mattino=Note Delicate=45=23
+656789012=Il cielo che piange=Spiriti Erranti=55=24
+767890123=Radici di poesia=Pensieri Profondi=65=25
+878901234=Nel labirinto dell'anima=Anime Perse=70=26
+989012345=Orizzonti perduti=Rime Silenziose=50=27
+109012345=Il soffio del vento=Eco Sussurrata=55=28
+110123456=La danza delle stelle=Parole Inquiete=60=29
+121234567=Oltre la nebbia=Versi Remoti=50=30
