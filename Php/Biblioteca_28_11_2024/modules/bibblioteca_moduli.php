@@ -56,6 +56,43 @@
                 "email"
             ];
         }
+        elseif($form_type == "corso"){
+            $name = "./files/corsi.txt";
+            $fields = [
+                "codice",
+                "anno",
+                "nome",
+                "fk_facolta"
+            ];
+        }
+        elseif($form_type == "facolta"){
+            $name = "./files/facolta.txt";
+            $fields = [
+                "codice",
+                "nome_preside",
+                "cognome_preside",
+                "denominazione",
+                "fk_universita"
+            ];
+        }
+        elseif($form_type == "universita"){
+            $name = "./files/universita.txt";
+            $fields = [
+                "codice",
+                "nome_rettore",
+                "cognome_rettore",
+                "denominazione",
+                "citta"
+            ];
+        }
+        elseif($form_type == "frequenza"){
+            $name = "./files/frequenze.txt";
+            $fields = [
+                "anno",
+                "fk_studente",
+                "fk_corso"
+            ];
+        }
         return [$name, $fields];
     }
 

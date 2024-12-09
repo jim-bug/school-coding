@@ -11,6 +11,8 @@ list($name, $field) = get_name_file($_GET['type']);
 $file = fopen($name, 'r');
 
 ?>
+<a href="<?php echo $_GET['type']; ?>.php" class="links" >Aggiungi <?php echo $_GET['type']; ?></a>
+<a href="<?php echo $_SERVER['HTTP_REFERER'] ?? 'main.php'; // HTTP_REFERER ritorna l'URL della pagina di provenienza.?>" class="links">Back</a> 
 
 <table border="1">
         <tr>
@@ -34,9 +36,11 @@ $file = fopen($name, 'r');
                         if(substr($field[$key], 0, 3) == "fk_"):
                             $fk_name = substr($field[$key], 3);     // ottengo il nome completo della tabella
                             list($name_fk, $field_fk) = get_name_file($fk_name);
+                            $f = fopen($name_fk, 'r');
+                            $fk_record = explode('=', search_record_by_id($f, $value));
                             // Aggiunta del link per far visualizzare una pagina con il record scelto.
                         ?>
-                            <td><a href="show.php?type=<?php echo $fk_name; ?>&<?php echo $field_fk[0]; ?>=<?php echo $value; ?>"><?php echo $value; ?></a></td>
+                            <td><a style="color:black; text-decoration:none" href="show.php?type=<?php echo $fk_name; ?>&<?php echo $field_fk[0]; ?>=<?php echo $value; ?>"><?php echo "$fk_record[0] ($fk_record[1], $fk_record[2])"; ?></a></td>
                         <?php else: ?>
                             <td><?php echo $value; ?></td>
                         <?php endif; ?>

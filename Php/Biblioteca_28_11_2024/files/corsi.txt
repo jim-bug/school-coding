@@ -1,0 +1,30 @@
+S001=3=Ingegneria Informatica=R001
+S002=6=Medicina e Chirurgia=R002
+S003=3=Economia Aziendale=R003
+S004=5=Giurisprudenza Internazionale=R004
+S005=3=Scienze Politiche Europee=R005
+S006=5=Architettura Sostenibile=R006
+S007=3=Lettere Moderne=R007
+S008=3=Matematica Applicata=R008
+S009=3=Fisica Nucleare=R009
+S010=5=Chimica Industriale=R010
+S011=3=Biotecnologie=R011
+S012=3=Filosofia Contemporanea=R012
+S013=5=Psicologia Clinica=R013
+S014=3=Sociologia Urbana=R014
+S015=3=Scienze Agrarie e Alimentari=R015
+S016=3=Informatica Teorica=R016
+S017=3=Scienze Naturali e Ambientali=R017
+S018=3=Studi Letterari=R018
+S019=3=Lingue e Culture Orientali=R019
+S020=3=Comunicazione Multimediale=R020
+S021=3=Studi Internazionali=R021
+S022=3=Statistica e Data Science=R022
+S023=3=Matematica Computazionale=R023
+S024=3=Scienze Motorie e Sportive=R024
+S025=3=Geologia Applicata=R025
+S026=3=Antropologia Culturale=R026
+S027=3=Storia dell’Arte=R027
+S028=3=Astronomia e Astrofisica=R028
+S029=3=Arti Visive e Digitali=R029
+S030=3=Design Industriale=R030

@@ -1,0 +1,31 @@
+U001=Alessandro=Rossi=Università degli Studi di Roma=Roma
+U002=Giulia=Verdi=Politecnico di Milano=Milano
+U003=Marco=Bianchi=Università di Bologna=Bologna
+U004=Chiara=Neri=Università di Pisa=Pisa
+U005=Luca=Galli=Università di Firenze=Firenze
+U006=Maria=Ferrari=Università degli Studi di Napoli=Napoli
+U007=Paolo=Moretti=Università degli Studi di Torino=Torino
+U008=Francesca=Conti=Università Cattolica del Sacro Cuore=Milano
+U009=Matteo=Romano=Università di Padova=Padova
+U010=Sofia=Russo=Università degli Studi di Genova=Genova
+U011=Andrea=Gallo=Università di Trento=Trento
+U012=Sara=Marini=Università degli Studi di Palermo=Palermo
+U013=Antonio=Vitale=Università degli Studi di Bari=Bari
+U014=Elisa=Greco=Università degli Studi di Cagliari=Cagliari
+U015=Giorgio=Esposito=Università di Siena=Siena
+U016=Martina=De Luca=Università degli Studi di Perugia=Perugia
+U017=Claudio=Ricci=Università della Calabria=Cosenza
+U018=Valentina=Costa=Università di Trieste=Trieste
+U019=Riccardo=Pellegrini=Università degli Studi di Parma=Parma
+U020=Alice=Leone=Università degli Studi di Udine=Udine
+U021=Fabio=Barbieri=Università del Salento=Lecce
+U022=Chiara=Caruso=Università della Basilicata=Potenza
+U023=Stefano=Ruggieri=Università degli Studi di Verona=Verona
+U024=Irene=Santoro=Università degli Studi di Pavia=Pavia
+U025=Gabriele=Fabbri=Università degli Studi di Ferrara=Ferrara
+U026=Anna=Marchi=Università degli Studi del Molise=Campobasso
+U027=Davide=Serra=Università degli Studi di Urbino=Urbino
+U028=Lorenzo=Cavalli=Università della Valle d'Aosta=Aosta
+U029=Silvia=Parisi=Università degli Studi di Reggio Calabria=Reggio Calabria
+U030=Federico=De Santis=Università di Sassari=Sassari
+

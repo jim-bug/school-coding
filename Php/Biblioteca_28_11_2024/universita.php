@@ -15,41 +15,37 @@
         <link rel="stylesheet" href="./css/style.css">
     <?php include "./includes/main.php"; ?>
     <form action="" method="get">
-            <input type="hidden" name="type" value="studente">
+            <input type="hidden" name="type" value="universita">
             <div class="table-container">
                 <table>
-                    <caption><h2>Campi di ricerca per Studente</h2></caption>
+                    <caption><h2>Campi di ricerca per Università</h2></caption>
                     <tr>
-                        <th>Matricola</th>
-                        <td><input type="text" name="matricola" id="code"></td>
+                        <th>Codice</th>
+                        <td><input type="text" name="codice"></td>
                     </tr>
                     <tr>
-                        <th>Nome</th>
-                        <td><input type="text" name="nome" id="name"></td>
+                        <th>Nome Rettore</th>
+                        <td><input type="text" name="nome_rettore"></td>
 
                     </tr>
                     <tr>
-                        <th>Cognome</th>
-                        <td><input type="text" name="cognome" id="surname"></td>
+                        <th>Cognome Rettore</th>
+                        <td><input type="text" name="cognome_rettore"></td>
                     </tr>
                     <tr>
-                        <th>Data</th>
-                        <td><input type="date" name="data" id="date"></td>
+                        <th>Denominazione</th>
+                        <td><input type="text" name="denominazione"></td>
                     </tr>
                     <tr>
-                        <th>Città Nascita</th>
-                        <td><input type="text" name="citta" id="city"></td>
-                    </tr>
-                    <tr>
-                        <th>Telefono</th>
-                        <td><input type="text" name="telefono"></td>
+                        <th>Citta</th>
+                        <td><input type="text" name="citta"></td>
                     </tr>
                 </table>
             </div>
             <input type="submit" class="bottone-link" value="Aggiungi">
         </form>
         <form action="./show.php">
-            <input type="hidden" name="type" value="studente">
+            <input type="hidden" name="type" value="universita">
             <input type="submit" class="bottone-link" value="Visualizza">
         </form>
 <?php include "./includes/footer.php"; ?>
