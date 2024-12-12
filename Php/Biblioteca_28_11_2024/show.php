@@ -11,13 +11,12 @@ list($name, $field) = get_name_file($_GET['type']);
 $file = fopen($name, 'r');
 
 ?>
-<a href="<?php echo $_GET['type']; ?>.php" class="links" >Aggiungi <?php echo $_GET['type']; ?></a>
-<a href="<?php echo $_SERVER['HTTP_REFERER'] ?? 'main.php'; // HTTP_REFERER ritorna l'URL della pagina di provenienza.?>" class="links">Back</a> 
+<a href="<?php echo $_GET['type']; ?>.php" class="links" >Aggiungi <?php echo $_GET['type']; ?></a> 
 
 <table border="1">
         <tr>
             <?php foreach($field as $value): ?>
-                <th><?php echo strtoupper($value); ?></th>
+                <th><?php echo show_field_label($value); ?></th>
             <?php endforeach; ?>
         </tr>
         <?php 
@@ -40,7 +39,7 @@ $file = fopen($name, 'r');
                             $fk_record = explode('=', search_record_by_id($f, $value));
                             // Aggiunta del link per far visualizzare una pagina con il record scelto.
                         ?>
-                            <td><a style="color:black; text-decoration:none" href="show.php?type=<?php echo $fk_name; ?>&<?php echo $field_fk[0]; ?>=<?php echo $value; ?>"><?php echo "$fk_record[0] ($fk_record[1], $fk_record[2])"; ?></a></td>
+                            <td><a style="color:black" href="show.php?type=<?php echo $fk_name; ?>&<?php echo $field_fk[0]; ?>=<?php echo $value; ?>"><?php echo "$fk_record[0] ($fk_record[1], $fk_record[2])"; ?></a></td>
                         <?php else: ?>
                             <td><?php echo $value; ?></td>
                         <?php endif; ?>

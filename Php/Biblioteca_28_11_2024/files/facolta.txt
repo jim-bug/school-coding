@@ -1,30 +1,27 @@
-R001=Marco=Rossi=Facoltà di Ingegneria=U005
-R002=Laura=Bianchi=Facoltà di Medicina=U018
-R003=Francesco=Ferrari=Facoltà di Economia=U012
-R004=Maria=Esposito=Facoltà di Giurisprudenza=U003
-R005=Luca=Romano=Facoltà di Scienze Politiche=U025
-R006=Giulia=Marini=Facoltà di Architettura=U017
-R007=Matteo=Greco=Facoltà di Lettere=U001
-R008=Chiara=Costa=Facoltà di Scienze Matematiche=U014
-R009=Alessandro=Fabbri=Facoltà di Fisica=U030
-R010=Elena=Galli=Facoltà di Chimica=U008
-R011=Federico=Neri=Facoltà di Biologia=U011
-R012=Silvia=Vitale=Facoltà di Filosofia=U019
-R013=Andrea=Serra=Facoltà di Psicologia=U004
-R014=Valentina=Rinaldi=Facoltà di Sociologia=U020
-R015=Giorgio=Bruni=Facoltà di Agraria=U007
-R016=Serena=Cattaneo=Facoltà di Informatica=U026
-R017=Tommaso=Moretti=Facoltà di Scienze Naturali=U015
-R018=Sara=Barbieri=Facoltà di Studi Umanistici=U009
-R019=Nicola=De Luca=Facoltà di Lingue e Letterature=U022
-R020=Martina=Leone=Facoltà di Scienze della Comunicazione=U013
-R021=Emanuele=Ricci=Facoltà di Studi Internazionali=U002
-R022=Alice=Martini=Facoltà di Statistica=U016
-R023=Stefano=Caruso=Facoltà di Matematica=U028
-R024=Beatrice=Fiore=Facoltà di Scienze Motorie=U021
-R025=Roberto=Ruggieri=Facoltà di Geologia=U006
-R026=Claudia=Orlando=Facoltà di Antropologia=U029
-R027=Vincenzo=Orsini=Facoltà di Storia=U010
-R028=Ilaria=Guerra=Facoltà di Astronomia=U023
-R029=Gabriele=Testa=Facoltà di Arti Visive=U027
-R030=Anna=Pellegrini=Facoltà di Design=U024
+ING1=Facoltà di Ingegneria=UniPA=Marco=Rossi
+MED1=Facoltà di Medicina=UniPA=Laura=Bianchi
+ECO1=Facoltà di Economia=UniCA=Francesco=Ferrari
+GIU1=Facoltà di Giurisprudenza=UniLE=Maria=Esposito
+SPO1=Facoltà di Scienze Politiche=UniNA=Luca=Romano
+ARC1=Facoltà di Architettura=UniPG=Giulia=Marini
+LET1=Facoltà di Lettere=UniTN=Matteo=Greco
+MAT1=Facoltà di Scienze Matematiche=UniCS=Chiara=Costa
+FIS1=Facoltà di Fisica=UniBZ=Alessandro=Fabbri
+CHM1=Facoltà di Chimica=UniMI=Elena=Galli
+ING2=Facoltà di Ingegneria=UniCA=Lucia=Seleccio
+ING3=Facoltà di Ingegneria=UniNA=Gianfranco=Lo Busca
+ING4=Facoltà di Ingegneria=UniME=Lorenzo=Blu
+ECO2=Facoltà di Economia=UniFI=Stefano=Gallo
+GIU2=Facoltà di Giurisprudenza=UniRM=Anna=De Luca
+SPO2=Facoltà di Scienze Politiche=UniBO=Paolo=Di Matteo
+ARC2=Facoltà di Architettura=UniPI=Giovanni=Marini
+LET2=Facoltà di Lettere=UniMI=Elena=Marini
+FIS2=Facoltà di Fisica=UniVE=Francesca=Giorgi
+CHM2=Facoltà di Chimica=UniPD=Giulia=Rossi
+ING5=Facoltà di Ingegneria=UniMO=Andrea=Vitale
+MED3=Facoltà di Medicina=UniTO=Valentina=Martini
+ECO3=Facoltà di Economia=UniBA=Luca=Ferrari
+GIU3=Facoltà di Giurisprudenza=UniNA=Marco=Puglisi
+ARC3=Facoltà di Architettura=UniLE=Marco=Marini
+LET3=Facoltà di Lettere=UniSA=Chiara=Greco
+MAT3=Facoltà di Scienze Matematiche=UniCS=Federico=Costa

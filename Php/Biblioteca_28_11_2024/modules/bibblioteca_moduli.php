@@ -69,20 +69,20 @@
             $name = "./files/facolta.txt";
             $fields = [
                 "codice",
-                "nome_preside",
-                "cognome_preside",
                 "denominazione",
-                "fk_universita"
+                "fk_universita",
+                "nome_preside",
+                "cognome_preside"
             ];
         }
         elseif($form_type == "universita"){
             $name = "./files/universita.txt";
             $fields = [
                 "codice",
+                "citta",
                 "nome_rettore",
                 "cognome_rettore",
-                "denominazione",
-                "citta"
+                "denominazione"
             ];
         }
         elseif($form_type == "frequenza"){
@@ -94,6 +94,17 @@
             ];
         }
         return [$name, $fields];
+    }
+
+    function show_field_label($field){
+        // Funzione che rende presentabile il nome di un campo.
+        if(substr($field, 0, 3) == "fk_"){
+            $field = substr($field, 3);
+        }
+        $field = str_replace('_', ' ', $field);
+
+        return ucwords($field);
+
     }
 
     function get_record($method_arr, $field){
