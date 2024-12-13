@@ -73,14 +73,13 @@
         elseif($form_type == "facolta"){
             $name = "./files/facolta.txt";
             $fields = [
-                "id",
-                "abbreviazione",
+                "codice",
                 "denominazione",
                 "fk_universita",
                 "nome_preside",
                 "cognome_preside"
             ];
-            $template_display_text = ['abbreviazione', 'fk_universita'];
+            $template_display_text = ['codice', 'fk_universita'];
         }
         elseif($form_type == "universita"){
             $name = "./files/universita.txt";

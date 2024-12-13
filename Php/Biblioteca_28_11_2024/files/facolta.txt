@@ -1,27 +1,27 @@
-ING1=Facoltà di Ingegneria=UniPA=Marco=Rossi
-MED1=Facoltà di Medicina=UniPA=Laura=Bianchi
-ECO1=Facoltà di Economia=UniCA=Francesco=Ferrari
-GIU1=Facoltà di Giurisprudenza=UniLE=Maria=Esposito
-SPO1=Facoltà di Scienze Politiche=UniNA=Luca=Romano
-ARC1=Facoltà di Architettura=UniPG=Giulia=Marini
-LET1=Facoltà di Lettere=UniTN=Matteo=Greco
-MAT1=Facoltà di Scienze Matematiche=UniCS=Chiara=Costa
-FIS1=Facoltà di Fisica=UniBZ=Alessandro=Fabbri
-CHM1=Facoltà di Chimica=UniMI=Elena=Galli
-ING2=Facoltà di Ingegneria=UniCA=Lucia=Seleccio
-ING3=Facoltà di Ingegneria=UniNA=Gianfranco=Lo Busca
-ING4=Facoltà di Ingegneria=UniME=Lorenzo=Blu
-ECO2=Facoltà di Economia=UniFI=Stefano=Gallo
-GIU2=Facoltà di Giurisprudenza=UniRM=Anna=De Luca
-SPO2=Facoltà di Scienze Politiche=UniBO=Paolo=Di Matteo
-ARC2=Facoltà di Architettura=UniPI=Giovanni=Marini
-LET2=Facoltà di Lettere=UniMI=Elena=Marini
-FIS2=Facoltà di Fisica=UniVE=Francesca=Giorgi
-CHM2=Facoltà di Chimica=UniPD=Giulia=Rossi
-ING5=Facoltà di Ingegneria=UniMO=Andrea=Vitale
-MED3=Facoltà di Medicina=UniTO=Valentina=Martini
-ECO3=Facoltà di Economia=UniBA=Luca=Ferrari
-GIU3=Facoltà di Giurisprudenza=UniNA=Marco=Puglisi
-ARC3=Facoltà di Architettura=UniLE=Marco=Marini
-LET3=Facoltà di Lettere=UniSA=Chiara=Greco
-MAT3=Facoltà di Scienze Matematiche=UniCS=Federico=Costa
+1=ING=Facoltà di Ingegneria=UniPA=Marco=Rossi
+2=MED=Facoltà di Medicina=UniPA=Laura=Bianchi
+3=ECO=Facoltà di Economia=UniCA=Francesco=Ferrari
+4=GIU=Facoltà di Giurisprudenza=UniLE=Maria=Esposito
+5=SPO=Facoltà di Scienze Politiche=UniNA=Luca=Romano
+6=ARC=Facoltà di Architettura=UniPG=Giulia=Marini
+7=LET=Facoltà di Lettere=UniTN=Matteo=Greco
+8=MAT=Facoltà di Scienze Matematiche=UniCS=Chiara=Costa
+9=FIS=Facoltà di Fisica=UniBZ=Alessandro=Fabbri
+10=CHM=Facoltà di Chimica=UniMI=Elena=Galli
+11=ING=Facoltà di Ingegneria=UniCA=Lucia=Seleccio
+12=ING=Facoltà di Ingegneria=UniNA=Gianfranco=Lo Busca
+13=ING=Facoltà di Ingegneria=UniME=Lorenzo=Blu
+14=ECO=Facoltà di Economia=UniFI=Stefano=Gallo
+15=GIU=Facoltà di Giurisprudenza=UniRM=Anna=De Luca
+16=SPO=Facoltà di Scienze Politiche=UniBO=Paolo=Di Matteo
+17=ARC=Facoltà di Architettura=UniPI=Giovanni=Marini
+18=LET=Facoltà di Lettere=UniMI=Elena=Marini
+19=FIS=Facoltà di Fisica=UniVE=Francesca=Giorgi
+20=CHM=Facoltà di Chimica=UniPD=Giulia=Rossi
+21=ING=Facoltà di Ingegneria=UniMO=Andrea=Vitale
+22=MED=Facoltà di Medicina=UniTO=Valentina=Martini
+23=ECO=Facoltà di Economia=UniBA=Luca=Ferrari
+24=GIU=Facoltà di Giurisprudenza=UniNA=Marco=Puglisi
+25=ARC=Facoltà di Architettura=UniLE=Marco=Marini
+26=LET=Facoltà di Lettere=UniSA=Chiara=Greco
+27=MAT=Facoltà di Scienze Matematiche=UniCS=Federico=Costa

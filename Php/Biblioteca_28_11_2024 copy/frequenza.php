@@ -15,45 +15,18 @@
         <link rel="stylesheet" href="./css/style.css">
     <?php include "./includes/main.php"; ?>
     <form action="" method="get">
-            <input type="hidden" name="type" value="prestito">
+            <input type="hidden" name="type" value="frequenza">
             <div class="table-container">
                 <table>
                     <caption><h2>Campi di ricerca per Prestiti</h2></caption>
                     <tr>
-                        <th>Data Prestito</th>
-                        <td><input type="date" name="data_richiesta" id="code"></td>
-                    </tr>
-                    <tr>
-                        <th>Data restituzione</th>
-                        <td><input type="date" name="data_restituzione" id="name"></td>
-
-                    </tr>
-                    <tr>
-                        <th>Stato Consegna</th>
-                            <td>
-                                <select name="consegna" id="stato_consegna">
-                                    <option value=""></option>
-                                    <option value="Buono">Buono</option>
-                                    <option value="Discreto">Discreto</option>
-                                    <option value="Cattivo">Cattivo</option>
-                                </select>
-                            </td>
-                    </tr>
-                    <tr>
-                        <th>Stato Restituzione</th>
-                        <td>
-                            <select name="riconsegna" id="stato_riconsegna">
-                                <option value=""></option>
-                                <option value="Buono">Buono</option>
-                                <option value="Discreto">Discreto</option>
-                                <option value="Cattivo">Cattivo</option>
-                            </select>
-                        </td>
+                        <th>Anno Frequenza</th>
+                        <td><input type="number" name="anno"></td>
                     </tr>
                     <tr>
                         <th>Studente</th>
                         <td>
-                            <select name="fk_studente" id="studente">
+                            <select name="fk_studente">
                                 <option value=""> </option>
                                 <?php 
                                     list($name, $field) = get_name_file("studente");
@@ -70,12 +43,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Libro</th>
+                        <th>Corso</th>
                         <td>
-                            <select name="fk_libro" id="libro">
+                            <select name="fk_corso" id="libro">
                                 <option value=""> </option>
                                 <?php 
-                                    list($name, $field) = get_name_file("libro");
+                                    list($name, $field) = get_name_file("corso");
                                     $file = fopen($name, 'r');
                                     while(!feof($file)):
                                         $line_fields = explode("=", fgets($file));
@@ -92,7 +65,7 @@
             <input type="submit" class="bottone-link" value="Aggiungi">
         </form>
         <form action="./show.php">
-            <input type="hidden" name="type" value="prestito">
+            <input type="hidden" name="type" value="frequenza">
             <input type="submit" class="bottone-link" value="Visualizza">
         </form>
 <?php include "./includes/footer.php"; ?>

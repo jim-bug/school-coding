@@ -1,0 +1,14 @@
+S001=3=Ingegneria Informatica=1
+S002=6=Medicina e Chirurgia=2
+S003=3=Economia Aziendale=3
+S004=5=Giurisprudenza Internazionale=5
+S005=3=Scienze Politiche Europee=4
+S006=5=Architettura Sostenibile=21
+S007=3=Lettere Moderne=18
+S008=3=Matematica Applicata=8
+S009=3=Fisica Nucleare=19
+S010=5=Chimica Industriale=10
+S011=3=Biotecnologie=22
+S012=3=Filosofia Contemporanea=7
+S013=5=Psicologia Clinica=22
+S014=3=Ingegneria Informatica=21
