@@ -42,7 +42,7 @@ CREATE TABLE Artista (
     Data_Morte DATE,
     Citta_Natale INT UNSIGNED,
     Epoca INT UNSIGNED,
-
+    UNIQUE(Nome, Cognome),
     PRIMARY KEY(ID),
     FOREIGN KEY (Citta_Natale) REFERENCES Citta(ID)
         ON DELETE SET NULL
