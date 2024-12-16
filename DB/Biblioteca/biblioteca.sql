@@ -83,7 +83,7 @@ CREATE TABLE Studente (
     Matricola VARCHAR(5) NOT NULL,
     Nome VARCHAR(25) NOT NULL,
     Cognome VARCHAR(25) NOT NULL,
-    Data DATE,
+    Data DATE NOT NULL,
     Telefono VARCHAR(15) NOT NULL,
     Citta INT UNSIGNED,
     PRIMARY KEY(Matricola),
@@ -108,7 +108,7 @@ CREATE TABLE Autore (
     ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(25) NOT NULL,
     Cognome VARCHAR(25) NOT NULL,
-    Data DATE,
+    Data DATE NOT NULL,
     Data_Morte DATE,
     Citta_Natale INT UNSIGNED,
     Citta_Morte INT UNSIGNED,
@@ -134,7 +134,7 @@ CREATE TABLE Frequenza (
 );
 
 CREATE TABLE Prestito (
-    Data_Prestito DATE,
+    Data_Prestito DATE NOT NULL, -- DEFAULT SELECT DATE_FORMAT(NOW(), '%Y-%m-%d');
     Data_Restituzione DATE,
     Stato_Consegna VARCHAR(10) NOT NULL,
     Stato_Restituzione VARCHAR(20) DEFAULT 'Ancora in Prestito',
