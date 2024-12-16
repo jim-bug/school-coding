@@ -1,0 +1,91 @@
+/*
+* Autore: Ignazio Leonardo Calogero Sperandeo
+* Data: 15/12/2024
+* Consegna: Sulla base dell'Analisi, Progetto Concettuale e Progetto logico, implementare il database con almeno 5-10 record a tabella.
+* by jim_bug // :)
+*/
+CREATE TABLE Epoca (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(20) NOT NULL,
+    PRIMARY KEY(ID)
+);
+
+CREATE TABLE Nazione (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(20) NOT NULL,
+    PRIMARY KEY(ID)
+);
+
+CREATE TABLE Tipo_Opera (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(20) NOT NULL,
+    PRIMARY KEY(ID)
+);
+
+CREATE TABLE Citta (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(20) NOT NULL,
+    Nazione INT UNSIGNED,
+    PRIMARY KEY(ID),
+    FOREIGN KEY (Nazione) REFERENCES Nazione(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE Artista (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(25) NOT NULL,
+    Cognome VARCHAR(25) NOT NULL,
+    Data DATE,
+    Data_Morte DATE,
+    Citta_Natale INT UNSIGNED,
+    Epoca INT UNSIGNED,
+
+    PRIMARY KEY(ID),
+    FOREIGN KEY (Citta_Natale) REFERENCES Citta(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    
+    FOREIGN KEY (Epoca) REFERENCES Epoca(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE Museo (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(20) NOT NULL,
+    Citta INT UNSIGNED,
+
+    PRIMARY KEY(ID),
+    FOREIGN KEY (Citta) REFERENCES Citta(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE Opera (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(20) NOT NULL,
+    Anno INT NOT NULL,
+    Tipo INT UNSIGNED,
+    Museo INT UNSIGNED,
+
+    PRIMARY KEY(ID),
+    FOREIGN KEY (Tipo) REFERENCES Tipo_Opera(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    FOREIGN KEY (Museo) REFERENCES Museo(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE Realizzazione (
+    Artista INT UNSIGNED,
+    Opera INT UNSIGNED,
+
+    FOREIGN KEY (Artista) REFERENCES Artista(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    FOREIGN KEY (Opera) REFERENCES Opera(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
