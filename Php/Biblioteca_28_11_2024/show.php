@@ -38,7 +38,7 @@ $file = fopen($name, 'r');
                                 $fk_array = array_combine($field_fk, $fk_record);
                                 $fk_display_text = "";
                                 foreach($fk_display_fields as $display_field){
-                                    $fk_display_text .= $fk_array[$display_field] . '-';
+                                    $fk_display_text .= $fk_array[$display_field] . ' ';
                                 }
                                 // Aggiunta del link per far visualizzare una pagina con il record scelto.
                             ?>

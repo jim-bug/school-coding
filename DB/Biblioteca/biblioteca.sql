@@ -6,13 +6,13 @@
 */
 
 CREATE TABLE Nazione (
-    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    ID INT NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(20) NOT NULL,
     PRIMARY KEY(ID)
 );
 
 CREATE TABLE Casa_Editrice (
-    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    ID INT NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(20) NOT NULL,
     Indirizzo VARCHAR(25) NOT NULL,
     Comune VARCHAR(25) NOT NULL,
@@ -31,9 +31,9 @@ CREATE TABLE Universita (
 );
 
 CREATE TABLE Citta (
-    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    ID INT NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(20) NOT NULL,
-    Nazione INT UNSIGNED,
+    Nazione INT ,
     PRIMARY KEY(ID),
     FOREIGN KEY (Nazione) REFERENCES Nazione(ID)
         ON DELETE SET NULL
@@ -41,12 +41,12 @@ CREATE TABLE Citta (
 );
 
 CREATE TABLE Sede_Universita (
-    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    ID INT NOT NULL AUTO_INCREMENT,
     Indirizzo VARCHAR(25) NOT NULL,
     Comune VARCHAR(25) NOT NULL,
     Provincia VARCHAR(25) NOT NULL,
     Universita VARCHAR(10),
-    Citta INT UNSIGNED,
+    Citta INT ,
     PRIMARY KEY(ID),
     FOREIGN KEY (Universita) REFERENCES Universita(Codice)
         ON DELETE SET NULL
@@ -61,7 +61,7 @@ CREATE TABLE Facolta (
     Nome_Preside VARCHAR(25) NOT NULL,
     Cognome_Preside VARCHAR(25) NOT NULL,
     Denominazione VARCHAR(40) NOT NULL,
-    Universita INT UNSIGNED,
+    Universita INT ,
     PRIMARY KEY(Codice),
     FOREIGN KEY (Universita) REFERENCES Sede_Universita(ID)
         ON DELETE SET NULL
@@ -85,7 +85,7 @@ CREATE TABLE Studente (
     Cognome VARCHAR(25) NOT NULL,
     Data DATE NOT NULL,
     Telefono VARCHAR(15) NOT NULL,
-    Citta INT UNSIGNED,
+    Citta INT ,
     PRIMARY KEY(Matricola),
     FOREIGN KEY (Citta) REFERENCES Citta(ID)
         ON DELETE SET NULL
@@ -94,10 +94,10 @@ CREATE TABLE Studente (
 
 CREATE TABLE Libro (
     ISBN VARCHAR(13) NOT NULL,
-    Anno INT UNSIGNED NOT NULL,
-    Prezzo DECIMAL(8, 2) UNSIGNED NOT NULL,
+    Anno INT  NOT NULL,
+    Prezzo DECIMAL(8, 2)  NOT NULL,
     Titolo VARCHAR(25) NOT NULL,
-    Casa_Editrice INT UNSIGNED,
+    Casa_Editrice INT ,
     PRIMARY KEY(ISBN),
     FOREIGN KEY (Casa_Editrice) REFERENCES Casa_Editrice(ID)
         ON DELETE SET NULL
@@ -105,13 +105,13 @@ CREATE TABLE Libro (
 );
 
 CREATE TABLE Autore (
-    ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    ID INT NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(25) NOT NULL,
     Cognome VARCHAR(25) NOT NULL,
     Data DATE NOT NULL,
     Data_Morte DATE,
-    Citta_Natale INT UNSIGNED,
-    Citta_Morte INT UNSIGNED,
+    Citta_Natale INT ,
+    Citta_Morte INT ,
     PRIMARY KEY(ID),
     FOREIGN KEY (Citta_Natale) REFERENCES Citta(ID)
         ON DELETE SET NULL
