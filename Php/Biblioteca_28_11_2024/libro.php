@@ -10,6 +10,8 @@
     if(isset($_GET['type'])){
         add_record($_GET);
     }
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 ?>
     <?php include "./includes/header.php"; ?>
         <link rel="stylesheet" href="./css/style.css">
@@ -18,7 +20,7 @@
             <input type="hidden" name="type" value="libro">
             <div class="table-container">
                 <table>
-                    <caption><h2>Campi di ricerca per Libro</h2></caption>
+                    <caption><h2>Campi di aggiunta per Libro</h2></caption>
                     <tr>
                         <th>Codice</th>
                         <td><input type="text" name="codice" id="codice"></td>
@@ -39,27 +41,21 @@
                     <tr>
                         <th>Case editrici</th>
                         <td>
-                            <select name="id_editrice">
+                            <select name="fk_editrice">
                                 <option value=""></option>
                                 <?php
-                                    list($name, $fields) = get_name_file("editrice");
-                                    $file = fopen($name, 'r');
-                                    while(!feof($file)):
-                                        $line_fields = explode("=", fgets($file));
-                                        $display_text = "$line_fields[1] ($line_fields[2], $line_fields[3], $line_fields[4])";
+                                    $display_text_records = get_fk_text("editrice");
+                                    echo var_dump($display_text_records);
+                                    foreach($display_text_records as $text_record):
                                 ?>
-                                <option value=<?php echo $line_fields[0]; ?>><?php echo $display_text; ?></option>
-                                <?php endwhile; fclose($file); ?>
+                                <option value=<?php echo $text_record['pk']; ?>><?php echo $text_record['text']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </td>
                     </tr>
                 </table>
             </div>
             <input type="submit" class="bottone-link" value="Aggiungi">
-        </form>
-        <form action="./show.php">
-            <input type="hidden" name="type" value="libro">
-            <input type="submit" class="bottone-link" value="Visualizza">
         </form>
 <?php include "./includes/footer.php"; ?>
 <!-- // :) -->

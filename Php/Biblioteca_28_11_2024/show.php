@@ -32,17 +32,10 @@ $file = fopen($name, 'r');
                         <?php foreach($values as $key => $value): 
                             if(substr($field[$key], 0, 3) == "fk_"):
                                 $fk_name = substr($field[$key], 3);     // ottengo il nome completo della tabella
-                                list($name_fk, $field_fk, $fk_display_fields) = get_name_file($fk_name);
-                                $file_fk = fopen($name_fk, 'r');
-                                $fk_record = explode('=', search_record_by_id($file_fk, $value));
-                                $fk_array = array_combine($field_fk, $fk_record);
-                                $fk_display_text = "";
-                                foreach($fk_display_fields as $display_field){
-                                    $fk_display_text .= $fk_array[$display_field] . ' ';
-                                }
+                                $display_text = get_fk_text($fk_name, $value);
                                 // Aggiunta del link per far visualizzare una pagina con il record scelto.
                             ?>
-                                <td><a style="color:black" href="show.php?type=<?php echo $fk_name; ?>&<?php echo $field_fk[0]; ?>=<?php echo $value; ?>"><?php echo $fk_display_text; ?></a></td>
+                                <td><a style="color:black" href="show.php?type=<?php echo $fk_name; ?>&<?php echo $fk_id_name; ?>=<?php echo $value; ?>"><?php echo $display_text[0]['text']; ?></a></td>
                             <?php else: ?>
                                 <td><?php echo $value; ?></td>
                             <?php endif; ?>

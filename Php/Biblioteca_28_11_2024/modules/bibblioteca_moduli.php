@@ -73,7 +73,6 @@
         elseif($form_type == "facolta"){
             $name = "./files/facolta.txt";
             $fields = [
-                "id",
                 "abbreviazione",
                 "denominazione",
                 "fk_universita",
@@ -142,16 +141,15 @@
     }
 
     function search_record_by_id($file, $id) {
-        while (!feof($file)) {
-            $line = fgets($file);
+        foreach($file as $line){
             $fields = explode("=", $line);
             if (trim($fields[0]) == trim($id)) {    // Assumendo che ogni entità abbia come PK il primo attributo
-                fclose($file);
+                // fclose($file);
                 return $line;
             }
         }
     
-        fclose($file);
+        // fclose($file);
         return false; // Restituisce false se l'ID non viene trovato
     }
 
@@ -189,6 +187,36 @@
                 }
                 $counter = 0;
         }
+    }
+
+    function get_fk_text($fk_name, $id_fk=-1){
+        list($name_fk, $field_fk, $fk_display_fields) = get_name_file($fk_name);
+        
+        $content_file_fk = file($name_fk);
+        $records = [];
+    
+        if ($id_fk != -1) {
+            // Cerca il record per ID
+            $fk_record = explode('=', search_record_by_id($content_file_fk, $id_fk));
+            $fk_array = array_combine($field_fk, $fk_record);
+            $fk_display_text = "";
+            foreach($fk_display_fields as $display_field){
+                $fk_display_text .= $fk_array[$display_field] . ' ';
+            }
+            $records[] = ['text' => $fk_display_text];
+        } else {
+            // Stampa tutti i record
+            foreach($content_file_fk as $line){
+                $fk_record = explode('=', $line);
+                $fk_array = array_combine($field_fk, $fk_record);
+                $fk_display_text = "";
+                foreach($fk_display_fields as $display_field){
+                    $fk_display_text .= $fk_array[$display_field] . ' ';
+                }
+                $records[] = ['text' => $fk_display_text, 'pk' => $fk_record[0]];
+            }
+        }
+        return $records;
     }
 ?>
 <!-- // :) -->

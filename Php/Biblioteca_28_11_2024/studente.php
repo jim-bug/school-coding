@@ -18,7 +18,7 @@
             <input type="hidden" name="type" value="studente">
             <div class="table-container">
                 <table>
-                    <caption><h2>Campi di ricerca per Studente</h2></caption>
+                    <caption><h2>Campi di aggiunta per Studente</h2></caption>
                     <tr>
                         <th>Matricola</th>
                         <td><input type="text" name="matricola" id="code"></td>
@@ -48,9 +48,6 @@
             </div>
             <input type="submit" class="bottone-link" value="Aggiungi">
         </form>
-        <form action="./show.php">
-            <input type="hidden" name="type" value="studente">
-            <input type="submit" class="bottone-link" value="Visualizza">
-        </form>
+
 <?php include "./includes/footer.php"; ?>
 <!-- // :) -->

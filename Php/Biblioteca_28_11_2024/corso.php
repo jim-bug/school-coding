@@ -37,17 +37,13 @@
                         <td>
                             <select name="fk_facolta">
                                 <option value=""> </option>
-                                <?php 
-                                    list($name, $field) = get_name_file("facolta");
-                                    $file = fopen($name, 'r');
-                                    while(!feof($file)):
-                                        $line_fields = explode("=", fgets($file));
-                                        $display_text = "$line_fields[1], $line_fields[2] ($line_fields[0])";
+                                <?php
+                                    $display_text_records = get_fk_text("corso");
+                                    echo var_dump($display_text_records);
+                                    foreach($display_text_records as $text_record):
                                 ?>
-                                        <option value=<?php echo $line_fields[0]; ?>> <?php echo $display_text; ?> </option>
-                                    <?php endwhile; fclose($file); ?>
-
-                            
+                                <option value=<?php echo $text_record['pk']; ?>><?php echo $text_record['text']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </td>
                     </tr>

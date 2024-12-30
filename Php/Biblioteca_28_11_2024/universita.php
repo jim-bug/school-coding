@@ -18,7 +18,7 @@
             <input type="hidden" name="type" value="universita">
             <div class="table-container">
                 <table>
-                    <caption><h2>Campi di ricerca per Università</h2></caption>
+                    <caption><h2>Campi di aggiunta per Università</h2></caption>
                     <tr>
                         <th>Codice</th>
                         <td><input type="text" name="codice"></td>
@@ -43,10 +43,6 @@
                 </table>
             </div>
             <input type="submit" class="bottone-link" value="Aggiungi">
-        </form>
-        <form action="./show.php">
-            <input type="hidden" name="type" value="universita">
-            <input type="submit" class="bottone-link" value="Visualizza">
         </form>
 <?php include "./includes/footer.php"; ?>
 <!-- // :) -->

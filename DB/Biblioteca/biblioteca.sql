@@ -46,7 +46,7 @@ CREATE TABLE Sede_Universita (
     Comune VARCHAR(25) NOT NULL,
     Provincia VARCHAR(25) NOT NULL,
     Universita VARCHAR(10),
-    Citta INT ,
+    Citta INT,
     PRIMARY KEY(ID),
     FOREIGN KEY (Universita) REFERENCES Universita(Codice)
         ON DELETE SET NULL
@@ -170,10 +170,10 @@ INSERT INTO Casa_Editrice (Nome, Indirizzo, Comune, Provincia, Telefono, Email) 
 
 INSERT INTO Universita (Codice, Nome_Rettore, Cognome_Rettore, Denominazione) VALUES 
     ('UniPA', 'Calogero', 'Lo Busci', 'Università Degli Studi di Palermo'),
-    ('UniCA', 'Leonardo', 'Nanna', 'Università Degli Studi di Catania'),
+    ('UniCT', 'Leonardo', 'Nanna', 'Università Degli Studi di Catania'),
     ('UniNA', 'Giuseppe', 'Cascino', 'Università Degli Studi di Napoli'),
     ('UniPI', 'Lorenzo', 'Castelvecchio', 'Università Degli Studi di Pisa'),
-    ('UniPV', 'Federico', 'Buglia', 'Università Degli Studi di Milano'),
+    ('UniMI', 'Federico', 'Buglia', 'Università Degli Studi di Milano'),
     ('UniTO', 'Marco', 'Lutta', 'Università Degli Studi di Torino'),
     ('UniMORE', 'Luigi', 'Tarisca', 'Università Degli Studi di Modena e Reggio Emilia');
 
@@ -200,7 +200,7 @@ INSERT INTO Citta (Nome, Nazione) VALUES
 INSERT INTO Sede_Universita (Universita, Citta, Indirizzo, Comune, Provincia) VALUES 
     ('UniPA', 1, 'Viale Delle Scienze', 'Palermo', 'PA'),
     ('UniMORE', 6, 'Via dei tesori', 'Pisa', 'PI'),
-    ('UniCA', 2, 'Via Elefante', 'Catania', 'CA'),
+    ('UniCT', 2, 'Via Santa Sofia', 'Catania', 'CT'),
     ('UniPI', 6, 'Via Torre', 'Pisa', 'PI'),
     ('UniNA', 7, 'Via Spagna', 'Napoli', 'NA'),
     ('UniPA', 3, 'Via Colosseo', 'Roma', 'RO'),
@@ -220,8 +220,8 @@ INSERT INTO Facolta (Codice, Universita, Denominazione, Nome_Preside, Cognome_Pr
 INSERT INTO Corso (Codice, Facolta, Nome, Anni) VALUES 
     ('2170', 'ING01','Ingegneria Informatica', 3),
     ('2171', 'ING01','Ingegneria Informatica', 5),
-    ('2184', 'ING06','Ingegneria Aereospaziale', 3),
-    ('2185', 'ING06','Ingegneria Aereospaziale', 5),
+    ('2184', 'ING06','Ingegneria Aerospaziale', 3),
+    ('2185', 'ING06','Ingegneria Aerospaziale', 5),
     ('2190', 'ING03','Ingegneria Chimica', 3),
     ('2160', 'ING04','Ingegneria Meccanica', 3),
     ('2161', 'ING06','Ingegneria Meccanica', 5),
@@ -269,4 +269,4 @@ INSERT INTO Prestito (Data_Prestito, Data_Restituzione, Stato_Consegna, Stato_Re
     ('2024-12-15', NULL, 'Buono', NULL, '00044', '9788807900605');
 
 
--- // :)
+-- // :) 

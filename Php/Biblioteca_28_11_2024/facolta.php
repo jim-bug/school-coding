@@ -18,7 +18,7 @@
             <input type="hidden" name="type" value="facolta">
             <div class="table-container">
                 <table>
-                    <caption><h2>Campi di ricerca per Facoltà</h2></caption>
+                    <caption><h2>Campi di aggiunta per Facoltà</h2></caption>
                     <tr>
                         <th>Codice</th>
                         <td><input type="text" name="codice"></td>
@@ -41,27 +41,19 @@
                         <td>
                             <select name="fk_universita">
                                 <option value=""> </option>
-                                <?php 
-                                    list($name, $field) = get_name_file("universita");
-                                    $file = fopen($name, 'r');
-                                    while(!feof($file)):
-                                        $line_fields = explode("=", fgets($file));
-                                        $display_text = "$line_fields[0] ($line_fields[1], $line_fields[2])";
+                                <?php
+                                    $display_text_records = get_fk_text("facolta");
+                                    echo var_dump($display_text_records);
+                                    foreach($display_text_records as $text_record):
                                 ?>
-                                        <option value=<?php echo $line_fields[0]; ?>> <?php echo $display_text; ?> </option>
-                                    <?php endwhile; fclose($file); ?>
-
-                            
+                                <option value=<?php echo $text_record['pk']; ?>><?php echo $text_record['text']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </td>
                     </tr>
                 </table>
             </div>
             <input type="submit" class="bottone-link" value="Aggiungi">
-        </form>
-        <form action="./show.php">
-            <input type="hidden" name="type" value="facolta">
-            <input type="submit" class="bottone-link" value="Visualizza">
         </form>
 <?php include "./includes/footer.php"; ?>
 <!-- // :) -->
