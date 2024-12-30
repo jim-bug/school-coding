@@ -24,6 +24,9 @@ $file = fopen($name, 'r');
                     }
                     else{
                         $line = fgets($file);
+                        if($line == ""){    // se la riga è vuota non la stampo
+                            continue;
+                        }
                     }
                     $values = explode("=", $line);
                     $len = count($values);

@@ -28,3 +28,4 @@
 28=Editrice L'Aquila=Via Abruzzo 12=L'Aquila=AQ=0862123456=info@editricelaquila.it
 29=Editrice Potenza=Via Basilicata 3=Potenza=PZ=0971123456=info@editricepotenza.it
 30=Editrice Parma=Via Emilia 10=Parma=PR=0521123456=info@editriceparma.it
+31=Editrice della giungla=Tarzan=Madagascar=Ciao=123456=@isola.tv

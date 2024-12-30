@@ -1,7 +1,7 @@
     </head>
     <body>
         <a href="https://github.com/jim-bug"><img class="logo" src="./images/logo.png" alt="Logo" width="50" height="50"></a>
-        <h1 align="center">BENVENUTO NELLA COMPILAZIONE DEI FORM DI STUDENTI, LIBRI, PRESTITI</h1>
+        <h1 align="center">BENVENUTO NELLA GESTIONE DEI PRESTITI DI LIBRI NELLE UNIVERSITÀ</h1>
         <div class="table-container">
             <table border="1">
                 <th><a href="show.php?type=studente" class="link">Studenti</a></th>
@@ -15,4 +15,4 @@
             </table>
         </div>
         <a href="./index1.php" class="links">Home</a>
-        <!-- <a href="<?php echo $_SERVER['HTTP_REFERER'] ?? 'main.php'; // HTTP_REFERER ritorna l'URL della pagina di provenienza.?>" class="links">Back</a> -->
+        <!-- <a href="<?php // echo $_SERVER['HTTP_REFERER'] ?? 'main.php'; // HTTP_REFERER ritorna l'URL della pagina di provenienza.?>" class="links">Back</a> -->
