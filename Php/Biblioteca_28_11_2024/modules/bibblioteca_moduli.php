@@ -99,6 +99,7 @@
                 "fk_studente",
                 "fk_corso"
             ];
+            $template_display_text = [''];
         }
         return [$name, $fields, $template_display_text];
     }
@@ -140,83 +141,80 @@
         fclose($file);
     }
 
-    function search_record_by_id($file, $id) {
-        foreach($file as $line){
+    function search_record_by_id($lines, $id) {
+        foreach($lines as $line){
             $fields = explode("=", $line);
             if (trim($fields[0]) == trim($id)) {    // Assumendo che ogni entità abbia come PK il primo attributo
-                // fclose($file);
                 return $line;
             }
         }
-    
-        // fclose($file);
         return false; // Restituisce false se l'ID non viene trovato
-    }
-
-
-    function print_record($line, $fields){
-        /*
-        Funzione che stampa su una riga un record con in aggiunta due form per l'eliminazione e modifica di tale
-        */
-        echo "<tr>";
-        if($line == ""){
-            return;
-        }
-        $values = explode("=", $line);
-        foreach($values as $value){
-            echo "<td> $value </td>";
-        }
-        
-    }
-
-    function search_by_field($file, $field, $method_arr){
-        $counter = 0;
-        while(!feof($file)){
-                $line = fgets($file);
-                $count = 0;
-                foreach(explode("=", $line) as $key => $value){
-                    if($method_arr[$field[$key]] != ""){
-                        if($value == $method_arr[$field[$key]]){
-                            $count ++;
-                        }
-                        $counter ++;
-                    }
-                }
-                if(($count == $counter)){
-                    print_record($line, $field);
-                }
-                $counter = 0;
-        }
     }
 
     function get_fk_text($fk_name, $id_fk=-1){
         list($name_fk, $field_fk, $fk_display_fields) = get_name_file($fk_name);
         
         $content_file_fk = file($name_fk);
-        $records = [];
-    
+        $fk_display_text = "";
         if ($id_fk != -1) {
-            // Cerca il record per ID
+            // Cerca il record per ID, quindi $records sarà solo un array
             $fk_record = explode('=', search_record_by_id($content_file_fk, $id_fk));
             $fk_array = array_combine($field_fk, $fk_record);
-            $fk_display_text = "";
             foreach($fk_display_fields as $display_field){
                 $fk_display_text .= $fk_array[$display_field] . ' ';
             }
-            $records[] = ['text' => $fk_display_text];
+            $records = ['text' => $fk_display_text, 'pk_name' => $field_fk[0]];
         } else {
-            // Stampa tutti i record
+            // Stampa tutti i record, quindi $records sarà un array di array
             foreach($content_file_fk as $line){
                 $fk_record = explode('=', $line);
                 $fk_array = array_combine($field_fk, $fk_record);
-                $fk_display_text = "";
                 foreach($fk_display_fields as $display_field){
                     $fk_display_text .= $fk_array[$display_field] . ' ';
                 }
                 $records[] = ['text' => $fk_display_text, 'pk' => $fk_record[0]];
+                $fk_display_text = "";
             }
         }
         return $records;
+    }
+
+
+    function print_record($line, $field){
+        echo "<tr>";
+        foreach($line as $key => $value){
+            if(substr($field[$key], 0, 3) == "fk_"){
+                $fk_name = substr($field[$key], 3);     // ottengo il nome completo della tabella
+                $display_text = get_fk_text($fk_name, $value);
+                // Aggiunta del link per far visualizzare una pagina con il record scelto.
+                echo "<td><a style=color:black href=show.php?type=$fk_name&" .$display_text['pk_name']. "=$value>" .$display_text['text']. "</a></td>";
+            }
+            else{
+                echo "<td>$value</td>";
+            }
+        }
+        echo "</tr>";
+        
+    }
+
+    function search_by_field($file, $field, $method_arr){
+        $counter = 0;
+        foreach($file as $line){
+                $count = 0;
+                $record_values = explode('=', $line);
+                foreach($record_values as $key => $value){
+                    if(isset($method_arr[$field[$key]]) && $method_arr[$field[$key]] != ""){
+                        if($value == $method_arr[$field[$key]]){
+                            $count ++;
+                        }
+                        $counter ++;
+                    }
+                }
+                if($count == $counter){
+                    print_record($record_values, $field);
+                }
+                $counter = 0;
+        }
     }
 ?>
 <!-- // :) -->

@@ -148,6 +148,18 @@ CREATE TABLE Prestito (
         ON UPDATE CASCADE
 );
 
+CREATE TABLE Pubblicazioni (
+    Autore INT,
+    Libro VARCHAR(13),
+    FOREIGN KEY (Autore) REFERENCES Autore(ID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    FOREIGN KEY (Libro) REFERENCES Libro(ISBN)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+
 -- Inserimento occorrenze di Nazione:
 INSERT INTO Nazione (Nome) VALUES 
     ('Italia'),
@@ -188,8 +200,8 @@ INSERT INTO Citta (Nome, Nazione) VALUES
     ('Napoli', 1),
     ('Madrid', 6),
     ('Barcellona', 6),
-    ('Parigi', 6),
-    ('Marsiglia', 6),
+    ('Parigi', 3),
+    ('Marsiglia', 3),
     ('Santorini', 5),
     ('Berlino', 4),
     ('Amburgo', 4),
@@ -204,7 +216,7 @@ INSERT INTO Sede_Universita (Universita, Citta, Indirizzo, Comune, Provincia) VA
     ('UniPI', 6, 'Via Torre', 'Pisa', 'PI'),
     ('UniNA', 7, 'Via Spagna', 'Napoli', 'NA'),
     ('UniPA', 3, 'Via Colosseo', 'Roma', 'RO'),
-    ('UniPV', 5, 'Via Milano', 'Torino', 'TO'),
+    ('UniMI', 5, 'Via Milano', 'Torino', 'TO'),
     ('UniTO', 5, 'Via Torino', 'Torino', 'TO');
 
 -- Inserimento occorrenze Facolta:
@@ -224,7 +236,7 @@ INSERT INTO Corso (Codice, Facolta, Nome, Anni) VALUES
     ('2185', 'ING06','Ingegneria Aerospaziale', 5),
     ('2190', 'ING03','Ingegneria Chimica', 3),
     ('2160', 'ING04','Ingegneria Meccanica', 3),
-    ('2161', 'ING06','Ingegneria Meccanica', 5),
+    ('2161', 'ING04','Ingegneria Meccanica', 5),
     ('2150', 'ING05','Ingegneria Gestionale', 3);
 
 -- Inserimento occorrenze Studente:
@@ -268,5 +280,12 @@ INSERT INTO Frequenza (Studente, Corso, Anno) VALUES
 INSERT INTO Prestito (Data_Prestito, Data_Restituzione, Stato_Consegna, Stato_Restituzione, Studente, Libro) VALUES 
     ('2024-12-15', NULL, 'Buono', NULL, '00044', '9788807900605');
 
+-- Inserimento occorrenze Pubblicazioni:
+INSERT INTO Pubblicazioni (Autore, Libro) VALUES 
+    (1, '9788804710917'),
+    (2, '9788807900605'),
+    (3, '9788804668578'),
+    (4, '9780142437230'),
+    (5, '9782253011301');
 
 -- // :) 

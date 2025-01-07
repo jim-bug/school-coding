@@ -39,7 +39,6 @@
                                 <option value=""> </option>
                                 <?php
                                     $display_text_records = get_fk_text("corso");
-                                    echo var_dump($display_text_records);
                                     foreach($display_text_records as $text_record):
                                 ?>
                                 <option value=<?php echo $text_record['pk']; ?>><?php echo $text_record['text']; ?></option>

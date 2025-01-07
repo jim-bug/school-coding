@@ -33,9 +33,9 @@
                             <td>
                                 <select name="consegna" id="stato_consegna">
                                     <option value=""></option>
-                                    <option value="Buono">Buono</option>
-                                    <option value="Discreto">Discreto</option>
-                                    <option value="Cattivo">Cattivo</option>
+                                    <option value="Buono">Buono &#x1F60A;</option>
+                                    <option value="Discreto">Discreto &#x1F642;</option>
+                                    <option value="Cattivo">Cattivo &#x1F622;</option>
                                 </select>
                             </td>
                     </tr>
@@ -43,10 +43,10 @@
                         <th>Stato Restituzione</th>
                         <td>
                             <select name="riconsegna" id="stato_riconsegna">
-                                <option value=""></option>
-                                <option value="Buono">Buono</option>
-                                <option value="Discreto">Discreto</option>
-                                <option value="Cattivo">Cattivo</option>
+                                    <option value=""></option>
+                                    <option value="Buono">Buono &#x1F60A;</option>
+                                    <option value="Discreto">Discreto &#x1F642;</option>
+                                    <option value="Cattivo">Cattivo &#x1F622;</option>
                             </select>
                         </td>
                     </tr>
