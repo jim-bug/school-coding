@@ -152,6 +152,7 @@
     }
 
     function get_fk_text($fk_name, $id_fk=-1){
+        // Funzione che ritorna una stringa contente i dati (desiderati) della FK.
         list($name_fk, $field_fk, $fk_display_fields) = get_name_file($fk_name);
         
         $content_file_fk = file($name_fk);

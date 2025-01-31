@@ -10,13 +10,10 @@ include "./includes/main.php";
 
 list($name, $field) = get_name_file($_GET['type']);
 $content_file = array_filter(file($name), fn($line) => $line != "");        // filtro il contenuto del file senza le righe vuote
+
 ?>
 <a href="<?php echo $_GET['type']; ?>.php" class="links" >Aggiungi <?php echo $_GET['type']; ?></a>
-<style>
-    .bottone-link:hover {
-        background-color: red;
-    }
-</style>
+
 <form action="" method="get">
     <input type="hidden" name="type" value=<?php echo $_GET['type']; ?>>
     <table border="1">
