@@ -6,7 +6,6 @@
 */
 
 
--- Da confermare la correzione.
 
 -- Dichiarazione  Reparti
 CREATE TABLE Reparti (
@@ -114,7 +113,7 @@ INSERT INTO Tipologie (Descrizione, Sconto) VALUES
 -- Inserimento di Libri
 INSERT INTO Libri VALUES
     ('1111111111111', 'Il mare', 'Ignazio', 50.2, 356, 'Ebook', 2024, 'Mondadori', './img/mare.jpg', 'Thriller', '2024-01-01', 1, 1),
-    ('2222222222222', 'La montagna', 'Giovanni', 40.2, 256, 'Cartaceo', 2023, 'Rizzoli', 'montagna.jpg', 'Collana 2', '2023-01-01', 2, 2);
+    ('2222222222222', 'La montagna', 'Giovanni', 40.2, 256, NULL, 2023, 'Rizzoli', 'montagna.jpg', 'Collana 2', '2023-01-01', 2, 2);
 
 -- Inserimento di Carte
 INSERT INTO Carte VALUES
