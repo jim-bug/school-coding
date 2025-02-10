@@ -22,7 +22,7 @@ Per la risoluzione di questo esercizio abbiamo optato per 4 classi:
 
 - **Classe Client**: Classe dedicata al client side.
 - **Classe Server**: Classe dedicata al server side.
-- **Classe ThreadContent**: Questa classe si occuperà di avviare il thread corrispondente al client appena connesso.
+- **Classe ClientHandler**: Questa classe si occuperà di avviare il thread corrispondente al client appena connesso.
 - **Classe Main**: Classe usata per istanziare le classi Client e Server, in base alle opzioni fornite
 
 Abbiamo scelto di programmare un StreamSocket, quindi un socket che utilizza il [TCP](https://www.ietf.org/rfc/rfc793.txt) come protocollo di trasporto.
