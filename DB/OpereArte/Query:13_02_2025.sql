@@ -19,14 +19,14 @@ WHERE Epoche.Nome = 'Rinascimento' AND Artisti.Epoca = Epoche.ID;
 -- 4) Elenco delle città con cognome e nome degli artisti, che sono nati in quelle città, e che sono relativi a una data epoca:
 SELECT Citta.*, Artisti.Cognome, Artisti.Nome 
 FROM Artisti, Citta, Epoche
-WHERE Epoche.Nome = 'Rinascimento' AND 
+WHERE Epoche.Nome = 'Romanticismo' AND 
 Epoche.ID = Artisti.Epoca AND 
 Artisti.Citta_Natale = Citta.ID;
 
 -- 5) Elenco delle città con cognome e nome degli artisti di una data epoca di una data nazione:
 SELECT Citta.*, Artisti.Cognome, Artisti.Nome
 FROM Artisti, Citta, Nazioni, Epoche
-WHERE Epoche.Nome = 'Rinascimento' AND Nazioni.Nome = 'Italia' AND 
+WHERE Epoche.Nome = 'Contemporanea' AND Nazioni.Nome = 'Francia' AND 
 Artisti.Citta_Natale = Citta.ID AND 
 Artisti.Epoca = Epoche.ID AND 
 Nazioni.ID = Citta.Nazione;
@@ -43,7 +43,7 @@ SELECT Musei.*
 FROM Musei, Citta
 WHERE (Citta.Nome = 'Parigi' OR Citta.Nome = 'Roma') AND Citta.ID = Musei.Citta;
 
--- 8) Nome e anno delle opere presenti dei musei di Parigi e Roma:
+-- 8) Nome e anno delle opere presenti nei musei di Parigi e Roma:
 SELECT Opere.Nome, Opere.Anno
 FROM Musei, Citta, Opere
 WHERE (Citta.Nome = 'Parigi' OR Citta.Nome = 'Roma') AND 
@@ -58,7 +58,7 @@ WHERE Opere.Tipo = Tipi.ID;
 -- 10) Elenco delle opere per uno specifico tipo:
 SELECT Opere.*
 FROM Opere, Tipi
-WHERE Tipi.Nome = 'Scultura' AND Opere.Tipo = Tipi.ID;
+WHERE Tipi.Nome = 'Dipinto' AND Opere.Tipo = Tipi.ID;
 
 -- 11) Elenco delle opere di un autore di cui si conosce il cognome:
 SELECT Opere.*
@@ -75,7 +75,7 @@ Realizzazioni.Artista = 1 AND
 Realizzazioni.Opera = Opere.ID AND 
 Opere.Tipo = Tipi.ID;
 
--- 13) Elenco degli artisti che hanno dipinto quadri nel rinascimento e le cui opere sono agli uffizi:
+-- 13) Elenco degli artisti che hanno dipinto un "Quadro" nel "Rinascimento" e le cui opere sono nel museo "Galleria degli Uffizi":
 SELECT Artisti.*
 FROM Artisti, Opere, Realizzazioni, Tipi, Epoche, Musei
 WHERE Musei.Nome = 'Galleria degli Uffizi' AND Tipi.Nome = 'Quadro' AND Epoche.Nome = 'Rinascimento' AND 
