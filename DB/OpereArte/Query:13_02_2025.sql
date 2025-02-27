@@ -85,4 +85,22 @@ Opere.Museo = Musei.ID AND
 Artisti.Epoca = Epoche.ID AND 
 Realizzazioni.Artista = Artisti.ID;
 
+-- 14) Elenco dei tipi che non hanno opere:
+SELECT Tipi.*
+FROM Tipi
+LEFT JOIN Opere ON Tipi.ID = Opere.Tipo
+WHERE Opere.ID IS NULL;
+
+-- 15) Cognome, Nome degli artisti con il nome delle opere da loro realizzate, nati negli anni '90 e ancora vivi:
+SELECT Artisti.Cognome, Artistu.Nome, Opere.Nome
+FROM Opere, Artisti, Realizzazioni
+WHERE Artisti.Data >= '1990-01-01' AND Artisti.Data < '2000-01-01' AND Artisti.Data IS NULL AND 
+Artisti.ID = Realizzazioni.Artista AND Opere.ID = Realizzazioni.Opera;
+
+-- 16) Cognome e Nome degli artisti nati a febbraio del 2000:
+SELECT Cognome, Nome
+FROM Artisti
+WHERE Data >= '2000-02-01' AND Data < '2000-03-01';
+
+
 -- // :)
