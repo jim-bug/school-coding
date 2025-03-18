@@ -28,14 +28,14 @@ parse_args(){
     database_names=("$@")
 }
 
-user_name="jim_bug"
+user_name="sperandeo"
 database_names=()
 parse_args $@
 
 for i in "${database_names[@]}"; do
     echo "Creating database $i, debug of creation of database $i: "
-    mysql -S "/opt/lampp/var/mysql/mysql.sock" --verbose -u root -p"bazinga :)" -e "CREATE DATABASE IF NOT EXISTS $i; GRANT ALL PRIVILEGES ON $i.* TO '$user_name'@'localhost';"
+    mysql --verbose -u root -p"bazinga :)" -e "CREATE DATABASE IF NOT EXISTS $i; GRANT ALL PRIVILEGES ON $i.* TO '$user_name'@'localhost';"
     echo "Debug of implementation of database $i: "
-    mysql -S "/opt/lampp/var/mysql/mysql.sock" --verbose -u $user_name -p"bazinga :)" < $i.sql
+    mysql --verbose -u $user_name -p"bazinga :)" -e "USE $i; SOURCE $i.sql;"
     echo "Database $i created on $user_name@localhost"
 done
