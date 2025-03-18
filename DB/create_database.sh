@@ -24,7 +24,7 @@ parse_args(){
                 ;;
         esac
     done
-    shift $((OPTIND -1))
+    shift $((OPTIND -1))        # get the databases name
     database_names=("$@")
 }
 

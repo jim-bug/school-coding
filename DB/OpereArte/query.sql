@@ -102,5 +102,89 @@ SELECT Cognome, Nome
 FROM Artisti
 WHERE Data >= '2000-02-01' AND Data < '2000-03-01';
 
+-- 17) Numero di opere d'arte:
+SELECT COUNT(ID) AS NumeroOpere
+FROM Opere;
+
+-- 18) Numero di opere d'arte per ciascun tipo:
+SELECT Tipi.Nome, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Tipi
+WHERE Opere.Tipo = Tipi.ID
+GROUP BY Tipi.Nome;
+
+-- 19) Numero di opere d'arte per ciascun tipo in un determinato museo:
+SELECT Tipi.Nome, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Musei, Tipi
+WHERE Musei.Nome = 'Galleria degli Uffizi' AND Opere.Tipo = Tipi.ID AND Musei.ID = Opere.Museo
+GROUP BY Tipi.Nome;
+
+-- 20) Numero di opere d'arte per ciascun tipo in un determinato museo purché in numero almeno pari a 2:
+SELECT Tipi.Nome, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Musei, Tipi
+WHERE Musei.Nome = 'Galleria degli Uffizi' AND Opere.Tipo = Tipi.ID AND Musei.ID = Opere.Museo
+GROUP BY Tipi.Nome
+HAVING COUNT(Opere.ID) >= 2;
+
+-- 21) Museo con il maggior numero di quadri:
+SELECT Musei.Nome, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Tipi, Musei
+WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
+GROUP BY Musei.Nome
+HAVING COUNT(Opere.ID) = (
+    SELECT MAX(OpereMusei.Numero_Opere)
+    FROM (
+        SELECT COUNT(Opere.ID) AS Numero_Opere
+        FROM Opere, Tipi, Musei
+        WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
+        GROUP BY Musei.Nome
+    ) AS OpereMusei
+);
+
+-- 22) Elenco dei musei che non hanno quadri:
+SELECT *
+FROM Musei
+WHERE ID NOT IN (
+    SELECT DISTINCT Opere.Museo
+    FROM Opere, Tipi
+    WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID
+);
+
+-- 23) Elenco dei musei che hanno quadri:
+SELECT *
+FROM Musei
+WHERE ID IN (
+    SELECT DISTINCT Opere.Museo
+    FROM Opere, Tipi
+    WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID
+);
+
+
+-- 24) Per ogni artista, di cui si vuole cognome e nome, conoscere il numero di opere presenti in uno specifico museo:
+SELECT Artisti.Cognome, Artisti.Nome, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Artisti, Realizzazioni, Musei
+WHERE Musei.Nome = 'Museo del Louvre' AND Opere.ID = Realizzazioni.Opera AND Artisti.ID = Realizzazioni.Artista AND Musei.ID = Opere.Museo
+GROUP BY Artisti.Cognome, Artisti.Nome;
+
+-- 25) Per ogni museo, quante opere sono presenti per ciascun artista:
+SELECT Musei.Nome, Artisti.*, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Artisti, Realizzazioni, Musei
+WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
+GROUP BY Musei.Nome, Artisti.Cognome, Artisti.Nome;
+
+-- 26) Per ogni museo, quante opere sono presenti per ciascun artista, ma ottenere solo l'elenco di quelli per cui il numero di opere è superiore alla media:
+SELECT Musei.Nome, Artisti.*, COUNT(Opere.ID) AS NumeroOpere
+FROM Opere, Artisti, Realizzazioni, Musei
+WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
+GROUP BY Musei.Nome, Artisti.Cognome, Artisti.Nome
+HAVING COUNT(Opere.ID) > (
+    SELECT AVG(OpereArtisti.NumeroOpere)
+    FROM (
+        SELECT COUNT(Opere.ID) AS NumeroOpere
+        FROM Opere, Artisti, Realizzazioni, Musei
+        WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
+        GROUP BY Musei.Nome, Artisti.Cognome, Artisti.Nome
+    ) AS OpereArtisti
+);
+
 
 -- // :)
