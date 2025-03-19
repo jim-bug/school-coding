@@ -51,7 +51,7 @@ Citta.ID = Musei.Citta AND
 Opere.Museo = Musei.ID;
 
 -- 9) Elenco delle opere con il relativo tipo:
-SELECT Opere.*
+SELECT Opere.*, Tipi.Nome
 FROM Opere, Tipi
 WHERE Opere.Tipo = Tipi.ID;
 
@@ -92,9 +92,9 @@ LEFT JOIN Opere ON Tipi.ID = Opere.Tipo
 WHERE Opere.ID IS NULL;
 
 -- 15) Cognome, Nome degli artisti con il nome delle opere da loro realizzate, nati negli anni '90 e ancora vivi:
-SELECT Artisti.Cognome, Artistu.Nome, Opere.Nome
+SELECT Artisti.Cognome, Artisti.Nome, Opere.Nome
 FROM Opere, Artisti, Realizzazioni
-WHERE Artisti.Data >= '1990-01-01' AND Artisti.Data < '2000-01-01' AND Artisti.Data IS NULL AND 
+WHERE Artisti.Data >= '1990-01-01' AND Artisti.Data < '2000-01-01' AND Artisti.Data_Morte IS NULL AND 
 Artisti.ID = Realizzazioni.Artista AND Opere.ID = Realizzazioni.Opera;
 
 -- 16) Cognome e Nome degli artisti nati a febbraio del 2000:
@@ -150,13 +150,9 @@ WHERE ID NOT IN (
 );
 
 -- 23) Elenco dei musei che hanno quadri:
-SELECT *
-FROM Musei
-WHERE ID IN (
-    SELECT DISTINCT Opere.Museo
-    FROM Opere, Tipi
-    WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID
-);
+SELECT DISTINCT Musei.*
+FROM Opere, Tipi, Musei
+WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Musei.ID = Opere.Museo;
 
 
 -- 24) Per ogni artista, di cui si vuole cognome e nome, conoscere il numero di opere presenti in uno specifico museo:
