@@ -129,14 +129,14 @@ HAVING COUNT(Opere.ID) >= 2;
 SELECT Musei.Nome, COUNT(Opere.ID) AS NumeroOpere
 FROM Opere, Tipi, Musei
 WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
-GROUP BY Musei.Nome
+GROUP BY Musei.ID
 HAVING COUNT(Opere.ID) = (
     SELECT MAX(OpereMusei.Numero_Opere)
     FROM (
         SELECT COUNT(Opere.ID) AS Numero_Opere
         FROM Opere, Tipi, Musei
         WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
-        GROUP BY Musei.Nome
+        GROUP BY Musei.ID
     ) AS OpereMusei
 );
 
@@ -165,20 +165,20 @@ GROUP BY Artisti.Cognome, Artisti.Nome;
 SELECT Musei.Nome, Artisti.*, COUNT(Opere.ID) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
 WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
-GROUP BY Musei.Nome, Artisti.Cognome, Artisti.Nome;
+GROUP BY Musei.ID, Artisti.Cognome, Artisti.Nome;
 
 -- 26) Per ogni museo, quante opere sono presenti per ciascun artista, ma ottenere solo l'elenco di quelli per cui il numero di opere è superiore alla media:
 SELECT Musei.Nome, Artisti.*, COUNT(Opere.ID) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
 WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
-GROUP BY Musei.Nome, Artisti.Cognome, Artisti.Nome
+GROUP BY Musei.ID, Artisti.Cognome, Artisti.Nome
 HAVING COUNT(Opere.ID) > (
     SELECT AVG(OpereArtisti.NumeroOpere)
     FROM (
         SELECT COUNT(Opere.ID) AS NumeroOpere
         FROM Opere, Artisti, Realizzazioni, Musei
         WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
-        GROUP BY Musei.Nome, Artisti.Cognome, Artisti.Nome
+        GROUP BY Musei.ID, Artisti.Cognome, Artisti.Nome
     ) AS OpereArtisti
 );
 
