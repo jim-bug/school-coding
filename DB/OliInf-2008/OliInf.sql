@@ -39,6 +39,7 @@ CREATE TABLE Citta (
         ON UPDATE CASCADE
 );
 
+
 CREATE TABLE Fasi (
     Denominazione VARCHAR(30) NOT NULL,
     Punteggio_Singolo INT NOT NULL,
