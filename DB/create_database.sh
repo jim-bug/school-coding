@@ -6,36 +6,23 @@
 
 
 # da completare
-help(){
-    echo "Usage: $0 [options]"
-    echo "Options:"
-    echo "  -u <user_name>      Name of the user to create databases"
-    echo "  -h                  Show this help message"
-}
 
-parse_args(){
-    while getopts "n:" opt; do
-        case $opt in
-            n)
-                user_name="$OPTARG"
-                ;;
-            \?)
-                help
-                ;;
-        esac
-    done
-    shift $((OPTIND -1))        # get the databases name
-    database_names=("$@")
-}
 
 user_name="sperandeo"
 database_names=()
-parse_args $@
 
-for i in "${database_names[@]}"; do
-    echo "Creating database $i, debug of creation of database $i: "
-    mysql --verbose -u root -p"bazinga :)" -e "CREATE DATABASE IF NOT EXISTS $i; GRANT ALL PRIVILEGES ON $i.* TO '$user_name'@'localhost';"
-    echo "Debug of implementation of database $i: "
-    mysql --verbose -u $user_name -p"bazinga :)" -e "USE $i; SOURCE $i.sql;"
-    echo "Database $i created on $user_name@localhost"
+find . -type f -regex '.*/[A-Z][^/]*\.sql' | while read -r i; do
+    file_name="$i"                       # file_name mantiene il path completo
+    db_name="$(basename "$i" .sql)"
+    mysql --verbose -S /opt/lampp/var/mysql/mysql.sock -u root -p"bazinga :)" -e "
+        CREATE DATABASE IF NOT EXISTS \`${db_name}\`;
+        USE \`${db_name}\`;
+        SOURCE ${file_name};
+    "
+    
+    
+    # mysql --verbose -u root -p"bazinga :)" -e "CREATE DATABASE IF NOT EXISTS \`$db_name\`; GRANT ALL PRIVILEGES ON \`$db_name\`.* TO '$user_name'@'localhost';"
+    # echo "Debug of implementation of database $db_name: "
+    # mysql --verbose -u "$user_name" -p"bazinga :)" "$db_name" < "$i"
+    # echo "Database $db_name created on $user_name@localhost"
 done

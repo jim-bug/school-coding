@@ -158,22 +158,4 @@ INSERT INTO Citta (Codice, Nome, Abitanti, CodiceR) VALUES
     ('CIT49', 'Amsterdam', 905234, 'NL01'),
     ('CIT50', 'Rotterdam', 651446, 'NL02');
 
-
--- QL:
-
--- Elenco delle regioni della Svizzera e della Germania che hanno abitanti delle città compresi tra 50.000 e 100.000:
-SELECT Regioni.Nome 
-FROM Nazioni, Regioni, Citta
-WHERE (Nazioni.Nome = 'Svizzera' OR Nazioni.Nome = 'Germania') AND 
-    (Citta.Abitanti BETWEEN 50000 AND 100000) AND 
-    Nazioni.ID = Regioni.ID AND 
-    Regioni.Codice = Citta.CodiceR
-
--- Elenco delle città con abitanti della Francia:
-SELECT Citta.Nome, Abitanti
-FROM Nazioni, Regioni, Citta
-WHERE (Nazioni.Nome = 'Francia') AND 
-    Nazioni.ID = Regioni.ID AND 
-    Regioni.Codice = Citta.CodiceR;
-
 -- // :)

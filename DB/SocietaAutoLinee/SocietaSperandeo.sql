@@ -99,8 +99,6 @@ CREATE TABLE QualificaPatente (
 );
 
 
-
-
 -- Inserimento record tabelle
 
 INSERT INTO Linee (Nome, Prezzo, Tempo) VALUES 
@@ -173,4 +171,4 @@ INSERT INTO QualificaPatente (Autista, TipoPatente) VALUES
     ('44AB4', 6),
     ('56M94', 6);
 
-
+-- // :)

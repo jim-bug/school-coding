@@ -5,8 +5,6 @@
 * by jim_bug // :)
 */
 
-USE OpereArte;
-
 CREATE TABLE Epoche (
     ID INT AUTO_INCREMENT,
     Nome VARCHAR(20) NOT NULL,

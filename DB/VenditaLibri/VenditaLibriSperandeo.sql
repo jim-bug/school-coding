@@ -5,8 +5,6 @@
 * by jim_bug // :)
 */
 
-
-
 -- Dichiarazione  Reparti
 CREATE TABLE Reparti (
     idReparto INT AUTO_INCREMENT,
@@ -135,3 +133,4 @@ INSERT INTO DettagliOrdini (idOrdine, ISBN, Quantita) VALUES
     (1, '1111111111111', 3),
     (2, '2222222222222', 5);
 
+-- // :)

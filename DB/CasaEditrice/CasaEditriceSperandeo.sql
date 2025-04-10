@@ -126,3 +126,4 @@ INSERT INTO Ordini (DataRegistrazione, Quantita, IDRivista, IDPuntoVendita) VALU
     ('2024-01-06', 5, 1, 1),
     ('2024-05-06', 30, 2, 2);
 
+-- // :)
