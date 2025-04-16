@@ -1,18 +1,11 @@
 /*
-Nazione(ID, Nome)
-Regione(ID, Nome, ID_Nazione(FK))
-Città(ID, Nome, ID_Regione(FK))
-Fasi(Fase, Punteggio_Singolo, Punteggio_Squadre)
-Sedi(Id_Sede, Denominazione, Indirizzo, Città(FK))
-Scuole(Id_Scuole, Denominazione, Indirizzo, Città(FK))
-Squadre(Id_Squadre, Denominazione, Nazione(FK))
+    Autore: Ignazio Leonardo Calogero Sperandeo
+    Data: 04/4/2025
+    Consegna: consegna su classroom.
 
-Atleti(Id_Atleta, Cognome, Nome, Luogo_Nascita, Data_Nascita, Id_Scuola(FK))
-Gare(Id_Gara, Data, Id_Fase(FK), Id_sede(FK))
-Squadre_Gare(Id_Squadra(FK), Id_Gara(FK), Punteggio)
-Atleti_Gare(Id_Atleta(FK), Id_Gara(FK), Punteggio_Singolo)
-Atleti_Squadre(Id_Atleta(FK), Id_Squadra(FK))
+    by jim_bug // :)
 */
+
 CREATE TABLE Nazioni (
     ID INT AUTO_INCREMENT,
     Nome VARCHAR(30) NOT NULL,
@@ -139,3 +132,73 @@ CREATE TABLE Atleti_Squadre (
     FOREIGN KEY (Squadra) REFERENCES Squadre(ID)
         ON UPDATE CASCADE
 );
+
+
+INSERT INTO Nazioni (Nome) VALUES
+    ('Italia'),     -- ID 1
+    ('Francia'),    -- ID 2
+    ('Germania'),   -- ID 3
+    ('Spagna');     -- ID 4
+
+INSERT INTO Regioni (Nome, Nazione) VALUES
+    ('Sicilia', 1),         -- ID 1
+    ('Lombardia', 1),       -- ID 2
+    ('Ile-de-France', 2),   -- ID 3
+    ('Bavaria', 3);         -- ID 4
+
+INSERT INTO Citta (Nome, Regione) VALUES
+    ('Palermo', 1),    -- ID 1
+    ('Milano', 2),     -- ID 2
+    ('Parigi', 3),     -- ID 3
+    ('Monaco', 4);     -- ID 4
+
+INSERT INTO Sedi (Denominazione, Indirizzo, Citta) VALUES
+    ('Palazzetto Sport', 'Via Roma 1', 1),    -- ID 1
+    ('Centro Olimpico', 'Via Milano 2', 2),    -- ID 2
+    ('Stade National', 'Rue Paris 3', 3);      -- ID 3
+
+INSERT INTO Scuole (Denominazione, Indirizzo, Citta) VALUES
+    ('Liceo Einstein', 'Via Scuola 1', 1),     -- ID 1
+    ('IIS Volta', 'Via Istituto 2', 2),        -- ID 2
+    ('Lycée Victor Hugo', 'Rue École 3', 3);    -- ID 3
+
+INSERT INTO Squadre (Denominazione, Nazione) VALUES
+    ('Team Italia A', 1),    -- ID 1
+    ('Team Francia A', 2),   -- ID 2
+    ('Team Germania A', 3);  -- ID 3
+
+INSERT INTO Atleti (Cognome, Nome, LuogoNascita, Data, Scuola) VALUES
+    ('Rossi', 'Mario', 'Palermo', '2005-05-15', 1),     -- ID 1
+    ('Bianchi', 'Laura', 'Milano', '2006-08-22', 2),    -- ID 2
+    ('Dubois', 'Jean', 'Parigi', '2005-03-10', 3);      -- ID 3
+
+INSERT INTO Gare (Data, Fase, Sede) VALUES
+    ('2024-06-01', 'Eliminatoria', 1),    -- ID 1
+    ('2024-06-15', 'Semifinale', 2),      -- ID 2
+    ('2024-06-30', 'Finale', 3);          -- ID 3
+
+INSERT INTO Fasi (Denominazione, Punteggio_Singolo, Punteggio_Squadre) VALUES
+    ('Eliminatoria', 100, 300),
+    ('Semifinale', 150, 450),
+    ('Finale', 200, 600);
+
+INSERT INTO Squadre_Gare (Squadra, Gara) VALUES
+    (1, 1),    
+    (2, 1),    
+    (3, 1),    
+    (1, 2),    
+    (2, 2);       
+
+INSERT INTO Atleti_Gare (Atleta, Gara, Punteggio) VALUES
+    (1, 1, 85),    
+    (2, 1, 92),    
+    (3, 1, 88),    
+    (1, 2, 95),    
+    (2, 2, 91);    
+
+INSERT INTO Atleti_Squadre (Atleta, Squadra) VALUES
+    (1, 1),
+    (2, 1),
+    (3, 2);
+
+-- // :)

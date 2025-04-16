@@ -19,10 +19,4 @@ find . -type f -regex '.*/[A-Z][^/]*\.sql' | while read -r i; do
         USE \`${db_name}\`;
         SOURCE ${file_name};
     "
-    
-    
-    # mysql --verbose -u root -p"bazinga :)" -e "CREATE DATABASE IF NOT EXISTS \`$db_name\`; GRANT ALL PRIVILEGES ON \`$db_name\`.* TO '$user_name'@'localhost';"
-    # echo "Debug of implementation of database $db_name: "
-    # mysql --verbose -u "$user_name" -p"bazinga :)" "$db_name" < "$i"
-    # echo "Database $db_name created on $user_name@localhost"
 done
