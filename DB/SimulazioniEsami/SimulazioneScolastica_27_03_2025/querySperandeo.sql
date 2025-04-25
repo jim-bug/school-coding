@@ -7,11 +7,11 @@
 */
 
 -- 1) Elenco dei docenti, che hanno fatto richiesta di risorse, con numeri di richieste fatte:
-SELECT Docenti.*, COUNT(Richieste.ID)
+SELECT Cognome, Nome, COUNT(Richieste.ID)
 FROM Docenti, Richieste
 WHERE Docenti.ID = Richieste.Docente
 GROUP BY Docenti.ID
-ORDER BY Docenti.Cognome, Docenti.Nome;
+ORDER BY Cognome, Nome;
 
 -- 2) Elenco delle risorse prenotate nel primo quadrimestre:
 SELECT Risorse.*

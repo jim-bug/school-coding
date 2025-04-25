@@ -7,7 +7,7 @@
 	*/
 	$address = "localhost";
 	$user = "root";
-	$password = "rotoremindme";
+	$password = "bazinga :)";
 	$db = "Calcio";
 	$mysqli = new mysqli($address, $user, $password, $db);
 	

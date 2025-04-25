@@ -172,15 +172,18 @@ INSERT INTO Atleti (Cognome, Nome, LuogoNascita, Data, Scuola) VALUES
     ('Bianchi', 'Laura', 'Milano', '2006-08-22', 2),    -- ID 2
     ('Dubois', 'Jean', 'Parigi', '2005-03-10', 3);      -- ID 3
 
-INSERT INTO Gare (Data, Fase, Sede) VALUES
-    ('2024-06-01', 'Eliminatoria', 1),    -- ID 1
-    ('2024-06-15', 'Semifinale', 2),      -- ID 2
-    ('2024-06-30', 'Finale', 3);          -- ID 3
+
 
 INSERT INTO Fasi (Denominazione, Punteggio_Singolo, Punteggio_Squadre) VALUES
     ('Eliminatoria', 100, 300),
     ('Semifinale', 150, 450),
     ('Finale', 200, 600);
+
+
+INSERT INTO Gare (Data, Fase, Sede) VALUES
+    ('2024-06-01', 'Eliminatoria', 1),    -- ID 1
+    ('2024-06-15', 'Semifinale', 2),      -- ID 2
+    ('2024-06-30', 'Finale', 3);          -- ID 3
 
 INSERT INTO Squadre_Gare (Squadra, Gara) VALUES
     (1, 1),    
