@@ -106,7 +106,7 @@ WHERE Opere.ID IS NULL
 ORDER BY Tipi.Nome;
 
 -- 15) Cognome, Nome degli artisti con il nome delle opere da loro realizzate, nati negli anni '90 e ancora vivi:
-SELECT Artisti.Cognome, Artisti.Nome, Opere.Nome
+SELECT Artisti.Cognome, Artisti.Nome, Opere.Nome AS NomeOpera
 FROM Opere, Artisti, Realizzazioni
 WHERE Artisti.Data >= '1990-01-01' AND Artisti.Data < '2000-01-01' AND Artisti.Data_Morte IS NULL AND 
 Artisti.ID = Realizzazioni.Artista AND Opere.ID = Realizzazioni.Opera
