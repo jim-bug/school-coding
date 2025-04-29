@@ -8,6 +8,7 @@
     by jim_bug // :)
 */
 
+
 -- Creazione della tabella Città:
 CREATE TABLE Citta (
     ID INT AUTO_INCREMENT,
