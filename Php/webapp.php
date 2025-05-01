@@ -2,7 +2,7 @@
 
 $hostname = 'localhost';
 $username = 'root';
-$password = 'rotoremindme';
+$password = 'bazinga ops :)';
 $database = 'GestioneRisorseSperandeo';
 
 $mysql = new mysqli($hostname, $username, $password, $database);
