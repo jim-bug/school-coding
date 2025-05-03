@@ -9,36 +9,36 @@
 SELECT * FROM Artisti;
 
 -- 2) Elenco degli artisti nati negli anni '50 dello scorso secolo:
-SELECT Cognome, Nome, Data 
-FROM Artisti 
+SELECT * 
+FROM Artisti
 WHERE Data >= '1950-01-01' AND Data < '1960-01-01'
 ORDER BY Cognome, Nome;
 
 -- 3) Cognome e nome degli artisti di una data epoca:
-SELECT Artisti.Cognome, Artisti.Nome 
+SELECT Cognome, Artisti.Nome 
 FROM Artisti, Epoche
 WHERE Epoche.Nome = 'Rinascimento' AND Artisti.Epoca = Epoche.ID
-ORDER BY Artisti.Cognome, Artisti.Nome;
+ORDER BY Cognome, Artisti.Nome;
 
 -- 4) Elenco delle città con cognome e nome degli artisti, che sono nati in quelle città, e che sono relativi a una data epoca:
-SELECT Citta.Nome AS Citta, Artisti.Cognome, Artisti.Nome 
+SELECT Citta.* AS Citta, Cognome, Artisti.Nome 
 FROM Artisti, Citta, Epoche
 WHERE Epoche.Nome = 'Romanticismo' AND 
 Epoche.ID = Artisti.Epoca AND 
 Artisti.Citta_Natale = Citta.ID
-ORDER BY Artisti.Cognome, Artisti.Nome;
+ORDER BY Cognome, Artisti.Nome;
 
 -- 5) Elenco delle città con cognome e nome degli artisti di una data epoca di una data nazione:
-SELECT Citta.Nome AS Citta, Artisti.Cognome, Artisti.Nome
+SELECT Citta.* AS Citta, Cognome, Artisti.Nome
 FROM Artisti, Citta, Nazioni, Epoche
 WHERE Epoche.Nome = 'Contemporanea' AND Nazioni.Nome = 'Francia' AND 
 Artisti.Citta_Natale = Citta.ID AND 
 Artisti.Epoca = Epoche.ID AND 
 Nazioni.ID = Citta.Nazione
-ORDER BY Artisti.Cognome, Artisti.Nome;
+ORDER BY Cognome, Artisti.Nome;
 
 -- 6) Cognome, nome e città di nascita degli artisti in vita di una data epoca:
-SELECT Artisti.Cognome, Artisti.Nome, Citta.Nome AS Citta
+SELECT Cognome, Artisti.Nome, Citta.Nome AS Citta
 FROM Artisti, Citta, Epoche
 WHERE Artisti.Data_Morte IS NULL AND Epoche.Nome = 'Contemporanea' AND 
 Artisti.Citta_Natale = Citta.ID AND 
@@ -46,41 +46,36 @@ Artisti.Epoca = Epoche.ID
 ORDER BY Artisti.Cognome, Artisti.Nome;
 
 -- 7) Elenco dei musei di Parigi e Roma:
-SELECT Musei.Nome
+SELECT Musei.*
 FROM Musei, Citta
-WHERE (Citta.Nome = 'Parigi' OR Citta.Nome = 'Roma') AND Citta.ID = Musei.Citta
-ORDER BY Musei.Nome;
+WHERE (Citta.Nome = 'Parigi' OR Citta.Nome = 'Roma') AND Citta.ID = Musei.Citta;
 
 -- 8) Nome e anno delle opere presenti nei musei di Parigi e Roma:
-SELECT Opere.Nome, Opere.Anno
+SELECT Opere.Nome, Anno
 FROM Musei, Citta, Opere
 WHERE (Citta.Nome = 'Parigi' OR Citta.Nome = 'Roma') AND 
 Citta.ID = Musei.Citta AND 
-Opere.Museo = Musei.ID
-ORDER BY Opere.Nome;
+Opere.Museo = Musei.ID;
 
 -- 9) Elenco delle opere con il relativo tipo:
-SELECT Opere.Nome, Tipi.Nome
+SELECT Opere.*, Tipi.Nome AS NomeTipo
 FROM Opere, Tipi
-WHERE Opere.Tipo = Tipi.ID
-ORDER BY Opere.Nome;
+WHERE Opere.Tipo = Tipi.ID;
 
 -- 10) Elenco delle opere per uno specifico tipo:
-SELECT Opere.Nome
+SELECT Opere.*
 FROM Opere, Tipi
-WHERE Tipi.Nome = 'Dipinto' AND Opere.Tipo = Tipi.ID
-ORDER BY Opere.Nome;
+WHERE Tipi.Nome = 'Dipinto' AND Opere.Tipo = Tipi.ID;
 
 -- 11) Elenco delle opere di un autore di cui si conosce il cognome:
-SELECT Opere.Nome
+SELECT Opere.*
 FROM Opere, Artisti, Realizzazioni
 WHERE Artisti.Cognome = 'Rossi' AND 
 Realizzazioni.Artista = Artisti.ID AND 
-Realizzazioni.Opera = Opere.ID
-ORDER BY Opere.Nome;
+Realizzazioni.Opera = Opere.ID;
 
 -- 12) Elenco delle opere di tipo "Scultura" di un artista di cui si conosce l'ID:
-SELECT Opere.Nome
+SELECT Opere.*
 FROM Opere, Realizzazioni, Tipi
 WHERE Tipi.Nome = 'Scultura' AND 
 Realizzazioni.Artista = 1 AND 
@@ -99,18 +94,17 @@ Artisti.Epoca = Epoche.ID AND
 Realizzazioni.Artista = Artisti.ID;
 
 -- 14) Elenco dei tipi che non hanno opere:
-SELECT Tipi.Nome
+SELECT Tipi.*
 FROM Tipi
 LEFT JOIN Opere ON Tipi.ID = Opere.Tipo
-WHERE Opere.ID IS NULL
-ORDER BY Tipi.Nome;
+WHERE Opere.ID IS NULL;
 
 -- 15) Cognome, Nome degli artisti con il nome delle opere da loro realizzate, nati negli anni '90 e ancora vivi:
-SELECT Artisti.Cognome, Artisti.Nome, Opere.Nome AS NomeOpera
+SELECT Cognome, Artisti.Nome, Opere.Nome AS NomeOpera
 FROM Opere, Artisti, Realizzazioni
 WHERE Artisti.Data >= '1990-01-01' AND Artisti.Data < '2000-01-01' AND Artisti.Data_Morte IS NULL AND 
 Artisti.ID = Realizzazioni.Artista AND Opere.ID = Realizzazioni.Opera
-ORDER BY Artisti.Cognome, Artisti.Nome;
+ORDER BY Cognome, Artisti.Nome;
 
 -- 16) Cognome e Nome degli artisti nati a febbraio del 2000:
 SELECT Cognome, Nome
@@ -119,30 +113,31 @@ WHERE Data >= '2000-02-01' AND Data < '2000-03-01'
 ORDER BY Cognome, Nome;
 
 -- 17) Numero di opere d'arte:
-SELECT COUNT(ID) AS NumeroOpere
+SELECT COUNT(*) AS NumeroOpere
 FROM Opere;
 
 -- 18) Numero di opere d'arte per ciascun tipo:
-SELECT Tipi.Nome, COUNT(*) AS NumeroOpere
+SELECT Tipi.NomeTipo AS NomeTipo, COUNT(*) AS NumeroOpere
 FROM Opere, Tipi
 WHERE Opere.Tipo = Tipi.ID
-GROUP BY Tipi.Nome
-ORDER BY Tipi.Nome;
+GROUP BY Tipi.Nome;
 
 -- 19) Numero di opere d'arte per ciascun tipo in un determinato museo:
-SELECT Tipi.Nome, COUNT(*) AS NumeroOpere
+SELECT Tipi.Nome AS NomeTipo, COUNT(*) AS NumeroOpere
 FROM Opere, Tipi, Musei
-WHERE Musei.Nome = 'Galleria degli Uffizi' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
-GROUP BY Tipi.Nome
-ORDER BY Tipi.Nome;
+WHERE Musei.Nome = 'Galleria degli Uffizi' AND 
+Opere.Tipo = Tipi.ID AND 
+Opere.Museo = Musei.ID
+GROUP BY Tipi.Nome;
 
 -- 20) Numero di opere d'arte per ciascun tipo in un determinato museo purché in numero almeno pari a 2:
-SELECT Tipi.Nome, COUNT(*) AS NumeroOpere
+SELECT Tipi.Nome AS NomeTipo, COUNT(*) AS NumeroOpere
 FROM Opere, Tipi, Musei
-WHERE Musei.Nome = 'Galleria degli Uffizi' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
+WHERE Musei.Nome = 'Galleria degli Uffizi' AND 
+Opere.Tipo = Tipi.ID AND
+Opere.Museo = Musei.ID
 GROUP BY Tipi.Nome
-HAVING COUNT(*) >= 2
-ORDER BY Tipi.Nome;
+HAVING COUNT(*) >= 2;
 
 -- 21) Museo con il maggior numero di quadri:
 SELECT Musei.Nome, COUNT(*) AS NumeroOpere
@@ -157,8 +152,7 @@ HAVING COUNT(*) = (
         WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
         GROUP BY Musei.ID
     ) AS OpereMusei
-)
-ORDER BY Musei.Nome;
+);
 
 -- 22) Elenco dei musei che non hanno quadri:
 SELECT Nome
@@ -167,33 +161,40 @@ WHERE ID NOT IN (
     SELECT DISTINCT Opere.Museo
     FROM Opere, Tipi
     WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID
-)
-ORDER BY Nome;
+);
 
 -- 23) Elenco dei musei che hanno quadri:
 SELECT DISTINCT Musei.Nome
 FROM Opere, Tipi, Musei
-WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Musei.ID = Opere.Museo
-ORDER BY Musei.Nome;
+WHERE Tipi.Nome = 'Quadro' AND
+Opere.Tipo = Tipi.ID AND
+Musei.ID = Opere.Museo;
 
 
 -- 24) Per ogni artista, di cui si vuole cognome e nome, conoscere il numero di opere presenti in uno specifico museo:
-SELECT Artisti.Cognome, Artisti.Nome, COUNT(*) AS NumeroOpere
+SELECT Cognome, Artisti.Nome, COUNT(*) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
-WHERE Musei.Nome = 'Museo del Louvre' AND Opere.ID = Realizzazioni.Opera AND Artisti.ID = Realizzazioni.Artista AND Opere.Museo = Musei.ID
+WHERE Musei.Nome = 'Museo del Louvre' AND 
+Opere.ID = Realizzazioni.Opera AND 
+Artisti.ID = Realizzazioni.Artista AND
+Opere.Museo = Musei.ID
 GROUP BY Artisti.ID
-ORDER BY Artisti.Cognome, Artisti.Nome;
+ORDER BY Cognome, Artisti.Nome;
 
 -- 25) Per ogni museo, quante opere sono presenti per ciascun artista:
-SELECT Musei.Nome, Artisti.*, COUNT(Opere.ID) AS NumeroOpere
+SELECT Musei.Nome, Artisti.*, COUNT(*) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
-WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
+WHERE Opere.ID = Realizzazioni.Opera AND 
+Realizzazioni.Artista = Artisti.ID AND 
+Musei.ID = Opere.Museo
 GROUP BY Musei.ID, Artisti.ID;
 
 -- 26) Per ogni museo, quante opere sono presenti per ciascun artista, ma ottenere solo l'elenco di quelli per cui il numero di opere è superiore alla media:
-SELECT Musei.Nome, Artisti.*, COUNT(*) AS NumeroOpere
+SELECT Musei.Nome, AS NomeMuseo, Artisti.*, COUNT(*) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
-WHERE Opere.ID = Realizzazioni.Opera AND Realizzazioni.Artista = Artisti.ID AND Musei.ID = Opere.Museo
+WHERE Opere.ID = Realizzazioni.Opera AND
+Realizzazioni.Artista = Artisti.ID AND
+Musei.ID = Opere.Museo
 GROUP BY Musei.ID, Artisti.ID
 HAVING COUNT(*) > (
     SELECT AVG(OpereArtisti.NumeroOpere)
