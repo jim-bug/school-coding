@@ -1,41 +1,63 @@
 /*
     Autore: Ignazio Leonardo Calogero Sperandeo
     Data: 25/04/2025
-    Consegna: Implementazione database simulazione straordinaria 2023, query.
+    Consegna: Implementazione database simulazione ordinaria 2011, query.
 
     by jim_bug // :)
 */
 
 
 
--- 1) L'elenco degli apicoltori che producono miele DOP in una determinata regione:
-SELECT Cognome, Apicoltori.Nome
-FROM Regioni, Province, Comuni, Localita, Apicoltori, Apiari, Mieli, Tipologie
-WHERE Regioni.Nome = 'Campania' AND Tipologie.Nome = 'Miele D.O.P.' AND
-Regioni.ID = Province.Regione AND
-Province.ID = Comuni.Provincia AND
-Comuni.ID = Localita.Comune AND
-Localita.ID = Apiari.Localita AND
-Mieli.Tipologia = Tipologie.ID AND
-Apiari.Miele = Mieli.ID AND
-Apicoltori.ID = Apiari.Apicoltore
-ORDER BY Cognome, Apicoltori.Nome;
+-- 1) Visualizzare l'elenco di tutti gli esemplari di fauna, suddivisi per specie, presenti nei vari parchi:
+SELECT EsemplariAnimale.*, SpecieAnimale.Nome, Parchi.Nome
+FROM EsemplariAnimale, SpecieAnimale, Parchi
+WHERE EsemplariAnimale.Parco = Parchi.ID AND EsemplariAnimale.Specie = SpecieAnimale.ID;
 
--- 2) Il numero complessivo di apiari per ciascuna regione:
-SELECT Regioni.ID, Regioni.Nome, COUNT(Codice)
-FROM Regioni, Province, Comuni, Localita, Apiari
-WHERE Regioni.ID = Province.Regione 
-AND Province.ID = Comuni.Provincia 
-AND Comuni.ID = Localita.Comune 
-AND Localita.ID = Apiari.Localita
-GROUP BY Regioni.ID
-ORDER BY Regioni.Nome;
+-- 2) Visualizzare tutti gli esemplari a rischio di estinzione:
+SELECT EsemplariAnimale.*
+FROM EsemplariAnimale, SpecieAnimale
+WHERE SpecieAnimale.Estinzione = True AND EsemplariAnimali.Specie = SpecieAnimale.ID;
 
--- 3) Le quantità di miele prodotto in Italia lo scorso anno per ciscuna delle quattro tipologie:
-SELECT Tipologie.ID, Tipologie.Nome, SUM(Quantita)
-FROM Tipolgie, Mieli, Apiari, Produzioni
-WHERE Tipologie.ID = Mieli.Tipologia AND Mieli.ID = Apiari.Miele AND Produzioni.Apiario = Apiari.Codice
-GROUP BY Tipologie.ID
-ORDER BY Tipologie.Nome;
+-- 3) Calcolare e visualizzare il numero di nascite di un certo esemplare nell'arco di un anno di monitoraggio:
+SELECT COUNT(*) AS NumeroNascite
+FROM EsemplariAnimale, SpecieAnimali
+WHERE SpecieAnimale.Nome = 'Orso' AND Data >= '2022-01-01' AND Data < '2023-01-01' AND
+EsemplariAnimali.Specie = SpecieAnimali.ID
+
+-- 4) Calcolare e visualizzare il numero totale di diverse specie di arbusti presenti nei vari parchi della regione:
+SELECT COUNT(*) AS NumeroSpecie
+FROM Parchi, ParcoFlora, SpecieFlora, TipiFlora, Regioni
+WHERE TipoFlora = 'Arbusti' AND Regioni.Nome = 'Sicilia' AND
+Parchi.ID = ParcoFlora.Parco
+AND SpecieFlora.ID = ParcoFlora.Specie 
+AND SpecieFlora.Tipo = TipiFlora.ID;
+
+-- 5) Visualizzare quante specie di pino sono presenti in ciascun parco:
+SELECT Parchi.ID, COUNT(*) AS NumeroSpeci
+FROM Parchi, ParcoFlora, SpecieFlora
+WHERE SpecieFlora.Nome LIKE 'Pino%' AND
+Parchi.ID = ParcoFlora.Parco AND
+SpecieFlora.ID = ParcoFlora.Flora AND
+SpecieFlora.Tipo = TipiFlora.ID
+GROUP BY Parchi.ID;
+
+-- 6) Calcolare il numero medio dei cuccioli di ciascuna specie presenti in tutti i parchi della regione:
+SELECT query.Specie, AVG(query.NumeroCuccioli) AS NumeroMedioCuccioli
+FROM (
+    SELECT Parchi.ID, SpecieAnimale.Nome AS Specie, COUNT(*) AS NumeroCuccioli
+    FROM Parchi, Regioni, SpecieAnimale, EsemplariAnimale
+    WHERE NOT EsemplariAnimale.Adulto AND Regione.Nome = 'Sicilia' AND
+    Regione.ID = Parchi.Regione AND
+    SpecieAnimale.ID = EsemplariAnimale.Specie AND
+    EsemplariAnimale.Parco = Parchi.ID
+    GROUP BY Parchi.ID, SpecieAnimale.Nome
+) AS query
+GROUP BY query.Specie;
+
+-- 7) Visualizzare l'esemplare più anziano di ogni specie in un determinato parco:
+SELECT SpecieAnimale.Nome, EsemplariAnimale.Nome, MIN(EsemplariAnimali.Data)
+FROM SpecieAnimale, EsemplariAnimale, Parchi
+WHERE Parchi.Nome = 'Central Kinki Park' AND Parchi.ID = EsemplariAnimale.Parco AND SpecieAnimale.ID = EsemplariAnimale.Specie
+GROUP BY SpecieAnimale.Nome;
 
 -- // :)
