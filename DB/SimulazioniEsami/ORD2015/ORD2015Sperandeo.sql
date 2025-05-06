@@ -119,172 +119,208 @@ CREATE TABLE ArtistiEventi (
 );
 
 
-
--- 1) Categorie (30)
+-- 1) Categorie (20)
 INSERT INTO Categorie (Nome) VALUES
-  ('Categoria1'),  ('Categoria2'),  ('Categoria3'),  ('Categoria4'),
-  ('Categoria5'),  ('Categoria6'),  ('Categoria7'),  ('Categoria8'),
-  ('Categoria9'),  ('Categoria10'), ('Categoria11'), ('Categoria12'),
-  ('Categoria13'), ('Categoria14'), ('Categoria15'), ('Categoria16'),
-  ('Categoria17'), ('Categoria18'), ('Categoria19'), ('Categoria20'),
-  ('Categoria21'), ('Categoria22'), ('Categoria23'), ('Categoria24'),
-  ('Categoria25'), ('Categoria26'), ('Categoria27'), ('Categoria28'),
-  ('Categoria29'), ('Categoria30');
+('Concerto Rock'),         ('Concerto Jazz'),        ('Opera Lirica'),
+('Mostra Pittura'),        ('Mostra Fotografia'),    ('Teatro Contemporaneo'),
+('Teatro Classico'),       ('Cinema Indipendente'),  ('Festival Letterario'),
+('Danza Contemporanea'),   ('Danza Classica'),       ('Workshop Artistico'),
+('Stand-up Comedy'),       ('Circo Contemporaneo'),  ('Magia e Illusionismo'),
+('Laboratorio Bambini'),   ('Presentazione Libro'),  ('Conferenza Scientifica'),
+('Degustazione Vino'),     ('Sfilata Moda');
 
--- 2) Province (30)
+-- 2) Province (20)
 INSERT INTO Province (Nome) VALUES
-  ('Provincia1'),  ('Provincia2'),  ('Provincia3'),  ('Provincia4'),
-  ('Provincia5'),  ('Provincia6'),  ('Provincia7'),  ('Provincia8'),
-  ('Provincia9'),  ('Provincia10'), ('Provincia11'), ('Provincia12'),
-  ('Provincia13'), ('Provincia14'), ('Provincia15'), ('Provincia16'),
-  ('Provincia17'), ('Provincia18'), ('Provincia19'), ('Provincia20'),
-  ('Provincia21'), ('Provincia22'), ('Provincia23'), ('Provincia24'),
-  ('Provincia25'), ('Provincia26'), ('Provincia27'), ('Provincia28'),
-  ('Provincia29'), ('Provincia30');
+('Milano'),        ('Roma'),          ('Napoli'),
+('Torino'),        ('Firenze'),       ('Bologna'),
+('Venezia'),       ('Palermo'),       ('Bari'),
+('Catania'),       ('Genova'),        ('Verona'),
+('Cagliari'),      ('Parma'),         ('Perugia'),
+('Trieste'),       ('Lecce'),         ('Siena'),
+('Aosta'),         ('Matera');
 
--- 3) Membri (30)
+-- 3) Membri (20)
 INSERT INTO Membri (Nome, Cognome, Email, Username, Password) VALUES
-  ('Nome1','Cognome1','nome1@example.com','user1','pass1'),
-  ('Nome2','Cognome2','nome2@example.com','user2','pass2'),
-  ('Nome3','Cognome3','nome3@example.com','user3','pass3'),
-  ('Nome4','Cognome4','nome4@example.com','user4','pass4'),
-  ('Nome5','Cognome5','nome5@example.com','user5','pass5'),
-  ('Nome6','Cognome6','nome6@example.com','user6','pass6'),
-  ('Nome7','Cognome7','nome7@example.com','user7','pass7'),
-  ('Nome8','Cognome8','nome8@example.com','user8','pass8'),
-  ('Nome9','Cognome9','nome9@example.com','user9','pass9'),
-  ('Nome10','Cognome10','nome10@example.com','user10','pass10'),
-  ('Nome11','Cognome11','nome11@example.com','user11','pass11'),
-  ('Nome12','Cognome12','nome12@example.com','user12','pass12'),
-  ('Nome13','Cognome13','nome13@example.com','user13','pass13'),
-  ('Nome14','Cognome14','nome14@example.com','user14','pass14'),
-  ('Nome15','Cognome15','nome15@example.com','user15','pass15'),
-  ('Nome16','Cognome16','nome16@example.com','user16','pass16'),
-  ('Nome17','Cognome17','nome17@example.com','user17','pass17'),
-  ('Nome18','Cognome18','nome18@example.com','user18','pass18'),
-  ('Nome19','Cognome19','nome19@example.com','user19','pass19'),
-  ('Nome20','Cognome20','nome20@example.com','user20','pass20'),
-  ('Nome21','Cognome21','nome21@example.com','user21','pass21'),
-  ('Nome22','Cognome22','nome22@example.com','user22','pass22'),
-  ('Nome23','Cognome23','nome23@example.com','user23','pass23'),
-  ('Nome24','Cognome24','nome24@example.com','user24','pass24'),
-  ('Nome25','Cognome25','nome25@example.com','user25','pass25'),
-  ('Nome26','Cognome26','nome26@example.com','user26','pass26'),
-  ('Nome27','Cognome27','nome27@example.com','user27','pass27'),
-  ('Nome28','Cognome28','nome28@example.com','user28','pass28'),
-  ('Nome29','Cognome29','nome29@example.com','user29','pass29'),
-  ('Nome30','Cognome30','nome30@example.com','user30','pass30');
+('Marco',    'Rossi',      'marco@email.it',      'marco01',   'pwd123'),
+('Laura',    'Bianchi',    'laura@email.it',      'laura02',   'pwd234'),
+('Paolo',    'Verdi',      'paolo@email.it',      'paolo03',   'pwd345'),
+('Giulia',   'Neri',       'giulia@email.it',     'giulia04',  'pwd456'),
+('Luca',     'Ferrari',    'luca@email.it',       'luca05',    'pwd567'),
+('Sara',     'Romano',     'sara@email.it',       'sara06',    'pwd678'),
+('Roberto',  'Esposito',   'roberto@email.it',    'roberto07', 'pwd789'),
+('Chiara',   'Russo',      'chiara@email.it',     'chiara08',  'pwd890'),
+('Andrea',   'Colombo',    'andrea@email.it',     'andrea09',  'pwd901'),
+('Valentina','Ricci',      'valentina@email.it',  'valent10',  'pwd012'),
+('Giovanni', 'Marino',     'giovanni@email.it',   'giovan11',  'pwd123a'),
+('Francesca','Greco',      'francesca@email.it',  'france12',  'pwd234b'),
+('Davide',   'Conti',      'davide@email.it',     'davide13',  'pwd345c'),
+('Alice',    'Bruno',      'alice@email.it',      'alice14',   'pwd456d'),
+('Daniele',  'Gallo',      'daniele@email.it',    'daniel15',  'pwd567e'),
+('Elena',    'Fontana',    'elena@email.it',      'elena16',   'pwd678f'),
+('Simone',   'Costa',      'simone@email.it',     'simone17',  'pwd789g'),
+('Martina',  'Barbieri',   'martina@email.it',    'martin18',  'pwd890h'),
+('Matteo',   'Moretti',    'matteo@email.it',     'matteo19',  'pwd901i'),
+('Sofia',    'Lombardi',   'sofia@email.it',      'sofia20',   'pwd012j');
 
--- 4) Artisti (30)
+-- 4) Artisti (20)
 INSERT INTO Artisti (Nome, Cognome, Data) VALUES
-  ('Artista1','Uno','1970-01-01'),
-  ('Artista2','Due','1971-02-02'),
-  ('Artista3','Tre','1972-03-03'),
-  ('Artista4','Quattro','1973-04-04'),
-  ('Artista5','Cinque','1974-05-05'),
-  ('Artista6','Sei','1975-06-06'),
-  ('Artista7','Sette','1976-07-07'),
-  ('Artista8','Otto','1977-08-08'),
-  ('Artista9','Nove','1978-09-09'),
-  ('Artista10','Dieci','1979-10-10'),
-  ('Artista11','Undici','1980-11-11'),
-  ('Artista12','Dodici','1981-12-12'),
-  ('Artista13','Tredici','1982-01-13'),
-  ('Artista14','Quattordici','1983-02-14'),
-  ('Artista15','Quindici','1984-03-15'),
-  ('Artista16','Sedici','1985-04-16'),
-  ('Artista17','Diciassette','1986-05-17'),
-  ('Artista18','Diciotto','1987-06-18'),
-  ('Artista19','Diciannove','1988-07-19'),
-  ('Artista20','Venti','1989-08-20'),
-  ('Artista21','Ventuno','1990-09-21'),
-  ('Artista22','Ventidue','1991-10-22'),
-  ('Artista23','Ventitré','1992-11-23'),
-  ('Artista24','Ventiquattro','1993-12-24'),
-  ('Artista25','Venticinque','1994-01-25'),
-  ('Artista26','Ventisei','1995-02-26'),
-  ('Artista27','Ventisette','1996-03-27'),
-  ('Artista28','Ventotto','1997-04-28'),
-  ('Artista29','Ventinove','1998-05-29'),
-  ('Artista30','Trenta','1999-06-30');
+('Mario',    'Bianchi',    '1980-05-12'),
+('Alessia',  'Rossi',      '1985-10-25'),
+('Carlo',    'Neri',       '1975-03-17'),
+('Serena',   'Ferrari',    '1990-08-09'),
+('Gabriele', 'Marino',     '1982-12-30'),
+('Elisa',    'Romano',     '1988-06-22'),
+('Stefano',  'Esposito',   '1977-04-14'),
+('Maria',    'Russo',      '1993-11-08'),
+('Pietro',   'Colombo',    '1983-07-19'),
+('Giorgia',  'Ricci',      '1991-02-28'),
+('Riccardo', 'Conti',      '1978-09-03'),
+('Federica', 'Bruno',      '1986-01-15'),
+('Alberto',  'Gallo',      '1981-04-26'),
+('Silvia',   'Fontana',    '1992-12-11'),
+('Michele',  'Costa',      '1979-10-05'),
+('Ilaria',   'Barbieri',   '1989-03-21'),
+('Lorenzo',  'Moretti',    '1984-08-16'),
+('Beatrice', 'Lombardi',   '1995-05-29'),
+('Giuseppe', 'Vitale',     '1980-11-02'),
+('Caterina', 'Santoro',    '1987-07-13');
 
--- 5) Città (30)
+-- 5) Città (20)
 INSERT INTO Citta (Nome, Provincia) VALUES
-  ('Citta1',1),  ('Citta2',2),  ('Citta3',3),  ('Citta4',4),
-  ('Citta5',5),  ('Citta6',6),  ('Citta7',7),  ('Citta8',8),
-  ('Citta9',9),  ('Citta10',10),('Citta11',11),('Citta12',12),
-  ('Citta13',13),('Citta14',14),('Citta15',15),('Citta16',16),
-  ('Citta17',17),('Citta18',18),('Citta19',19),('Citta20',20),
-  ('Citta21',21),('Citta22',22),('Citta23',23),('Citta24',24),
-  ('Citta25',25),('Citta26',26),('Citta27',27),('Citta28',28),
-  ('Citta29',29),('Citta30',30);
+('Milano',        1),
+('Monza',         1),
+('Roma',          2),
+('Frascati',      2),
+('Napoli',        3),
+('Sorrento',      3),
+('Torino',        4),
+('Ivrea',         4),
+('Firenze',       5),
+('Siena',         18),
+('Bologna',       6),
+('Imola',         6),
+('Venezia',       7),
+('Mestre',        7),
+('Palermo',       8),
+('Catania',       10),
+('Bari',          9),
+('Lecce',         17),
+('Genova',        11),
+('Trieste',       16);
 
--- 6) Luoghi (30)
+-- 6) Luoghi (20)
 INSERT INTO Luoghi (Indirizzo, Civico, CAP, Citta) VALUES
-  ('Via Roma','1','10001',1),  ('Via Milano','2','10002',2),
-  ('Via Napoli','3','10003',3),('Via Torino','4','10004',4),
-  ('Via Venezia','5','10005',5),('Via Firenze','6','10006',6),
-  ('Via Genova','7','10007',7),('Via Bologna','8','10008',8),
-  ('Via Palermo','9','10009',9),('Via Bari','10','10010',10),
-  ('Via Parma','11','10011',11),('Via Modena','12','10012',12),
-  ('Via Livorno','13','10013',13),('Via Pisa','14','10014',14),
-  ('Via Siena','15','10015',15),('Via Ancona','16','10016',16),
-  ('Via Pescara','17','10017',17),('Via Trieste','18','10018',18),
-  ('Via Udine','19','10019',19),('Via Bari','20','10020',20),
-  ('Via Lecce','21','10021',21),('Via Cagliari','22','10022',22),
-  ('Via Trieste','23','10023',23),('Via Ravenna','24','10024',24),
-  ('Via Rimini','25','10025',25),('Via Piacenza','26','10026',26),
-  ('Via Grosseto','27','10027',27),('Via Taranto','28','10028',28),
-  ('Via Brindisi','29','10029',29),('Via Foggia','30','10030',30);
+('Via Roma',             '10',  '20100', 1),
+('Corso Italia',         '25',  '20900', 2),
+('Via del Corso',        '45',  '00100', 3),
+('Piazza Vittorio',      '3',   '00044', 4),
+('Via Toledo',           '78',  '80100', 5),
+('Corso Umberto',        '15',  '80067', 6),
+('Via Po',               '33',  '10100', 7),
+('Corso Cavour',         '8',   '10015', 8),
+('Piazza Signoria',      '1',   '50100', 9),
+('Piazza Campo',         '22',  '53100', 10),
+('Via Indipendenza',     '40',  '40100', 11),
+('Via Emilia',           '112', '40026', 12),
+('Canal Grande',         '55',  '30100', 13),
+('Via Piave',            '82',  '30171', 14),
+('Via Maqueda',          '27',  '90100', 15),
+('Via Etnea',            '63',  '95100', 16),
+('Corso Cavour',         '31',  '70100', 17),
+('Via San Francesco',    '19',  '73100', 18),
+('Via Garibaldi',        '50',  '16100', 19),
+('Piazza Unità Italia',  '4',   '34100', 20);
 
--- 7) Eventi (30)
+-- 7) Eventi (20)
 INSERT INTO Eventi (Titolo, Data, Categoria, Membro, Luogo) VALUES
-  ('Evento1','2025-01-01',1,1,1),  ('Evento2','2025-01-02',2,2,2),
-  ('Evento3','2025-01-03',3,3,3),  ('Evento4','2025-01-04',4,4,4),
-  ('Evento5','2025-01-05',5,5,5),  ('Evento6','2025-01-06',6,6,6),
-  ('Evento7','2025-01-07',7,7,7),  ('Evento8','2025-01-08',8,8,8),
-  ('Evento9','2025-01-09',9,9,9),  ('Evento10','2025-01-10',10,10,10),
-  ('Evento11','2025-01-11',11,11,11),('Evento12','2025-01-12',12,12,12),
-  ('Evento13','2025-01-13',13,13,13),('Evento14','2025-01-14',14,14,14),
-  ('Evento15','2025-01-15',15,15,15),('Evento16','2025-01-16',16,16,16),
-  ('Evento17','2025-01-17',17,17,17),('Evento18','2025-01-18',18,18,18),
-  ('Evento19','2025-01-19',19,19,19),('Evento20','2025-01-20',20,20,20),
-  ('Evento21','2025-01-21',21,21,21),('Evento22','2025-01-22',22,22,22),
-  ('Evento23','2025-01-23',23,23,23),('Evento24','2025-01-24',24,24,24),
-  ('Evento25','2025-01-25',25,25,25),('Evento26','2025-01-26',26,26,26),
-  ('Evento27','2025-01-27',27,27,27),('Evento28','2025-01-28',28,28,28),
-  ('Evento29','2025-01-29',29,29,29),('Evento30','2025-01-30',30,30,30), ('Evento31','2025-06-30',30,30,30);
+('Rock Fest',             '2025-06-15', 1,  1,  1),
+('Jazz Night',            '2025-07-10', 2,  2,  3),
+('Rigoletto',             '2025-08-25', 3,  3,  5),
+('Mostra Van Gogh',       '2025-09-05', 4,  4,  7),
+('Scatti dal Mondo',      '2025-05-20', 5,  5,  9),
+('Teatro Innovativo',     '2025-06-30', 6,  6,  11),
+('Amleto',                '2025-07-22', 7,  7,  13),
+('Festival Indie',        '2025-08-08', 8,  8,  15),
+('Incontri d''Autore',     '2025-09-15', 9,  9,  17),
+('Danza Moderna',         '2025-10-02', 10, 10, 19),
+('Lago dei Cigni',        '2025-06-18', 11, 11, 2),
+('Arte e Creatività',     '2025-07-12', 12, 12, 4),
+('Comedy Show',           '2025-08-28', 13, 13, 6),
+('Circo Senza Frontiere', '2025-09-08', 14, 14, 8),
+('Serate Magiche',        '2025-10-05', 15, 15, 10),
+('Colori e Fantasia',     '2025-06-22', 16, 16, 12),
+('Il Nuovo Romanzo',      '2025-07-15', 17, 17, 14),
+('La Scienza Oggi',       '2025-08-30', 18, 18, 16),
+('Vini d''Italia',         '2025-09-12', 19, 19, 18),
+('Milano Fashion',        '2025-10-08', 20, 20, 20);
 
--- 8) Post (30)
+-- 8) Post (20)
 INSERT INTO Post (Commento, Data, Voto, Membro, Evento) VALUES
-  ('Commento1','2025-02-01','1',1,1),  ('Commento2','2025-02-02','2',2,2),
-  ('Commento3','2025-02-03','3',3,3),  ('Commento4','2025-02-04','4',4,4),
-  ('Commento5','2025-02-05','5',5,5),  ('Commento6','2025-02-06','1',6,6),
-  ('Commento7','2025-02-07','2',7,7),  ('Commento8','2025-02-08','3',8,8),
-  ('Commento9','2025-02-09','4',9,9),  ('Commento10','2025-02-10','5',10,10),
-  ('Commento11','2025-02-11','1',11,11),('Commento12','2025-02-12','2',12,12),
-  ('Commento13','2025-02-13','3',13,13),('Commento14','2025-02-14','4',14,14),
-  ('Commento15','2025-02-15','5',15,15),('Commento16','2025-02-16','1',16,16),
-  ('Commento17','2025-02-17','2',17,17),('Commento18','2025-02-18','3',18,18),
-  ('Commento19','2025-02-19','4',19,19),('Commento20','2025-02-20','5',20,20),
-  ('Commento21','2025-02-21','1',21,21),('Commento22','2025-02-22','2',22,22),
-  ('Commento23','2025-02-23','3',23,23),('Commento24','2025-02-24','4',24,24),
-  ('Commento25','2025-02-25','5',25,25),('Commento26','2025-02-26','1',26,26),
-  ('Commento27','2025-02-27','2',27,27),('Commento28','2025-02-28','3',28,28),
-  ('Commento29','2025-03-01','4',29,29),('Commento30','2025-03-02','5',30,30);
+('Evento fantastico!',              '2025-06-16', '5', 1,  1),
+('Molto interessante',              '2025-07-11', '4', 2,  2),
+('Interpretazione sublime',         '2025-08-26', '5', 3,  3),
+('Mostra da non perdere',           '2025-09-06', '4', 4,  4),
+('Fotografie emozionanti',          '2025-05-21', '5', 5,  5),
+('Innovativo e coinvolgente',       '2025-07-01', '4', 6,  6),
+('Classico sempre attuale',         '2025-07-23', '5', 7,  7),
+('Film indipendenti interessanti',  '2025-08-09', '3', 8,  8),
+('Autori di grande spessore',       '2025-09-16', '4', 9,  9),
+('Coreografie moderne stupende',    '2025-10-03', '5', 10, 10),
+('Balletto classico impeccabile',   '2025-06-19', '5', 11, 11),
+('Workshop molto utile',            '2025-07-13', '4', 12, 12),
+('Ho riso tantissimo',              '2025-08-29', '5', 13, 13),
+('Spettacolo originale',            '2025-09-09', '4', 14, 14),
+('Illusioni sorprendenti',          '2025-10-06', '5', 15, 15),
+('Bambini entusiasti',              '2025-06-23', '4', 16, 16),
+('Autore molto preparato',          '2025-07-16', '4', 17, 17),
+('Conferenza illuminante',          '2025-08-31', '5', 18, 18),
+('Ottima selezione di vini',        '2025-09-13', '5', 19, 19),
+('Sfilata all''avanguardia',         '2025-10-09', '4', 20, 20);
 
--- 9) CategorieMembri (30)
+-- 9) CategorieMembri (20)
 INSERT INTO CategorieMembri (Categoria, Membro) VALUES
-  (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10),
-  (11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(17,17),(18,18),
-  (19,19),(20,20),(21,21),(22,22),(23,23),(24,24),(25,25),(26,26),
-  (27,27),(28,28),(29,29),(30,30);
+(1,  1),  -- Marco   - Concerto Rock
+(2,  2),  -- Laura   - Concerto Jazz
+(3,  3),  -- Paolo   - Opera Lirica
+(4,  4),  -- Giulia  - Mostra Pittura
+(5,  5),  -- Luca    - Mostra Fotografia
+(6,  6),  -- Sara    - Teatro Contemporaneo
+(7,  7),  -- Roberto - Teatro Classico
+(8,  8),  -- Chiara  - Cinema Indipendente
+(9,  9),  -- Andrea  - Festival Letterario
+(10, 10), -- Valentina - Danza Contemporanea
+(11, 11), -- Giovanni - Danza Classica
+(12, 12), -- Francesca - Workshop Artistico
+(13, 13), -- Davide  - Stand-up Comedy
+(14, 14), -- Alice   - Circo Contemporaneo
+(15, 15), -- Daniele - Magia e Illusionismo
+(16, 16), -- Elena   - Laboratorio Bambini
+(17, 17), -- Simone  - Presentazione Libro
+(18, 18), -- Martina - Conferenza Scientifica
+(19, 19), -- Matteo  - Degustazione Vino
+(20, 20); -- Sofia   - Sfilata Moda
 
--- 10) ArtistiEventi (30)
+-- 10) ArtistiEventi (20)
 INSERT INTO ArtistiEventi (Artista, Evento) VALUES
-  (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10),
-  (11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(17,17),(18,18),
-  (19,19),(20,20),(21,21),(22,22),(23,23),(24,24),(25,25),(26,26),
-  (27,27),(28,28),(29,29),(30,30);
+(1,  1),  -- Mario e Rock Fest
+(2,  2),  -- Alessia e Jazz Night
+(3,  3),  -- Carlo e Rigoletto
+(4,  4),  -- Serena e Mostra Van Gogh
+(5,  5),  -- Gabriele e Scatti dal Mondo
+(6,  6),  -- Elisa e Teatro Innovativo
+(7,  7),  -- Stefano e Amleto
+(8,  8),  -- Maria e Festival Indie
+(9,  9),  -- Pietro e Incontri d'Autore
+(10, 10), -- Giorgia e Danza Moderna
+(11, 11), -- Riccardo e Lago dei Cigni
+(12, 12), -- Federica e Arte e Creatività
+(13, 13), -- Alberto e Comedy Show
+(14, 14), -- Silvia e Circo Senza Frontiere
+(15, 15), -- Michele e Serate Magiche
+(16, 16), -- Ilaria e Colori e Fantasia
+(17, 17), -- Lorenzo e Il Nuovo Romanzo
+(18, 18), -- Beatrice e La Scienza Oggi
+(19, 19), -- Giuseppe e Vini d'Italia
+(20, 20); -- Caterina e Milano Fashion
 
 -- // :)
