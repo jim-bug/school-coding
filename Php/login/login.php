@@ -8,10 +8,14 @@
 */
 session_start();
 require_once "db.php";
+// Abilitare la visualizzazione degli errori
+ini_set('display_errors', 1);  // Imposta display_errors a On
+error_reporting(E_ALL);        // Imposta error_reporting a E_ALL (tutti gli errori)
 
 if ($_POST) {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+
     if ($username && $password) {
         // query without prepared statement
         $stmt = $pdo->query("SELECT * FROM Utenti WHERE Username = '$username' AND Password = SHA2('$password', 224)");
@@ -24,7 +28,7 @@ if ($_POST) {
             exit;
         } else {
             $error = "Invalid username or password";
-        } 
+        }
     } else {
         $error = "Please fill in all fields";
     }

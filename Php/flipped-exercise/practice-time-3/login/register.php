@@ -1,30 +1,22 @@
 <?php
-/*
-    Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 29/04/2025
-    Consegna:
-
-    by jim_bug // :)
-*/
-session_start();
 require_once "db.php";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 if ($_POST) {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+
     if ($username && $password) {
-        // query without prepared statement
-        $stmt = $pdo->query("SELECT * FROM Utenti WHERE Username = '$username' AND Password = SHA2('$password', 224)");
-        $user = $stmt->fetch();
+        $query = "INSERT INTO Utenti (Username, Password) VALUES ('$username', '$password')";
+        $user = $pdo->exec($query);
 
         if ($user) {
-            $_SESSION['user_id'] = $user['ID'];
-            $_SESSION['username'] = $user['Username'];
-            header('Location: dashboard.php');
+            header('Location: login.php');
             exit;
         } else {
             $error = "Invalid username or password";
-        } 
+        }
     } else {
         $error = "Please fill in all fields";
     }
@@ -38,7 +30,7 @@ $pdo = null;
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <title>Login</title>
+  <title>Register</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>

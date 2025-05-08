@@ -1,20 +1,15 @@
 <?php
-/*
-    Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 29/04/2025
-    Consegna:
-
-    by jim_bug // :)
-*/
 session_start();
 require_once "db.php";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 if ($_POST) {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+
     if ($username && $password) {
-        // query without prepared statement
-        $stmt = $pdo->query("SELECT * FROM Utenti WHERE Username = '$username' AND Password = SHA2('$password', 224)");
+        $stmt = $pdo->query("SELECT * FROM Utenti WHERE Username = '$username' AND Password = $password");
         $user = $stmt->fetch();
 
         if ($user) {
@@ -24,7 +19,7 @@ if ($_POST) {
             exit;
         } else {
             $error = "Invalid username or password";
-        } 
+        }
     } else {
         $error = "Please fill in all fields";
     }
