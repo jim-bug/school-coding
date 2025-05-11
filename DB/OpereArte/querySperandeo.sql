@@ -21,7 +21,7 @@ WHERE Epoche.Nome = 'Rinascimento' AND Artisti.Epoca = Epoche.ID
 ORDER BY Cognome, Artisti.Nome;
 
 -- 4) Elenco delle città con cognome e nome degli artisti, che sono nati in quelle città, e che sono relativi a una data epoca:
-SELECT Citta.* AS Citta, Cognome, Artisti.Nome 
+SELECT Citta.Nome AS Citta, Cognome, Artisti.Nome 
 FROM Artisti, Citta, Epoche
 WHERE Epoche.Nome = 'Romanticismo' AND 
 Epoche.ID = Artisti.Epoca AND 
@@ -29,7 +29,7 @@ Artisti.Citta_Natale = Citta.ID
 ORDER BY Cognome, Artisti.Nome;
 
 -- 5) Elenco delle città con cognome e nome degli artisti di una data epoca di una data nazione:
-SELECT Citta.* AS Citta, Cognome, Artisti.Nome
+SELECT Citta.Nome AS Citta, Cognome, Artisti.Nome
 FROM Artisti, Citta, Nazioni, Epoche
 WHERE Epoche.Nome = 'Contemporanea' AND Nazioni.Nome = 'Francia' AND 
 Artisti.Citta_Natale = Citta.ID AND 
@@ -117,7 +117,7 @@ SELECT COUNT(*) AS NumeroOpere
 FROM Opere;
 
 -- 18) Numero di opere d'arte per ciascun tipo:
-SELECT Tipi.NomeTipo AS NomeTipo, COUNT(*) AS NumeroOpere
+SELECT Tipi.Nome AS NomeTipo, COUNT(*) AS NumeroOpere
 FROM Opere, Tipi
 WHERE Opere.Tipo = Tipi.ID
 GROUP BY Tipi.Nome;
@@ -141,7 +141,7 @@ HAVING COUNT(*) >= 2;
 
 -- 21) Museo con il maggior numero di quadri:
 SELECT Musei.Nome, COUNT(*) AS NumeroOpere
-FROM Opere, Tipi
+FROM Opere, Tipi, Musei
 WHERE Tipi.Nome = 'Quadro' AND Opere.Tipo = Tipi.ID AND Opere.Museo = Musei.ID
 GROUP BY Musei.ID
 HAVING COUNT(*) = (
@@ -182,7 +182,7 @@ GROUP BY Artisti.ID
 ORDER BY Cognome, Artisti.Nome;
 
 -- 25) Per ogni museo, quante opere sono presenti per ciascun artista:
-SELECT Musei.Nome, Artisti.*, COUNT(*) AS NumeroOpere
+SELECT Musei.Nome AS NomeMuseo, Artisti.*, COUNT(*) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
 WHERE Opere.ID = Realizzazioni.Opera AND 
 Realizzazioni.Artista = Artisti.ID AND 
@@ -190,7 +190,7 @@ Musei.ID = Opere.Museo
 GROUP BY Musei.ID, Artisti.ID;
 
 -- 26) Per ogni museo, quante opere sono presenti per ciascun artista, ma ottenere solo l'elenco di quelli per cui il numero di opere è superiore alla media:
-SELECT Musei.Nome, AS NomeMuseo, Artisti.*, COUNT(*) AS NumeroOpere
+SELECT Musei.Nome AS NomeMuseo, Artisti.*, COUNT(*) AS NumeroOpere
 FROM Opere, Artisti, Realizzazioni, Musei
 WHERE Opere.ID = Realizzazioni.Opera AND
 Realizzazioni.Artista = Artisti.ID AND
