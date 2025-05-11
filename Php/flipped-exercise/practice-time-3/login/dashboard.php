@@ -1,8 +1,8 @@
 <?php
 /*
     Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 29/04/2025
-    Consegna: Rif. consegna sul classroom (Web e servizi)
+    Data: 10/05/2025
+    Consegna: Rif. flipped-classroom practice-time 3
 
     by jim_bug // :)
 */
@@ -13,6 +13,7 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
+
 ?>
 
 
@@ -26,8 +27,9 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
   <div class="dashboard">
-    <h1>Benvenuto, <?= htmlspecialchars($_SESSION['username']) ?>!</h1>
-    <p>Sei nella tua area riservata.</p>
+    <h1>Benvenuto, <?php echo $_SESSION['username'];?>!</h1>
+    <p>Sei nella tua area riservata.</p><br>
+    <p>flag{complimenti!}</p>
     <p><a href="logout.php">Esci</a></p>
   </div>
 </body>

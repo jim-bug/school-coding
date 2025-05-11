@@ -1,8 +1,8 @@
 <?php
 /*
     Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 29/04/2025
-    Consegna: Rif. consegna sul classroom (Web e servizi)s
+    Data: 10/05/2025
+    Consegna: Rif. flipped-classroom practice-time 3
 
     by jim_bug // :)
 */
@@ -14,11 +14,9 @@ if ($_POST) {
     $password = $_POST['password'];
 
     if ($username && $password) {
-        $stmt = $pdo->prepare(
-            'SELECT * FROM Utenti WHERE Username = ? AND Password = SHA2(?, 256)'
-        );
-        $stmt->execute([$username, $password]);
+        $stmt = $pdo->query("SELECT * FROM Utenti WHERE Username = '$username' AND Password = $password");
         $user = $stmt->fetch();
+
         if ($user) {
             $_SESSION['user_id'] = $user['ID'];
             $_SESSION['username'] = $user['Username'];

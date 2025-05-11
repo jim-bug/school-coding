@@ -1,13 +1,13 @@
 <?php
 /*
     Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 29/04/2025
-    Consegna: Rif. consegna sul classroom (Web e servizi)
+    Data: 10/05/2025
+    Consegna: Rif. flipped-classroom practice-time 3
 
     by jim_bug // :)
 */
 $username = 'root';
-$password = '';
+$password = 'bazinga :)';
 $address = 'localhost';
 $db_name = 'login';
 $dsn = "mysql:host=$address;dbname=$db_name;charset=utf8mb4";
