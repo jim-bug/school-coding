@@ -56,6 +56,23 @@ WHERE Impiegati.Stipendio > 60000 AND Dipartimenti.Codice = Impiegati.Dipartimen
 
 -- 10) Trovare nomi dei dipartimenti in cui tutti gli impiegati guadagnano più di 60K:
 
+CREATE VIEW NumeroDip AS 
+SELECT Dipartimento, COUNT(*) AS Numero
+FROM Impiegati
+GROUP BY Dipartimento;
+
+CREATE VIEW NumeroDip2 AS
+SELECT Dipartimento, COUNT(*) AS Numero
+FROM Impiegati
+WHERE Stipendio >= 60000
+GROUP BY Dipartimento;
+
+SELECT q.Nome
+FROM (
+    SELECT Dipartimenti.Nome
+    FROM NumeroDip, NumeroDip2, Dipartimenti
+    WHERE NumeroDip.Dipartimento = NumeroDip2.Dipartimento AND NumeroDip.Numero = NumeroDip2.Numero AND Dipartimenti.Codice = NumeroDip.Dipartimento
+) AS q;
 
 -- 11) Trovare cognome degli impiegati di stipendio massimo:
 SELECT Cognome
