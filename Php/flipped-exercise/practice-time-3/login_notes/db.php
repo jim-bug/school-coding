@@ -7,9 +7,9 @@
     by jim_bug // :)
 */
 $username = 'root';
-$password = 'rotoremindme';
+$password = 'bazinga :)';
 $address = 'localhost';
-$db_name = 'login';
+$db_name = '';
 $dsn = "mysql:host=$address;dbname=$db_name;charset=utf8mb4";
 
 $options = [

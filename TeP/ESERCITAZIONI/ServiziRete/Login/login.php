@@ -9,18 +9,18 @@
 session_start();
 require_once "db.php";
 
+$error = '';
 if ($_POST) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     if ($username && $password) {
         $stmt = $pdo->prepare(
-            'SELECT * FROM Utenti WHERE Username = ? AND Password = SHA2(?, 256)'
+            'SELECT Username, Password FROM Utenti WHERE Username = ?'
         );
-        $stmt->execute([$username, $password]);
+        $stmt->execute([$username]);
         $user = $stmt->fetch();
-        if ($user) {
-            $_SESSION['user_id'] = $user['ID'];
+        if ($user && password_verify($password, $user['Password'])) {
             $_SESSION['username'] = $user['Username'];
             header('Location: dashboard.php');
             exit;
@@ -56,8 +56,8 @@ $pdo = null;
         <?php if (!empty($error)): ?>
             <div class="error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
+        <p>Non hai ancora un account? <a href="register.php">Registrati</a>.</p>
     </form>
-
 </body>
 </html>
 

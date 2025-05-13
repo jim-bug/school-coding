@@ -1,0 +1,116 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    color: #333;
+  }
+  
+  /* Contenitore form */
+  form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Tabella layout */
+  form table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  form th {
+    text-align: left;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  form td {
+    padding-bottom: 1rem;
+  }
+  
+  /* Input e select */
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+  }
+  
+  /* Bottone submit */
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #28a745;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 1rem;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  /* Messaggi di successo/errore */
+  .success,
+  .error {
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* Link */
+  a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

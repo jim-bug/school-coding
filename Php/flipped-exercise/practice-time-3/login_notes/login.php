@@ -1,25 +1,32 @@
 <?php
 /*
     Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 10/05/2025
-    Consegna: Rif. flipped-classroom practice-time 3
+    Data: 29/04/2025
+    Consegna: Rif. consegna sul classroom (Web e servizi)s
 
     by jim_bug // :)
 */
 session_start();
 require_once "db.php";
 
+$error = '';
+if(isset($_SESSION['id'])){
+    header('Location: dashboard.php');
+    exit;
+}
 if ($_POST) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     if ($username && $password) {
-        $stmt = $pdo->query("SELECT * FROM Utenti WHERE Username = '$username' AND Password = '$password'");
+        $stmt = $pdo->prepare(
+            'SELECT Username, Password, ID FROM Utenti WHERE Username = ?'
+        );
+        $stmt->execute([$username]);
         $user = $stmt->fetch();
-
-        if ($user) {
-            $_SESSION['user_id'] = $user['ID'];
+        if ($user && password_verify($password, $user['Password'])) {
             $_SESSION['username'] = $user['Username'];
+            $_SESSION['id'] = $user['ID'];
             header('Location: dashboard.php');
             exit;
         } else {
@@ -54,8 +61,8 @@ $pdo = null;
         <?php if (!empty($error)): ?>
             <div class="error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
+        <p>Non hai ancora un account? <a href="register.php">Registrati</a>.</p>
     </form>
-
 </body>
 </html>
 
