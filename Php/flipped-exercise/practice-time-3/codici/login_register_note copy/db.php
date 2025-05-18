@@ -1,13 +1,7 @@
 <?php
-/*
-    Autore: Ignazio Leonardo Calogero Sperandeo
-    Data: 29/04/2025
-    Consegna: Rif. consegna sul classroom (Web e servizi)
-
-    by jim_bug // :)
-*/
+// Nulla da vedere qui, grazie!
 $username = 'root';
-$password = '';
+$password = 'rotoremindme';
 $address = 'localhost';
 $db_name = 'A';
 $dsn = "mysql:host=$address;dbname=$db_name;charset=utf8mb4";

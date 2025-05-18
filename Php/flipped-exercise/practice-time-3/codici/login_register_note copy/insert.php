@@ -1,10 +1,11 @@
 <?php
 session_start();
 require_once 'db.php';
-
+/*
+    // se stai lavorando, leva i commenti // :)
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
-
+*/
 $status = false;
 $error = '';
 if($_GET){
@@ -12,11 +13,7 @@ if($_GET){
         $error = "Utente non autenticato";
     }
     else if($_GET['titolo'] && $_GET['contenuto'] && $_GET['tipo']){
-        $stmt = $pdo->prepare("INSERT INTO Note (Titolo, Contenuto, Tipo, Utente) VALUES (?, ?, ?, ?)");
-        $status = $stmt->execute([$_GET['titolo'], $_GET['contenuto'], $_GET['tipo'], $_SESSION['id']]);
-        if(!$status){
-            $error = "Nota non caricata";
-        }
+        // E qui che facciamo ?
     } else {
         $error = "Compila tutti i campi!";
     }
@@ -53,24 +50,8 @@ if($_GET){
                     </td>
                     <td>
                             <select name="tipo">
-                                <?php 
-                                    $query = "SELECT ID, Nome FROM Tipi";
-                                    $stmt = $pdo->query($query);
-                                    $types = $stmt->fetchAll();
-                                    if($types):
-                                        foreach($types as $type):
-
-                                ?>
-                                        <option value='<?php echo $type['ID']; ?>'><?php echo $type['Nome'] ?></option>
-                                <?php
-                                    endforeach;
-                                    else:
-                                ?>
-                                    <option value=""></option>
-                                <?php
-                                    endif;
-                                ?>
-                        </select> 
+                            <!-- di nuovo una select ? Forse qualcosa torna... -->    
+                            </select> 
                     </td>
                 </tr>
 
