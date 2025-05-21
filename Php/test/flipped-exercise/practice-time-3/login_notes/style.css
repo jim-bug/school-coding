@@ -1,0 +1,234 @@
+/* Reset e font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Body centratissimo */
+  body {
+    background: #f0f2f5;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Contenitore form / dashboard */
+  form,
+  .dashboard {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+    margin: 1rem auto;
+  }
+  form {
+    max-width: 360px;
+    margin: 0;
+  }
+  
+  /* Titoli */
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+  
+  /* Label */
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+  }
+  
+  /* Input, password e select */
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  input:focus,
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+  }
+  
+  /* Pulsanti */
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background: #28a745;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button[type="submit"]:hover {
+    background: #218838;
+  }
+  
+  /* Tabelle nel form */
+  form table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  form table th,
+  form table td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  /* Link generici */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Dashboard specifico */
+  .dashboard h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .dashboard p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .dashboard a {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .dashboard a:hover {
+    background: #0056b3;
+  }
+  
+  /* Messaggi di errore e successo */
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  /* Contenitore form */
+form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+  }
+  
+  /* Layout tabella */
+  form table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  form table th,
+  form table td {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  /* Input e select */
+  form input[type="text"],
+  form select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  form input[type="text"]:focus,
+  form select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+  }
+  
+  /* Pulsante di submit */
+  form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  form button[type="submit"]:hover {
+    background: #218838;
+  }
+  
+  /* Messaggi */
+  .error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  /* Link “Guarda!” */
+  form + .success a,
+  form + .error + p a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  form + .success a:hover,
+  form + .error + p a:hover {
+    text-decoration: underline;
+  }

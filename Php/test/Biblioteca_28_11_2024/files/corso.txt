@@ -1,0 +1,14 @@
+S001=3=Ingegneria Informatica=IngPA
+S002=6=Medicina e Chirurgia=MedPA
+S003=3=Economia Aziendale=EcoCA
+S004=5=Giurisprudenza Internazionale=GiuLE
+S005=3=Scienze Politiche Europee=SpoNA
+S006=5=Architettura Sostenibile=ArcPG
+S007=3=Lettere Moderne=LetTN
+S008=3=Matematica Applicata=MatCS
+S009=3=Fisica Nucleare=FisVE
+S010=5=Chimica Industriale=ChmMI
+S011=3=Biotecnologie=MedTO
+S012=3=Filosofia Contemporanea=LetTN
+S013=5=Psicologia Clinica=MedTO
+S014=3=Ingegneria Informatica=IngPA

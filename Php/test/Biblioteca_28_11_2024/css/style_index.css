@@ -1,0 +1,22 @@
+.link {
+    color: black;
+    text-decoration: none;
+}
+.menu {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th {
+    background-color: #f1f1f1; /* colore di sfondo delle celle dell'intestazione */
+    padding: 20px; /* spazio interno delle celle dell'intestazione */
+    text-align: center;
+}
+.logo {
+    border-radius: 50%  /* logo circolare */
+}
+footer {
+    background-color: #f1f1f1; /* colore di sfondo del footer */
+    text-align: center; /* centra il testo nel footer */
+    padding: 10px 0; /* spazio interno del footer */
+    margin-top: 650px; /* spinge il footer verso il basso */
+}
