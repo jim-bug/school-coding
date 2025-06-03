@@ -36,49 +36,8 @@ GROUP BY Membri.ID
 HAVING COUNT(*) >= ALL (
     SELECT COUNT(*)
     FROM Eventi
+    WHERE Membro
     GROUP BY Membro
 );
-
--- 5) Tutti i membri che hanno registrato un numero di eventi superiore alla media, ma che non sono quelli che l'hanno fatto più di tutti:
-SELECT Membri.*, COUNT(*) AS NumeroEventi
-FROM Membri, Eventi
-WHERE Membri.ID = Eventi.Membro
-GROUP BY Membri.ID
-HAVING COUNT(*) >= (
-    SELECT AVG(query.NumeroEventi)
-    FROM (
-        SELECT COUNT(*) AS NumeroEventi
-        FROM Membri, Eventi
-        WHERE Membri.ID = Eventi.Membro
-        GROUP BY Membri.ID
-    ) AS query
-) AND COUNT(*) != (
-    SELECT MAX(query.NumeroEventi)
-    FROM (
-        SELECT COUNT(*) AS NumeroEventi
-        FROM Membri, Eventi
-        WHERE Membri.ID = Eventi.Membro
-        GROUP BY Membri.ID
-    ) AS query
-)
-ORDER BY Membri.Nome, Membri.Cognome;
-
--- 5) Oppure:
-CREATE VIEW NumeroEventiPerMembro AS
-SELECT Membri.*, COUNT(*) AS NumeroEventi
-FROM Membri, Eventi
-WHERE Membri.ID = Eventi.Membro
-GROUP BY Membri.ID;
-
-SELECT Membri.*, COUNT(*) AS NumeroEventi
-FROM NumeroEventiPerMembro
-WHERE NumeroEventi >= (
-    SELECT AVG(NumeroEventi)
-    FROM NumeroEventiPerMembro
-) AND NumeroEventi != (
-    SELECT MAX(query.NumeroEventi)
-    FROM NumeroEventiPerMembro
-)
-ORDER BY Membri.Nome, Membri.Cognome;
 
 -- // :)
