@@ -7,7 +7,6 @@
     by jim-bug // :)
 */
 include_once 'db.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="it">

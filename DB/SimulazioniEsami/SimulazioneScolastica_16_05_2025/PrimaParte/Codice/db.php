@@ -1,8 +1,16 @@
 <?php
+/*
+    Autore: Ignazio Leonardo Calogero Sperandeo
+    Data: 02/06/2025
+    Consegna: Porzione di codice significativa che interroghi il database.
+
+    by jim-bug // :)
+*/
+
 $username = 'root';
-$password = 'rotoremindme';
+$password = '';
 $hostname = 'localhost';
-$db_name = 'bbM';
+$db_name = '';
 $dsn = 'mysql:host=' . $hostname . ';dbname=' . $db_name;
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -14,5 +22,4 @@ try{
     echo "Connection failed: " . $e->getMessage();
     exit;
 }
-
 ?>
