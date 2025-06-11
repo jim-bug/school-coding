@@ -46,7 +46,6 @@ error_reporting(E_ALL);
         $stmt = $pdo->prepare($query);
         $stmt->execute([$_POST['nomi_cavallo']]);
         $results = $stmt->fetch();
-        var_dump($results);
         if ($results):
     ?>
         <table border="1">
