@@ -1,90 +1,59 @@
 /*
     Autore: Ignazio Leonardo Calogero Sperandeo
     Data: 11/06/2025
-    Consegna: Codice SQL Ordinaria 2020
+    Consegna: Codice SQL Supplettiva 2015
 
     by jim-bug // :)
 */
 
-CREATE TABLE Tipologie (
+CREATE TABLE TipiMultimediale (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nome VARCHAR(30) NOT NULL UNIQUE
 );
 
-CREATE TABLE Specialita (
+CREATE TABLE Centri (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Categorie (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nome VARCHAR(30) NOT NULL UNIQUE,
     Tipologia INT NOT NULL,
 
-    FOREIGN KEY (Tipologia) REFERENCES Tipologie(ID) ON UPDATE CASCADE
+    FOREIGN KEY (Tipologia) REFERENCES TipiMultimediale(ID) ON UPDATE CASCADE
 );
 
-CREATE TABLE Nazioni (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(30) NOT NULL UNIQUE
-);
-
-CREATE TABLE Razze (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(30) NOT NULL UNIQUE
-);
-
-CREATE TABLE Scuderie (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(30) NOT NULL UNIQUE,
-    Nazione INT NOT NULL,
-
-    FOREIGN KEY (Nazione) REFERENCES Nazioni(ID) ON UPDATE CASCADE
-);
-
-CREATE TABLE Fantini (
+CREATE TABLE Utenti (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nome VARCHAR(30) NOT NULL,
     Cognome VARCHAR(30) NOT NULL,
-    Sesso ENUM('M', 'F') NOT NULL,
-    Data DATE NOT NULL
+    Data DATE NOT NULL, 
+    Username VARCHAR(20) NOT NULL,
+    Password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Gare (
-    Codice VARCHAR(10) PRIMARY KEY,
-    Data DATE NOT NULL,
-    Orario TIME NOT NULL,
-    Durata INT NOT NULL,
-    Denominazione VARCHAR(30) NOT NULL,
-    Specialita INT NOT NULL,
-
-    FOREIGN KEY (Specialita) REFERENCES Specialita(ID) ON UPDATE CASCADE
-);
-
-CREATE TABLE Cavalli (
+CREATE TABLE Risorse (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nome VARCHAR(30) NOT NULL,
-    Sesso ENUM('M', 'F') NOT NULL,
-    Anno YEAR NOT NULL,
-    Razza INT NOT NULL,
-    Scuderia INT NOT NULL,
+    Utilizzabile BOOLEAN NOT NULL,
+    Categoria INT NOT NULL,
+    Centro INT NOT NULL,
 
-    FOREIGN KEY (Razza) REFERENCES Razze(ID) ON UPDATE CASCADE,
-    FOREIGN KEY (Scuderia) REFERENCES Scuderie(ID) ON UPDATE CASCADE
+    FOREIGN KEY (Categoria) REFERENCES Categorie(ID) ON UPDATE CASCADE
+    FOREIGN KEY (Centro) REFERENCES Centri(ID) ON UPDATE CASCADE
 );
 
-CREATE TABLE Partecipazioni (
+CREATE TABLE Prestiti (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Cavallo INT NOT NULL,
-    Fantino INT NOT NULL,
-    Gara VARCHAR(10) NOT NULL,
-    Posizione VARCHAR(3) NOT NULL,
-    UNIQUE (Cavallo, Gara),
-    UNIQUE (Posizione, Gara),
-    UNIQUE (Cavallo, Fantino, Gara),
+    DataInizio DATE NOT NULL,
+    DataFine DATE,
+    Utente INT NOT NULL,
+    Risorsa INT NOT NULL,
 
-
-    FOREIGN KEY (Cavallo) REFERENCES Cavalli(ID) ON UPDATE CASCADE,
-    FOREIGN KEY (Fantino) REFERENCES Fantini(ID) ON UPDATE CASCADE,
-    FOREIGN KEY (Gara) REFERENCES Gare(Codice) ON UPDATE CASCADE
+    FOREIGN KEY (Utente) REFERENCES Utenti(ID) ON UPDATE CASCADE
+    FOREIGN KEY (Risorsa) REFERENCES Risorse(ID) ON UPDATE CASCADE
 );
-
-
 
 
 -- // :)
